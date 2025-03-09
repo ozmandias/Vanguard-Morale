@@ -1,0 +1,2051 @@
+fileFormatVersion: 2
+guid: a8f559a7dc900495ea78ab4f1cde1a83
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: anvil_Mesh1_Model
+    100002: archer_Mesh1_Group1_archer1_Model
+    100004: barrel_Mesh1_Model
+    100006: barrel_Mesh1_Model.001
+    100008: barrel_Mesh1_Model.002
+    100010: barrel_Mesh1_Model.003
+    100012: barrel_Mesh1_Model.004
+    100014: barrel_Mesh1_Model.005
+    100016: barrel_Mesh1_Model.006
+    100018: barrel_Mesh1_Model.007
+    100020: bench_Mesh1_Model
+    100022: bench_Mesh1_Model.001
+    100024: bench_Mesh1_Model.002
+    100026: bench_Mesh1_Model.003
+    100028: blacksmith_Mesh1_Model
+    100030: canopy_Mesh1_Model
+    100032: canopy_Mesh1_Model.001
+    100034: charriot_Mesh1_Group1_Model
+    100036: charriot_Mesh1_Group1_Model.001
+    100038: cliff_Mesh1_Model
+    100040: cliff_Mesh1_Model.001
+    100042: crate_Mesh1_Model
+    100044: crate_Mesh1_Model.001
+    100046: crate_Mesh1_Model.002
+    100048: crate_Mesh1_Model.003
+    100050: crate_Mesh1_Model.004
+    100052: crate_Mesh1_Model.005
+    100054: crate_Mesh1_Model.006
+    100056: crate_Mesh1_Model.007
+    100058: crate_Mesh1_Model.008
+    100060: crate_Mesh1_Model.009
+    100062: crate_Mesh1_Model.010
+    100064: Cylinder.108_Cylinder.082
+    100066: Cylinder.109_Cylinder.083
+    100068: dirtcliff_Mesh1_Model
+    100070: dirtcliff_Mesh1_Model.001
+    100072: dirtcliff_Mesh1_Model.002
+    100074: dirtcliff_Mesh1_Model.003
+    100076: dirtcliff_Mesh1_Model.004
+    100078: dirtcliff_Mesh1_Model.006
+    100080: dirtcliff_Mesh1_Model.007
+    100082: door1_Mesh1_Model
+    100084: door2_Mesh1_Model
+    100086: door2_Mesh1_Model.001
+    100088: door2_Mesh1_Model.002
+    100090: door2_Mesh1_Model.003
+    100092: door2_Mesh1_Model.004
+    100094: forge_Mesh1_Model
+    100096: Grobowiec
+    100098: ground_Icosphere
+    100100: group1 Main_grp SFMC_geo12625.000
+    100102: group1 Main_grp SFMC_geo12625.001
+    100104: group1 Main_grp SFMC_geo12625.002
+    100106: group1 Main_grp SFMC_geo12625.003
+    100108: group1 Main_grp SFMC_geo12625.004
+    100110: group1 Main_grp SFMC_geo12625.005
+    100112: group1 Main_grp SFMC_geo12625.006
+    100114: group1 Main_grp SFMC_geo12625.008
+    100116: GRP_men
+    100118: GRP_men.001
+    100120: guard_Mesh1_Model
+    100122: guard_Mesh1_Model.001
+    100124: Guest_m_1
+    100126: Hill-tree.001
+    100128: Hill-tree.002
+    100130: Hill-tree.003
+    100132: horse_Mesh5_Model
+    100134: HouseBase_3_AO
+    100136: HouseBase_3_AO.001
+    100138: HouseBase_3_AO.002
+    100140: HouseBase_3_AO.003
+    100142: HouseBase_3_AO.004
+    100144: HouseBase_3_AO.005
+    100146: HouseBase_3_AO.006
+    100148: HouseBase_3_AO.007
+    100150: lamp006
+    100152: lamp006.001
+    100154: man6.001
+    100156: man7
+    100158: //RootNode
+    100160: mff_ruins_wall_0_Cube
+    100162: mff_ruins_wall_0_Cube.001
+    100164: mff_ruins_wall_0_Cube.002
+    100166: mff_stone_0
+    100168: mff_stone_0.001
+    100170: mff_stone_0.002
+    100172: mff_stone_0.003
+    100174: mff_stone_0.004
+    100176: mff_stone_0.005
+    100178: mff_stone_0.006
+    100180: mff_stone_0.007
+    100182: mff_stone_0.008
+    100184: mff_stone_0.009
+    100186: mff_stone_0.010
+    100188: mff_stone_0.011
+    100190: mff_stone_0.012
+    100192: mff_stone_0.013
+    100194: mff_stone_0.014
+    100196: mff_stone_0.015
+    100198: mff_stone_0.016
+    100200: mff_stone_0.017
+    100202: mff_stone_0.018
+    100204: mff_stone_0.019
+    100206: mff_stone_0.020
+    100208: mff_stone_0.021
+    100210: mff_stone_0.022
+    100212: mff_tower_base
+    100214: mff_tower_base.001
+    100216: mff_tower_floor_half_mff_tower_half_floor
+    100218: mff_tower_floor_half_mff_tower_half_floor.001
+    100220: mff_tower_middle
+    100222: mff_tower_top
+    100224: mff_tower_top.001
+    100226: mff_tower_top.002
+    100228: monk_Cube.317
+    100230: pavement_Mesh1_Model
+    100232: pavement_Mesh1_Model.001
+    100234: pavement_Mesh1_Model.002
+    100236: pavement_Mesh1_Model.003
+    100238: pavement_Mesh1_Model.004
+    100240: pavement_Mesh1_Model.005
+    100242: pavement_Mesh1_Model.006
+    100244: pavement_Mesh1_Model.007
+    100246: pavement_Mesh1_Model.008
+    100248: pavement_Mesh1_Model.009
+    100250: pavement_Mesh1_Model.010
+    100252: pavement_Mesh1_Model.011
+    100254: pavement_Mesh1_Model.012
+    100256: pavement_Mesh1_Model.013
+    100258: pavement_Mesh1_Model.014
+    100260: pavement_Mesh1_Model.015
+    100262: pCube247
+    100264: platform1_Mesh1_Model
+    100266: platform2_Mesh1_Model
+    100268: pSolid22
+    100270: pSolid22.001
+    100272: pSolid22.002
+    100274: pSolid22.003
+    100276: pSolid22.004
+    100278: pSolid22.005
+    100280: pSolid22.006
+    100282: pSolid22.007
+    100284: pSolid22.008
+    100286: pSolid22.009
+    100288: pSolid22.010
+    100290: pSolid22.011
+    100292: Rock.021_Cube.000
+    100294: Rock.021_Cube.001
+    100296: Rock.021_Cube.002
+    100298: Rock.021_Cube.003
+    100300: Rock.021_Cube.004
+    100302: Rock.021_Cube.005
+    100304: Rock.021_Cube.008
+    100306: Rock.021_Cube.009
+    100308: Rock.021_Cube.010
+    100310: Rock.021_Cube.011
+    100312: Rock.021_Cube.012
+    100314: Rock.021_Cube.013
+    100316: Rock_9_Big_AO
+    100318: Rock_9_Big_AO.001
+    100320: Rock_9_Big_AO.002
+    100322: Rock_9_Big_AO.003
+    100324: Rock_9_Big_AO.004
+    100326: Rock_9_Big_AO.005
+    100328: Rock_Grouping_5.000
+    100330: Rock_Grouping_5.001
+    100332: Rock_Grouping_5.002
+    100334: Rock_Grouping_5.003
+    100336: Rock_Grouping_5.004
+    100338: Rock_Grouping_5.005
+    100340: Rock_Grouping_5.006
+    100342: Rock_Grouping_5.007
+    100344: Rock_Grouping_5.008
+    100346: Rock_Grouping_5.009
+    100348: Rock_Grouping_5.010
+    100350: Rock_Grouping_5.011
+    100352: Rock_Grouping_5.012
+    100354: Rock_Grouping_5.013
+    100356: Rock_Grouping_5.014
+    100358: Rock_Grouping_5.015
+    100360: Rock_Grouping_5.016
+    100362: Rock_Grouping_5.017
+    100364: Rock_Grouping_5.018
+    100366: Rock_Grouping_5.019
+    100368: Rock_Grouping_5.020
+    100370: Rock_Grouping_5.021
+    100372: Rock_Grouping_5.022
+    100374: Rock_Grouping_5.023
+    100376: Rock_Grouping_5.024
+    100378: SFMC_geo8 Main_grp.000
+    100380: SFMC_geo8 Main_grp.001
+    100382: SFMC_geo8 Main_grp.002
+    100384: SFMC_geo8 Main_grp.003
+    100386: SFMC_geo8 Main_grp.004
+    100388: SFMC_geo8 Main_grp.005
+    100390: SFMC_geo8 Main_grp.006
+    100392: shed_Mesh1_Model
+    100394: shed_Mesh1_Model.001
+    100396: shed_Mesh1_Model.002
+    100398: Slope.001
+    100400: Slope.002
+    100402: Slope.003
+    100404: Slope.004
+    100406: spear_Mesh1_Model
+    100408: spear_Mesh1_Model.001
+    100410: stairs
+    100412: stairs_Mesh1_Model
+    100414: steppe_grass_Mesh1_Model.000
+    100416: steppe_grass_Mesh1_Model.001
+    100418: steppe_grass_Mesh1_Model.002
+    100420: steppe_grass_Mesh1_Model.003
+    100422: steppe_grass_Mesh1_Model.004
+    100424: steppe_grass_Mesh1_Model.005
+    100426: steppe_grass_Mesh1_Model.006
+    100428: steppe_grass_Mesh1_Model.007
+    100430: steppe_grass_Mesh1_Model.008
+    100432: StoneBlocks_5_AO
+    100434: StoneBlocks_5_AO.001
+    100436: StoneBlocks_5_AO.002
+    100438: sword1_Mesh1_Model
+    100440: sword1_Mesh1_Model.001
+    100442: sword1_Mesh1_Model.002
+    100444: sword1_Mesh1_Model.003
+    100446: table_Mesh1_Model
+    100448: table_Mesh1_Model.001
+    100450: tent
+    100452: tent.001
+    100454: tent.002
+    100456: VikingShipObjects.003_VikingShipObjects.000
+    100458: VikingShipObjects.003_VikingShipObjects.001
+    100460: VikingShipObjects.003_VikingShipObjects.002
+    100462: VikingShipObjects.003_VikingShipObjects.003
+    100464: VikingShipObjects.003_VikingShipObjects.005
+    100466: water_Icosphere.010
+    100468: waterbowl_Mesh1_Model
+    100470: waterbowl_Mesh1_Model.001
+    100472: window3_Mesh1_Model
+    100474: window3_Mesh1_Model.001
+    100476: window3_Mesh1_Model.002
+    100478: window3_Mesh1_Model.003
+    100480: window4_Mesh1_Model
+    100482: window5_Mesh1_Model
+    100484: window5_Mesh1_Model.001
+    100486: window5_Mesh1_Model.002
+    100488: window6_Mesh1_Model
+    100490: window6_Mesh1_Model.001
+    100492: window6_Mesh1_Model.002
+    100494: window6_Mesh1_Model.003
+    100496: window6_Mesh1_Model.004
+    100498: window6_Mesh1_Model.005
+    100500: window7_Mesh1_Model
+    100502: window7_Mesh1_Model.001
+    100504: WodenSet_1_AO
+    100506: WodenSet_1_AO.001
+    100508: WodenSet_1_AO.002
+    100510: WodenStairs_3_AO
+    100512: WodenStairs_3_AO.001
+    400000: anvil_Mesh1_Model
+    400002: archer_Mesh1_Group1_archer1_Model
+    400004: barrel_Mesh1_Model
+    400006: barrel_Mesh1_Model.001
+    400008: barrel_Mesh1_Model.002
+    400010: barrel_Mesh1_Model.003
+    400012: barrel_Mesh1_Model.004
+    400014: barrel_Mesh1_Model.005
+    400016: barrel_Mesh1_Model.006
+    400018: barrel_Mesh1_Model.007
+    400020: bench_Mesh1_Model
+    400022: bench_Mesh1_Model.001
+    400024: bench_Mesh1_Model.002
+    400026: bench_Mesh1_Model.003
+    400028: blacksmith_Mesh1_Model
+    400030: canopy_Mesh1_Model
+    400032: canopy_Mesh1_Model.001
+    400034: charriot_Mesh1_Group1_Model
+    400036: charriot_Mesh1_Group1_Model.001
+    400038: cliff_Mesh1_Model
+    400040: cliff_Mesh1_Model.001
+    400042: crate_Mesh1_Model
+    400044: crate_Mesh1_Model.001
+    400046: crate_Mesh1_Model.002
+    400048: crate_Mesh1_Model.003
+    400050: crate_Mesh1_Model.004
+    400052: crate_Mesh1_Model.005
+    400054: crate_Mesh1_Model.006
+    400056: crate_Mesh1_Model.007
+    400058: crate_Mesh1_Model.008
+    400060: crate_Mesh1_Model.009
+    400062: crate_Mesh1_Model.010
+    400064: Cylinder.108_Cylinder.082
+    400066: Cylinder.109_Cylinder.083
+    400068: dirtcliff_Mesh1_Model
+    400070: dirtcliff_Mesh1_Model.001
+    400072: dirtcliff_Mesh1_Model.002
+    400074: dirtcliff_Mesh1_Model.003
+    400076: dirtcliff_Mesh1_Model.004
+    400078: dirtcliff_Mesh1_Model.006
+    400080: dirtcliff_Mesh1_Model.007
+    400082: door1_Mesh1_Model
+    400084: door2_Mesh1_Model
+    400086: door2_Mesh1_Model.001
+    400088: door2_Mesh1_Model.002
+    400090: door2_Mesh1_Model.003
+    400092: door2_Mesh1_Model.004
+    400094: forge_Mesh1_Model
+    400096: Grobowiec
+    400098: ground_Icosphere
+    400100: group1 Main_grp SFMC_geo12625.000
+    400102: group1 Main_grp SFMC_geo12625.001
+    400104: group1 Main_grp SFMC_geo12625.002
+    400106: group1 Main_grp SFMC_geo12625.003
+    400108: group1 Main_grp SFMC_geo12625.004
+    400110: group1 Main_grp SFMC_geo12625.005
+    400112: group1 Main_grp SFMC_geo12625.006
+    400114: group1 Main_grp SFMC_geo12625.008
+    400116: GRP_men
+    400118: GRP_men.001
+    400120: guard_Mesh1_Model
+    400122: guard_Mesh1_Model.001
+    400124: Guest_m_1
+    400126: Hill-tree.001
+    400128: Hill-tree.002
+    400130: Hill-tree.003
+    400132: horse_Mesh5_Model
+    400134: HouseBase_3_AO
+    400136: HouseBase_3_AO.001
+    400138: HouseBase_3_AO.002
+    400140: HouseBase_3_AO.003
+    400142: HouseBase_3_AO.004
+    400144: HouseBase_3_AO.005
+    400146: HouseBase_3_AO.006
+    400148: HouseBase_3_AO.007
+    400150: lamp006
+    400152: lamp006.001
+    400154: man6.001
+    400156: man7
+    400158: //RootNode
+    400160: mff_ruins_wall_0_Cube
+    400162: mff_ruins_wall_0_Cube.001
+    400164: mff_ruins_wall_0_Cube.002
+    400166: mff_stone_0
+    400168: mff_stone_0.001
+    400170: mff_stone_0.002
+    400172: mff_stone_0.003
+    400174: mff_stone_0.004
+    400176: mff_stone_0.005
+    400178: mff_stone_0.006
+    400180: mff_stone_0.007
+    400182: mff_stone_0.008
+    400184: mff_stone_0.009
+    400186: mff_stone_0.010
+    400188: mff_stone_0.011
+    400190: mff_stone_0.012
+    400192: mff_stone_0.013
+    400194: mff_stone_0.014
+    400196: mff_stone_0.015
+    400198: mff_stone_0.016
+    400200: mff_stone_0.017
+    400202: mff_stone_0.018
+    400204: mff_stone_0.019
+    400206: mff_stone_0.020
+    400208: mff_stone_0.021
+    400210: mff_stone_0.022
+    400212: mff_tower_base
+    400214: mff_tower_base.001
+    400216: mff_tower_floor_half_mff_tower_half_floor
+    400218: mff_tower_floor_half_mff_tower_half_floor.001
+    400220: mff_tower_middle
+    400222: mff_tower_top
+    400224: mff_tower_top.001
+    400226: mff_tower_top.002
+    400228: monk_Cube.317
+    400230: pavement_Mesh1_Model
+    400232: pavement_Mesh1_Model.001
+    400234: pavement_Mesh1_Model.002
+    400236: pavement_Mesh1_Model.003
+    400238: pavement_Mesh1_Model.004
+    400240: pavement_Mesh1_Model.005
+    400242: pavement_Mesh1_Model.006
+    400244: pavement_Mesh1_Model.007
+    400246: pavement_Mesh1_Model.008
+    400248: pavement_Mesh1_Model.009
+    400250: pavement_Mesh1_Model.010
+    400252: pavement_Mesh1_Model.011
+    400254: pavement_Mesh1_Model.012
+    400256: pavement_Mesh1_Model.013
+    400258: pavement_Mesh1_Model.014
+    400260: pavement_Mesh1_Model.015
+    400262: pCube247
+    400264: platform1_Mesh1_Model
+    400266: platform2_Mesh1_Model
+    400268: pSolid22
+    400270: pSolid22.001
+    400272: pSolid22.002
+    400274: pSolid22.003
+    400276: pSolid22.004
+    400278: pSolid22.005
+    400280: pSolid22.006
+    400282: pSolid22.007
+    400284: pSolid22.008
+    400286: pSolid22.009
+    400288: pSolid22.010
+    400290: pSolid22.011
+    400292: Rock.021_Cube.000
+    400294: Rock.021_Cube.001
+    400296: Rock.021_Cube.002
+    400298: Rock.021_Cube.003
+    400300: Rock.021_Cube.004
+    400302: Rock.021_Cube.005
+    400304: Rock.021_Cube.008
+    400306: Rock.021_Cube.009
+    400308: Rock.021_Cube.010
+    400310: Rock.021_Cube.011
+    400312: Rock.021_Cube.012
+    400314: Rock.021_Cube.013
+    400316: Rock_9_Big_AO
+    400318: Rock_9_Big_AO.001
+    400320: Rock_9_Big_AO.002
+    400322: Rock_9_Big_AO.003
+    400324: Rock_9_Big_AO.004
+    400326: Rock_9_Big_AO.005
+    400328: Rock_Grouping_5.000
+    400330: Rock_Grouping_5.001
+    400332: Rock_Grouping_5.002
+    400334: Rock_Grouping_5.003
+    400336: Rock_Grouping_5.004
+    400338: Rock_Grouping_5.005
+    400340: Rock_Grouping_5.006
+    400342: Rock_Grouping_5.007
+    400344: Rock_Grouping_5.008
+    400346: Rock_Grouping_5.009
+    400348: Rock_Grouping_5.010
+    400350: Rock_Grouping_5.011
+    400352: Rock_Grouping_5.012
+    400354: Rock_Grouping_5.013
+    400356: Rock_Grouping_5.014
+    400358: Rock_Grouping_5.015
+    400360: Rock_Grouping_5.016
+    400362: Rock_Grouping_5.017
+    400364: Rock_Grouping_5.018
+    400366: Rock_Grouping_5.019
+    400368: Rock_Grouping_5.020
+    400370: Rock_Grouping_5.021
+    400372: Rock_Grouping_5.022
+    400374: Rock_Grouping_5.023
+    400376: Rock_Grouping_5.024
+    400378: SFMC_geo8 Main_grp.000
+    400380: SFMC_geo8 Main_grp.001
+    400382: SFMC_geo8 Main_grp.002
+    400384: SFMC_geo8 Main_grp.003
+    400386: SFMC_geo8 Main_grp.004
+    400388: SFMC_geo8 Main_grp.005
+    400390: SFMC_geo8 Main_grp.006
+    400392: shed_Mesh1_Model
+    400394: shed_Mesh1_Model.001
+    400396: shed_Mesh1_Model.002
+    400398: Slope.001
+    400400: Slope.002
+    400402: Slope.003
+    400404: Slope.004
+    400406: spear_Mesh1_Model
+    400408: spear_Mesh1_Model.001
+    400410: stairs
+    400412: stairs_Mesh1_Model
+    400414: steppe_grass_Mesh1_Model.000
+    400416: steppe_grass_Mesh1_Model.001
+    400418: steppe_grass_Mesh1_Model.002
+    400420: steppe_grass_Mesh1_Model.003
+    400422: steppe_grass_Mesh1_Model.004
+    400424: steppe_grass_Mesh1_Model.005
+    400426: steppe_grass_Mesh1_Model.006
+    400428: steppe_grass_Mesh1_Model.007
+    400430: steppe_grass_Mesh1_Model.008
+    400432: StoneBlocks_5_AO
+    400434: StoneBlocks_5_AO.001
+    400436: StoneBlocks_5_AO.002
+    400438: sword1_Mesh1_Model
+    400440: sword1_Mesh1_Model.001
+    400442: sword1_Mesh1_Model.002
+    400444: sword1_Mesh1_Model.003
+    400446: table_Mesh1_Model
+    400448: table_Mesh1_Model.001
+    400450: tent
+    400452: tent.001
+    400454: tent.002
+    400456: VikingShipObjects.003_VikingShipObjects.000
+    400458: VikingShipObjects.003_VikingShipObjects.001
+    400460: VikingShipObjects.003_VikingShipObjects.002
+    400462: VikingShipObjects.003_VikingShipObjects.003
+    400464: VikingShipObjects.003_VikingShipObjects.005
+    400466: water_Icosphere.010
+    400468: waterbowl_Mesh1_Model
+    400470: waterbowl_Mesh1_Model.001
+    400472: window3_Mesh1_Model
+    400474: window3_Mesh1_Model.001
+    400476: window3_Mesh1_Model.002
+    400478: window3_Mesh1_Model.003
+    400480: window4_Mesh1_Model
+    400482: window5_Mesh1_Model
+    400484: window5_Mesh1_Model.001
+    400486: window5_Mesh1_Model.002
+    400488: window6_Mesh1_Model
+    400490: window6_Mesh1_Model.001
+    400492: window6_Mesh1_Model.002
+    400494: window6_Mesh1_Model.003
+    400496: window6_Mesh1_Model.004
+    400498: window6_Mesh1_Model.005
+    400500: window7_Mesh1_Model
+    400502: window7_Mesh1_Model.001
+    400504: WodenSet_1_AO
+    400506: WodenSet_1_AO.001
+    400508: WodenSet_1_AO.002
+    400510: WodenStairs_3_AO
+    400512: WodenStairs_3_AO.001
+    2100000: ltgray.003
+    2100002: trubrown.004
+    2100004: brown.014
+    2100006: gray.008
+    2100008: skincolr.002
+    2100010: trubrown.003
+    2100012: blue.001
+    2100014: black.007
+    2100016: ltgray.001
+    2100018: ltgray.002
+    2100020: skincolr.003
+    2100022: brown.013
+    2100024: gray.007
+    2100026: skincolr.001
+    2100028: yellow
+    2100030: brown.012
+    2100032: trubrown.002
+    2100034: dkbrown.001
+    2100036: ltgray
+    2100038: blue
+    2100040: black.006
+    2100042: brown.011
+    2100044: white
+    2100046: skincolr
+    2100048: trubrown.001
+    2100050: gray.006
+    2100052: black.005
+    2100054: gray.005
+    2100056: litblue
+    2100058: wood.010
+    2100060: monk_material
+    2100062: MAT_clothing_BROWN
+    2100064: MAT_grapes_PURPLE
+    2100066: MAT_skin_color1.001
+    2100068: lambert2.001
+    2100070: MAT_tree_BROWN
+    2100072: MAT_dragon_RED
+    2100074: MAT_clothing_YELLOW
+    2100076: MAT_skin_color1
+    2100078: lambert2
+    2100080: lambert1
+    2100082: MAT_clothing_BLUE
+    2100084: med_diffuse.004
+    2100086: black.004
+    2100088: dkbrow
+    2100090: brown.010
+    2100092: stone
+    2100094: dkbrown
+    2100096: black.003
+    2100098: wire_115115115
+    2100100: brown.004
+    2100102: wood.005
+    2100104: rock_grouping
+    2100106: medievalfantasyforest_unwrap
+    2100108: wood.002
+    2100110: black.001
+    2100112: brown.003
+    2100114: house
+    2100116: BrownWood
+    2100118: YellowCloth
+    2100120: Material
+    2100122: wood.009
+    2100124: brown.009
+    2100126: Material.002
+    2100128: lambert2SG.001
+    2100130: gray.004
+    2100132: brown.008
+    2100134: wood.008
+    2100136: brown.007
+    2100138: wood.007
+    2100140: lambert2SG
+    2100142: Objects.001
+    2100144: gray.003
+    2100146: trubrown
+    2100148: brown.006
+    2100150: wood.006
+    2100152: brown.005
+    2100154: barrel
+    2100156: topbottom
+    2100158: gray
+    2100160: gray.001
+    2100162: black
+    2100164: brown.002
+    2100166: wooden set
+    2100168: grass
+    2100170: dirt
+    2100172: dirtroad
+    2100174: lambert3SG
+    2100176: wooden stairs
+    2100178: water_mat
+    2100180: terrain_mat
+    2100182: Objects
+    2100184: black.002
+    2100186: gray.002
+    2100188: brown
+    2100190: wood
+    2100192: schingle
+    2100194: wood.004
+    2100196: smlstone.001
+    2100198: wood.003
+    2100200: color
+    2100202: color_NONE
+    2100204: smlstone
+    2100206: brown.001
+    2100208: wood.001
+    2100210: well_material
+    2100212: pulley_mat
+    2100214: slope_mat
+    2100216: Kamien_1
+    2100218: Kamien_3
+    2100220: Kamien_4
+    2100222: Texture-base
+    2100224: stairs
+    2100226: dirt.001
+    2100228: grass.001
+    2300000: anvil_Mesh1_Model
+    2300002: archer_Mesh1_Group1_archer1_Model
+    2300004: barrel_Mesh1_Model
+    2300006: barrel_Mesh1_Model.001
+    2300008: barrel_Mesh1_Model.002
+    2300010: barrel_Mesh1_Model.003
+    2300012: barrel_Mesh1_Model.004
+    2300014: barrel_Mesh1_Model.005
+    2300016: barrel_Mesh1_Model.006
+    2300018: barrel_Mesh1_Model.007
+    2300020: bench_Mesh1_Model
+    2300022: bench_Mesh1_Model.001
+    2300024: bench_Mesh1_Model.002
+    2300026: bench_Mesh1_Model.003
+    2300028: blacksmith_Mesh1_Model
+    2300030: canopy_Mesh1_Model
+    2300032: canopy_Mesh1_Model.001
+    2300034: charriot_Mesh1_Group1_Model
+    2300036: charriot_Mesh1_Group1_Model.001
+    2300038: cliff_Mesh1_Model
+    2300040: cliff_Mesh1_Model.001
+    2300042: crate_Mesh1_Model
+    2300044: crate_Mesh1_Model.001
+    2300046: crate_Mesh1_Model.002
+    2300048: crate_Mesh1_Model.003
+    2300050: crate_Mesh1_Model.004
+    2300052: crate_Mesh1_Model.005
+    2300054: crate_Mesh1_Model.006
+    2300056: crate_Mesh1_Model.007
+    2300058: crate_Mesh1_Model.008
+    2300060: crate_Mesh1_Model.009
+    2300062: crate_Mesh1_Model.010
+    2300064: Cylinder.108_Cylinder.082
+    2300066: Cylinder.109_Cylinder.083
+    2300068: dirtcliff_Mesh1_Model
+    2300070: dirtcliff_Mesh1_Model.001
+    2300072: dirtcliff_Mesh1_Model.002
+    2300074: dirtcliff_Mesh1_Model.003
+    2300076: dirtcliff_Mesh1_Model.004
+    2300078: dirtcliff_Mesh1_Model.006
+    2300080: dirtcliff_Mesh1_Model.007
+    2300082: door1_Mesh1_Model
+    2300084: door2_Mesh1_Model
+    2300086: door2_Mesh1_Model.001
+    2300088: door2_Mesh1_Model.002
+    2300090: door2_Mesh1_Model.003
+    2300092: door2_Mesh1_Model.004
+    2300094: forge_Mesh1_Model
+    2300096: Grobowiec
+    2300098: ground_Icosphere
+    2300100: group1 Main_grp SFMC_geo12625.000
+    2300102: group1 Main_grp SFMC_geo12625.001
+    2300104: group1 Main_grp SFMC_geo12625.002
+    2300106: group1 Main_grp SFMC_geo12625.003
+    2300108: group1 Main_grp SFMC_geo12625.004
+    2300110: group1 Main_grp SFMC_geo12625.005
+    2300112: group1 Main_grp SFMC_geo12625.006
+    2300114: group1 Main_grp SFMC_geo12625.008
+    2300116: guard_Mesh1_Model
+    2300118: guard_Mesh1_Model.001
+    2300120: Guest_m_1
+    2300122: Hill-tree.001
+    2300124: Hill-tree.002
+    2300126: Hill-tree.003
+    2300128: horse_Mesh5_Model
+    2300130: HouseBase_3_AO
+    2300132: HouseBase_3_AO.001
+    2300134: HouseBase_3_AO.002
+    2300136: HouseBase_3_AO.003
+    2300138: HouseBase_3_AO.004
+    2300140: HouseBase_3_AO.005
+    2300142: HouseBase_3_AO.006
+    2300144: HouseBase_3_AO.007
+    2300146: lamp006
+    2300148: lamp006.001
+    2300150: man6.001
+    2300152: man7
+    2300154: mff_ruins_wall_0_Cube
+    2300156: mff_ruins_wall_0_Cube.001
+    2300158: mff_ruins_wall_0_Cube.002
+    2300160: mff_stone_0
+    2300162: mff_stone_0.001
+    2300164: mff_stone_0.002
+    2300166: mff_stone_0.003
+    2300168: mff_stone_0.004
+    2300170: mff_stone_0.005
+    2300172: mff_stone_0.006
+    2300174: mff_stone_0.007
+    2300176: mff_stone_0.008
+    2300178: mff_stone_0.009
+    2300180: mff_stone_0.010
+    2300182: mff_stone_0.011
+    2300184: mff_stone_0.012
+    2300186: mff_stone_0.013
+    2300188: mff_stone_0.014
+    2300190: mff_stone_0.015
+    2300192: mff_stone_0.016
+    2300194: mff_stone_0.017
+    2300196: mff_stone_0.018
+    2300198: mff_stone_0.019
+    2300200: mff_stone_0.020
+    2300202: mff_stone_0.021
+    2300204: mff_stone_0.022
+    2300206: mff_tower_base
+    2300208: mff_tower_base.001
+    2300210: mff_tower_floor_half_mff_tower_half_floor
+    2300212: mff_tower_floor_half_mff_tower_half_floor.001
+    2300214: mff_tower_middle
+    2300216: mff_tower_top
+    2300218: mff_tower_top.001
+    2300220: mff_tower_top.002
+    2300222: monk_Cube.317
+    2300224: pavement_Mesh1_Model
+    2300226: pavement_Mesh1_Model.001
+    2300228: pavement_Mesh1_Model.002
+    2300230: pavement_Mesh1_Model.003
+    2300232: pavement_Mesh1_Model.004
+    2300234: pavement_Mesh1_Model.005
+    2300236: pavement_Mesh1_Model.006
+    2300238: pavement_Mesh1_Model.007
+    2300240: pavement_Mesh1_Model.008
+    2300242: pavement_Mesh1_Model.009
+    2300244: pavement_Mesh1_Model.010
+    2300246: pavement_Mesh1_Model.011
+    2300248: pavement_Mesh1_Model.012
+    2300250: pavement_Mesh1_Model.013
+    2300252: pavement_Mesh1_Model.014
+    2300254: pavement_Mesh1_Model.015
+    2300256: pCube247
+    2300258: platform1_Mesh1_Model
+    2300260: platform2_Mesh1_Model
+    2300262: pSolid22
+    2300264: pSolid22.001
+    2300266: pSolid22.002
+    2300268: pSolid22.003
+    2300270: pSolid22.004
+    2300272: pSolid22.005
+    2300274: pSolid22.006
+    2300276: pSolid22.007
+    2300278: pSolid22.008
+    2300280: pSolid22.009
+    2300282: pSolid22.010
+    2300284: pSolid22.011
+    2300286: Rock.021_Cube.000
+    2300288: Rock.021_Cube.001
+    2300290: Rock.021_Cube.002
+    2300292: Rock.021_Cube.003
+    2300294: Rock.021_Cube.004
+    2300296: Rock.021_Cube.005
+    2300298: Rock.021_Cube.008
+    2300300: Rock.021_Cube.009
+    2300302: Rock.021_Cube.010
+    2300304: Rock.021_Cube.011
+    2300306: Rock.021_Cube.012
+    2300308: Rock.021_Cube.013
+    2300310: Rock_9_Big_AO
+    2300312: Rock_9_Big_AO.001
+    2300314: Rock_9_Big_AO.002
+    2300316: Rock_9_Big_AO.003
+    2300318: Rock_9_Big_AO.004
+    2300320: Rock_9_Big_AO.005
+    2300322: Rock_Grouping_5.000
+    2300324: Rock_Grouping_5.001
+    2300326: Rock_Grouping_5.002
+    2300328: Rock_Grouping_5.003
+    2300330: Rock_Grouping_5.004
+    2300332: Rock_Grouping_5.005
+    2300334: Rock_Grouping_5.006
+    2300336: Rock_Grouping_5.007
+    2300338: Rock_Grouping_5.008
+    2300340: Rock_Grouping_5.009
+    2300342: Rock_Grouping_5.010
+    2300344: Rock_Grouping_5.011
+    2300346: Rock_Grouping_5.012
+    2300348: Rock_Grouping_5.013
+    2300350: Rock_Grouping_5.014
+    2300352: Rock_Grouping_5.015
+    2300354: Rock_Grouping_5.016
+    2300356: Rock_Grouping_5.017
+    2300358: Rock_Grouping_5.018
+    2300360: Rock_Grouping_5.019
+    2300362: Rock_Grouping_5.020
+    2300364: Rock_Grouping_5.021
+    2300366: Rock_Grouping_5.022
+    2300368: Rock_Grouping_5.023
+    2300370: Rock_Grouping_5.024
+    2300372: SFMC_geo8 Main_grp.000
+    2300374: SFMC_geo8 Main_grp.001
+    2300376: SFMC_geo8 Main_grp.002
+    2300378: SFMC_geo8 Main_grp.003
+    2300380: SFMC_geo8 Main_grp.004
+    2300382: SFMC_geo8 Main_grp.005
+    2300384: SFMC_geo8 Main_grp.006
+    2300386: shed_Mesh1_Model
+    2300388: shed_Mesh1_Model.001
+    2300390: shed_Mesh1_Model.002
+    2300392: Slope.001
+    2300394: Slope.002
+    2300396: Slope.003
+    2300398: Slope.004
+    2300400: spear_Mesh1_Model
+    2300402: spear_Mesh1_Model.001
+    2300404: stairs
+    2300406: stairs_Mesh1_Model
+    2300408: steppe_grass_Mesh1_Model.000
+    2300410: steppe_grass_Mesh1_Model.001
+    2300412: steppe_grass_Mesh1_Model.002
+    2300414: steppe_grass_Mesh1_Model.003
+    2300416: steppe_grass_Mesh1_Model.004
+    2300418: steppe_grass_Mesh1_Model.005
+    2300420: steppe_grass_Mesh1_Model.006
+    2300422: steppe_grass_Mesh1_Model.007
+    2300424: steppe_grass_Mesh1_Model.008
+    2300426: StoneBlocks_5_AO
+    2300428: StoneBlocks_5_AO.001
+    2300430: StoneBlocks_5_AO.002
+    2300432: sword1_Mesh1_Model
+    2300434: sword1_Mesh1_Model.001
+    2300436: sword1_Mesh1_Model.002
+    2300438: sword1_Mesh1_Model.003
+    2300440: table_Mesh1_Model
+    2300442: table_Mesh1_Model.001
+    2300444: tent
+    2300446: tent.001
+    2300448: tent.002
+    2300450: VikingShipObjects.003_VikingShipObjects.000
+    2300452: VikingShipObjects.003_VikingShipObjects.001
+    2300454: VikingShipObjects.003_VikingShipObjects.002
+    2300456: VikingShipObjects.003_VikingShipObjects.003
+    2300458: VikingShipObjects.003_VikingShipObjects.005
+    2300460: water_Icosphere.010
+    2300462: waterbowl_Mesh1_Model
+    2300464: waterbowl_Mesh1_Model.001
+    2300466: window3_Mesh1_Model
+    2300468: window3_Mesh1_Model.001
+    2300470: window3_Mesh1_Model.002
+    2300472: window3_Mesh1_Model.003
+    2300474: window4_Mesh1_Model
+    2300476: window5_Mesh1_Model
+    2300478: window5_Mesh1_Model.001
+    2300480: window5_Mesh1_Model.002
+    2300482: window6_Mesh1_Model
+    2300484: window6_Mesh1_Model.001
+    2300486: window6_Mesh1_Model.002
+    2300488: window6_Mesh1_Model.003
+    2300490: window6_Mesh1_Model.004
+    2300492: window6_Mesh1_Model.005
+    2300494: window7_Mesh1_Model
+    2300496: window7_Mesh1_Model.001
+    2300498: WodenSet_1_AO
+    2300500: WodenSet_1_AO.001
+    2300502: WodenSet_1_AO.002
+    2300504: WodenStairs_3_AO
+    2300506: WodenStairs_3_AO.001
+    3300000: anvil_Mesh1_Model
+    3300002: archer_Mesh1_Group1_archer1_Model
+    3300004: barrel_Mesh1_Model
+    3300006: barrel_Mesh1_Model.001
+    3300008: barrel_Mesh1_Model.002
+    3300010: barrel_Mesh1_Model.003
+    3300012: barrel_Mesh1_Model.004
+    3300014: barrel_Mesh1_Model.005
+    3300016: barrel_Mesh1_Model.006
+    3300018: barrel_Mesh1_Model.007
+    3300020: bench_Mesh1_Model
+    3300022: bench_Mesh1_Model.001
+    3300024: bench_Mesh1_Model.002
+    3300026: bench_Mesh1_Model.003
+    3300028: blacksmith_Mesh1_Model
+    3300030: canopy_Mesh1_Model
+    3300032: canopy_Mesh1_Model.001
+    3300034: charriot_Mesh1_Group1_Model
+    3300036: charriot_Mesh1_Group1_Model.001
+    3300038: cliff_Mesh1_Model
+    3300040: cliff_Mesh1_Model.001
+    3300042: crate_Mesh1_Model
+    3300044: crate_Mesh1_Model.001
+    3300046: crate_Mesh1_Model.002
+    3300048: crate_Mesh1_Model.003
+    3300050: crate_Mesh1_Model.004
+    3300052: crate_Mesh1_Model.005
+    3300054: crate_Mesh1_Model.006
+    3300056: crate_Mesh1_Model.007
+    3300058: crate_Mesh1_Model.008
+    3300060: crate_Mesh1_Model.009
+    3300062: crate_Mesh1_Model.010
+    3300064: Cylinder.108_Cylinder.082
+    3300066: Cylinder.109_Cylinder.083
+    3300068: dirtcliff_Mesh1_Model
+    3300070: dirtcliff_Mesh1_Model.001
+    3300072: dirtcliff_Mesh1_Model.002
+    3300074: dirtcliff_Mesh1_Model.003
+    3300076: dirtcliff_Mesh1_Model.004
+    3300078: dirtcliff_Mesh1_Model.006
+    3300080: dirtcliff_Mesh1_Model.007
+    3300082: door1_Mesh1_Model
+    3300084: door2_Mesh1_Model
+    3300086: door2_Mesh1_Model.001
+    3300088: door2_Mesh1_Model.002
+    3300090: door2_Mesh1_Model.003
+    3300092: door2_Mesh1_Model.004
+    3300094: forge_Mesh1_Model
+    3300096: Grobowiec
+    3300098: ground_Icosphere
+    3300100: group1 Main_grp SFMC_geo12625.000
+    3300102: group1 Main_grp SFMC_geo12625.001
+    3300104: group1 Main_grp SFMC_geo12625.002
+    3300106: group1 Main_grp SFMC_geo12625.003
+    3300108: group1 Main_grp SFMC_geo12625.004
+    3300110: group1 Main_grp SFMC_geo12625.005
+    3300112: group1 Main_grp SFMC_geo12625.006
+    3300114: group1 Main_grp SFMC_geo12625.008
+    3300116: guard_Mesh1_Model
+    3300118: guard_Mesh1_Model.001
+    3300120: Guest_m_1
+    3300122: Hill-tree.001
+    3300124: Hill-tree.002
+    3300126: Hill-tree.003
+    3300128: horse_Mesh5_Model
+    3300130: HouseBase_3_AO
+    3300132: HouseBase_3_AO.001
+    3300134: HouseBase_3_AO.002
+    3300136: HouseBase_3_AO.003
+    3300138: HouseBase_3_AO.004
+    3300140: HouseBase_3_AO.005
+    3300142: HouseBase_3_AO.006
+    3300144: HouseBase_3_AO.007
+    3300146: lamp006
+    3300148: lamp006.001
+    3300150: man6.001
+    3300152: man7
+    3300154: mff_ruins_wall_0_Cube
+    3300156: mff_ruins_wall_0_Cube.001
+    3300158: mff_ruins_wall_0_Cube.002
+    3300160: mff_stone_0
+    3300162: mff_stone_0.001
+    3300164: mff_stone_0.002
+    3300166: mff_stone_0.003
+    3300168: mff_stone_0.004
+    3300170: mff_stone_0.005
+    3300172: mff_stone_0.006
+    3300174: mff_stone_0.007
+    3300176: mff_stone_0.008
+    3300178: mff_stone_0.009
+    3300180: mff_stone_0.010
+    3300182: mff_stone_0.011
+    3300184: mff_stone_0.012
+    3300186: mff_stone_0.013
+    3300188: mff_stone_0.014
+    3300190: mff_stone_0.015
+    3300192: mff_stone_0.016
+    3300194: mff_stone_0.017
+    3300196: mff_stone_0.018
+    3300198: mff_stone_0.019
+    3300200: mff_stone_0.020
+    3300202: mff_stone_0.021
+    3300204: mff_stone_0.022
+    3300206: mff_tower_base
+    3300208: mff_tower_base.001
+    3300210: mff_tower_floor_half_mff_tower_half_floor
+    3300212: mff_tower_floor_half_mff_tower_half_floor.001
+    3300214: mff_tower_middle
+    3300216: mff_tower_top
+    3300218: mff_tower_top.001
+    3300220: mff_tower_top.002
+    3300222: monk_Cube.317
+    3300224: pavement_Mesh1_Model
+    3300226: pavement_Mesh1_Model.001
+    3300228: pavement_Mesh1_Model.002
+    3300230: pavement_Mesh1_Model.003
+    3300232: pavement_Mesh1_Model.004
+    3300234: pavement_Mesh1_Model.005
+    3300236: pavement_Mesh1_Model.006
+    3300238: pavement_Mesh1_Model.007
+    3300240: pavement_Mesh1_Model.008
+    3300242: pavement_Mesh1_Model.009
+    3300244: pavement_Mesh1_Model.010
+    3300246: pavement_Mesh1_Model.011
+    3300248: pavement_Mesh1_Model.012
+    3300250: pavement_Mesh1_Model.013
+    3300252: pavement_Mesh1_Model.014
+    3300254: pavement_Mesh1_Model.015
+    3300256: pCube247
+    3300258: platform1_Mesh1_Model
+    3300260: platform2_Mesh1_Model
+    3300262: pSolid22
+    3300264: pSolid22.001
+    3300266: pSolid22.002
+    3300268: pSolid22.003
+    3300270: pSolid22.004
+    3300272: pSolid22.005
+    3300274: pSolid22.006
+    3300276: pSolid22.007
+    3300278: pSolid22.008
+    3300280: pSolid22.009
+    3300282: pSolid22.010
+    3300284: pSolid22.011
+    3300286: Rock.021_Cube.000
+    3300288: Rock.021_Cube.001
+    3300290: Rock.021_Cube.002
+    3300292: Rock.021_Cube.003
+    3300294: Rock.021_Cube.004
+    3300296: Rock.021_Cube.005
+    3300298: Rock.021_Cube.008
+    3300300: Rock.021_Cube.009
+    3300302: Rock.021_Cube.010
+    3300304: Rock.021_Cube.011
+    3300306: Rock.021_Cube.012
+    3300308: Rock.021_Cube.013
+    3300310: Rock_9_Big_AO
+    3300312: Rock_9_Big_AO.001
+    3300314: Rock_9_Big_AO.002
+    3300316: Rock_9_Big_AO.003
+    3300318: Rock_9_Big_AO.004
+    3300320: Rock_9_Big_AO.005
+    3300322: Rock_Grouping_5.000
+    3300324: Rock_Grouping_5.001
+    3300326: Rock_Grouping_5.002
+    3300328: Rock_Grouping_5.003
+    3300330: Rock_Grouping_5.004
+    3300332: Rock_Grouping_5.005
+    3300334: Rock_Grouping_5.006
+    3300336: Rock_Grouping_5.007
+    3300338: Rock_Grouping_5.008
+    3300340: Rock_Grouping_5.009
+    3300342: Rock_Grouping_5.010
+    3300344: Rock_Grouping_5.011
+    3300346: Rock_Grouping_5.012
+    3300348: Rock_Grouping_5.013
+    3300350: Rock_Grouping_5.014
+    3300352: Rock_Grouping_5.015
+    3300354: Rock_Grouping_5.016
+    3300356: Rock_Grouping_5.017
+    3300358: Rock_Grouping_5.018
+    3300360: Rock_Grouping_5.019
+    3300362: Rock_Grouping_5.020
+    3300364: Rock_Grouping_5.021
+    3300366: Rock_Grouping_5.022
+    3300368: Rock_Grouping_5.023
+    3300370: Rock_Grouping_5.024
+    3300372: SFMC_geo8 Main_grp.000
+    3300374: SFMC_geo8 Main_grp.001
+    3300376: SFMC_geo8 Main_grp.002
+    3300378: SFMC_geo8 Main_grp.003
+    3300380: SFMC_geo8 Main_grp.004
+    3300382: SFMC_geo8 Main_grp.005
+    3300384: SFMC_geo8 Main_grp.006
+    3300386: shed_Mesh1_Model
+    3300388: shed_Mesh1_Model.001
+    3300390: shed_Mesh1_Model.002
+    3300392: Slope.001
+    3300394: Slope.002
+    3300396: Slope.003
+    3300398: Slope.004
+    3300400: spear_Mesh1_Model
+    3300402: spear_Mesh1_Model.001
+    3300404: stairs
+    3300406: stairs_Mesh1_Model
+    3300408: steppe_grass_Mesh1_Model.000
+    3300410: steppe_grass_Mesh1_Model.001
+    3300412: steppe_grass_Mesh1_Model.002
+    3300414: steppe_grass_Mesh1_Model.003
+    3300416: steppe_grass_Mesh1_Model.004
+    3300418: steppe_grass_Mesh1_Model.005
+    3300420: steppe_grass_Mesh1_Model.006
+    3300422: steppe_grass_Mesh1_Model.007
+    3300424: steppe_grass_Mesh1_Model.008
+    3300426: StoneBlocks_5_AO
+    3300428: StoneBlocks_5_AO.001
+    3300430: StoneBlocks_5_AO.002
+    3300432: sword1_Mesh1_Model
+    3300434: sword1_Mesh1_Model.001
+    3300436: sword1_Mesh1_Model.002
+    3300438: sword1_Mesh1_Model.003
+    3300440: table_Mesh1_Model
+    3300442: table_Mesh1_Model.001
+    3300444: tent
+    3300446: tent.001
+    3300448: tent.002
+    3300450: VikingShipObjects.003_VikingShipObjects.000
+    3300452: VikingShipObjects.003_VikingShipObjects.001
+    3300454: VikingShipObjects.003_VikingShipObjects.002
+    3300456: VikingShipObjects.003_VikingShipObjects.003
+    3300458: VikingShipObjects.003_VikingShipObjects.005
+    3300460: water_Icosphere.010
+    3300462: waterbowl_Mesh1_Model
+    3300464: waterbowl_Mesh1_Model.001
+    3300466: window3_Mesh1_Model
+    3300468: window3_Mesh1_Model.001
+    3300470: window3_Mesh1_Model.002
+    3300472: window3_Mesh1_Model.003
+    3300474: window4_Mesh1_Model
+    3300476: window5_Mesh1_Model
+    3300478: window5_Mesh1_Model.001
+    3300480: window5_Mesh1_Model.002
+    3300482: window6_Mesh1_Model
+    3300484: window6_Mesh1_Model.001
+    3300486: window6_Mesh1_Model.002
+    3300488: window6_Mesh1_Model.003
+    3300490: window6_Mesh1_Model.004
+    3300492: window6_Mesh1_Model.005
+    3300494: window7_Mesh1_Model
+    3300496: window7_Mesh1_Model.001
+    3300498: WodenSet_1_AO
+    3300500: WodenSet_1_AO.001
+    3300502: WodenSet_1_AO.002
+    3300504: WodenStairs_3_AO
+    3300506: WodenStairs_3_AO.001
+    4300000: sword1_Mesh1_Model.003
+    4300002: guard_Mesh1_Model.001
+    4300004: spear_Mesh1_Model.001
+    4300006: sword1_Mesh1_Model.002
+    4300008: sword1_Mesh1_Model.001
+    4300010: sword1_Mesh1_Model
+    4300012: spear_Mesh1_Model
+    4300014: guard_Mesh1_Model
+    4300016: archer_Mesh1_Group1_archer1_Model
+    4300018: blacksmith_Mesh1_Model
+    4300020: anvil_Mesh1_Model
+    4300022: waterbowl_Mesh1_Model.001
+    4300024: waterbowl_Mesh1_Model
+    4300026: monk_Cube.317
+    4300028: man6.001
+    4300030: man7
+    4300032: lamp006.001
+    4300034: lamp006
+    4300036: horse_Mesh5_Model
+    4300038: forge_Mesh1_Model
+    4300040: Guest_m_1
+    4300042: window6_Mesh1_Model.005
+    4300044: Rock_Grouping_5.024
+    4300046: window6_Mesh1_Model.004
+    4300048: mff_stone_0.022
+    4300050: mff_stone_0.021
+    4300052: crate_Mesh1_Model.010
+    4300054: window5_Mesh1_Model.002
+    4300056: window6_Mesh1_Model.003
+    4300058: window5_Mesh1_Model.001
+    4300060: HouseBase_3_AO.007
+    4300062: pCube247
+    4300064: Rock_Grouping_5.023
+    4300066: mff_stone_0.020
+    4300068: mff_stone_0.019
+    4300070: mff_stone_0.018
+    4300072: crate_Mesh1_Model.009
+    4300074: StoneBlocks_5_AO.002
+    4300076: table_Mesh1_Model.001
+    4300078: table_Mesh1_Model
+    4300080: Rock_9_Big_AO.005
+    4300082: window6_Mesh1_Model.002
+    4300084: window6_Mesh1_Model.001
+    4300086: group1 Main_grp SFMC_geo12625.000
+    4300088: window4_Mesh1_Model
+    4300090: mff_stone_0.017
+    4300092: platform2_Mesh1_Model
+    4300094: platform1_Mesh1_Model
+    4300096: SFMC_geo8 Main_grp.006
+    4300098: SFMC_geo8 Main_grp.005
+    4300100: SFMC_geo8 Main_grp.004
+    4300102: SFMC_geo8 Main_grp.003
+    4300104: SFMC_geo8 Main_grp.000
+    4300106: VikingShipObjects.003_VikingShipObjects.003
+    4300108: VikingShipObjects.003_VikingShipObjects.002
+    4300110: VikingShipObjects.003_VikingShipObjects.001
+    4300112: pavement_Mesh1_Model.015
+    4300114: crate_Mesh1_Model.008
+    4300116: crate_Mesh1_Model.007
+    4300118: Rock_Grouping_5.022
+    4300120: Rock_Grouping_5.021
+    4300122: charriot_Mesh1_Group1_Model.001
+    4300124: charriot_Mesh1_Group1_Model
+    4300126: bench_Mesh1_Model.003
+    4300128: bench_Mesh1_Model.002
+    4300130: Rock_9_Big_AO.004
+    4300132: Rock_Grouping_5.020
+    4300134: Rock_Grouping_5.019
+    4300136: bench_Mesh1_Model.001
+    4300138: bench_Mesh1_Model
+    4300140: pavement_Mesh1_Model.014
+    4300142: pavement_Mesh1_Model.013
+    4300144: pavement_Mesh1_Model.012
+    4300146: pavement_Mesh1_Model.011
+    4300148: barrel_Mesh1_Model.007
+    4300150: barrel_Mesh1_Model.006
+    4300152: barrel_Mesh1_Model.005
+    4300154: Rock_Grouping_5.018
+    4300156: pavement_Mesh1_Model.010
+    4300158: pavement_Mesh1_Model.009
+    4300160: pavement_Mesh1_Model.008
+    4300162: pavement_Mesh1_Model.007
+    4300164: pavement_Mesh1_Model.006
+    4300166: Rock_Grouping_5.017
+    4300168: pavement_Mesh1_Model.005
+    4300170: pavement_Mesh1_Model.004
+    4300172: pavement_Mesh1_Model.003
+    4300174: pavement_Mesh1_Model.002
+    4300176: pavement_Mesh1_Model.001
+    4300178: pavement_Mesh1_Model
+    4300180: Rock_Grouping_5.016
+    4300182: mff_stone_0.016
+    4300184: Rock_9_Big_AO.003
+    4300186: Rock_Grouping_5.015
+    4300188: mff_stone_0.015
+    4300190: mff_stone_0.014
+    4300192: mff_stone_0.013
+    4300194: Rock_Grouping_5.014
+    4300196: Rock_Grouping_5.013
+    4300198: Rock_9_Big_AO.002
+    4300200: mff_stone_0.012
+    4300202: Rock_9_Big_AO.001
+    4300204: Rock_9_Big_AO
+    4300206: window3_Mesh1_Model.003
+    4300208: WodenSet_1_AO.002
+    4300210: StoneBlocks_5_AO.001
+    4300212: StoneBlocks_5_AO
+    4300214: steppe_grass_Mesh1_Model.008
+    4300216: steppe_grass_Mesh1_Model.007
+    4300218: mff_stone_0.011
+    4300220: mff_stone_0.010
+    4300222: mff_stone_0.009
+    4300224: dirtcliff_Mesh1_Model.002
+    4300226: Rock_Grouping_5.012
+    4300228: Rock_Grouping_5.011
+    4300230: pSolid22.011
+    4300232: steppe_grass_Mesh1_Model.006
+    4300234: Rock_Grouping_5.010
+    4300236: Rock_Grouping_5.009
+    4300238: pSolid22.010
+    4300240: group1 Main_grp SFMC_geo12625.008
+    4300242: group1 Main_grp SFMC_geo12625.004
+    4300244: group1 Main_grp SFMC_geo12625.006
+    4300246: group1 Main_grp SFMC_geo12625.005
+    4300248: group1 Main_grp SFMC_geo12625.003
+    4300250: group1 Main_grp SFMC_geo12625.002
+    4300252: group1 Main_grp SFMC_geo12625.001
+    4300254: WodenStairs_3_AO.001
+    4300256: WodenStairs_3_AO
+    4300258: water_Icosphere.010
+    4300260: ground_Icosphere
+    4300262: mff_tower_base.001
+    4300264: mff_tower_top.002
+    4300266: mff_stone_0.008
+    4300268: mff_tower_top.001
+    4300270: Rock_Grouping_5.008
+    4300272: Rock_Grouping_5.007
+    4300274: Rock.021_Cube.005
+    4300276: Rock_Grouping_5.006
+    4300278: Rock_Grouping_5.005
+    4300280: steppe_grass_Mesh1_Model.005
+    4300282: Rock_Grouping_5.004
+    4300284: Rock_Grouping_5.003
+    4300286: Rock_Grouping_5.002
+    4300288: Rock_Grouping_5.000
+    4300290: Rock_Grouping_5.001
+    4300292: mff_ruins_wall_0_Cube.002
+    4300294: pSolid22.009
+    4300296: pSolid22.008
+    4300298: pSolid22.007
+    4300300: steppe_grass_Mesh1_Model.004
+    4300302: steppe_grass_Mesh1_Model.003
+    4300304: steppe_grass_Mesh1_Model.002
+    4300306: window7_Mesh1_Model.001
+    4300308: window7_Mesh1_Model
+    4300310: window6_Mesh1_Model
+    4300312: steppe_grass_Mesh1_Model.001
+    4300314: window3_Mesh1_Model.002
+    4300316: window5_Mesh1_Model
+    4300318: window3_Mesh1_Model.001
+    4300320: window3_Mesh1_Model
+    4300322: barrel_Mesh1_Model.004
+    4300324: barrel_Mesh1_Model.003
+    4300326: barrel_Mesh1_Model.002
+    4300328: barrel_Mesh1_Model.001
+    4300330: barrel_Mesh1_Model
+    4300332: door2_Mesh1_Model.004
+    4300334: door2_Mesh1_Model.003
+    4300336: shed_Mesh1_Model.002
+    4300338: shed_Mesh1_Model.001
+    4300340: shed_Mesh1_Model
+    4300342: door1_Mesh1_Model
+    4300344: crate_Mesh1_Model.006
+    4300346: crate_Mesh1_Model.005
+    4300348: crate_Mesh1_Model.004
+    4300350: crate_Mesh1_Model.003
+    4300352: crate_Mesh1_Model.002
+    4300354: crate_Mesh1_Model.001
+    4300356: crate_Mesh1_Model
+    4300358: WodenSet_1_AO.001
+    4300360: WodenSet_1_AO
+    4300362: tent.002
+    4300364: tent.001
+    4300366: tent
+    4300368: stairs_Mesh1_Model
+    4300370: door2_Mesh1_Model.002
+    4300372: canopy_Mesh1_Model.001
+    4300374: canopy_Mesh1_Model
+    4300376: door2_Mesh1_Model.001
+    4300378: HouseBase_3_AO.006
+    4300380: HouseBase_3_AO.005
+    4300382: HouseBase_3_AO.004
+    4300384: HouseBase_3_AO.003
+    4300386: door2_Mesh1_Model
+    4300388: mff_stone_0.007
+    4300390: mff_stone_0.006
+    4300392: Rock.021_Cube.013
+    4300394: Cylinder.108_Cylinder.082
+    4300396: Cylinder.109_Cylinder.083
+    4300398: pSolid22.006
+    4300400: HouseBase_3_AO.002
+    4300402: HouseBase_3_AO.001
+    4300404: HouseBase_3_AO
+    4300406: Slope.003
+    4300408: VikingShipObjects.003_VikingShipObjects.000
+    4300410: VikingShipObjects.003_VikingShipObjects.005
+    4300412: pSolid22.005
+    4300414: pSolid22.004
+    4300416: pSolid22.003
+    4300418: pSolid22.002
+    4300420: pSolid22.001
+    4300422: pSolid22
+    4300424: Grobowiec
+    4300426: steppe_grass_Mesh1_Model.000
+    4300428: mff_ruins_wall_0_Cube.001
+    4300430: mff_ruins_wall_0_Cube
+    4300432: mff_stone_0.005
+    4300434: mff_stone_0.004
+    4300436: mff_stone_0.003
+    4300438: mff_stone_0.002
+    4300440: mff_stone_0.001
+    4300442: mff_stone_0
+    4300444: mff_tower_top
+    4300446: mff_tower_floor_half_mff_tower_half_floor.001
+    4300448: mff_tower_floor_half_mff_tower_half_floor
+    4300450: mff_tower_middle
+    4300452: Hill-tree.003
+    4300454: Rock.021_Cube.012
+    4300456: SFMC_geo8 Main_grp.002
+    4300458: SFMC_geo8 Main_grp.001
+    4300460: stairs
+    4300462: Rock.021_Cube.011
+    4300464: dirtcliff_Mesh1_Model.006
+    4300466: Hill-tree.002
+    4300468: mff_tower_base
+    4300470: Slope.002
+    4300472: cliff_Mesh1_Model.001
+    4300474: cliff_Mesh1_Model
+    4300476: Rock.021_Cube.010
+    4300478: dirtcliff_Mesh1_Model.007
+    4300480: Rock.021_Cube.009
+    4300482: Rock.021_Cube.008
+    4300484: Slope.004
+    4300486: dirtcliff_Mesh1_Model.004
+    4300488: dirtcliff_Mesh1_Model.003
+    4300490: Rock.021_Cube.004
+    4300492: Rock.021_Cube.003
+    4300494: Rock.021_Cube.002
+    4300496: Rock.021_Cube.001
+    4300498: Rock.021_Cube.000
+    4300500: Hill-tree.001
+    4300502: Slope.001
+    4300504: dirtcliff_Mesh1_Model.001
+    4300506: dirtcliff_Mesh1_Model
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BrownWood
+    second: {fileID: 2100000, guid: aa374b0334c6a46a7a34df7c7f646bfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kamien_1
+    second: {fileID: 2100000, guid: 4813f506f87bc4dc6aa85ae5d67b15ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kamien_3
+    second: {fileID: 2100000, guid: ee6e20b86a9f64197b51c4534fa88257, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kamien_4
+    second: {fileID: 2100000, guid: 4adaf537dacf24a34890ca681384f51b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_clothing_BLUE
+    second: {fileID: 2100000, guid: ddac961bc71ac42cd92a0399f91f3230, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_clothing_BROWN
+    second: {fileID: 2100000, guid: 611667a7825ae41608765d40952927dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_clothing_YELLOW
+    second: {fileID: 2100000, guid: 9348285923e1f41d8a24bc5ea2cbd77a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_dragon_RED
+    second: {fileID: 2100000, guid: 1f60ae9d23f4a42e08fbc48e73eb4c45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_grapes_PURPLE
+    second: {fileID: 2100000, guid: 38d0dd91c851c462e85466a81ebc9013, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_skin_color1
+    second: {fileID: 2100000, guid: 878ae506406cc465593fc55c7c207dbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_skin_color1.001
+    second: {fileID: 2100000, guid: cca91c74790d2418689317cc24eb1dbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_tree_BROWN
+    second: {fileID: 2100000, guid: b5f448bebc02e43fca2353a4fd820526, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 12a34e1c7061d4a8ea7d3f68541bf87a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 302063cdc1df641ee9b352e2ddce8ab6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Objects
+    second: {fileID: 2100000, guid: 3c5fd56a07e0c42f29f0335b441e2586, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Objects.001
+    second: {fileID: 2100000, guid: 3c5fd56a07e0c42f29f0335b441e2586, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Texture-base
+    second: {fileID: 2100000, guid: 48354b3b8018947d4a34f486825abbb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: YellowCloth
+    second: {fileID: 2100000, guid: 5cb80e3204eab4d6288a56ccaef8394d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: barrel
+    second: {fileID: 2100000, guid: 3c5fd56a07e0c42f29f0335b441e2586, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black.001
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black.002
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black.003
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black.004
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black.005
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black.006
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black.007
+    second: {fileID: 2100000, guid: b13b6c8b11294408f93d41e24c9d233e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blue
+    second: {fileID: 2100000, guid: 5976545bbfcd8486f85e8f9b8794983f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blue.001
+    second: {fileID: 2100000, guid: 5976545bbfcd8486f85e8f9b8794983f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.001
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.002
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.003
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.004
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.005
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.006
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.007
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.008
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.009
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.010
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.011
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.012
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.013
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown.014
+    second: {fileID: 2100000, guid: f440f4f9da32f49aa8142916e02c6fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color
+    second: {fileID: 2100000, guid: fe84a70ce3b9a4c5ca7a02828bf234e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color_NONE
+    second: {fileID: 2100000, guid: fe84a70ce3b9a4c5ca7a02828bf234e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dirt
+    second: {fileID: 2100000, guid: 773893d1d36114fe2a4b23423b34ba84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dirt.001
+    second: {fileID: 2100000, guid: 773893d1d36114fe2a4b23423b34ba84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dirtroad
+    second: {fileID: 2100000, guid: 968a0117ba6034f9f8523c0078f0dd62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dkbrow
+    second: {fileID: 2100000, guid: 82df3ad5997f744a9addb2c7172fd045, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dkbrown
+    second: {fileID: 2100000, guid: 7dd2f87e24f78471788e2b4e12af97a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dkbrown.001
+    second: {fileID: 2100000, guid: 7dd2f87e24f78471788e2b4e12af97a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass
+    second: {fileID: 2100000, guid: 5a6d13c4a51514921b79ad4e26b47f02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass.001
+    second: {fileID: 2100000, guid: 5a6d13c4a51514921b79ad4e26b47f02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.001
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.002
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.003
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.004
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.005
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.006
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.007
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gray.008
+    second: {fileID: 2100000, guid: b3f5d860499f1423192bf77adcce8ca0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house
+    second: {fileID: 2100000, guid: cee1f0376d53641f8904e69054a0b9ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 76a3a39182ad849499b7fb5fea88b760, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 3f77b1a9422d14417b4cd9436d1117ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2.001
+    second: {fileID: 2100000, guid: 7bc78a7fae7344ded93509a113802b2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2SG
+    second: {fileID: 2100000, guid: 75b5bb1b2f2944065a119217dbd5c207, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2SG.001
+    second: {fileID: 2100000, guid: 75b5bb1b2f2944065a119217dbd5c207, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3SG
+    second: {fileID: 2100000, guid: 75ac96d0ec1c947569ee5c5af1bce02e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: litblue
+    second: {fileID: 2100000, guid: 9e15f7c4e4b5241eeb528b100b6aa6d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ltgray
+    second: {fileID: 2100000, guid: e842a7a221234403c8f1ae60daf916aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ltgray.001
+    second: {fileID: 2100000, guid: e842a7a221234403c8f1ae60daf916aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ltgray.002
+    second: {fileID: 2100000, guid: e842a7a221234403c8f1ae60daf916aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ltgray.003
+    second: {fileID: 2100000, guid: e842a7a221234403c8f1ae60daf916aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: med_diffuse.004
+    second: {fileID: 2100000, guid: ac1560807564245e7aa7091862ab5b05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: medievalfantasyforest_unwrap
+    second: {fileID: 2100000, guid: c93d4416b623a4b3fa515241a8e9dab8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: monk_material
+    second: {fileID: 2100000, guid: a98b2be43b769420daecb0c6363f97a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pulley_mat
+    second: {fileID: 2100000, guid: 86e09886097f04945afc0b1978534381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rock_grouping
+    second: {fileID: 2100000, guid: d6c09d443d2bd4f8bb76fcd52866013a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schingle
+    second: {fileID: 2100000, guid: 1fa3acc3346ca4c299909ec2a24b11b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skincolr
+    second: {fileID: 2100000, guid: 54b802602c1bb4d01b6f28695bc33626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skincolr.001
+    second: {fileID: 2100000, guid: 54b802602c1bb4d01b6f28695bc33626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skincolr.002
+    second: {fileID: 2100000, guid: 54b802602c1bb4d01b6f28695bc33626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skincolr.003
+    second: {fileID: 2100000, guid: 54b802602c1bb4d01b6f28695bc33626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: slope_mat
+    second: {fileID: 2100000, guid: 980bb68df664640a4bbbfd6ad75f5fa6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: smlstone
+    second: {fileID: 2100000, guid: 65bba6c7b88494496800250cfa2e6e1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: smlstone.001
+    second: {fileID: 2100000, guid: 65bba6c7b88494496800250cfa2e6e1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stairs
+    second: {fileID: 2100000, guid: 4f747a1582feb46558f4e2de37de69fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone
+    second: {fileID: 2100000, guid: 94e3e34a1cc654181a9ea671f8b2172f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: terrain_mat
+    second: {fileID: 2100000, guid: 1d50d6eda5454484cb05b958af03ac0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: topbottom
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trubrown
+    second: {fileID: 2100000, guid: f100437de7ca94b458fe11ed75587802, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trubrown.001
+    second: {fileID: 2100000, guid: f100437de7ca94b458fe11ed75587802, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trubrown.002
+    second: {fileID: 2100000, guid: f100437de7ca94b458fe11ed75587802, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trubrown.003
+    second: {fileID: 2100000, guid: f100437de7ca94b458fe11ed75587802, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trubrown.004
+    second: {fileID: 2100000, guid: f100437de7ca94b458fe11ed75587802, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water_mat
+    second: {fileID: 2100000, guid: a6bdf2dc3265640ad9d8e79af4060560, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: well_material
+    second: {fileID: 2100000, guid: a8d3ad28b8d28423ca08e4b5452c767e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white
+    second: {fileID: 2100000, guid: 131a5670307194a8ab5b3e18f8c454f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wire_115115115
+    second: {fileID: 2100000, guid: fbc4e22b41da74c38a2b36a0a23a2542, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.001
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.002
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.003
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.004
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.005
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.006
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.007
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.008
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.009
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood.010
+    second: {fileID: 2100000, guid: ef8ee05ba0af0455fa889dadb2961097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wooden set
+    second: {fileID: 2100000, guid: a58d9cd41efa840bb99fae8256a2f483, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wooden stairs
+    second: {fileID: 2100000, guid: 74a5ee0806b624a278a0fef193ced329, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow
+    second: {fileID: 2100000, guid: d6af2a438562748b0aa6269ea4ef73f1, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
