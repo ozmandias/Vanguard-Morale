@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BB528996-6A5E-DC2C-DBEC-668942127010}</ProjectGuid>
+    <ProjectGuid>{5D868723-B094-4FAF-A02B-FB0BC046CFF4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,7 +54,9 @@
      <Compile Include="Assets\Programming\GameCamera.cs" />
      <Compile Include="Assets\Programming\GameManager.cs" />
      <Compile Include="Assets\Programming\MasterKnight.cs" />
+     <None Include="Assets\[BFW]SimpleDynamicClouds\Shaders\2DClouds.shader" />
      <None Include="Assets\Design\medieval-castle-with-village\readme.txt" />
+     <None Include="Assets\[BFW]SimpleDynamicClouds\ReadMe.txt" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>
@@ -235,7 +237,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{68A20C7F-85EC-8749-1DA3-C7AA8BFD4D4B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{B039776D-E4C6-B675-641B-E33F003BDB3B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
