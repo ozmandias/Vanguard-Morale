@@ -23,6 +23,7 @@ public class GameCamera : MonoBehaviour {
     void CameraMove() {
         mouseHorizontal += Input.GetAxis("Mouse X") * cameraSpeed;
         mouseVertical -= Input.GetAxis("Mouse Y") * cameraSpeed;
+        mouseVertical = Mathf.Clamp(mouseVertical, -15, 55);
 
         followDirection = cameraFollowObject.transform.position + (transform.forward * distance);
 
