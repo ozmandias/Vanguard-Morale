@@ -1,0 +1,20 @@
+Master Knight
+Enemy Guard
+Cyber Knight
+Spawn Manager
+Ragdoll Manager
+Game Manager
+People - Villagers, Castle Residents, Hero, Blacksmith, Soldier Trainer, Archer Trainer
+Horses
+UI
+Dialogues
+Shopping
+Skill Training
+Morality
+Arkham Combat
+Battles between Soldiers and Enemies
+Interactables
+
+Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
+Player -> Hero
+Enemy -> Enemy Guard, Cyber Knight

@@ -1,11 +1,22 @@
 using UnityEngine;
 
 public class Info : MonoBehaviour {
-    int health;
-    float morality = 0;
-    [SerializeField] int MaxHealth = 100;
+    public int health;
+    public int MaxHealth = 100;
+    public int damage;
+    public int morality = 50;
+    public Morality alignment = Morality.Neutral;
+    public bool isDead = false;
 
-    void Start() {
+    public virtual void Start() {
         health = MaxHealth;
+    }
+
+    public virtual void ReduceHealth(int damageAmount) {
+        health = health - damageAmount;
+
+        if(health <= 0) {
+            isDead = true;
+        }
     }
 }

@@ -9,7 +9,7 @@ public class GameCamera : MonoBehaviour {
     [SerializeField] GameObject cameraFollowObject;
 
     void Start() {
-        cameraFollowObject = GameObject.Find("CameraFollow");
+        cameraFollowObject = GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? GameObject.Find("MasterKnight").transform.Find("CameraFollow").gameObject : GameObject.Find("Hero").transform.Find("CameraFollow").gameObject;
     }
 
     void Update() {

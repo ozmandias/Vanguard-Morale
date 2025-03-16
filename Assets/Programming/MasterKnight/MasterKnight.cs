@@ -21,6 +21,7 @@ public class MasterKnight : MonoBehaviour {
 	[SerializeField] int attackNumber = 0;
 	[SerializeField] float attackTimer = 0;
 	[SerializeField] float attackAnimationLength = 0;
+	[SerializeField] Collider attackCollider;
 
 	[Header("Master Knight Settings")]
 	[SerializeField] Rigidbody masterKnightBody;
@@ -32,6 +33,9 @@ public class MasterKnight : MonoBehaviour {
 		masterKnightBody = GetComponent<Rigidbody>();
 		masterKnightAnimator = GetComponent<Animator>();
 		masterKnightCamera = Camera.main;
+
+		attackCollider = GameObject.Find("MasterKnightAttackCollider").GetComponent<Collider>();
+		attackCollider.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -83,6 +87,7 @@ public class MasterKnight : MonoBehaviour {
 	void Attack() {
 		if(Input.GetKeyDown(KeyCode.Mouse0)) {
 			isAttacking = true;
+			attackCollider.enabled = true;
 			attackNumber = attackNumber + 1; /*Random.Range(1,3)*/
 			attackNumber = Mathf.Clamp(attackNumber, 1, 2);
 			PlayAnimation("Attack" + attackNumber);
@@ -98,6 +103,7 @@ public class MasterKnight : MonoBehaviour {
 
 			if(attackTimer > attackAnimationLength && attackAnimationLength > 0) {
 				isAttacking = false;
+				attackCollider.enabled = false;
 				attackNumber = 0;
 				attackTimer = 0;
 				attackAnimationLength = 0;

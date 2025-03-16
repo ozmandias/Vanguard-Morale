@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+	public static GameManager instance;
+	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight;
+
+	void Awake() {
+		if(instance == null) {
+			instance = this;
+		} else {
+			Destroy(this.gameObject);
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
 		HideCursor();
+		SetPlayer();
 	}
 	
 	// Update is called once per frame
@@ -32,5 +43,10 @@ public class GameManager : MonoBehaviour {
 	void HideCursor() {
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
+	}
+
+	void SetPlayer() {
+		GameObject.Find("MasterKnight").GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
+		GameObject.Find("Hero").GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
 	}
 }
