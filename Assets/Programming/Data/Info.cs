@@ -12,11 +12,27 @@ public class Info : MonoBehaviour {
         health = MaxHealth;
     }
 
+    public virtual void AddHealth(int healthAmount) {
+        health += healthAmount;
+
+        if(health > MaxHealth) {
+            health = MaxHealth;
+        }
+    }
+
     public virtual void ReduceHealth(int damageAmount) {
         health = health - damageAmount;
 
         if(health <= 0) {
             isDead = true;
         }
+    }
+
+    public virtual void AddMorality(int moralityAmount) {
+        morality = morality + moralityAmount;
+    }
+
+    public virtual void ReduceMorality(int moralityAmount) {
+        morality = morality - moralityAmount;
     }
 }

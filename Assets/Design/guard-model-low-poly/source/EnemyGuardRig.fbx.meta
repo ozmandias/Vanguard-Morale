@@ -30,6 +30,7 @@ ModelImporter:
     100048: mixamorig:Spine
     100050: mixamorig:Spine1
     100052: mixamorig:Spine2
+    100054: Guard
     400000: guard.002
     400002: //RootNode
     400004: mixamorig:Head
@@ -57,14 +58,18 @@ ModelImporter:
     400048: mixamorig:Spine
     400050: mixamorig:Spine1
     400052: mixamorig:Spine2
+    400054: Guard
     2100000: Leather
     2100002: Iron
     2100004: Body_armor
     2100006: Leather Cloth
     2100008: Body
     4300000: guard.002
+    4300002: Guard
+    7400000: mixamo.com
     9500000: //RootNode
     13700000: guard.002
+    13700002: Guard
   externalObjects:
   - first:
       type: UnityEngine:Material

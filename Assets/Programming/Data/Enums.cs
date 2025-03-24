@@ -6,15 +6,19 @@ public enum Morality
 }
 
 public enum PersonType {
-    Player,
-    Normal,
+    Friend,
+    Neutral,
     Enemy,
     Companion
 }
 
-public enum PersonAction {
-    Working,
-    None
+public enum StateMachine {
+    Idle,
+    Move,
+    Attack,
+    Work,
+    Follow,
+    Dead
 }
 
 public enum PlayerCharacter {

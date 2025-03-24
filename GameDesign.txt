@@ -18,3 +18,4 @@ Interactables
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero
 Enemy -> Enemy Guard, Cyber Knight
+State Machines -> Move, Find Target, Attack, Work

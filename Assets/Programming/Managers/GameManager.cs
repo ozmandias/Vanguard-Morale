@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight;
+	public GameObject playerGameObject;
 
 	void Awake() {
 		if(instance == null) {
@@ -48,5 +49,7 @@ public class GameManager : MonoBehaviour {
 	void SetPlayer() {
 		GameObject.Find("MasterKnight").GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
 		GameObject.Find("Hero").GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
+
+		playerGameObject = GameObject.Find(currentPlayer.ToString());
 	}
 }

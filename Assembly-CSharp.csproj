@@ -57,7 +57,6 @@
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
      <Compile Include="Assets\Programming\Enemies\Enemy.cs" />
      <Compile Include="Assets\Programming\Enemies\EnemyGuard.cs" />
-     <Compile Include="Assets\Programming\Enemies\EnemyGuardInfo.cs" />
      <Compile Include="Assets\Programming\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Programming\Managers\GameManager.cs" />
      <Compile Include="Assets\Programming\Managers\RagdollManager.cs" />
@@ -67,8 +66,14 @@
      <Compile Include="Assets\Programming\MasterKnight\MasterKnightInfo.cs" />
      <Compile Include="Assets\Programming\People\Hero.cs" />
      <Compile Include="Assets\Programming\People\Person.cs" />
+     <Compile Include="Assets\Programming\People\PersonInfo.cs" />
      <Compile Include="Assets\Programming\Physics\RagdollPhysics.cs" />
      <Compile Include="Assets\Programming\Player\Player.cs" />
+     <Compile Include="Assets\Programming\StateMachines\AttackState.cs" />
+     <Compile Include="Assets\Programming\StateMachines\FollowState.cs" />
+     <Compile Include="Assets\Programming\StateMachines\IdleState.cs" />
+     <Compile Include="Assets\Programming\StateMachines\MoveState.cs" />
+     <Compile Include="Assets\Programming\StateMachines\WorkState.cs" />
      <None Include="Assets\[BFW]SimpleDynamicClouds\Shaders\2DClouds.shader" />
      <None Include="Assets\Design\medieval-castle-with-village\readme.txt" />
      <None Include="Assets\[BFW]SimpleDynamicClouds\ReadMe.txt" />

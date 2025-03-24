@@ -147,8 +147,8 @@ public class MasterKnight : MonoBehaviour {
 			yield return new WaitForSeconds(0.1f);
 		}
 
-		Debug.DrawRay(GameObject.Find("GroundCheck").transform.position, Vector3.down * groundCheckDistance, Color.white);
-		if(Physics.Raycast(GameObject.Find("GroundCheck").transform.position, Vector3.down, out masterKnightRaycastHit, groundCheckDistance)) {
+		Debug.DrawRay(gameObject.transform.Find("GroundCheck").gameObject.transform.position, Vector3.down * groundCheckDistance, Color.white);
+		if(Physics.Raycast(gameObject.transform.Find("GroundCheck").gameObject.transform.position, Vector3.down, out masterKnightRaycastHit, groundCheckDistance)) {
 			if(masterKnightRaycastHit.collider.gameObject.CompareTag("Runnable")) {
 				atGround = true;
 				if(isJumping == true) {

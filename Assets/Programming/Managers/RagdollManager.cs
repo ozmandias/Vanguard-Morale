@@ -3,9 +3,10 @@ using UnityEngine;
 public class RagdollManager : MonoBehaviour {
     float ragDollTimer = 0;
     public bool ragdollEnabled = false;
-    [SerializeField] GameObject boneBase;
+    [SerializeField] Animator mainAnimator;
     [SerializeField] Rigidbody mainBody;
     [SerializeField] Collider mainCollider;
+    [SerializeField] GameObject boneBase;
     [SerializeField] Rigidbody[] ragdollBodies;
     [SerializeField] Collider[] ragdollColliders;
 
@@ -24,6 +25,7 @@ public class RagdollManager : MonoBehaviour {
     public void EnableRagdoll() {
         ragdollEnabled = true;
 
+        mainAnimator.enabled = false;
         mainBody.isKinematic = true;
         mainCollider.enabled = false;
 
@@ -41,6 +43,7 @@ public class RagdollManager : MonoBehaviour {
     public void DisableRagdoll() {
         ragdollEnabled = false;
 
+        mainAnimator.enabled = true;
         mainBody.isKinematic = false;
         mainCollider.enabled = true;
 

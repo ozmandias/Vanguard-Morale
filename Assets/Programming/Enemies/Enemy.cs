@@ -2,41 +2,32 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : Person {
-    [SerializeField] Info enemyInfo;
-
-    public virtual void Start() {
-        enemyInfo = GetComponent<Info>();
+    public override void Start() {
+        base.Start();
+        personTarget = GameManager.instance.playerGameObject;
     }
 
-    public virtual void Update() {
-        Move();
-        Attack();
+    public override void Idle() {
+        personAnimation.Play("Idle");
     }
 
     public override void Move() {
-        
-    }
-
-    public override void Rotate() {
-
+        personAnimation.Play("Move");
     }
 
     public override void Attack() {
-
+        personAnimation.Play("Attack");
     }
 
-    bool collision = false;
-    void OnCollisionEnter(Collision otherCollision) {
-        if(otherCollision.collider.gameObject.CompareTag("MasterKnightAttackCollider")) {
-            if(collision == false && enemyInfo.isDead == false) {
-                collision = true;
-                Info attackCharacterInfo = otherCollision.collider.gameObject.GetComponentInParent<Info>();
-                enemyInfo.ReduceHealth(attackCharacterInfo.damage);
-            }
-        }
+    public override void Work() {
+        
     }
 
-    void OnCollisionExit(Collision otherCollision) {
-        collision = false;
+    public override void Follow() {
+        personAnimation.Play("Follow");
+    }
+
+    public override void Dead() {
+        base.Dead();
     }
 }

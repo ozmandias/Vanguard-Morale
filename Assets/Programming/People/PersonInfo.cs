@@ -1,0 +1,38 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class PersonInfo : Info {
+    public RagdollManager personRagdollManager;
+    public PersonType personType = PersonType.Neutral;
+
+    public override void Start() {
+        base.Start();
+
+        damage = 10;
+        morality = personType == PersonType.Neutral ? 50 : 40;
+        alignment = (Morality) morality;
+
+        personRagdollManager = GetComponent<RagdollManager>();
+    }
+
+    public override void ReduceHealth(int damageAmount) {
+        base.ReduceHealth(damageAmount);
+
+        if(isDead == true) {
+            gameObject.GetComponent<Person>().Dead();
+
+            switch (personType)
+            {   case PersonType.Enemy:
+                    GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
+                    break;
+                case PersonType.Neutral:
+                    break;
+                case PersonType.Friend:
+                    GameManager.instance.playerGameObject.GetComponent<Info>().ReduceMorality(6);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
