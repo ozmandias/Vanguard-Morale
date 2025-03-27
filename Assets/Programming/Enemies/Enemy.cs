@@ -2,9 +2,14 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : Person {
+    public override void Awake() {
+        base.Awake();
+        personDestination = GameObject.Find("EnemyDestination").transform;
+        personTarget = GameManager.instance.playerGameObject;
+    }
+
     public override void Start() {
         base.Start();
-        personTarget = GameManager.instance.playerGameObject;
     }
 
     public override void Idle() {

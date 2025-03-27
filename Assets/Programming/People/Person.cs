@@ -10,10 +10,14 @@ public abstract class Person : MonoBehaviour {
     public GameObject personTarget;
     public StateMachine personState = StateMachine.Idle;
 
-    public virtual void Start() {
+    public virtual void Awake() {
         personAnimation = GetComponent<AnimationManager>();
         personAgent = GetComponent<NavMeshAgent>();
         personInfo = GetComponent<PersonInfo>();
+    }
+
+    public virtual void Start() {
+        
     }
 
     public virtual void Update() {

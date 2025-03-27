@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight;
 	public GameObject playerGameObject;
+	public GameObject []playerCharacters;
 
 	void Awake() {
 		if(instance == null) {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour {
 		} else {
 			Destroy(this.gameObject);
 		}
+
+		playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
 	}
 
 	// Use this for initialization
@@ -49,7 +52,5 @@ public class GameManager : MonoBehaviour {
 	void SetPlayer() {
 		GameObject.Find("MasterKnight").GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
 		GameObject.Find("Hero").GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
-
-		playerGameObject = GameObject.Find(currentPlayer.ToString());
 	}
 }

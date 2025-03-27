@@ -217,10 +217,10 @@ GameObject:
   - component: {fileID: 95492136419142314}
   - component: {fileID: 54110459885665638}
   - component: {fileID: 65621774407500444}
+  - component: {fileID: 195072185062108792}
   - component: {fileID: 114103562173904958}
   - component: {fileID: 114309286467479336}
   - component: {fileID: 114496764344235626}
-  - component: {fileID: 195072185062108792}
   - component: {fileID: 114408100305164290}
   m_Layer: 0
   m_Name: EnemyGuard
