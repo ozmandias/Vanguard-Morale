@@ -15,6 +15,7 @@ public class FollowState : StateMachineBehaviour {
         targetDistance = Vector3.Distance(mainPerson.personTarget.transform.position, mainPerson.transform.position);
         if(targetDistance > 10f) {
             nearTarget = false;
+            mainPerson.personAgent.destination = mainPerson.personTarget.transform.position;
         } else {
             nearTarget = true;
         }

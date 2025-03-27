@@ -17,7 +17,7 @@ public abstract class Person : MonoBehaviour {
     }
 
     public virtual void Update() {
-        if(personInfo.isDead == false) {
+        if(personInfo.stateMachineDead == false) {
             switch(personState) {
                 case StateMachine.Idle:
                     Idle();
@@ -34,6 +34,9 @@ public abstract class Person : MonoBehaviour {
                 case StateMachine.Follow:
                     Follow();
                     break;
+                case StateMachine.Dead:
+                    Dead();
+                    break;
                 default:
                     break;
             }
@@ -47,12 +50,16 @@ public abstract class Person : MonoBehaviour {
     public abstract void Follow();
 
     bool collision = false;
+    float collisionTimer = 0;
     void OnCollisionEnter(Collision otherCollision) {
-        if(otherCollision.collider.gameObject.CompareTag("MasterKnightAttackCollider")) {
-            if(collision == false && personInfo.isDead == false) {
+        if(otherCollision.collider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollision.collider.gameObject.CompareTag("PlayerAttackCollider")) {
+            collisionTimer += Time.deltaTime;
+            if(collision == false && personInfo.isDead == false && collisionTimer > 0.01f) {
                 collision = true;
+                collisionTimer = 0;
                 Info attackCharacterInfo = otherCollision.collider.gameObject.GetComponentInParent<Info>();
                 personInfo.ReduceHealth(attackCharacterInfo.damage);
+                Hurt();
             }
         }
     }
@@ -64,9 +71,11 @@ public abstract class Person : MonoBehaviour {
         personState = _state;
     }
 
+    public virtual void Hurt() {
+        personAnimation.Play("Hurt");
+    }
+
     public virtual void Dead() {
-        ChangeState(StateMachine.Dead);
-        personAgent.enabled = false;
-        personInfo.personRagdollManager.EnableRagdoll();
+        personAnimation.Play("Dead");
     }
 }

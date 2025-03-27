@@ -20,11 +20,15 @@ public class Enemy : Person {
     }
 
     public override void Work() {
-        
+        personAnimation.Play("Work");
     }
 
     public override void Follow() {
         personAnimation.Play("Follow");
+    }
+
+    public override void Hurt() {
+        base.Hurt();
     }
 
     public override void Dead() {

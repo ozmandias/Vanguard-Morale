@@ -18,6 +18,7 @@ public enum StateMachine {
     Attack,
     Work,
     Follow,
+    Hurt,
     Dead
 }
 

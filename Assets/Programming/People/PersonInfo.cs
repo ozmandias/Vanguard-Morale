@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class PersonInfo : Info {
     public RagdollManager personRagdollManager;
     public PersonType personType = PersonType.Neutral;
+    public bool stateMachineDead = false;
 
     public override void Start() {
         base.Start();
@@ -19,8 +20,6 @@ public class PersonInfo : Info {
         base.ReduceHealth(damageAmount);
 
         if(isDead == true) {
-            gameObject.GetComponent<Person>().Dead();
-
             switch (personType)
             {   case PersonType.Enemy:
                     GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);

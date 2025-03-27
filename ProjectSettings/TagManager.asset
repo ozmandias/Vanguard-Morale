@@ -8,6 +8,7 @@ TagManager:
   - Runnable
   - MasterKnightAttackCollider
   - EnemyAttackCollider
+  - PlayerAttackCollider
   layers:
   - Default
   - TransparentFX

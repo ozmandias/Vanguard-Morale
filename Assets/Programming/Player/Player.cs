@@ -7,6 +7,7 @@ public abstract class Player : MonoBehaviour {
     float vertical;
     Vector3 direction;
     float rotateAngle;
+    [Header("Move Settings")]
     public float speed = 30f;
     public float jumpForce = 100f;
     public float gravity = 9.81f;
@@ -14,6 +15,15 @@ public abstract class Player : MonoBehaviour {
     public bool isJumping = false;
     public bool isGrounded = true;
     public float groundCheckDistance = 1f;
+
+    [Header("AttackSettings")]
+    public bool isAttacking = false;
+    public int attackNumber = 0;
+    [SerializeField] float attackTimer = 0;
+    [SerializeField] float attackAnimationLength = 0;
+    public Collider attackCollider;
+    
+    [Header("Player Settings")]
     [SerializeField] Rigidbody playerBody;
     [SerializeField] Animator playerAnimator;
     [SerializeField] Camera playerCamera;
@@ -50,6 +60,11 @@ public abstract class Player : MonoBehaviour {
             StopAnimation("Run");
         }
 
+        if(isAttacking == true) {
+            direction = Vector3.zero;
+            StopAnimation("Run");
+        }
+
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isJumping == false) {
             isJumping = true;
             playerBody.AddForce(Vector3.up * jumpForce * forceLevel);
@@ -67,7 +82,30 @@ public abstract class Player : MonoBehaviour {
     }
 
     public void Attack() {
-        
+        if(Input.GetKeyDown(KeyCode.Mouse0)) {
+            isAttacking = true;
+            attackCollider.enabled = true;
+            attackNumber += 1;
+            attackNumber = Mathf.Clamp(attackNumber, 1, 2);
+            PlayAnimation("Attack" + attackNumber);
+            attackTimer = 0;
+        }
+
+        if(isAttacking == true) {
+            attackTimer += Time.deltaTime;
+
+            if(playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack" + attackNumber)) {
+                attackAnimationLength = playerAnimator.GetCurrentAnimatorStateInfo(0).length;
+            }
+
+            if(attackTimer > attackAnimationLength && attackAnimationLength > 0) {
+                isAttacking = false;
+                attackCollider.enabled = false;
+                attackNumber = 0;
+                attackTimer = 0;
+                attackAnimationLength = 0;
+            }
+        }
     }
 
     void PlayAnimation(string animationName) {
@@ -77,6 +115,10 @@ public abstract class Player : MonoBehaviour {
             playerAnimator.SetTrigger("Jump");
         } else if(animationName == "ReachGround") {
             playerAnimator.SetTrigger("ReachGround");
+        } else if(animationName == "Attack1") {
+            playerAnimator.SetTrigger("Attack1");
+        } else if(animationName == "Attack2") {
+            playerAnimator.SetTrigger("Attack2");
         }
     }
 

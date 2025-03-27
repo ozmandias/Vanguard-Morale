@@ -4,6 +4,8 @@ public class AttackState : StateMachineBehaviour {
     Person mainPerson;
     Info targetInfo;
     float targetDistance;
+    float stateTimer = 0;
+    float stateLength = 0;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
@@ -20,8 +22,19 @@ public class AttackState : StateMachineBehaviour {
         
         targetDistance = Vector3.Distance(mainPerson.personTarget.transform.position, mainPerson.transform.position);
 
-        if(targetDistance > 10f && targetInfo.isDead == false) {
-            mainPerson.ChangeState(StateMachine.Follow);
+        stateTimer += Time.deltaTime;
+
+        if(stateInfo.IsName("Attack")) {
+            stateLength = stateInfo.length;
+        }
+        
+        if(stateTimer > stateLength && stateLength > 0) {
+            stateTimer = 0;
+            stateLength = 0;
+
+            if(targetDistance > 10f && targetInfo.isDead == false) {
+                mainPerson.ChangeState(StateMachine.Follow);
+            }
         }
     }
 

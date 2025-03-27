@@ -48,6 +48,8 @@ ModelImporter:
     100084: mixamorig:Spine1
     100086: mixamorig:Spine2
     100088: Sword
+    100090: left1
+    100092: WeaponHolster
     400000: Cape
     400002: Hero
     400004: //RootNode
@@ -93,6 +95,9 @@ ModelImporter:
     400084: mixamorig:Spine1
     400086: mixamorig:Spine2
     400088: Sword
+    400090: left1
+    400092: WeaponHolster
+    2000000: left1
     2100000: medieval_castle_with_village_mat73
     2100002: medieval_castle_with_village_mat74
     2100004: medieval_castle_with_village_mat75
@@ -104,20 +109,31 @@ ModelImporter:
     2100016: medieval_castle_with_village_mat39
     2100018: medieval_castle_with_village_mat26
     2100020: medieval_castle_with_village_mat55
+    2100022: Gray
     2300000: Cape
     2300002: Sword
+    2300004: WeaponHolster
     3300000: Cape
     3300002: Sword
+    3300004: WeaponHolster
     4300000: Hero
     4300002: Cape
     4300004: Sword
+    4300006: WeaponHolster
     7400000: Idle
     7400002: Run
     7400004: Jump
     7400006: ReachGround
+    7400008: Attack1
+    7400010: Attack2
     9500000: //RootNode
     13700000: Hero
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gray
+    second: {fileID: 2100000, guid: dd4e4bbf63b5c489b8837ae25aca2526, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -203,7 +219,7 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 238
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -230,8 +246,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Run
       takeName: Take 001
-      firstFrame: 240
-      lastFrame: 254
+      firstFrame: 250
+      lastFrame: 264
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -258,8 +274,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Jump
       takeName: Take 001
-      firstFrame: 270
-      lastFrame: 285
+      firstFrame: 280
+      lastFrame: 294
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -286,8 +302,64 @@ ModelImporter:
     - serializedVersion: 16
       name: ReachGround
       takeName: Take 001
-      firstFrame: 285
-      lastFrame: 312
+      firstFrame: 295
+      lastFrame: 322
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack1
+      takeName: Take 001
+      firstFrame: 330
+      lastFrame: 383
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack2
+      takeName: Take 001
+      firstFrame: 390
+      lastFrame: 439
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
