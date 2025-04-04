@@ -9,18 +9,18 @@ public class AttackState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
-        targetInfo = mainPerson.personTarget.GetComponent<Info>();
+        targetInfo = mainPerson.target.GetComponent<Info>();
 
         mainPerson.personAgent.isStopped = true;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Vector3 targetDirection = (mainPerson.personTarget.transform.position - animator.transform.position).normalized;
+        Vector3 targetDirection = (mainPerson.target.transform.position - animator.transform.position).normalized;
         targetDirection.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
         animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, lookRotation, mainPerson.speed * Time.deltaTime);
         
-        targetDistance = Vector3.Distance(mainPerson.personTarget.transform.position, mainPerson.transform.position);
+        targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
 
         stateTimer += Time.deltaTime;
 
@@ -34,6 +34,8 @@ public class AttackState : StateMachineBehaviour {
 
             if(targetDistance > 10f && targetInfo.isDead == false) {
                 mainPerson.ChangeState(StateMachine.Follow);
+            } else {
+                mainPerson.ChangeState(StateMachine.Move);
             }
         }
     }

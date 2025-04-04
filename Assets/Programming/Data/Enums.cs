@@ -26,3 +26,8 @@ public enum PlayerCharacter {
     MasterKnight,
     Hero
 }
+
+public enum Gender {
+    Male,
+    Female
+}

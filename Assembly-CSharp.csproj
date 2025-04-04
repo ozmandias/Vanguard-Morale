@@ -68,6 +68,7 @@
      <Compile Include="Assets\Programming\People\Hero.cs" />
      <Compile Include="Assets\Programming\People\Person.cs" />
      <Compile Include="Assets\Programming\People\PersonInfo.cs" />
+     <Compile Include="Assets\Programming\People\Villager.cs" />
      <Compile Include="Assets\Programming\Physics\RagdollPhysics.cs" />
      <Compile Include="Assets\Programming\Player\Player.cs" />
      <Compile Include="Assets\Programming\StateMachines\AttackState.cs" />

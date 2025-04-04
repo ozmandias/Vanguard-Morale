@@ -220,8 +220,8 @@ GameObject:
   - component: {fileID: 195072185062108792}
   - component: {fileID: 114103562173904958}
   - component: {fileID: 114309286467479336}
-  - component: {fileID: 114496764344235626}
   - component: {fileID: 114408100305164290}
+  - component: {fileID: 114496764344235626}
   m_Layer: 0
   m_Name: EnemyGuard
   m_TagString: Untagged
@@ -1182,7 +1182,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 5, z: 1}
+  m_Size: {x: 1.8, y: 5, z: 1}
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!65 &65832848446547704
 BoxCollider:
@@ -1229,8 +1229,9 @@ MonoBehaviour:
   personAgent: {fileID: 0}
   personInfo: {fileID: 0}
   personDestination: {fileID: 0}
-  personTarget: {fileID: 0}
+  target: {fileID: 0}
   personState: 0
+  attackingTarget: 0
 --- !u!114 &114309286467479336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,6 +1248,7 @@ MonoBehaviour:
   damage: 10
   morality: 40
   alignment: 40
+  gender: 0
   isDead: 0
   personRagdollManager: {fileID: 0}
   personType: 2

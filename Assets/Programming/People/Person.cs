@@ -7,17 +7,14 @@ public abstract class Person : MonoBehaviour {
     public NavMeshAgent personAgent;
     public PersonInfo personInfo;
     public Transform personDestination;
-    public GameObject personTarget;
+    public GameObject target;
     public StateMachine personState = StateMachine.Idle;
+    public bool attackingTarget = false;
 
-    public virtual void Awake() {
+    public virtual void Start() {
         personAnimation = GetComponent<AnimationManager>();
         personAgent = GetComponent<NavMeshAgent>();
         personInfo = GetComponent<PersonInfo>();
-    }
-
-    public virtual void Start() {
-        
     }
 
     public virtual void Update() {
@@ -44,6 +41,15 @@ public abstract class Person : MonoBehaviour {
                 default:
                     break;
             }
+            
+            if(personInfo.personType != PersonType.Neutral) {
+                // FindTarget();
+            }
+        }
+        if(personInfo.isDead == true) {
+            if(Input.GetKeyDown(KeyCode.R)) {
+                Resurrect();
+            }
         }
     }
 
@@ -53,33 +59,52 @@ public abstract class Person : MonoBehaviour {
     public abstract void Work();
     public abstract void Follow();
 
-    bool collision = false;
-    float collisionTimer = 0;
-    void OnCollisionEnter(Collision otherCollision) {
-        if(otherCollision.collider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollision.collider.gameObject.CompareTag("PlayerAttackCollider")) {
-            collisionTimer += Time.deltaTime;
-            if(collision == false && personInfo.isDead == false && collisionTimer > 0.01f) {
-                collision = true;
-                collisionTimer = 0;
-                Info attackCharacterInfo = otherCollision.collider.gameObject.GetComponentInParent<Info>();
-                personInfo.ReduceHealth(attackCharacterInfo.damage);
-                Hurt();
+    /*bool collision = false;
+    float collisionTimer = 0;*/
+    float nextHurtTime = 0;
+    float hitRate = 0.8f /*1f*/;
+    void OnTriggerEnter(Collider otherCollider) {
+        if(otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider")) {
+            // collisionTimer += Time.deltaTime;
+            if(Time.time > nextHurtTime /*collision == false*/ && personInfo.isDead == false /*&& collisionTimer > 0.01f*/) {
+                /*collision = true;
+                collisionTimer = 0;*/
+                nextHurtTime = Time.time + hitRate;
+
+                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+                Hurt(attackCharacterInfo.damage);
             }
         }
     }
-    void OnCollisionExit(Collision otherCollision) {
-        collision = false;
+    void OnTriggerExit(Collider otherCollider) {
+        // collision = false;
     }
 
     public void ChangeState(StateMachine _state) {
         personState = _state;
     }
 
-    public virtual void Hurt() {
-        personAnimation.Play("Hurt");
+    public virtual void SetTarget(GameObject _newTarget) {
+        target = _newTarget;
+    }
+
+    public virtual void FindTarget() {}
+
+    public virtual void Hurt(int hurtAmount) {
+        personAnimation.SetParameter("HurtAmount", hurtAmount);
+        personAnimation.Replay("Hurt");
     }
 
     public virtual void Dead() {
         personAnimation.Play("Dead");
+    }
+
+    public virtual void Resurrect() {
+        personInfo.isDead = false;
+        personInfo.stateMachineDead = false;
+        personAgent.enabled = true;
+        personInfo.AddHealth(personInfo.MaxHealth);
+        personInfo.personRagdollManager.DisableRagdoll();
+        Idle();
     }
 }

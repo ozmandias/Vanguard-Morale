@@ -17,12 +17,14 @@ public class SpawnManager : MonoBehaviour {
     }
 
     void Start() {
-        enemySpawnLocations = new Transform[1];
-        enemySpawnLocations[0] = transform.GetChild(0);
+        enemySpawnLocations = new Transform[transform.childCount /*1*/];
+        for(int i = 0; i < enemySpawnLocations.Length; i = i + 1) {
+            enemySpawnLocations[i /*0*/] = transform.GetChild(i /*0*/);
+        }
     }
 
     void Update() {
-        if(enemyCount < 10) {
+        if(enemyCount < enemySpawnLocations.Length /*10*/) {
             SpawnEnemies();
         }
     }

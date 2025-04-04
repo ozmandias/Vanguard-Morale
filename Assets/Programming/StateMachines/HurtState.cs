@@ -9,6 +9,8 @@ public class HurtState : StateMachineBehaviour {
         mainPerson = animator.gameObject.GetComponent<Person>();
 
         mainPerson.ChangeState(StateMachine.Hurt);
+
+        mainPerson.personInfo.ReduceHealth(animator.GetInteger("HurtAmount"));
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -19,11 +21,12 @@ public class HurtState : StateMachineBehaviour {
         }
 
         if(stateTimer > stateLength && stateLength > 0) {
+            animator.SetInteger("HurtAmount", 0);
             stateTimer = 0;
             stateLength = 0;
 
             if(mainPerson.personInfo.isDead == false) {
-            mainPerson.ChangeState(StateMachine.Attack);
+                mainPerson.ChangeState(StateMachine.Attack);
             } else {
                 mainPerson.ChangeState(StateMachine.Dead);
             }

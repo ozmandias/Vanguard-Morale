@@ -6,6 +6,7 @@ public class Info : MonoBehaviour {
     public int damage;
     public int morality = 50;
     public Morality alignment = Morality.Neutral;
+    public Gender gender = Gender.Male;
     public bool isDead = false;
 
     public virtual void Start() {
@@ -21,6 +22,7 @@ public class Info : MonoBehaviour {
     }
 
     public virtual void ReduceHealth(int damageAmount) {
+        Debug.Log("ReduceHealth");
         health = health - damageAmount;
 
         if(health <= 0) {

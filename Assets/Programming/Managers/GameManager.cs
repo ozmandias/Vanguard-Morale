@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight;
 	public GameObject playerGameObject;
 	public GameObject []playerCharacters;
+	public List<Enemy> enemyList;
+	public List<Person> personList;
 
 	void Awake() {
 		if(instance == null) {
@@ -15,13 +17,12 @@ public class GameManager : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 
-		playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
+		SetPlayer();
 	}
 
 	// Use this for initialization
 	void Start () {
 		HideCursor();
-		SetPlayer();
 	}
 	
 	// Update is called once per frame
@@ -52,5 +53,7 @@ public class GameManager : MonoBehaviour {
 	void SetPlayer() {
 		GameObject.Find("MasterKnight").GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
 		GameObject.Find("Hero").GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
+
+		playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
 	}
 }

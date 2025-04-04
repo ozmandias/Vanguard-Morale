@@ -10,4 +10,18 @@ public class AnimationManager : MonoBehaviour {
     public void Play(string animationName) {
         mainAnimator.Play(animationName);
     }
+
+    public void Replay(string animationName) {
+        mainAnimator.Play("Base Layer." + animationName, 0, 0);
+    }
+
+    public void SetParameter(string parameterName, object value) {
+        switch(parameterName) {
+            case "HurtAmount":
+                mainAnimator.SetInteger(parameterName, (int) value);
+                break;
+            default:
+                break;
+        }
+    }
 }
