@@ -22,7 +22,6 @@ public class Info : MonoBehaviour {
     }
 
     public virtual void ReduceHealth(int damageAmount) {
-        Debug.Log("ReduceHealth");
         health = health - damageAmount;
 
         if(health <= 0) {
