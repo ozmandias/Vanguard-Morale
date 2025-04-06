@@ -4,8 +4,7 @@ public class AttackState : StateMachineBehaviour {
     Person mainPerson;
     Info targetInfo;
     float targetDistance;
-    float stateTimer = 0;
-    float stateLength = 0;
+    float stateTime;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
@@ -22,25 +21,30 @@ public class AttackState : StateMachineBehaviour {
         
         targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
 
-        stateTimer += Time.deltaTime;
-
-        if(stateInfo.IsName("Attack")) {
-            stateLength = stateInfo.length;
+        if(stateTime == 0) {
+            mainPerson.isAttacking = true;
+            mainPerson.attackCollider.enabled = true;
         }
-        
-        if(stateTimer > stateLength && stateLength > 0) {
-            stateTimer = 0;
-            stateLength = 0;
 
-            if(targetDistance > 10f && targetInfo.isDead == false) {
-                mainPerson.ChangeState(StateMachine.Follow);
-            } else {
-                mainPerson.ChangeState(StateMachine.Move);
+        if(mainPerson.isAttacking == true) {
+            stateTime = stateInfo.normalizedTime % 1;
+            if(stateTime > 0.9f) {
+                mainPerson.isAttacking = false;
+                mainPerson.attackCollider.enabled = false;
+                stateTime = 0;
+
+                if(targetDistance > 10f && targetInfo.isDead == false) {
+                    mainPerson.ChangeState(StateMachine.Follow);
+                } else if(targetDistance > 250f || targetInfo.isDead == true) {
+                    mainPerson.ChangeState(StateMachine.Move);
+                }
             }
         }
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-
+        mainPerson.isAttacking = false;
+        mainPerson.attackCollider.enabled = false;
+        stateTime = 0;
     }
 }

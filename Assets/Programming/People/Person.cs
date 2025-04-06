@@ -2,14 +2,21 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class Person : MonoBehaviour {
+    [Header("Move Settings")]
     public float speed = 20f;
+
+    [Header("Attack Settings")]
+    public bool isAttacking = false;
+    public GameObject target;
+    public bool attackingTarget = false;
+    public Collider attackCollider;
+
+    [Header("Person Settings")]
     public AnimationManager personAnimation;
     public NavMeshAgent personAgent;
     public PersonInfo personInfo;
     public Transform personDestination;
-    public GameObject target;
     public StateMachine personState = StateMachine.Idle;
-    public bool attackingTarget = false;
 
     public virtual void Start() {
         personAnimation = GetComponent<AnimationManager>();

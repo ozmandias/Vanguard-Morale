@@ -47,6 +47,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1073449089493104
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4330747736769208}
+  - component: {fileID: 65242538675726138}
+  m_Layer: 0
+  m_Name: EnemyAttackCollider
+  m_TagString: EnemyAttackCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1081186514606670
 GameObject:
   m_ObjectHideFlags: 1
@@ -584,7 +600,8 @@ Transform:
   m_LocalRotation: {x: -0.3385947, y: -0.13164033, z: 0.8889435, w: 0.27893347}
   m_LocalPosition: {x: 0.088968046, y: 0.23746474, z: 0.101607665}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4330747736769208}
   m_Father: {fileID: 4218544016340298}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -628,6 +645,19 @@ Transform:
   m_Father: {fileID: 4167495097005518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4330747736769208
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073449089493104}
+  m_LocalRotation: {x: -0.0034905854, y: 0, z: 0, w: 0.9999939}
+  m_LocalPosition: {x: -0, y: 0.002, z: 0.976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4240139742625782}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.4, y: 0, z: 0}
 --- !u!4 &4345756140857070
 Transform:
   m_ObjectHideFlags: 1
@@ -1172,6 +1202,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.26, z: 0.68}
   m_Center: {x: 0, y: 0.26, z: 0}
+--- !u!65 &65242538675726138
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073449089493104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.2, z: 1.54}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65621774407500444
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1225,13 +1267,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  isAttacking: 0
+  target: {fileID: 0}
+  attackingTarget: 0
+  attackCollider: {fileID: 65242538675726138}
   personAnimation: {fileID: 0}
   personAgent: {fileID: 0}
   personInfo: {fileID: 0}
   personDestination: {fileID: 0}
-  target: {fileID: 0}
   personState: 0
-  attackingTarget: 0
 --- !u!114 &114309286467479336
 MonoBehaviour:
   m_ObjectHideFlags: 1
