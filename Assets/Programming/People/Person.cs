@@ -50,7 +50,7 @@ public abstract class Person : MonoBehaviour {
             }
             
             if(personInfo.personType != PersonType.Neutral) {
-                // FindTarget();
+                FindTarget();
             }
         }
         if(personInfo.isDead == true) {
@@ -65,27 +65,6 @@ public abstract class Person : MonoBehaviour {
     public abstract void Attack();
     public abstract void Work();
     public abstract void Follow();
-
-    /*bool collision = false;
-    float collisionTimer = 0;*/
-    float nextHurtTime = 0;
-    float hitRate = 0.8f /*1f*/;
-    void OnTriggerEnter(Collider otherCollider) {
-        if(otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider")) {
-            // collisionTimer += Time.deltaTime;
-            if(Time.time > nextHurtTime /*collision == false*/ && personInfo.isDead == false /*&& collisionTimer > 0.01f*/) {
-                /*collision = true;
-                collisionTimer = 0;*/
-                nextHurtTime = Time.time + hitRate;
-
-                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
-                Hurt(attackCharacterInfo.damage);
-            }
-        }
-    }
-    void OnTriggerExit(Collider otherCollider) {
-        // collision = false;
-    }
 
     public void ChangeState(StateMachine _state) {
         personState = _state;
@@ -113,5 +92,29 @@ public abstract class Person : MonoBehaviour {
         personInfo.AddHealth(personInfo.MaxHealth);
         personInfo.personRagdollManager.DisableRagdoll();
         Idle();
+    }
+
+    /*bool collision = false;
+    float collisionTimer = 0;*/
+    public float nextHurtTime = 0;
+    public float hitRate = 0.8f /*1f*/;
+    public virtual void OnTriggerEnter(Collider otherCollider) {
+        if(otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider")) {
+            // collisionTimer += Time.deltaTime;
+            if(Time.time > nextHurtTime /*collision == false*/ && personInfo.isDead == false /*&& collisionTimer > 0.01f*/) {
+                /*collision = true;
+                collisionTimer = 0;*/
+                nextHurtTime = Time.time + hitRate;
+
+                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+                Hurt(attackCharacterInfo.damage);
+                if(personInfo.personType == PersonType.Neutral && attackingTarget == false) {
+                    SetTarget(GameManager.instance.playerGameObject);
+                }
+            }
+        }
+    }
+    public virtual void OnTriggerExit(Collider otherCollider) {
+        // collision = false;
     }
 }

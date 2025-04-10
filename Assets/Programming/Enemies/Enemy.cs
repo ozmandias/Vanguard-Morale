@@ -44,16 +44,18 @@ public class Enemy : Person {
             targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
 
             foreach(Person person in GameManager.instance.personList) {
-                targetPersonDistance = Vector3.Distance(person.transform.position, transform.position);
-                if(targetPersonDistance <= 300f) {
-                    targetPerson = person.gameObject;
-                    break;
+                if(person.personInfo.isDead == false) {
+                    targetPersonDistance = Vector3.Distance(person.transform.position, transform.position);
+                    if(targetPersonDistance <= 300f) {
+                        targetPerson = person.gameObject;
+                        break;
+                    }
                 }
             }
 
-            if(targetPlayerDistance < targetPersonDistance && targetPlayerDistance <= 300f) {
+            if((targetPlayerDistance < targetPersonDistance && targetPersonDistance != 0) || (targetPlayerDistance > targetPersonDistance && targetPersonDistance == 0)) {
                 SetTarget(targetPlayer);
-            } else if(targetPersonDistance < targetPlayerDistance && targetPersonDistance <= 300f) {
+            } else if((targetPersonDistance < targetPlayerDistance && targetPlayerDistance != 0) || (targetPersonDistance > targetPlayerDistance && targetPlayerDistance == 0)) {
                 SetTarget(targetPerson);
             }
         }
@@ -71,6 +73,23 @@ public class Enemy : Person {
 
     public override void Resurrect() {
         base.Resurrect();
+
         GameManager.instance.enemyList.Add(this);
+    }
+
+    public override void OnTriggerEnter(Collider otherCollider) {
+        base.OnTriggerEnter(otherCollider);
+
+        if(otherCollider.gameObject.CompareTag("PersonAttackCollider")) {
+            if(Time.time > nextHurtTime && personInfo.isDead == false) {
+                nextHurtTime = Time.time + hitRate;
+
+                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+                Hurt(attackCharacterInfo.damage);
+            }
+        }
+    }
+    public override void OnTriggerExit(Collider otherCollider) {
+        base.OnTriggerExit(otherCollider);
     }
 }

@@ -8,32 +8,38 @@ public class FollowState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
-        targetInfo = mainPerson.target.GetComponent<Info>();
 
         mainPerson.personAgent.isStopped = false;
-        mainPerson.attackingTarget = true;
 
-        targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
-        if(targetDistance > 10f) {
-            nearTarget = false;
-            mainPerson.personAgent.destination = mainPerson.target.transform.position;
-        } else {
-            nearTarget = true;
+        if(mainPerson.target) {
+            mainPerson.attackingTarget = true;
+            targetInfo = mainPerson.target.GetComponent<Info>();
+            
+            targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
+            if(targetDistance > 10f) {
+                nearTarget = false;
+                mainPerson.personAgent.destination = mainPerson.target.transform.position;
+            } else {
+                nearTarget = true;
+            }
         }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
+        if(mainPerson.target) {
+            targetInfo = mainPerson.target.GetComponent<Info>();
+            
+            targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
+            if(targetDistance <= 250f && targetDistance > 10f && targetInfo.isDead == false && nearTarget == false) {
+                mainPerson.personAgent.destination = mainPerson.target.transform.position;
+            } else if(targetDistance <= 10f && targetInfo.isDead == false) {
+                nearTarget = true;
+                mainPerson.ChangeState(StateMachine.Attack);
+            }
 
-        if(targetDistance <= 250f && targetDistance > 10f && targetInfo.isDead == false && nearTarget == false) {
-            mainPerson.personAgent.destination = mainPerson.target.transform.position;
-        } else if(targetDistance <= 10f && targetInfo.isDead == false) {
-            nearTarget = true;
-            mainPerson.ChangeState(StateMachine.Attack);
-        }
-        
-        if(targetDistance > 250f || targetInfo.isDead == true) {
-            mainPerson.ChangeState(StateMachine.Move);
+            if(targetDistance > 250f || targetInfo.isDead == true) {
+                mainPerson.ChangeState(StateMachine.Move);
+            }
         }
     }
 

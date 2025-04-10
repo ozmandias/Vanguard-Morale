@@ -57,6 +57,9 @@
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
      <Compile Include="Assets\Programming\Enemies\Enemy.cs" />
      <Compile Include="Assets\Programming\Enemies\EnemyGuard.cs" />
+     <Compile Include="Assets\Programming\Friends\AllyGuard.cs" />
+     <Compile Include="Assets\Programming\Friends\AllySwordsman.cs" />
+     <Compile Include="Assets\Programming\Friends\Friend.cs" />
      <Compile Include="Assets\Programming\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Programming\Managers\CombatManager.cs" />
      <Compile Include="Assets\Programming\Managers\GameManager.cs" />

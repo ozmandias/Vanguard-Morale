@@ -9,6 +9,7 @@ TagManager:
   - MasterKnightAttackCollider
   - EnemyAttackCollider
   - PlayerAttackCollider
+  - PersonAttackCollider
   layers:
   - Default
   - TransparentFX
