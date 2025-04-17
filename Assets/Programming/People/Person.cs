@@ -13,6 +13,7 @@ public abstract class Person : MonoBehaviour {
 
     [Header("Person Settings")]
     public AnimationManager personAnimation;
+    public CombatManager personCombat;
     public NavMeshAgent personAgent;
     public PersonInfo personInfo;
     public Transform personDestination;
@@ -20,6 +21,7 @@ public abstract class Person : MonoBehaviour {
 
     public virtual void Start() {
         personAnimation = GetComponent<AnimationManager>();
+        personCombat = GetComponent<CombatManager>();
         personAgent = GetComponent<NavMeshAgent>();
         personInfo = GetComponent<PersonInfo>();
     }
@@ -33,14 +35,17 @@ public abstract class Person : MonoBehaviour {
                 case StateMachine.Move:
                     Move();
                     break;
-                case StateMachine.Attack:
-                    Attack();
-                    break;
                 case StateMachine.Work:
                     Work();
                     break;
                 case StateMachine.Follow:
                     Follow();
+                    break;
+                case StateMachine.Attack:
+                    Attack();
+                    break;
+                case StateMachine.Wait:
+                    Wait();
                     break;
                 case StateMachine.Dead:
                     Dead();
@@ -49,8 +54,10 @@ public abstract class Person : MonoBehaviour {
                     break;
             }
             
-            if(personInfo.personType != PersonType.Neutral) {
+            if(personInfo.personType != PersonType.Neutral && attackingTarget == false) {
                 FindTarget();
+                /*SetTarget(GameManager.instance.personList[0].gameObject);
+                AIManager.instance.AgentCircleTarget(personInfo.personType, personAgent, target.transform);*/
             }
         }
         if(personInfo.isDead == true) {
@@ -62,9 +69,10 @@ public abstract class Person : MonoBehaviour {
 
     public abstract void Idle();
     public abstract void Move();
-    public abstract void Attack();
     public abstract void Work();
     public abstract void Follow();
+    public abstract void Attack();
+    public abstract void Wait();
 
     public void ChangeState(StateMachine _state) {
         personState = _state;
@@ -94,21 +102,20 @@ public abstract class Person : MonoBehaviour {
         Idle();
     }
 
-    /*bool collision = false;
-    float collisionTimer = 0;*/
+    bool collision = false;
     public float nextHurtTime = 0;
-    public float hitRate = 0.8f /*1f*/;
+    public float hitRate = 0.5f /*1f*/;
     public virtual void OnTriggerEnter(Collider otherCollider) {
         if(otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider")) {
-            // collisionTimer += Time.deltaTime;
-            if(Time.time > nextHurtTime /*collision == false*/ && personInfo.isDead == false /*&& collisionTimer > 0.01f*/) {
-                /*collision = true;
-                collisionTimer = 0;*/
-                nextHurtTime = Time.time + hitRate;
+            if(/*Time.time > nextHurtTime && collision == false &&*/ personInfo.isDead == false) {
+                /*collision = true;*/
+                Debug.Log("Hit by MasterKnight's Attack!");
+                // nextHurtTime = Time.time + hitRate;
 
                 Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
                 Hurt(attackCharacterInfo.damage);
-                if(personInfo.personType == PersonType.Neutral && attackingTarget == false) {
+                int attackBackRandom = Random.Range(0, 10);
+                if(personInfo.personType == PersonType.Neutral && attackingTarget == false && attackBackRandom >= 5) {
                     SetTarget(GameManager.instance.playerGameObject);
                 }
             }

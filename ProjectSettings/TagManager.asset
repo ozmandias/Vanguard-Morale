@@ -10,6 +10,7 @@ TagManager:
   - EnemyAttackCollider
   - PlayerAttackCollider
   - PersonAttackCollider
+  - SoldierAttackCollider
   layers:
   - Default
   - TransparentFX

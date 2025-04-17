@@ -37,6 +37,7 @@ public class AttackState : StateMachineBehaviour {
                     if(targetDistance > 10f && targetInfo.isDead == false) {
                         mainPerson.ChangeState(StateMachine.Follow);
                     } else if(targetDistance > 250f || targetInfo.isDead == true) {
+                        mainPerson.attackingTarget = false;
                         mainPerson.SetTarget(null);
                         if(mainPerson.personDestination) {
                             mainPerson.ChangeState(StateMachine.Move);

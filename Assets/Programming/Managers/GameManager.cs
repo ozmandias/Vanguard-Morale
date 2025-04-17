@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
+
+	[Header("Player Character")]
 	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight;
 	public GameObject playerGameObject;
 	public GameObject []playerCharacters;
-	public List<Enemy> enemyList;
+
+	[Header("Character Lists")]
+	public List<Friend> soldierList;
 	public List<Person> personList;
+	public List<Enemy> enemyList;
+
+	[Header("Character Destinations")]
+	public Transform soldierDestination;
+	public Transform personDestination;
+	public Transform enemyDestination;
 
 	void Awake() {
 		if(instance == null) {

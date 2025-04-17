@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 65824931850964770}
   - component: {fileID: 114276875199069724}
   - component: {fileID: 114746144370005180}
+  - component: {fileID: 114871142083873576}
   m_Layer: 0
   m_Name: MasterKnight
   m_TagString: Player
@@ -1137,6 +1138,20 @@ MonoBehaviour:
   alignment: 60
   gender: 0
   isDead: 0
+--- !u!114 &114871142083873576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340718563153110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circlingList: []
+  maxCirclingEnemies: 3
+  runAICircling: 0
 --- !u!137 &137661267874159556
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

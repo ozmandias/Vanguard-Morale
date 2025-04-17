@@ -1,21 +1,23 @@
 Master Knight
-Enemy Guard
+Enemy Guard (done)
 Cyber Knight
-Spawn Manager
-Ragdoll Manager
-Game Manager
-People - Villagers, Castle Residents, Hero, Blacksmith, Soldier Trainer, Archer Trainer
+Spawn Manager (done, needs improvements)
+Ragdoll Manager (done, needs improvements)
+Game Manager (done)
+People - Villagers, Castle Residents, Hero, Blacksmith, Soldier Trainer, Archer Trainer, Soldiers (done, needs improvements)
 Horses
 UI
 Dialogues
 Shopping
 Skill Training
-Morality
+Morality (done)
 Arkham Combat
-Battles between Soldiers and Enemies
+Battles between Soldiers and Enemies (done, needs improvements)
 Interactables
 
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero
 Enemy -> Enemy Guard, Cyber Knight
-State Machines -> Move, Find Target, Attack, Work
+State Machines -> Move, Attack, Work, Follow, Idle, Hurt, Dead
+Find Target -> Better targeting (Set target to attacking character)
+AI -> Better reposition near target/destination, Objective at Destination

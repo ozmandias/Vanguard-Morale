@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 114103562173904958}
   - component: {fileID: 114309286467479336}
   - component: {fileID: 114408100305164290}
+  - component: {fileID: 114533354163758070}
   - component: {fileID: 114496764344235626}
   m_Layer: 0
   m_Name: EnemyGuard
@@ -1247,7 +1248,7 @@ Animator:
   m_GameObject: {fileID: 1422175888338986}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b7bdd624bdacd483dbb131af0f1300b9, type: 3}
-  m_Controller: {fileID: 9100000, guid: 16812e833f5114d25841fee2b71cfceb, type: 2}
+  m_Controller: {fileID: 22100000, guid: 125984bc3b7b9408cbd31b5d7e7a27fe, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1272,6 +1273,7 @@ MonoBehaviour:
   attackingTarget: 0
   attackCollider: {fileID: 65242538675726138}
   personAnimation: {fileID: 0}
+  personCombat: {fileID: 0}
   personAgent: {fileID: 0}
   personInfo: {fileID: 0}
   personDestination: {fileID: 0}
@@ -1329,6 +1331,20 @@ MonoBehaviour:
   boneBase: {fileID: 1820666180030466}
   ragdollBodies: []
   ragdollColliders: []
+--- !u!114 &114533354163758070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422175888338986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circlingList: []
+  maxCirclingEnemies: 3
+  runAICircling: 0
 --- !u!135 &135477463764531530
 SphereCollider:
   m_ObjectHideFlags: 1

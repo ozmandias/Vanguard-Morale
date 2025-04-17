@@ -5,6 +5,7 @@ public class Villager : Person {
         base.Start();
 
         GameManager.instance.personList.Add(this);
+        AIManager.instance.personAIList.Add(personAgent);
     }
 
     public override void Idle() {
@@ -12,19 +13,25 @@ public class Villager : Person {
     }
 
     public override void Move() {
+        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
         personAnimation.Play("Move");
+    }
+
+    public override void Work() {
+        personAnimation.Play("Work");
+    }
+
+    public override void Follow() {
+        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
+        personAnimation.Play("Follow");
     }
 
     public override void Attack() {
         personAnimation.Play("Attack");
     }
 
-    public override void Work() {
-
-    }
-
-    public override void Follow() {
-        personAnimation.Play("Follow");
+    public override void Wait() {
+        personAnimation.Play("Wait");
     }
 
     public override void Hurt(int hurtAmount) {
@@ -35,24 +42,27 @@ public class Villager : Person {
         base.Dead();
 
         GameManager.instance.personList.Remove(this);
+        AIManager.instance.personAIList.Remove(personAgent);
     }
 
     public override void Resurrect() {
         base.Resurrect();
 
         GameManager.instance.personList.Add(this);
+        AIManager.instance.personAIList.Add(personAgent);
     }
 
     public override void OnTriggerEnter(Collider otherCollider) {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
-            if(Time.time > nextHurtTime && personInfo.isDead == false){
-                nextHurtTime = Time.time + hitRate;
+            if(/*Time.time > nextHurtTime &&*/ personInfo.isDead == false){
+                // nextHurtTime = Time.time + hitRate;
 
                 Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
                 Hurt(attackCharacterInfo.damage);
-                if(attackingTarget == false) {
+                int attackBackRandom = Random.Range(0, 10);
+                if(attackingTarget == false || attackBackRandom >= 5) {
                     SetTarget(attackCharacterInfo.gameObject);
                 }
             }

@@ -67,7 +67,7 @@ public class MasterKnight : MonoBehaviour {
 			StopAnimation("Run");
 		}
 
-		if(Input.GetKeyDown(KeyCode.Space) && atGround == true && isJumping == false) {
+		if(Input.GetKeyDown(KeyCode.Space) && atGround == true && isJumping == false && isAttacking == false) {
 			// direction.y += jumpForce * Time.deltaTime;
 			isJumping = true;
 			masterKnightBody.AddForce(Vector3.up * jumpForce * forceLevel);
@@ -85,7 +85,7 @@ public class MasterKnight : MonoBehaviour {
 	}
 
 	void Attack() {
-		if(Input.GetKeyDown(KeyCode.Mouse0)) {
+		if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false) {
 			isAttacking = true;
 			attackCollider.enabled = true;
 			attackNumber = attackNumber + 1; /*Random.Range(1,3)*/

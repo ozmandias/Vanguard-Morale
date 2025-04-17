@@ -20,6 +20,9 @@ public class AnimationManager : MonoBehaviour {
             case "HurtAmount":
                 mainAnimator.SetInteger(parameterName, (int) value);
                 break;
+            case "Velocity":
+                mainAnimator.SetFloat(parameterName, (float) value);
+                break;
             default:
                 break;
         }

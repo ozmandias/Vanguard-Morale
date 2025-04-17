@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 65145582559182342}
   - component: {fileID: 114849790815442950}
   - component: {fileID: 114359286020178766}
+  - component: {fileID: 114638475379757874}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -1644,6 +1645,20 @@ MonoBehaviour:
   alignment: 60
   gender: 0
   isDead: 0
+--- !u!114 &114638475379757874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149810568257456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circlingList: []
+  maxCirclingEnemies: 3
+  runAICircling: 0
 --- !u!114 &114849790815442950
 MonoBehaviour:
   m_ObjectHideFlags: 1

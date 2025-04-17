@@ -18,6 +18,7 @@ public enum StateMachine {
     Attack,
     Work,
     Follow,
+    Wait,
     Hurt,
     Dead
 }
@@ -30,4 +31,9 @@ public enum PlayerCharacter {
 public enum Gender {
     Male,
     Female
+}
+
+public enum CircleType {
+    Semicircle,
+    FullCircle
 }

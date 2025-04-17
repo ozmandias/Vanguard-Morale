@@ -240,8 +240,9 @@ GameObject:
   - component: {fileID: 195613332181365770}
   - component: {fileID: 114221847060090814}
   - component: {fileID: 114069835647082260}
-  - component: {fileID: 114125604257743030}
   - component: {fileID: 114222116187569008}
+  - component: {fileID: 114306401919144842}
+  - component: {fileID: 114125604257743030}
   m_Layer: 0
   m_Name: VillagerMale
   m_TagString: Untagged
@@ -1101,7 +1102,7 @@ Animator:
   m_GameObject: {fileID: 1462443266412426}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 43f3a9f93a7734709bbd5e462165689b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 435d6af949617441f9c3cbc9ae93f039, type: 2}
+  m_Controller: {fileID: 22100000, guid: 7cb13cee40406475a939cd462de73fdc, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1165,6 +1166,7 @@ MonoBehaviour:
   attackingTarget: 0
   attackCollider: {fileID: 65823846462550134}
   personAnimation: {fileID: 0}
+  personCombat: {fileID: 0}
   personAgent: {fileID: 0}
   personInfo: {fileID: 0}
   personDestination: {fileID: 0}
@@ -1183,6 +1185,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 0}
+--- !u!114 &114306401919144842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462443266412426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circlingList: []
+  maxCirclingEnemies: 3
+  runAICircling: 0
 --- !u!135 &135635682479572910
 SphereCollider:
   m_ObjectHideFlags: 1

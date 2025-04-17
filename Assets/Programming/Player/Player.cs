@@ -65,7 +65,7 @@ public abstract class Player : MonoBehaviour {
             StopAnimation("Run");
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isJumping == false) {
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isJumping == false && isAttacking == false) {
             isJumping = true;
             playerBody.AddForce(Vector3.up * jumpForce * forceLevel);
             PlayAnimation("Jump");
@@ -82,7 +82,7 @@ public abstract class Player : MonoBehaviour {
     }
 
     public void Attack() {
-        if(Input.GetKeyDown(KeyCode.Mouse0)) {
+        if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false) {
             isAttacking = true;
             attackCollider.enabled = true;
             attackNumber += 1;

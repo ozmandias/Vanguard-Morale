@@ -10,7 +10,6 @@ public class MoveState : StateMachineBehaviour {
         mainPerson = animator.gameObject.GetComponent<Person>();
         
         mainPerson.personAgent.isStopped = false;
-        mainPerson.attackingTarget = false;
 
         if(mainPerson.personDestination) {
             mainPerson.personAgent.destination = mainPerson.personDestination.position;
@@ -29,7 +28,10 @@ public class MoveState : StateMachineBehaviour {
 
         if(mainPerson.personDestination) {
             destinationDistance = Vector3.Distance(mainPerson.personDestination.position, mainPerson.transform.position);
-            if(destinationDistance <= (mainPerson.personAgent.stoppingDistance + 1f) && mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
+            if(destinationDistance <= 100f) {
+                // AIManager.instance.AgentCircleTarget(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.personDestination, CircleType.Semicircle);
+                AIManager.instance.AgentRepositionAtDestination(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.personDestination);
+            }else if(destinationDistance <= (mainPerson.personAgent.stoppingDistance + 1f) && mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
                 mainPerson.ChangeState(StateMachine.Idle);
             }
         }

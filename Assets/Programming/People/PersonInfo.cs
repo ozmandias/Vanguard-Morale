@@ -10,7 +10,7 @@ public class PersonInfo : Info {
         base.Start();
 
         damage = 10;
-        morality = personType == PersonType.Neutral ? 50 : 40;
+        morality = personType == PersonType.Neutral ? 50 : personType == PersonType.Friend ? 60 : 40;
         alignment = (Morality) morality;
 
         personRagdollManager = GetComponent<RagdollManager>();
