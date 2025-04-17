@@ -21,13 +21,14 @@ public class AttackState : StateMachineBehaviour {
             Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
             animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, lookRotation, mainPerson.speed * Time.deltaTime);
 
-            if(stateTime == 0) {
+            stateTime = stateInfo.normalizedTime % 1;
+
+            if(stateTime > 0.1f) {
                 mainPerson.isAttacking = true;
-                mainPerson.attackCollider.enabled = true;
             }
 
             if(mainPerson.isAttacking == true) {
-                stateTime = stateInfo.normalizedTime % 1;
+                mainPerson.attackCollider.enabled = true;
                 if(stateTime > 0.9f) {
                     mainPerson.isAttacking = false;
                     mainPerson.attackCollider.enabled = false;
