@@ -109,9 +109,7 @@ public class Enemy : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("SoldierAttackCollider") || otherCollider.gameObject.CompareTag("PersonAttackCollider")) {
-            if(/*Time.time > nextHurtTime &&*/ personInfo.isDead == false) {
-                // nextHurtTime = Time.time + hitRate;
-
+            if(personInfo.isDead == false) {
                 Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
                 Hurt(attackCharacterInfo.damage);
                 int attackBackRandom = Random.Range(0, 10);

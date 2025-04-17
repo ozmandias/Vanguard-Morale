@@ -104,13 +104,12 @@ public abstract class Person : MonoBehaviour {
 
     bool collision = false;
     public float nextHurtTime = 0;
-    public float hitRate = 0.5f /*1f*/;
+    public float hitRate = 1f;
     public virtual void OnTriggerEnter(Collider otherCollider) {
         if(otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider")) {
-            if(/*Time.time > nextHurtTime && collision == false &&*/ personInfo.isDead == false) {
-                /*collision = true;*/
-                Debug.Log("Hit by MasterKnight's Attack!");
-                // nextHurtTime = Time.time + hitRate;
+            if(/*collision == false && Time.time > nextHurtTime &&*/ personInfo.isDead == false) {
+                /*collision = true;
+                nextHurtTime = Time.time + hitRate;*/
 
                 Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
                 Hurt(attackCharacterInfo.damage);
