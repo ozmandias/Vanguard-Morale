@@ -64,7 +64,9 @@
      <Compile Include="Assets\Programming\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Programming\Managers\CombatManager.cs" />
      <Compile Include="Assets\Programming\Managers\GameManager.cs" />
+     <Compile Include="Assets\Programming\Managers\IntroManager.cs" />
      <Compile Include="Assets\Programming\Managers\RagdollManager.cs" />
+     <Compile Include="Assets\Programming\Managers\SceneManager.cs" />
      <Compile Include="Assets\Programming\Managers\SpawnManager.cs" />
      <Compile Include="Assets\Programming\Managers\UIManager.cs" />
      <Compile Include="Assets\Programming\MasterKnight\MasterKnight.cs" />
@@ -81,8 +83,10 @@
      <Compile Include="Assets\Programming\StateMachines\HurtState.cs" />
      <Compile Include="Assets\Programming\StateMachines\IdleState.cs" />
      <Compile Include="Assets\Programming\StateMachines\MoveState.cs" />
+     <Compile Include="Assets\Programming\StateMachines\StateChanger.cs" />
      <Compile Include="Assets\Programming\StateMachines\WaitState.cs" />
      <Compile Include="Assets\Programming\StateMachines\WorkState.cs" />
+     <Compile Include="Assets\Programming\UI\UIObject.cs" />
      <None Include="Assets\[BFW]SimpleDynamicClouds\Shaders\2DClouds.shader" />
      <None Include="Assets\Design\medieval-castle-with-village\readme.txt" />
      <None Include="Assets\[BFW]SimpleDynamicClouds\ReadMe.txt" />

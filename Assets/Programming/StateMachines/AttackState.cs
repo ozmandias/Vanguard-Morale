@@ -15,6 +15,7 @@ public class AttackState : StateMachineBehaviour {
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if(mainPerson.target) {
             targetInfo = mainPerson.target.GetComponent<Info>();
+            CombatManager targetCombat = mainPerson.target.GetComponent<CombatManager>();
             
             Vector3 targetDirection = (mainPerson.target.transform.position - animator.transform.position).normalized;
             targetDirection.y = 0;
@@ -36,15 +37,13 @@ public class AttackState : StateMachineBehaviour {
 
                     targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
                     if(targetDistance > 10f && targetInfo.isDead == false) {
-                        mainPerson.ChangeState(StateMachine.Follow);
+                        mainPerson.nearTarget = false;
                     } else if(targetDistance > 250f || targetInfo.isDead == true) {
-                        mainPerson.attackingTarget = false;
-                        mainPerson.SetTarget(null);
-                        if(mainPerson.personDestination) {
-                            mainPerson.ChangeState(StateMachine.Move);
-                        } else {
-                            mainPerson.ChangeState(StateMachine.Idle);
+                        if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                            targetCombat.circlingList.Remove(mainPerson.personAgent);
                         }
+                        mainPerson.SetTarget(null);
+                        mainPerson.attackingTarget = false;
                     }
                 }
             }
@@ -53,6 +52,8 @@ public class AttackState : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson.isAttacking = false;
+        mainPerson.attackingTarget = false;
+        mainPerson.nearTarget = false;
         mainPerson.attackCollider.enabled = false;
         stateTime = 0;
     }

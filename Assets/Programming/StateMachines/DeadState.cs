@@ -12,10 +12,10 @@ public class DeadState : StateMachineBehaviour {
                 if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                     targetCombat.circlingList.Remove(mainPerson.personAgent);
                 }
-                mainPerson.SetTarget(null);
             }
-            mainPerson.attackingTarget = false;
             mainPerson.personCombat.circlingList.Clear();
+            mainPerson.SetTarget(null);
+            mainPerson.attackingTarget = false;
             mainPerson.personAgent.enabled = false;
             mainPerson.personInfo.stateMachineDead = true;
             mainPerson.personInfo.personRagdollManager.EnableRagdoll();

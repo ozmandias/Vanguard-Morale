@@ -4,7 +4,7 @@ public class Friend : Person {
     public override void Start() {
         base.Start();
 
-        personDestination = GameManager.instance.soldierDestination /*GameObject.Find("SoldierDestination").transform*/;
+        destination = GameManager.instance.soldierDestination /*GameObject.Find("SoldierDestination").transform*/;
 
         GameManager.instance.soldierList.Add(this);
         AIManager.instance.soldierAIList.Add(personAgent);
@@ -56,8 +56,8 @@ public class Friend : Person {
         }
     }
 
-    public override void Hurt(int hurtAmount) {
-        base.Hurt(hurtAmount);
+    public override void Hurt() {
+        base.Hurt();
     }
 
     public override void Dead() {
@@ -80,9 +80,21 @@ public class Friend : Person {
         if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
             if(personInfo.isDead == false) {
                 Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
-                Hurt(attackCharacterInfo.damage);
+                personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
+                personAnimation.SetParameter("ReduceHealth", true);
+                if(isHurt == true) {
+                    hurtFrames = 0;
+                }
+                isHurt = true;
+
                 int attackBackRandom = Random.Range(0, 10);
-                if(attackingTarget == false || attackBackRandom >= 5) {
+                if(attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) {
+                    if(attackingTarget && attackBackRandom >= 5) {
+                        CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
+                        if(currentTargetCombat.CirclingListContains(personAgent)) {
+                            currentTargetCombat.circlingList.Remove(personAgent);
+                        }
+                    }
                     SetTarget(attackCharacterInfo.gameObject);
                 }
             }

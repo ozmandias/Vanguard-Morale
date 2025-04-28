@@ -11,8 +11,8 @@ public class MoveState : StateMachineBehaviour {
         
         mainPerson.personAgent.isStopped = false;
 
-        if(mainPerson.personDestination) {
-            mainPerson.personAgent.destination = mainPerson.personDestination.position;
+        if(mainPerson.destination) {
+            mainPerson.personAgent.destination = mainPerson.destination.position;
         }
     }
 
@@ -22,17 +22,17 @@ public class MoveState : StateMachineBehaviour {
             
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
             if(targetDistance < destinationDistance && targetDistance <= 250f && targetInfo.isDead == false) {
-                mainPerson.ChangeState(StateMachine.Follow);
+                mainPerson.attackingTarget = true;
             }
         }
 
-        if(mainPerson.personDestination) {
-            destinationDistance = Vector3.Distance(mainPerson.personDestination.position, mainPerson.transform.position);
-            if(destinationDistance <= 100f) {
-                // AIManager.instance.AgentCircleTarget(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.personDestination, CircleType.Semicircle);
-                AIManager.instance.AgentRepositionAtDestination(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.personDestination);
-            }else if(destinationDistance <= (mainPerson.personAgent.stoppingDistance + 1f) && mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
-                mainPerson.ChangeState(StateMachine.Idle);
+        if(mainPerson.destination) {
+            destinationDistance = Vector3.Distance(mainPerson.destination.position, mainPerson.transform.position);
+            if(destinationDistance <= 100f && destinationDistance > (AIManager.instance.DistanceAroundDestination + 1f)) {
+                // AIManager.instance.AgentCircleTarget(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.destination, CircleType.Semicircle);
+                AIManager.instance.AgentRepositionAtDestination(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.destination);
+            }else if(destinationDistance <= (AIManager.instance.DistanceAroundDestination /*mainPerson.personAgent.stoppingDistance*/ + 1f) && mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
+                mainPerson.reachDestination = true;
             }
         }
     }

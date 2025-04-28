@@ -5,23 +5,18 @@ public class IdleState : StateMachineBehaviour {
     Info targetInfo;
     float destinationDistance;
     float targetDistance;
-    public bool reachDestination = false;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
   
         mainPerson.personAgent.isStopped = true;
 
-        if(mainPerson.personDestination) {
-            destinationDistance = Vector3.Distance(mainPerson.personDestination.position, mainPerson.transform.position);
-            if(destinationDistance <= (mainPerson.personAgent.stoppingDistance + 1f) && mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
-                reachDestination = true;
+        if(mainPerson.destination) {
+            destinationDistance = Vector3.Distance(mainPerson.destination.position, mainPerson.transform.position);
+            if(destinationDistance <= (AIManager.instance.DistanceAroundDestination /*mainPerson.personAgent.stoppingDistance*/ + 1f) && mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
+                mainPerson.reachDestination = true;
             } else {
-                reachDestination = false;
-            }
-
-            if(reachDestination == false) {
-                mainPerson.ChangeState(StateMachine.Move);
+                mainPerson.reachDestination = false;
             }
         }
     }
@@ -32,8 +27,8 @@ public class IdleState : StateMachineBehaviour {
             
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
             if(targetDistance <= 250f && targetInfo.isDead == false) {
-                reachDestination = false;
-                mainPerson.ChangeState(StateMachine.Follow);
+                mainPerson.reachDestination = false;
+                mainPerson.attackingTarget = true;
             }
         }
     }

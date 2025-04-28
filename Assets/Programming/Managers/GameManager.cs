@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
 	public Transform personDestination;
 	public Transform enemyDestination;
 
+	[Header("Game Manager Settings")]
+	public bool isPaused = false;
+
 	void Awake() {
 		if(instance == null) {
 			instance = this;
@@ -37,24 +40,45 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		ToggleCursor();
+		PauseOrResume();
 	}
 
-	void ToggleCursor() {
+	void PauseOrResume() {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
-			if(Cursor.visible) {
-				HideCursor();
+			if(UIManager.instance.quitPanel.activeSelf == false) {
+				ToggleCursor();
+				if(isPaused == false) {
+					PauseGame();
+				} else {
+					ResumeGame();
+				}
 			} else {
-				ShowCursor();
+				UIManager.instance.HideQuitPanel();
 			}
 		}
 	}
+	public void PauseGame() {
+		isPaused = true;
+		UIManager.instance.ShowPausePanel();
+		ShowCursor();
+	}
+	public void ResumeGame() {
+		isPaused = false;
+		UIManager.instance.HidePausePanel();
+		HideCursor();
+	}
 
+	void ToggleCursor() {
+		if(Cursor.visible) {
+			HideCursor();
+		} else {
+			ShowCursor();
+		}
+	}
 	void ShowCursor() {
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
 	}
-	
 	void HideCursor() {
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;

@@ -165,12 +165,12 @@ public class AIManager : MonoBehaviour {
         if(GUI.Button(new Rect(10, 80, 150, 50), "AI To Destination")) {
             Debug.Log("soldierDestination - tansform.forward: " + GameManager.instance.soldierDestination.forward);
             foreach(Friend soldier in GameManager.instance.soldierList) {
-                AIManager.instance.AgentRepositionAtDestination(soldier.personInfo.personType, soldier.personAgent, soldier.personDestination);
+                AIManager.instance.AgentRepositionAtDestination(soldier.personInfo.personType, soldier.personAgent, soldier.destination);
             }
 
             Debug.Log("enemyDestination - transform.forward: " + GameManager.instance.enemyDestination.forward);
             foreach(Enemy enemy in GameManager.instance.enemyList) {
-                AIManager.instance.AgentRepositionAtDestination(enemy.personInfo.personType, enemy.personAgent, enemy.personDestination);
+                AIManager.instance.AgentRepositionAtDestination(enemy.personInfo.personType, enemy.personAgent, enemy.destination);
             }
         }
     }

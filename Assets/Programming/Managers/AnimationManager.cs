@@ -11,8 +11,8 @@ public class AnimationManager : MonoBehaviour {
         mainAnimator.Play(animationName);
     }
 
-    public void Replay(string animationName) {
-        mainAnimator.Play("Base Layer." + animationName, 0, 0);
+    public void PlayByFrame(string animationName, float normalizedTime) {
+        mainAnimator.Play("Base Layer." + animationName, 0, normalizedTime);
     }
 
     public void SetParameter(string parameterName, object value) {
@@ -22,6 +22,9 @@ public class AnimationManager : MonoBehaviour {
                 break;
             case "Velocity":
                 mainAnimator.SetFloat(parameterName, (float) value);
+                break;
+            case "ReduceHealth":
+                mainAnimator.SetBool(parameterName, (bool) value);
                 break;
             default:
                 break;

@@ -37,3 +37,10 @@ public enum CircleType {
     Semicircle,
     FullCircle
 }
+
+public enum UIType {
+    MainMenu,
+    Game,
+    Shop,
+    Skill
+}

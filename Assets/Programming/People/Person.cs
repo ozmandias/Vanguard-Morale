@@ -4,11 +4,11 @@ using UnityEngine.AI;
 public abstract class Person : MonoBehaviour {
     [Header("Move Settings")]
     public float speed = 20f;
+    public Transform destination;
 
     [Header("Attack Settings")]
     public bool isAttacking = false;
     public GameObject target;
-    public bool attackingTarget = false;
     public Collider attackCollider;
 
     [Header("Person Settings")]
@@ -16,8 +16,17 @@ public abstract class Person : MonoBehaviour {
     public CombatManager personCombat;
     public NavMeshAgent personAgent;
     public PersonInfo personInfo;
-    public Transform personDestination;
+
+    [Header("Animation Settings")]
+    public float hurtFrames = 0;
+
+    [Header("State Machine Settings")]
     public StateMachine personState = StateMachine.Idle;
+    public bool reachDestination = false;
+    public bool attackingTarget = false;
+    public bool nearTarget = false;
+    public bool isHurt = false;
+
 
     public virtual void Start() {
         personAnimation = GetComponent<AnimationManager>();
@@ -44,6 +53,9 @@ public abstract class Person : MonoBehaviour {
                 case StateMachine.Attack:
                     Attack();
                     break;
+                case StateMachine.Hurt:
+                    Hurt();
+                    break;
                 case StateMachine.Wait:
                     Wait();
                     break;
@@ -56,8 +68,6 @@ public abstract class Person : MonoBehaviour {
             
             if(personInfo.personType != PersonType.Neutral && attackingTarget == false) {
                 FindTarget();
-                /*SetTarget(GameManager.instance.personList[0].gameObject);
-                AIManager.instance.AgentCircleTarget(personInfo.personType, personAgent, target.transform);*/
             }
         }
         if(personInfo.isDead == true) {
@@ -84,9 +94,11 @@ public abstract class Person : MonoBehaviour {
 
     public virtual void FindTarget() {}
 
-    public virtual void Hurt(int hurtAmount) {
-        personAnimation.SetParameter("HurtAmount", hurtAmount);
-        personAnimation.Replay("Hurt");
+    public virtual void Hurt() {
+        hurtFrames += Time.deltaTime;
+        if(hurtFrames < 1) {
+            personAnimation.PlayByFrame("Hurt", hurtFrames);
+        }
     }
 
     public virtual void Dead() {
@@ -103,8 +115,8 @@ public abstract class Person : MonoBehaviour {
     }
 
     bool collision = false;
-    public float nextHurtTime = 0;
-    public float hitRate = 1f;
+    float nextHurtTime = 0;
+    float hitRate = 1f;
     public virtual void OnTriggerEnter(Collider otherCollider) {
         if(otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider")) {
             if(/*collision == false && Time.time > nextHurtTime &&*/ personInfo.isDead == false) {
@@ -112,9 +124,21 @@ public abstract class Person : MonoBehaviour {
                 nextHurtTime = Time.time + hitRate;*/
 
                 Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
-                Hurt(attackCharacterInfo.damage);
+                personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
+                personAnimation.SetParameter("ReduceHealth", true);
+                if(isHurt == true) {
+                    hurtFrames = 0;
+                }
+                isHurt = true;
+
                 int attackBackRandom = Random.Range(0, 10);
-                if(personInfo.personType == PersonType.Neutral && attackingTarget == false && attackBackRandom >= 5) {
+                if((personInfo.personType != PersonType.Friend && attackingTarget == false) || (attackingTarget && attackBackRandom >= 5)) {
+                    if(attackingTarget && attackBackRandom >= 5) {
+                        CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
+                        if(currentTargetCombat.CirclingListContains(personAgent)) {
+                            currentTargetCombat.circlingList.Remove(personAgent);
+                        }
+                    }
                     SetTarget(GameManager.instance.playerGameObject);
                 }
             }
