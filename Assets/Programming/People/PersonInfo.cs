@@ -9,7 +9,6 @@ public class PersonInfo : Info {
     public override void Start() {
         base.Start();
 
-        InfoAttackCollider = GetComponent<Person>().attackCollider;
         damage = 10;
         morality = personType == PersonType.Neutral ? 50 : personType == PersonType.Friend ? 60 : 40;
         alignment = (Morality) morality;
