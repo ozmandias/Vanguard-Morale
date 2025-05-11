@@ -6,6 +6,7 @@ public class HurtState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
+
         if(animator.GetBool("ReduceHealth") == true) {
             animator.SetBool("ReduceHealth", false);
             mainPerson.personInfo.ReduceHealth(animator.GetInteger("HurtAmount"));

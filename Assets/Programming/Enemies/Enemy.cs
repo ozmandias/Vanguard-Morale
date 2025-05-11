@@ -109,8 +109,8 @@ public class Enemy : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("SoldierAttackCollider") || otherCollider.gameObject.CompareTag("PersonAttackCollider")) {
-            if(personInfo.isDead == false) {
-                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+            if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
                 if(isHurt == true) {

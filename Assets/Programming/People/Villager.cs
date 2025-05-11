@@ -56,8 +56,8 @@ public class Villager : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
-            if(personInfo.isDead == false){
-                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+            if(personInfo.isDead == false && attackCharacterInfo.isDead == false){
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
                 if(isHurt == true) {
