@@ -135,8 +135,8 @@ public class MasterKnight : MonoBehaviour {
 		StartCoroutine(CheckGroundCoroutine());
 	}
 
-	void OnCollisionEnter(Collision otherCollision) {
-		// if(otherCollision.collider.gameObject.CompareTag("")) {
+	void OnTriggerEnter(Collider otherCollider) {
+		// if(otherCollider.gameObject.CompareTag("")) {
 		// }
 	}
 
