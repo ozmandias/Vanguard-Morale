@@ -152,7 +152,7 @@ public class AIManager : MonoBehaviour {
     }
 
     void OnGUI() {
-        if(GUI.Button(new Rect(10, 10, 150, 50), "AI To Target")) {
+        /*if(GUI.Button(new Rect(10, 10, 150, 50), "AI To Target")) {
             foreach(Friend soldier in GameManager.instance.soldierList) {
                 if(soldier.target) AIManager.instance.AgentCircleTarget(soldier.personInfo.personType, soldier.personAgent, soldier.target.transform, CircleType.Semicircle);
             }
@@ -172,6 +172,6 @@ public class AIManager : MonoBehaviour {
             foreach(Enemy enemy in GameManager.instance.enemyList) {
                 AIManager.instance.AgentRepositionAtDestination(enemy.personInfo.personType, enemy.personAgent, enemy.destination);
             }
-        }
+        }*/
     }
 }

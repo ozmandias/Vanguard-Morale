@@ -8,6 +8,10 @@ public class MasterKnightInfo : Info {
         alignment = (Morality) morality;
     }
 
+    public override void Update() {
+        PlayerProfileController.instance.SetHealth(health);
+    }
+
     public override void ReduceHealth(int damageAmount) {
         base.ReduceHealth(damageAmount);
     }

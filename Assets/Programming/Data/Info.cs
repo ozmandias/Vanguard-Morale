@@ -13,6 +13,8 @@ public class Info : MonoBehaviour {
         health = MaxHealth;
     }
 
+    public virtual void Update() {}
+
     public virtual void AddHealth(int healthAmount) {
         health += healthAmount;
 

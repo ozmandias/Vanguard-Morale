@@ -51,9 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\TrueClouds\Scripts\Editor\CloudCameraEditor.cs" />
-     <Compile Include="Assets\TrueClouds\Scripts\Editor\NoiseGenerator.cs" />
-     <Compile Include="Assets\TrueClouds\Scripts\Editor\TrueCloudsReadonlyDrawer.cs" />
+     <Compile Include="Assets\YounGen Tech\Health Script\Editor\HealthInspector.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>

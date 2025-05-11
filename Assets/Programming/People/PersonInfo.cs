@@ -16,6 +16,8 @@ public class PersonInfo : Info {
         personRagdollManager = GetComponent<RagdollManager>();
     }
 
+    public override void Update() {}
+
     public override void ReduceHealth(int damageAmount) {
         base.ReduceHealth(damageAmount);
 

@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 54798511970912532}
   - component: {fileID: 65145582559182342}
   - component: {fileID: 114849790815442950}
-  - component: {fileID: 114359286020178766}
+  - component: {fileID: 114981989807058894}
   - component: {fileID: 114638475379757874}
   m_Layer: 0
   m_Name: Hero
@@ -1627,24 +1627,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114359286020178766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1149810568257456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73528f33a2bea48b38b07e0b5d0b0b50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  MaxHealth: 100
-  damage: 30
-  morality: 60
-  alignment: 60
-  gender: 0
-  isDead: 0
 --- !u!114 &114638475379757874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1686,6 +1668,24 @@ MonoBehaviour:
   playerAnimator: {fileID: 0}
   playerCamera: {fileID: 0}
   playerInfo: {fileID: 0}
+--- !u!114 &114981989807058894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149810568257456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcd90325aedc4663b47c05936e717d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  MaxHealth: 100
+  damage: 50
+  morality: 60
+  alignment: 60
+  gender: 0
+  isDead: 0
 --- !u!137 &137687708027835782
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

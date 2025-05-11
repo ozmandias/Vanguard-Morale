@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void SetPlayer() {
+		currentPlayer = CharacterSelectController.instance.characterDetails.character;
+
 		GameObject.Find("MasterKnight").GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
 		GameObject.Find("Hero").GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
 

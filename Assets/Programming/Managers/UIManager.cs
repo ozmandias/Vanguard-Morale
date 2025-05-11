@@ -14,13 +14,17 @@ public class UIManager : MonoBehaviour {
     public UIType uiType; 
     GameObject currentUI;
 
+    public bool hasUIChanges = false;
+
+    [Header("MainMenu  UI")]
     public GameObject mainMenuPanel;
-    public GameObject pausePanel;
-    public GameObject quitPanel;
+    public GameObject characterSelectPanel;
     public GameObject fadePanel;
     public GameObject exitPanel;
-
-    public bool hasUIChanges = false;
+    
+    [Header("Game UI")]
+    public GameObject pausePanel;
+    public GameObject quitPanel;
 
     void Awake() {
         if(instance == null) {
@@ -89,6 +93,16 @@ public class UIManager : MonoBehaviour {
         }
         public void HideMainMenuPanel() {
             mainMenuPanel.SetActive(false);
+        }
+
+
+        public void ShowCharacterSelectPanel() {
+            mainMenuPanel.SetActive(false);
+            characterSelectPanel.SetActive(true);
+        }
+        public void HideCharacterSelectPanel() {
+            mainMenuPanel.SetActive(true);
+            characterSelectPanel.SetActive(false);
         }
 
 
