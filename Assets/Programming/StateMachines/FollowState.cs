@@ -5,51 +5,43 @@ using UnityEngine;
 public class FollowState : StateMachineBehaviour {
     Person mainPerson;
     Info targetInfo;
+    CombatManager targetCombat;
     float targetDistance;
+
+    public float followDistance = 250f;
+    public float circleDistance = 100f;
+    public float nearDistance = 10f;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
 
         mainPerson.personAgent.isStopped = false;
-
-        if(mainPerson.target) {
-            mainPerson.attackingTarget = true;
-            targetInfo = mainPerson.target.GetComponent<Info>();
-            
-            targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
-            if(targetDistance > 10f) {
-                mainPerson.nearTarget = false;
-                mainPerson.personAgent.destination = mainPerson.target.transform.position;
-            } else {
-                mainPerson.nearTarget = true;
-            }
-        }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if(mainPerson.target) {
             targetInfo = mainPerson.target.GetComponent<Info>();
-            CombatManager targetCombat = mainPerson.target.GetComponent<CombatManager>();
-            
+            targetCombat = mainPerson.target.GetComponent<CombatManager>();
+
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
-            if(targetDistance <= 250f && targetDistance > 100f && targetInfo.isDead == false && mainPerson.nearTarget == false) {
+            if(targetDistance <= followDistance && targetDistance > circleDistance && targetInfo.isDead == false) {
                 mainPerson.personAgent.destination = mainPerson.target.transform.position;
-            } else if(targetDistance <= 100f && targetDistance > 10f && targetInfo.isDead == false && mainPerson.nearTarget == false) {
-                if(targetCombat.IsCirclingListFull() == false && targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetInfo.isDead == false) {
+            } else if(targetDistance <= circleDistance && targetDistance > nearDistance && targetInfo.isDead == false) {
+                if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull() == false) {
                     targetCombat.circlingList.Add(mainPerson.personAgent);
-                }
-                
-                if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
-                    AIManager.instance.AgentCircleTarget(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.target.transform, CircleType.Semicircle);
-                } else if(targetCombat.IsCirclingListFull()) {
+                } else if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull()) {
                     mainPerson.SetTarget(null);
                     mainPerson.attackingTarget = false;
+                    return;
                 }
-            } else if(targetDistance <= 10f && targetInfo.isDead == false) {
-                mainPerson.nearTarget = true;
-            }
 
-            if(targetDistance > 250f || targetInfo.isDead == true) {
+                if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                    AIManager.instance.AgentCircleTarget(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.target.transform, CircleType.Semicircle);
+                }
+            } else if(targetDistance <= nearDistance && targetInfo.isDead == false) {
+                mainPerson.personAgent.velocity = Vector3.zero;
+                mainPerson.nearTarget = true;
+            } else if(targetDistance > followDistance || targetInfo.isDead == true) {
                 if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                     targetCombat.circlingList.Remove(mainPerson.personAgent);
                 }

@@ -15,76 +15,23 @@ public class Enemy : Person {
     }
 
     public override void Idle() {
-        personAnimation.Play("Idle");
+        base.Idle();
     }
 
     public override void Move() {
-        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
-        personAnimation.Play("Move");
+        base.Move();
     }
 
     public override void Work() {
-        personAnimation.Play("Work");
+        base.Work();
     }
 
     public override void Follow() {
-        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
-        personAnimation.Play("Follow");
+        base.Follow();
     }
 
     public override void Attack() {
-        personAnimation.Play("Attack");
-    }
-
-    public override void Wait() {
-        personAnimation.Play("Wait");
-    }
-
-    public override void FindTarget() {
-        float targetPlayerDistance = 0;
-        float targetSoldierDistance = 0;
-        float targetPersonDistance = 0;
-        GameObject targetPlayer = GameManager.instance.playerGameObject;
-        GameObject targetSoldier = null;
-        GameObject targetPerson = null;
-
-        CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
-        if(playerCombat.IsCirclingListFull() == false) {
-            targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
-        } else {
-            targetPlayerDistance = 0;
-            targetPlayer = null;
-        }
-
-        foreach(Friend soldier in GameManager.instance.soldierList) {
-            CombatManager soldierCombat = soldier.GetComponent<CombatManager>();
-            if(soldier.personInfo.isDead == false && soldierCombat.IsCirclingListFull() == false) {
-                targetSoldierDistance = Vector3.Distance(soldier.transform.position, transform.position);
-                if(targetSoldierDistance <= 300f) {
-                    targetSoldier = soldier.gameObject;
-                    break;
-                }
-            }
-        }
-
-        foreach(Person person in GameManager.instance.personList) {
-            CombatManager personCombat = person.GetComponent<CombatManager>();
-            if(person.personInfo.isDead == false && personCombat.IsCirclingListFull() == false) {
-                targetPersonDistance = Vector3.Distance(person.transform.position, transform.position);
-                if(targetPersonDistance <= 300f) {
-                    targetPerson = person.gameObject;
-                    break;
-                }
-            }
-        }
-
-        if(((targetPlayerDistance < targetSoldierDistance && targetSoldierDistance != 0) || (targetPlayerDistance > targetSoldierDistance && targetSoldierDistance == 0)) && ((targetPlayerDistance < targetPersonDistance && targetPersonDistance != 0) || (targetPlayerDistance > targetPersonDistance && targetPersonDistance == 0))) {
-            SetTarget(targetPlayer);
-        } else if((targetSoldierDistance < targetPlayerDistance && targetPlayerDistance != 0) || (targetSoldierDistance > targetPlayerDistance && targetPlayerDistance == 0) && ((targetSoldierDistance < targetPersonDistance && targetPersonDistance != 0) || (targetSoldierDistance > targetPersonDistance && targetPersonDistance == 0))) {
-            SetTarget(targetSoldier);
-        } else if(((targetPersonDistance < targetPlayerDistance && targetPlayerDistance != 0) || (targetPersonDistance > targetPlayerDistance && targetPlayerDistance == 0)) && ((targetPersonDistance < targetSoldierDistance && targetSoldierDistance != 0) || (targetPersonDistance > targetSoldierDistance && targetSoldierDistance == 0))) {
-            SetTarget(targetPerson);
-        }
+        base.Attack();
     }
 
     public override void Hurt() {
@@ -105,6 +52,86 @@ public class Enemy : Person {
         AIManager.instance.enemyAIList.Add(personAgent);
     }
 
+    public override void FindTarget() {
+        /*float targetPlayerDistance = 0;
+        float targetSoldierDistance = 0;
+        float targetPersonDistance = 0;*/
+        GameObject targetPlayer = GameManager.instance.playerGameObject;
+        GameObject targetSoldier = null;
+        GameObject targetPerson = null;
+        List<GameObject> targetList = new List<GameObject>();
+        float nearestDistance = float.MaxValue;
+        NavMeshPath path = new NavMeshPath();
+
+        CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
+        if(playerCombat.IsCirclingListFull() == false) {
+            if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit)) {
+                // targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
+                targetList.Add(targetPlayer);
+            } else {
+                // targetPlayerDistance = 0;
+                targetPlayer = null;
+            }
+        }
+
+        foreach(Friend soldier in GameManager.instance.soldierList) {
+            CombatManager soldierCombat = soldier.GetComponent<CombatManager>();
+            if(soldier.personInfo.isDead == false && soldierCombat.IsCirclingListFull() == false) {
+                /*targetSoldierDistance = Vector3.Distance(soldier.transform.position, transform.position);
+                if(targetSoldierDistance <= 300f) {
+                    targetSoldier = soldier.gameObject;
+                    break;
+                }*/
+
+                if(!personAgent.Raycast(soldier.transform.position, out personNavMeshHit)) {
+                    targetSoldier = soldier.gameObject;
+                    targetList.Add(targetSoldier);
+                    break;
+                }
+            }
+        }
+
+        foreach(Person person in GameManager.instance.personList) {
+            CombatManager personCombat = person.GetComponent<CombatManager>();
+            if(person.personInfo.isDead == false && personCombat.IsCirclingListFull() == false) {
+                /*targetPersonDistance = Vector3.Distance(person.transform.position, transform.position);
+                if(targetPersonDistance <= 300f) {
+                    targetPerson = person.gameObject;
+                    break;
+                }*/
+
+                if(!personAgent.Raycast(person.transform.position, out personNavMeshHit)) {
+                    targetPerson = person.gameObject;
+                    targetList.Add(targetPerson);
+                    break;
+                }
+            }
+        }
+
+        /*if(((targetPlayerDistance < targetSoldierDistance && targetSoldierDistance != 0) || (targetPlayerDistance > targetSoldierDistance && targetSoldierDistance == 0)) && ((targetPlayerDistance < targetPersonDistance && targetPersonDistance != 0) || (targetPlayerDistance > targetPersonDistance && targetPersonDistance == 0))) {
+            SetTarget(targetPlayer);
+        } else if((targetSoldierDistance < targetPlayerDistance && targetPlayerDistance != 0) || (targetSoldierDistance > targetPlayerDistance && targetPlayerDistance == 0) && ((targetSoldierDistance < targetPersonDistance && targetPersonDistance != 0) || (targetSoldierDistance > targetPersonDistance && targetPersonDistance == 0))) {
+            SetTarget(targetSoldier);
+        } else if(((targetPersonDistance < targetPlayerDistance && targetPlayerDistance != 0) || (targetPersonDistance > targetPlayerDistance && targetPlayerDistance == 0)) && ((targetPersonDistance < targetSoldierDistance && targetSoldierDistance != 0) || (targetPersonDistance > targetSoldierDistance && targetSoldierDistance == 0))) {
+            SetTarget(targetPerson);
+        }*/
+
+        foreach(GameObject target in targetList) {
+            if(NavMesh.CalculatePath(transform.position, target.transform.position, personAgent.areaMask, path)) {
+                float targetDistance = Vector3.Distance(transform.position, path.corners[0]);
+                for(int i = 1; i < path.corners.Length; i = i + 1) {
+                    targetDistance += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+                }
+
+                if(targetDistance < nearestDistance) {
+                    nearestDistance = targetDistance;
+                    SetTarget(target);
+                }
+            }
+        }
+        targetList.Clear();
+    }
+
     public override void OnTriggerEnter(Collider otherCollider) {
         base.OnTriggerEnter(otherCollider);
 
@@ -120,11 +147,9 @@ public class Enemy : Person {
 
                 int attackBackRandom = Random.Range(0, 10);
                 if(attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) {
-                    if(attackingTarget && attackBackRandom >= 5) {
-                        CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                        if(currentTargetCombat.CirclingListContains(personAgent)) {
-                            currentTargetCombat.circlingList.Remove(personAgent);
-                        }
+                    CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
+                    if(currentTargetCombat.CirclingListContains(personAgent)) {
+                        currentTargetCombat.circlingList.Remove(personAgent);
                     }
                     SetTarget(attackCharacterInfo.gameObject);
                 }

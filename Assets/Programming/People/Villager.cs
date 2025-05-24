@@ -9,29 +9,23 @@ public class Villager : Person {
     }
 
     public override void Idle() {
-        personAnimation.Play("Idle");
+        base.Idle();
     }
 
     public override void Move() {
-        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
-        personAnimation.Play("Move");
+        base.Move();
     }
 
     public override void Work() {
-        personAnimation.Play("Work");
+        base.Work();
     }
 
     public override void Follow() {
-        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
-        personAnimation.Play("Follow");
+        base.Follow();
     }
 
     public override void Attack() {
-        personAnimation.Play("Attack");
-    }
-
-    public override void Wait() {
-        personAnimation.Play("Wait");
+        base.Attack();
     }
 
     public override void Hurt() {

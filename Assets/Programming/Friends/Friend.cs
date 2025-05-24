@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Friend : Person {
     public override void Start() {
@@ -11,49 +14,23 @@ public class Friend : Person {
     }
 
     public override void Idle() {
-        personAnimation.Play("Idle");
+        base.Idle();
     }
 
     public override void Move() {
-        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
-        personAnimation.Play("Move");
+        base.Move();
     }
 
     public override void Work() {
-        personAnimation.Play("Work");
+        base.Work();
     }
 
     public override void Follow() {
-        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
-        personAnimation.Play("Follow");
+        base.Follow();
     }
 
     public override void Attack() {
-        personAnimation.Play("Attack");
-    }
-
-    public override void Wait() {
-        personAnimation.Play("Wait");
-    }
-
-    public override void FindTarget() {
-        float targetEnemyDistance = 0;
-        GameObject targetEnemy = null;
-
-        foreach(Enemy enemy in GameManager.instance.enemyList) {
-            CombatManager enemyCombat = enemy.GetComponent<CombatManager>();
-            if(enemy.personInfo.isDead == false && enemyCombat.IsCirclingListFull() == false) {
-                targetEnemyDistance = Vector3.Distance(enemy.transform.position, transform.position);
-                if(targetEnemyDistance <= 300f) {
-                    targetEnemy = enemy.gameObject;
-                    break;
-                }
-            }
-        }
-
-        if(targetEnemyDistance != 0) {
-            SetTarget(targetEnemy);
-        }
+        base.Attack();
     }
 
     public override void Hurt() {
@@ -74,6 +51,54 @@ public class Friend : Person {
         AIManager.instance.soldierAIList.Add(personAgent);
     }
 
+    public override void FindTarget() {
+        float targetEnemyDistance = 0;
+        GameObject targetEnemy = null;
+        List<GameObject> targetList = new List<GameObject>();
+        float nearestDistance = float.MaxValue;
+        NavMeshPath path = new NavMeshPath();
+
+        foreach(Enemy enemy in GameManager.instance.enemyList) {
+            CombatManager enemyCombat = enemy.GetComponent<CombatManager>();
+            if(enemy.personInfo.isDead == false && enemyCombat.IsCirclingListFull() == false) {
+                /*targetEnemyDistance = Vector3.Distance(enemy.transform.position, transform.position);
+                if(targetEnemyDistance <= 300f) {
+                    targetEnemy = enemy.gameObject;
+                    break;
+                }*/
+
+                if(!personAgent.Raycast(enemy.transform.position, out personNavMeshHit)) {
+                    targetEnemy = enemy.gameObject;
+                    targetList.Add(targetEnemy);
+                    break;
+                }
+            }
+        }
+
+        /*if(targetEnemyDistance != 0) {
+            SetTarget(targetEnemy);
+        }*/
+
+        /*if(targetEnemy) {
+            SetTarget(targetEnemy);
+        }*/
+
+        foreach(GameObject target in targetList) {
+            if(NavMesh.CalculatePath(transform.position, target.transform.position, personAgent.areaMask, path)) {
+                float targetDistance = Vector3.Distance(transform.position, path.corners[0]);
+                for(int i = 1; i < path.corners.Length; i = i + 1) {
+                    targetDistance += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+                }
+
+                if(targetDistance < nearestDistance) {
+                    nearestDistance = targetDistance;
+                    SetTarget(target);
+                }
+            }
+        }
+        targetList.Clear();
+    }
+
     public override void OnTriggerEnter(Collider otherCollider) {
         base.OnTriggerEnter(otherCollider);
 
@@ -89,11 +114,9 @@ public class Friend : Person {
 
                 int attackBackRandom = Random.Range(0, 10);
                 if(attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) {
-                    if(attackingTarget && attackBackRandom >= 5) {
-                        CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                        if(currentTargetCombat.CirclingListContains(personAgent)) {
-                            currentTargetCombat.circlingList.Remove(personAgent);
-                        }
+                    CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
+                    if(currentTargetCombat.CirclingListContains(personAgent)) {
+                        currentTargetCombat.circlingList.Remove(personAgent);
                     }
                     SetTarget(attackCharacterInfo.gameObject);
                 }

@@ -8,24 +8,30 @@ AnimatorController:
   m_Name: PersonAnimator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: HurtAmount
-    m_Type: 3
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
   - m_Name: Velocity
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: Attacking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   - m_Name: ReduceHealth
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: HurtAmount
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -50,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87ea63ba46ab46d192672c4115c094a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reachDistance: 0
 --- !u!114 &114160594984191580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -61,6 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4f8bdb89cf5479483985c9f0babbb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
+  circleDistance: 100
+  nearDistance: 10
 --- !u!114 &114486488811141878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,6 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e45143924bb84dac95d81884ed32006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDistance: 100
+  reachDistance: 0
+  followDistance: 250
 --- !u!114 &114556110778031402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,6 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2231b5a570674f899af2492d6fd9744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateTime: 0
+  followDistance: 250
+  nearDistance: 10
 --- !u!206 &206031856937297710
 BlendTree:
   m_ObjectHideFlags: 1

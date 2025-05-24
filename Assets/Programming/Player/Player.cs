@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Player : MonoBehaviour {
+public class Player : MonoBehaviour {
     float horizontal;
     float vertical;
     Vector3 direction;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Person : MonoBehaviour {
+public class Person : MonoBehaviour {
     [Header("Move Settings")]
     public float speed = 20f;
     public Transform destination;
@@ -15,9 +15,11 @@ public abstract class Person : MonoBehaviour {
     public AnimationManager personAnimation;
     public CombatManager personCombat;
     public NavMeshAgent personAgent;
+    public NavMeshHit personNavMeshHit;
     public PersonInfo personInfo;
 
     [Header("Animation Settings")]
+    public float attackFrames = 0;
     public float hurtFrames = 0;
 
     [Header("State Machine Settings")]
@@ -56,9 +58,6 @@ public abstract class Person : MonoBehaviour {
                 case StateMachine.Hurt:
                     Hurt();
                     break;
-                case StateMachine.Wait:
-                    Wait();
-                    break;
                 case StateMachine.Dead:
                     Dead();
                     break;
@@ -77,22 +76,27 @@ public abstract class Person : MonoBehaviour {
         }
     }
 
-    public abstract void Idle();
-    public abstract void Move();
-    public abstract void Work();
-    public abstract void Follow();
-    public abstract void Attack();
-    public abstract void Wait();
-
-    public void ChangeState(StateMachine _state) {
-        personState = _state;
+    public virtual void Idle() {
+        personAnimation.Play("Idle");
     }
 
-    public virtual void SetTarget(GameObject _newTarget) {
-        target = _newTarget;
+    public virtual void Move() {
+        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
+        personAnimation.Play("Move");
     }
 
-    public virtual void FindTarget() {}
+    public virtual void Work() {
+        personAnimation.Play("Work");
+    }
+
+    public virtual void Follow() {
+        personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
+        personAnimation.Play("Follow");
+    }
+    
+    public virtual void Attack() {
+        personAnimation.Play("Attack");
+    }
 
     public virtual void Hurt() {
         hurtFrames += Time.deltaTime;
@@ -114,6 +118,16 @@ public abstract class Person : MonoBehaviour {
         Idle();
     }
 
+    public void ChangeState(StateMachine _state) {
+        personState = _state;
+    }
+
+    public virtual void SetTarget(GameObject _newTarget) {
+        target = _newTarget;
+    }
+
+    public virtual void FindTarget() {}
+
     bool collision = false;
     float nextHurtTime = 0;
     float hitRate = 1f;
@@ -132,12 +146,10 @@ public abstract class Person : MonoBehaviour {
                 isHurt = true;
 
                 int attackBackRandom = Random.Range(0, 10);
-                if((personInfo.personType != PersonType.Friend && attackingTarget == false) || (attackingTarget && attackBackRandom >= 5)) {
-                    if(attackingTarget && attackBackRandom >= 5) {
-                        CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                        if(currentTargetCombat.CirclingListContains(personAgent)) {
-                            currentTargetCombat.circlingList.Remove(personAgent);
-                        }
+                if((attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) && personInfo.personType != PersonType.Friend) {
+                    CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
+                    if(currentTargetCombat.CirclingListContains(personAgent)) {
+                        currentTargetCombat.circlingList.Remove(personAgent);
                     }
                     SetTarget(GameManager.instance.playerGameObject);
                 }

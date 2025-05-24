@@ -17,17 +17,28 @@ public class AnimationManager : MonoBehaviour {
 
     public void SetParameter(string parameterName, object value) {
         switch(parameterName) {
-            case "HurtAmount":
-                mainAnimator.SetInteger(parameterName, (int) value);
-                break;
             case "Velocity":
                 mainAnimator.SetFloat(parameterName, (float) value);
+                break;
+            case "Attacking":
+                mainAnimator.SetBool(parameterName, (bool) value);
                 break;
             case "ReduceHealth":
                 mainAnimator.SetBool(parameterName, (bool) value);
                 break;
+            case "HurtAmount":
+                mainAnimator.SetInteger(parameterName, (int) value);
+                break;
             default:
                 break;
+        }
+    }
+
+    public void AttackEvent(string attackEventParameter) {
+        if(attackEventParameter == "on") {
+            SetParameter("Attacking", true);
+        } else if(attackEventParameter == "off") {
+            SetParameter("Attacking", false);
         }
     }
 }

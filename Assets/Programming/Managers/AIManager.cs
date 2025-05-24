@@ -10,8 +10,8 @@ public class AIManager : MonoBehaviour {
     public List<NavMeshAgent> personAIList;
     public List<NavMeshAgent> enemyAIList;
 
-    public float RadiusAroundTarget = 10f;
-    public float DistanceAroundDestination = 10f;
+    public float RadiusAroundTarget = 8f;
+    public float DistanceAroundDestination = 8f;
 
     void Awake() {
         if(instance == null) {
