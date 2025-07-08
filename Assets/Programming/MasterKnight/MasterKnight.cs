@@ -11,7 +11,6 @@ public class MasterKnight : MonoBehaviour {
 	[SerializeField] float speed = 30f;
 	[SerializeField] float jumpForce = 100f;
 	[SerializeField] float gravity = 9.81f;
-	[SerializeField] float forceLevel;
 	[SerializeField] bool isJumping = false;
 	[SerializeField] bool atGround = true;
 	[SerializeField] float groundCheckDistance = 1f;
@@ -27,15 +26,22 @@ public class MasterKnight : MonoBehaviour {
 	[SerializeField] Rigidbody masterKnightBody;
 	[SerializeField] Animator masterKnightAnimator;
 	[SerializeField] Camera masterKnightCamera;
+	[SerializeField] MasterKnightInfo masterKnightInfo;
 
 	// Use this for initialization
-	void Start () {
-		masterKnightBody = GetComponent<Rigidbody>();
-		masterKnightAnimator = GetComponent<Animator>();
+	void Start()
+	{
+		masterKnightBody = gameObject.GetComponent<Rigidbody>();
+		masterKnightAnimator = gameObject.GetComponent<Animator>();
 		masterKnightCamera = Camera.main;
 
 		attackCollider = GameObject.Find("MasterKnightAttackCollider").GetComponent<Collider>();
 		attackCollider.enabled = false;
+
+		masterKnightInfo = gameObject.GetComponent<MasterKnightInfo>();
+
+		masterKnightBody.interpolation = RigidbodyInterpolation.Interpolate;
+		masterKnightBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
 	}
 	
 	// Update is called once per frame
@@ -68,14 +74,15 @@ public class MasterKnight : MonoBehaviour {
 		}
 
 		if(Input.GetKeyDown(KeyCode.Space) && atGround == true && isJumping == false && isAttacking == false) {
-			// direction.y += jumpForce * Time.deltaTime;
 			isJumping = true;
-			masterKnightBody.AddForce(Vector3.up * jumpForce * forceLevel);
-			PlayAnimation("Jump");
+			// direction.y += jumpForce * Time.deltaTime;
+			masterKnightBody.AddForce(Vector3.up * jumpForce);
+			// PlayAnimation("Jump");
 		}
 
 		// direction.y -= gravity * Time.deltaTime;
-		masterKnightBody.AddForce(Vector3.down * gravity * forceLevel);
+		// masterKnightBody.AddForce(Vector3.down * gravity);
+
 		gameObject.transform.position += direction;
 	}
 
@@ -89,7 +96,7 @@ public class MasterKnight : MonoBehaviour {
 			isAttacking = true;
 			attackCollider.enabled = true;
 			attackNumber = attackNumber + 1; /*Random.Range(1,3)*/
-			attackNumber = Mathf.Clamp(attackNumber, 1, 2);
+			attackNumber = attackNumber == 3 ? 1 : attackNumber;  /*Mathf.Clamp(attackNumber, 1, 2)*/
 			PlayAnimation("Attack" + attackNumber);
 			attackTimer = 0;
 		}
@@ -136,8 +143,9 @@ public class MasterKnight : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider otherCollider) {
-		// if(otherCollider.gameObject.CompareTag("")) {
-		// }
+		if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
+			
+		}
 	}
 
 	IEnumerator CheckGroundCoroutine() {

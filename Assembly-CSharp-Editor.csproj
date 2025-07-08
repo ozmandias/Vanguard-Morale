@@ -51,7 +51,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\YounGen Tech\Health Script\Editor\HealthInspector.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Editor\CreatePlane.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Editor\FlatLightingAboutWindow.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Editor\FlatLightingMenu.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Editor\RangeWithStepAttributeDrawer.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Editor\ShaderPacker.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Editor\VectorAsSlidersAttributeDrawer.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingCelSurfaceEditor.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingCelSurfaceEditorTransparent.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingShaderEditor.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingSurfaceEditor.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingTransparentShaderEditor.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingWaterShaderEditor.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingWaterSurfaceShaderEditor.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\Labels.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\ShaderBaker.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\SkyboxColorGradientShaderEditor.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\UITools.cs" />
+     <Compile Include="Assets\FlatLighting\Shaders\Editor\ValueWrapper.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Configs\PredefinedConfigs.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Configs\ReorderableConfigsList.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Configs\ScreenshotConfig.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Info\AssetInfo.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Prefs\ScreenShooterPrefs.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\ScreenShooterSettings.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\ScreenShooterWindow.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Util\EditorCoroutine.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Util\EditorUtil.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Util\GameViewUtil.cs" />
+     <Compile Include="Assets\ScreenShooter\Editor\Scripts\Util\ScreenshotUtil.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>
@@ -226,12 +254,6 @@
  <Reference Include="UnityEditor.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
  </Reference>
- <Reference Include="Vuforia.UnityExtensions.Editor">
- <HintPath>/Applications/Unity/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Vuforia.UnityExtensions">
- <HintPath>/Applications/Unity/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.GoogleAudioSpatializer">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
  </Reference>
@@ -255,9 +277,6 @@
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>

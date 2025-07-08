@@ -11,12 +11,11 @@ public class Player : MonoBehaviour {
     public float speed = 30f;
     public float jumpForce = 100f;
     public float gravity = 9.81f;
-    public float forceLevel;
     public bool isJumping = false;
     public bool isGrounded = true;
     public float groundCheckDistance = 1f;
 
-    [Header("AttackSettings")]
+    [Header("Attack Settings")]
     public bool isAttacking = false;
     public int attackNumber = 0;
     [SerializeField] float attackTimer = 0;
@@ -27,14 +26,18 @@ public class Player : MonoBehaviour {
     [SerializeField] Rigidbody playerBody;
     [SerializeField] Animator playerAnimator;
     [SerializeField] Camera playerCamera;
-    [SerializeField] Info playerInfo;
+    [SerializeField] PlayerInfo playerInfo;
 
-    public virtual void Start() {
+    public virtual void Start()
+    {
         playerBody = gameObject.GetComponent<Rigidbody>();
         playerAnimator = gameObject.GetComponent<Animator>();
         playerCamera = Camera.main;
 
-        playerInfo = GetComponent<Info>();
+        playerInfo = GetComponent<PlayerInfo>();
+
+        playerBody.interpolation = RigidbodyInterpolation.Interpolate;
+        playerBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
     public virtual void Update() {
@@ -67,12 +70,13 @@ public class Player : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isJumping == false && isAttacking == false) {
             isJumping = true;
-            playerBody.AddForce(Vector3.up * jumpForce * forceLevel);
+            playerBody.AddForce(Vector3.up * jumpForce);
             PlayAnimation("Jump");
         }
 
-        playerBody.AddForce(Vector3.down * gravity * forceLevel);
-        
+        // direction.y -= gravity * Time.deltaTime;
+        // playerBody.AddForce(Vector3.down * gravity);
+
         gameObject.transform.position += direction;
     }
 
@@ -86,7 +90,7 @@ public class Player : MonoBehaviour {
             isAttacking = true;
             attackCollider.enabled = true;
             attackNumber += 1;
-            attackNumber = Mathf.Clamp(attackNumber, 1, 2);
+            attackNumber = attackNumber == 3 ? 1 : attackNumber; /*Mathf.Clamp(attackNumber, 1, 2)*/
             PlayAnimation("Attack" + attackNumber);
             attackTimer = 0;
         }

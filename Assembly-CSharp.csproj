@@ -51,8 +51,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FlatLighting\Demos\Animation\SpinAnimation.cs" />
+     <Compile Include="Assets\FlatLighting\Demos\Common\CameraControl.cs" />
+     <Compile Include="Assets\FlatLighting\Demos\materialTestScene\MouseOrbit.cs" />
+     <Compile Include="Assets\FlatLighting\Demos\MonuScene\MaterialSwapper.cs" />
+     <Compile Include="Assets\FlatLighting\Demos\Tower\Scripts\LightingManager.cs" />
+     <Compile Include="Assets\FlatLighting\Demos\Tower\Scripts\SceneLigtingSetup.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Behaviours\MaterialBlender.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Constants.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\LightSources\DirectionalLight.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\LightSources\LightSource.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\LightSources\PointLight.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\LightSources\SpotLight.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\LightSources\VectorAsSlidersAttribute.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Shadows\RangeWithStepAttribute.cs" />
+     <Compile Include="Assets\FlatLighting\Scripts\Shadows\ShadowProjector.cs" />
      <Compile Include="Assets\Programming\Camera\GameCamera.cs" />
      <Compile Include="Assets\Programming\Data\Enums.cs" />
+     <Compile Include="Assets\Programming\Data\GameSettings.cs" />
      <Compile Include="Assets\Programming\Data\Info.cs" />
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
      <Compile Include="Assets\Programming\Enemies\Enemy.cs" />
@@ -91,9 +107,30 @@
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSelectController.cs" />
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSerializable.cs" />
      <Compile Include="Assets\Programming\UI\UIObject.cs" />
+     <Compile Include="Assets\ScreenShooter\Demo\Scripts\Rotator.cs" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\BlendModes.cginc" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingCommon.cginc" />
+     <None Include="Assets\FlatLighting\Shaders\Baked\CubeGradient.shader" />
+     <None Include="Assets\FlatLighting\Shaders\Baked\monuMistSurface.shader" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingShadows.cginc" />
+     <None Include="Assets\FlatLighting\Shaders\FlatLighting.shader" />
+     <None Include="Assets\FlatLighting\Shaders\FlatLightingTransparent.shader" />
+     <None Include="Assets\FlatLighting\Shaders\Baked\TestObjectMaterial 1.shader" />
+     <None Include="Assets\FlatLighting\Shaders\ShadowMapping\ShadowDepth.shader" />
+     <None Include="Assets\FlatLighting\Shaders\SkyboxColorGradient.shader" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingLightmapping.cginc" />
+     <None Include="Assets\FlatLighting\Shaders\Baked\FLSurfaceWater.shader" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingGradient.cginc" />
+     <None Include="Assets\FlatLighting\Shaders\Baked\FLSurfaceTransparentBasic.shader" />
+     <None Include="Assets\FlatLighting\Shaders\Baked\FLCelSurfaceBasic.shader" />
+     <None Include="Assets\FlatLighting\THANKS.txt" />
      <None Include="Assets\[BFW]SimpleDynamicClouds\Shaders\2DClouds.shader" />
      <None Include="Assets\Design\medieval-castle-with-village\readme.txt" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingCommonSurface.cginc" />
+     <None Include="Assets\FlatLighting\Shaders\Animated\FlatLightingWater.shader" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingAxis.cginc" />
      <None Include="Assets\[BFW]SimpleDynamicClouds\ReadMe.txt" />
+     <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingSources.cginc" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>

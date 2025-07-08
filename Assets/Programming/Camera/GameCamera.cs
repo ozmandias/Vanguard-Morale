@@ -25,9 +25,11 @@ public class GameCamera : MonoBehaviour {
         mouseVertical -= Input.GetAxis("Mouse Y") * cameraSpeed;
         mouseVertical = Mathf.Clamp(mouseVertical, -15, 55);
 
+        CameraRotate();
+
         followDirection = cameraFollowObject.transform.position + (transform.forward * distance);
 
-        CameraRotate();
+        // CameraRotate();
 
         gameObject.transform.position = followDirection;
     }
