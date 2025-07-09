@@ -6,6 +6,7 @@ public class GameCamera : MonoBehaviour {
     Vector3 followDirection;
     [SerializeField] float cameraSpeed = 4f;
     [SerializeField] float distance = -18f;
+    [SerializeField] float cameraLagSpeed = 10f;
     [SerializeField] GameObject cameraFollowObject;
 
     void Start() {
@@ -31,7 +32,7 @@ public class GameCamera : MonoBehaviour {
 
         // CameraRotate();
 
-        gameObject.transform.position = followDirection;
+        gameObject.transform.position = /*Vector3.Lerp(gameObject.transform.position, followDirection, Time.deltaTime * cameraLagSpeed)*/ followDirection; // No need to add camera lag.
     }
 
     void CameraRotate() {

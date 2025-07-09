@@ -9,7 +9,7 @@ public class MasterKnight : MonoBehaviour {
 	float rotateAngle;
 	[Header("Move Settings")]
 	[SerializeField] float speed = 30f;
-	[SerializeField] float jumpForce = 100f;
+	[SerializeField] float jumpForce = 60f;
 	[SerializeField] float gravity = 9.81f;
 	[SerializeField] bool isJumping = false;
 	[SerializeField] bool atGround = true;
@@ -40,8 +40,8 @@ public class MasterKnight : MonoBehaviour {
 
 		masterKnightInfo = gameObject.GetComponent<MasterKnightInfo>();
 
-		masterKnightBody.interpolation = RigidbodyInterpolation.Interpolate;
-		masterKnightBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+		/*masterKnightBody.interpolation = RigidbodyInterpolation.Interpolate;
+		masterKnightBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
 	}
 	
 	// Update is called once per frame
@@ -76,12 +76,12 @@ public class MasterKnight : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space) && atGround == true && isJumping == false && isAttacking == false) {
 			isJumping = true;
 			// direction.y += jumpForce * Time.deltaTime;
-			masterKnightBody.AddForce(Vector3.up * jumpForce);
-			// PlayAnimation("Jump");
+			masterKnightBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+			PlayAnimation("Jump");
 		}
 
 		// direction.y -= gravity * Time.deltaTime;
-		// masterKnightBody.AddForce(Vector3.down * gravity);
+		masterKnightBody.AddForce(Vector3.down * gravity, ForceMode.VelocityChange);
 
 		gameObject.transform.position += direction;
 	}

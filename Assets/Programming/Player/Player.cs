@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     float rotateAngle;
     [Header("Move Settings")]
     public float speed = 30f;
-    public float jumpForce = 100f;
+    public float jumpForce = 60f;
     public float gravity = 9.81f;
     public bool isJumping = false;
     public bool isGrounded = true;
@@ -36,8 +36,8 @@ public class Player : MonoBehaviour {
 
         playerInfo = GetComponent<PlayerInfo>();
 
-        playerBody.interpolation = RigidbodyInterpolation.Interpolate;
-        playerBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        /*playerBody.interpolation = RigidbodyInterpolation.Interpolate;
+        playerBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
     }
 
     public virtual void Update() {
@@ -70,12 +70,12 @@ public class Player : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isJumping == false && isAttacking == false) {
             isJumping = true;
-            playerBody.AddForce(Vector3.up * jumpForce);
+            playerBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             PlayAnimation("Jump");
         }
 
         // direction.y -= gravity * Time.deltaTime;
-        // playerBody.AddForce(Vector3.down * gravity);
+        playerBody.AddForce(Vector3.down * gravity, ForceMode.VelocityChange);
 
         gameObject.transform.position += direction;
     }

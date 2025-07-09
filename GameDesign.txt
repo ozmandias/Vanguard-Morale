@@ -21,3 +21,7 @@ Enemy -> Enemy Guard, Cyber Knight
 State Machines -> Move, Attack, Work, Follow, Idle, Hurt, Dead
 Find Target -> Better targeting (Set target to attacking character)
 AI -> Better reposition near target/destination, Objective at Destination
+
+Scale Playable Characters size to 1
+Scale Environment Larger
+Arena Mode
