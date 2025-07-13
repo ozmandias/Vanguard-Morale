@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
         }
 
         // direction.y -= gravity * Time.deltaTime;
-        playerBody.AddForce(Vector3.down * gravity, ForceMode.VelocityChange);
+        // playerBody.AddForce(Vector3.down * gravity, ForceMode.VelocityChange);
 
         gameObject.transform.position += direction;
     }

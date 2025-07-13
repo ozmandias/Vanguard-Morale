@@ -81,7 +81,7 @@ public class MasterKnight : MonoBehaviour {
 		}
 
 		// direction.y -= gravity * Time.deltaTime;
-		masterKnightBody.AddForce(Vector3.down * gravity, ForceMode.VelocityChange);
+		// masterKnightBody.AddForce(Vector3.down * gravity, ForceMode.VelocityChange);
 
 		gameObject.transform.position += direction;
 	}
