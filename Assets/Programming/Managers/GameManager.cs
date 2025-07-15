@@ -29,12 +29,11 @@ public class GameManager : MonoBehaviour {
 		} else {
 			Destroy(this.gameObject);
 		}
-
-		SetPlayer();
 	}
 
 	// Use this for initialization
 	void Start () {
+		SetPlayer();
 		HideCursor();
 	}
 	
@@ -87,12 +86,15 @@ public class GameManager : MonoBehaviour {
 	void SetPlayer() {
 		currentPlayer = CharacterSelectController.instance.characterDetails.character;
 
-		playerCharacters[0]/*GameObject.Find("MasterKnight")*/.GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
-		playerCharacters[0]/*GameObject.Find("MasterKnight")*/.GetComponent<MasterKnightInfo>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
+		if (playerCharacters.Length > 0)
+		{
+			playerCharacters[0]/*GameObject.Find("MasterKnight")*/.GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
+			playerCharacters[0]/*GameObject.Find("MasterKnight")*/.GetComponent<MasterKnightInfo>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
 
-		playerCharacters[1]/*GameObject.Find("Hero")*/.GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
-		playerCharacters[1]/*GameObject.Find("Hero")*/.GetComponent<PlayerInfo>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
+			playerCharacters[1]/*GameObject.Find("Hero")*/.GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
+			playerCharacters[1]/*GameObject.Find("Hero")*/.GetComponent<PlayerInfo>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
 
-		playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
+			playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
+		}
 	}
 }

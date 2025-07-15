@@ -71,6 +71,7 @@
      <Compile Include="Assets\Programming\Data\GameSettings.cs" />
      <Compile Include="Assets\Programming\Data\Info.cs" />
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
+     <Compile Include="Assets\Programming\Enemies\Boss.cs" />
      <Compile Include="Assets\Programming\Enemies\Enemy.cs" />
      <Compile Include="Assets\Programming\Enemies\EnemyGuard.cs" />
      <Compile Include="Assets\Programming\Friends\AllyGuard.cs" />

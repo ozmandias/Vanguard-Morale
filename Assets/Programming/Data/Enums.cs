@@ -44,3 +44,9 @@ public enum UIType {
     Shop,
     Skill
 }
+
+public enum CombatType
+{
+    Melee,
+    Range
+}

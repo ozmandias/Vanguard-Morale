@@ -7,6 +7,7 @@ public class Info : MonoBehaviour {
     public int morality = 50;
     public Morality alignment = Morality.Neutral;
     public Gender gender = Gender.Male;
+    public CombatType combatType = CombatType.Melee;
     public bool isDead = false;
 
     public virtual void Start() {

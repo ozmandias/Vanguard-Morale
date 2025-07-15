@@ -32,7 +32,10 @@ public class PlayerProfileController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
 
+    void Start()
+    {
         OnHealthChanges += SetHealth;
         OnDamageChanges += SetDamage;
         OnMoralityChanges += SetMorality;
