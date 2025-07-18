@@ -6,10 +6,13 @@ public class DeadState : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
 
-        if(mainPerson.personInfo.isDead == true) {
-            if(mainPerson.target) {
+        if (mainPerson.personInfo.isDead == true)
+        {
+            if (mainPerson.target)
+            {
                 CombatManager targetCombat = mainPerson.target.GetComponent<CombatManager>();
-                if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                if (targetCombat.CirclingListContains(mainPerson.personAgent))
+                {
                     targetCombat.circlingList.Remove(mainPerson.personAgent);
                 }
             }
@@ -19,6 +22,12 @@ public class DeadState : StateMachineBehaviour {
             mainPerson.personAgent.enabled = false;
             mainPerson.personInfo.stateMachineDead = true;
             mainPerson.personInfo.personRagdollManager.EnableRagdoll();
+            if (mainPerson.weapon)
+            {
+                mainPerson.weapon.transform.SetParent(null);
+                mainPerson.weapon.AddComponent<Rigidbody>();
+                mainPerson.weapon.AddComponent<BoxCollider>();
+            }
         }
     }
 

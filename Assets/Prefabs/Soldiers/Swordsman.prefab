@@ -1358,6 +1358,7 @@ MonoBehaviour:
   isAttacking: 0
   target: {fileID: 0}
   attackCollider: {fileID: 65045690830116490}
+  weapon: {fileID: 1148547559045366}
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
   personAgent: {fileID: 0}
@@ -1429,6 +1430,7 @@ MonoBehaviour:
   morality: 60
   alignment: 60
   gender: 0
+  combatType: 0
   isDead: 0
   personRagdollManager: {fileID: 0}
   personType: 0

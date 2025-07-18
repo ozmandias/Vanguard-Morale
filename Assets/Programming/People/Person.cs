@@ -10,6 +10,7 @@ public class Person : MonoBehaviour {
     public bool isAttacking = false;
     public GameObject target;
     public Collider attackCollider;
+    public GameObject weapon;
 
     [Header("Person Settings")]
     public AnimationManager personAnimation;

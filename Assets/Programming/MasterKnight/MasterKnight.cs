@@ -27,6 +27,8 @@ public class MasterKnight : MonoBehaviour {
 	[SerializeField] Animator masterKnightAnimator;
 	[SerializeField] Camera masterKnightCamera;
 	[SerializeField] MasterKnightInfo masterKnightInfo;
+	[SerializeField] AnimationManager masterKnightAnimation;
+	[SerializeField] CombatManager masterKnightCombat;
 
 	// Use this for initialization
 	void Start()
@@ -39,6 +41,8 @@ public class MasterKnight : MonoBehaviour {
 		attackCollider.enabled = false;
 
 		masterKnightInfo = gameObject.GetComponent<MasterKnightInfo>();
+		masterKnightAnimation = gameObject.GetComponent<AnimationManager>();
+		masterKnightCombat = gameObject.GetComponent<CombatManager>();
 
 		/*masterKnightBody.interpolation = RigidbodyInterpolation.Interpolate;
 		masterKnightBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
@@ -60,7 +64,7 @@ public class MasterKnight : MonoBehaviour {
 		
 		direction = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
 
-		if(direction != Vector3.zero) {
+		if(direction != Vector3.zero && masterKnightCombat.combatManagerTakesOver == false) {
 			Rotate();
 			direction = transform.TransformDirection(Vector3.forward * speed * Time.deltaTime);
 			PlayAnimation("Run");
@@ -92,7 +96,7 @@ public class MasterKnight : MonoBehaviour {
 	}
 
 	void Attack() {
-		if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false) {
+		if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false && masterKnightCombat.managingAttack == false) {
 			isAttacking = true;
 			attackCollider.enabled = true;
 			attackNumber = attackNumber + 1; /*Random.Range(1,3)*/

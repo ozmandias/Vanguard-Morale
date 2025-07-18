@@ -86,11 +86,17 @@ public class UIManager : MonoBehaviour {
             ChangeUIType(UIType.Game);
             SceneManager.instance.ChangeScene("game");
         }
-
-
-        public void ShowMainMenuPanel() {
-            mainMenuPanel.SetActive(true);
+        
+        public void PlayArena() {
+            ChangeUIType(UIType.Game);
+            SceneManager.instance.ChangeScene("vs");
         }
+
+
+        public void ShowMainMenuPanel()
+    {
+        mainMenuPanel.SetActive(true);
+    }
         public void HideMainMenuPanel() {
             mainMenuPanel.SetActive(false);
         }

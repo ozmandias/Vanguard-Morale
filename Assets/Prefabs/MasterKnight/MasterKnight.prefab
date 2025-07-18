@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 136057351269932032}
   - component: {fileID: 114276875199069724}
   - component: {fileID: 114746144370005180}
+  - component: {fileID: 114964376404513272}
   - component: {fileID: 114871142083873576}
   m_Layer: 0
   m_Name: MasterKnight
@@ -1121,6 +1122,8 @@ MonoBehaviour:
   masterKnightAnimator: {fileID: 0}
   masterKnightCamera: {fileID: 0}
   masterKnightInfo: {fileID: 0}
+  masterKnightAnimation: {fileID: 0}
+  masterKnightCombat: {fileID: 0}
 --- !u!114 &114746144370005180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1138,6 +1141,7 @@ MonoBehaviour:
   morality: 60
   alignment: 60
   gender: 0
+  combatType: 0
   isDead: 0
 --- !u!114 &114871142083873576
 MonoBehaviour:
@@ -1152,7 +1156,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circlingList: []
   maxCirclingEnemies: 3
-  runAICircling: 0
+  animationManager: {fileID: 0}
+  playerCamera: {fileID: 0}
+  characterInfo: {fileID: 0}
+  combatCollider: {fileID: 0}
+  checkDirection: {x: 0, y: 0, z: 0}
+  combatManagerTakesOver: 0
+  managingAttack: 0
+  currentTarget: {fileID: 0}
+  isAttackable: 1
+  combatNumber: 0
+  enemyCheckRadius: 12
+  enemyCheckMaxDistance: 30
+  targetAttackOffset: 6
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &114964376404513272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340718563153110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188346ce2a6db4d4d8b3c20096d7f4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainAnimator: {fileID: 0}
 --- !u!136 &136057351269932032
 CapsuleCollider:
   m_ObjectHideFlags: 1

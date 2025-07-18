@@ -96,5 +96,6 @@ public class GameManager : MonoBehaviour {
 
 			playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
 		}
+		else { playerGameObject = GameObject.Find("MasterKnight"); }
 	}
 }

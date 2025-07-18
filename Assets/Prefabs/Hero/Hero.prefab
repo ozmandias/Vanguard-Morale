@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 136361004470309420}
   - component: {fileID: 114849790815442950}
   - component: {fileID: 114981989807058894}
+  - component: {fileID: 114598877633590774}
   - component: {fileID: 114638475379757874}
   m_Layer: 0
   m_Name: Hero
@@ -1628,6 +1629,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114598877633590774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149810568257456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188346ce2a6db4d4d8b3c20096d7f4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainAnimator: {fileID: 0}
 --- !u!114 &114638475379757874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1641,7 +1654,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circlingList: []
   maxCirclingEnemies: 3
-  runAICircling: 0
+  checkDirection: {x: 0, y: 0, z: 0}
+  isAttackable: 1
+  currentTarget: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114849790815442950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1685,6 +1703,7 @@ MonoBehaviour:
   morality: 60
   alignment: 60
   gender: 0
+  combatType: 0
   isDead: 0
 --- !u!136 &136361004470309420
 CapsuleCollider:

@@ -27,6 +27,8 @@ public class Player : MonoBehaviour {
     [SerializeField] Animator playerAnimator;
     [SerializeField] Camera playerCamera;
     [SerializeField] PlayerInfo playerInfo;
+    [SerializeField] AnimationManager playerAnimation;
+    [SerializeField] CombatManager playerCombat;
 
     public virtual void Start()
     {
@@ -35,6 +37,8 @@ public class Player : MonoBehaviour {
         playerCamera = Camera.main;
 
         playerInfo = GetComponent<PlayerInfo>();
+        playerAnimation = GetComponent<AnimationManager>();
+        playerCombat = GetComponent<CombatManager>();
 
         /*playerBody.interpolation = RigidbodyInterpolation.Interpolate;
         playerBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
@@ -55,7 +59,7 @@ public class Player : MonoBehaviour {
         
         direction = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
 
-        if(direction != Vector3.zero) {
+        if(direction != Vector3.zero && playerCombat.combatManagerTakesOver == false) {
             Rotate();
             direction = transform.TransformDirection(Vector3.forward * speed * Time.deltaTime);
             PlayAnimation("Run");
@@ -86,7 +90,7 @@ public class Player : MonoBehaviour {
     }
 
     public void Attack() {
-        if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false) {
+        if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false && playerCombat.managingAttack == false) {
             isAttacking = true;
             attackCollider.enabled = true;
             attackNumber += 1;
@@ -136,24 +140,31 @@ public class Player : MonoBehaviour {
         StartCoroutine(CheckGroundCoroutine());
     }
 
-    public IEnumerator CheckGroundCoroutine() {
+    public IEnumerator CheckGroundCoroutine()
+    {
         RaycastHit playerRaycastHit;
 
-		if(isJumping == true || isGrounded == false) {
-			yield return new WaitForSeconds(0.1f);
-		}
+        if (isJumping == true || isGrounded == false)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
 
-		Debug.DrawRay(gameObject.transform.Find("GroundCheck").gameObject.transform.position, Vector3.down * groundCheckDistance, Color.white);
-		if(Physics.Raycast(gameObject.transform.Find("GroundCheck").gameObject.transform.position, Vector3.down, out playerRaycastHit, groundCheckDistance)) {
-			if(playerRaycastHit.collider.gameObject.CompareTag("Runnable")) {
-				isGrounded = true;
-				if(isJumping == true) {
-					isJumping = false;
-					PlayAnimation("ReachGround");
-				}
-			}
-		} else {
-			isGrounded = false;
-		}
+        Debug.DrawRay(gameObject.transform.Find("GroundCheck").gameObject.transform.position, Vector3.down * groundCheckDistance, Color.white);
+        if (Physics.Raycast(gameObject.transform.Find("GroundCheck").gameObject.transform.position, Vector3.down, out playerRaycastHit, groundCheckDistance))
+        {
+            if (playerRaycastHit.collider.gameObject.CompareTag("Runnable"))
+            {
+                isGrounded = true;
+                if (isJumping == true)
+                {
+                    isJumping = false;
+                    PlayAnimation("ReachGround");
+                }
+            }
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
