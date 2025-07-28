@@ -1161,17 +1161,28 @@ MonoBehaviour:
   characterInfo: {fileID: 0}
   combatCollider: {fileID: 0}
   checkDirection: {x: 0, y: 0, z: 0}
-  combatManagerTakesOver: 0
-  managingAttack: 0
   currentTarget: {fileID: 0}
-  isAttackable: 1
+  managingMove: 0
+  managingAttack: 0
+  isCombating: 0
   combatNumber: 0
-  enemyCheckRadius: 12
-  enemyCheckMaxDistance: 30
-  targetAttackOffset: 6
+  targetCheckRadius: 30
+  targetCheckMaxDistance: 30
+  targetAttackOffset: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+  OnCombat:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  personIsPreparingAttack: 0
+  personIsMoving: 0
+  personIsRetreating: 0
+  personIsLockingTarget: 0
+  personIsStunned: 0
+  personIsWaiting: 1
+  personIsAttackable: 1
 --- !u!114 &114964376404513272
 MonoBehaviour:
   m_ObjectHideFlags: 1

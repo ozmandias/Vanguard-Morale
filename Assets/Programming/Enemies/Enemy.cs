@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : Person {
-    public override void Start() {
+    public override void Start()
+    {
         base.Start();
 
         destination = GameManager.instance.enemyDestination /*GameObject.Find("EnemyDestination").transform*/;
@@ -123,9 +124,14 @@ public class Enemy : Person {
                     targetDistance += Vector3.Distance(path.corners[i - 1], path.corners[i]);
                 }
 
-                if(targetDistance < nearestDistance) {
+                if (targetDistance < nearestDistance)
+                {
                     nearestDistance = targetDistance;
                     SetTarget(target);
+                    if (target == targetPlayer)
+                    {
+                        personInfo.aiType = AIType.CombatAI;
+                    }
                 }
             }
         }

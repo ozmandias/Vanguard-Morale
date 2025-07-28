@@ -76,9 +76,25 @@ public class AnimationManager : MonoBehaviour
         }
     }
 
-    public void CombatEndsEvent()
+    public void CombatEvent(string combatEventParameter)
     {
-        GetComponent<CombatManager>().combatCollider.enabled = false;
-        Play("Default");
+        var combatManager = GetComponent<CombatManager>();
+        if (combatEventParameter == "hit")
+        {
+            Enemy eventTarget = combatManager.currentTarget;
+            eventTarget.personInfo.CombatReduceHealth(50);
+            eventTarget.hurtFrames = 0;
+            eventTarget.Hurt();
+            combatManager.isCombating = false;
+        }
+        else if (combatEventParameter == "hurt")
+        {
+            
+        }
+        else if (combatEventParameter == "end")
+        {
+            combatManager.managingMove = false;
+            Play("Default");
+        }
     }
 }

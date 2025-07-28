@@ -30,8 +30,12 @@ public class Person : MonoBehaviour {
     public bool nearTarget = false;
     public bool isHurt = false;
 
+    [Header("Combat AI Settings")]
+    public bool isMoving = false;
+    public bool preparingAttack = false;
 
-    public virtual void Start() {
+    public virtual void Start()
+    {
         personAnimation = GetComponent<AnimationManager>();
         personCombat = GetComponent<CombatManager>();
         personAgent = GetComponent<NavMeshAgent>();
@@ -39,8 +43,10 @@ public class Person : MonoBehaviour {
     }
 
     public virtual void Update() {
-        if(personInfo.stateMachineDead == false) {
-            switch(personState) {
+        if (personInfo.aiType == AIType.StateMachine && personInfo.stateMachineDead == false)
+        {
+            switch (personState)
+            {
                 case StateMachine.Idle:
                     Idle();
                     break;
@@ -65,11 +71,13 @@ public class Person : MonoBehaviour {
                 default:
                     break;
             }
-            
-            if(personInfo.personType != PersonType.Neutral && attackingTarget == false) {
+
+            if (personInfo.personType != PersonType.Neutral && attackingTarget == false && personInfo.isDead == false)
+            {
                 FindTarget();
             }
         }
+
         if(personInfo.isDead == true) {
             if(Input.GetKeyDown(KeyCode.R)) {
                 Resurrect();

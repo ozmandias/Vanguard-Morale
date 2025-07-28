@@ -328,8 +328,15 @@ ModelImporter:
       curves: []
       events:
       - time: 1
-        functionName: CombatEndsEvent
-        data: 
+        functionName: CombatEvent
+        data: end
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5473832
+        functionName: CombatEvent
+        data: hit
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -363,8 +370,15 @@ ModelImporter:
       curves: []
       events:
       - time: 1
-        functionName: CombatEndsEvent
-        data: 
+        functionName: CombatEvent
+        data: end
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5049504
+        functionName: CombatEvent
+        data: hit
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

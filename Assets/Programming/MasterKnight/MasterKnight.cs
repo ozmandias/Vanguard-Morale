@@ -64,7 +64,7 @@ public class MasterKnight : MonoBehaviour {
 		
 		direction = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
 
-		if(direction != Vector3.zero && masterKnightCombat.combatManagerTakesOver == false) {
+		if(direction != Vector3.zero) {
 			Rotate();
 			direction = transform.TransformDirection(Vector3.forward * speed * Time.deltaTime);
 			PlayAnimation("Run");
@@ -72,7 +72,7 @@ public class MasterKnight : MonoBehaviour {
 			StopAnimation("Run");
 		}
 
-		if(isAttacking == true) {
+		if(isAttacking == true || masterKnightCombat.managingMove) {
 			direction = Vector3.zero;
 			StopAnimation("Run");
 		}
@@ -137,8 +137,12 @@ public class MasterKnight : MonoBehaviour {
 	}
 
 	void StopAnimation(string animationName) {
-		if(animationName == "Run") {
+		if (animationName == "Run") {
 			masterKnightAnimator.SetBool("Run", false);
+		} else if (animationName == "Attack1") {
+			masterKnightAnimator.ResetTrigger("Attack1");
+		} else if (animationName == "Attack2") {
+			masterKnightAnimator.ResetTrigger("Attack2");
 		}
 	}
 

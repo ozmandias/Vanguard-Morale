@@ -50,3 +50,9 @@ public enum CombatType
     Melee,
     Range
 }
+
+public enum AIType
+{
+    StateMachine,
+    CombatAI
+}

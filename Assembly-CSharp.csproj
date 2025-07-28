@@ -75,9 +75,11 @@
      <Compile Include="Assets\FlatLighting\Scripts\Shadows\ShadowProjector.cs" />
      <Compile Include="Assets\Programming\Camera\GameCamera.cs" />
      <Compile Include="Assets\Programming\Data\Enums.cs" />
+     <Compile Include="Assets\Programming\Data\Events.cs" />
      <Compile Include="Assets\Programming\Data\GameSettings.cs" />
      <Compile Include="Assets\Programming\Data\Info.cs" />
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
+     <Compile Include="Assets\Programming\Data\Structs.cs" />
      <Compile Include="Assets\Programming\Enemies\Boss.cs" />
      <Compile Include="Assets\Programming\Enemies\Enemy.cs" />
      <Compile Include="Assets\Programming\Enemies\EnemyGuard.cs" />

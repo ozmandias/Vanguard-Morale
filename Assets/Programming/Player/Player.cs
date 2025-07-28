@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
         
         direction = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
 
-        if(direction != Vector3.zero && playerCombat.combatManagerTakesOver == false) {
+        if(direction != Vector3.zero) {
             Rotate();
             direction = transform.TransformDirection(Vector3.forward * speed * Time.deltaTime);
             PlayAnimation("Run");
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour {
             StopAnimation("Run");
         }
 
-        if(isAttacking == true) {
+        if(isAttacking == true || playerCombat.managingMove) {
             direction = Vector3.zero;
             StopAnimation("Run");
         }
@@ -131,8 +131,12 @@ public class Player : MonoBehaviour {
     }
 
     void StopAnimation(string animationName) {
-        if(animationName == "Run") {
+        if (animationName == "Run") {
             playerAnimator.SetBool("Run", false);
+        } else if (animationName == "Attack1") {
+            playerAnimator.ResetTrigger("Attack1");
+        } else if (animationName == "Attack2") {
+            playerAnimator.ResetTrigger("Attack2");
         }
     }
 
