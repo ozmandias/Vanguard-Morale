@@ -221,6 +221,29 @@ public class AIManager : MonoBehaviour
         CombatAILoopCoroutine = StartCoroutine(SetCombatAILoopCoroutine(null));
     }
 
+    public Enemy RandomEnemy()
+    {
+        List<int> randomLocationList = new List<int>();
+        for (int i = 0; i < enemyStructs.Count; i = i + 1)
+        {
+            if (enemyStructs[i].available)
+            {
+                randomLocationList.Add(i);
+            }
+        }
+
+        if (randomLocationList.Count == 0)
+        {
+            return null;
+        }
+
+        Enemy randomEnemy;
+        int randomLocation = Random.Range(0, randomLocationList.Count);
+        randomEnemy = enemyStructs[randomLocationList[randomLocation]].enemy;
+        randomLocationList.Clear();
+        return randomEnemy;
+    }
+
     public Enemy RandomEnemyExcluding(Enemy excludingEnemy)
     {
         List<int> randomLocationList = new List<int>();
@@ -246,7 +269,6 @@ public class AIManager : MonoBehaviour
     
     IEnumerator SetCombatAILoopCoroutine(Enemy enemy)
     {
-        Debug.Log("CombatAILoopCoroutine");
         if (enemyStructs.Count == 0)
         {
             StopCoroutine(SetCombatAILoopCoroutine(null));
@@ -256,13 +278,15 @@ public class AIManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
 
         Enemy combatingEnemy = RandomEnemyExcluding(enemy);
+        if (!combatingEnemy) combatingEnemy = RandomEnemy();
         if (!combatingEnemy) yield break;
+
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsRetreating == false);
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsLockingTarget == false);
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsStunned == false);
 
         combatingEnemy.personCombat.SetAttackPlayer();
-        yield return new WaitForSeconds(Random.Range(0, 0.5f));
+        yield return new WaitForSeconds(Random.Range(0, 5f /*0.5f*/)); // <- change waitforseconds()
         combatingEnemy.personCombat.SetRetreatFromPlayer();
 
         if (enemyStructs.Count > 0)

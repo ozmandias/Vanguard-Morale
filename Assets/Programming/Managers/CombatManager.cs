@@ -187,10 +187,10 @@ public class CombatManager : MonoBehaviour
     public void MoveAroundPlayer(Vector3 direction)
     {
         float moveSpeed = 1;
-
-        if (direction == Vector3.forward) moveSpeed = 5;
-        if (direction == Vector3.right || direction == Vector3.left) moveSpeed = moveSpeed / 1.5f;
-        if (direction == Vector3.back) moveSpeed = 2;
+        
+        if (direction == Vector3.forward) { moveSpeed = 15; }
+        if (direction == Vector3.right || direction == Vector3.left) { moveSpeed = moveSpeed / 1.5f; }
+        if (direction == Vector3.back) { moveSpeed = 12; }
 
         // set Animator values
 
@@ -330,7 +330,7 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
-            StopAroundPlayer();
+            // StopAroundPlayer();
         }
 
         yield return new WaitForSeconds(1);
