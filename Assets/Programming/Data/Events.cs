@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable] public class PlayerMovementEvent : UnityEvent<Enemy> { }
 [System.Serializable] public class PlayerCombatEvent : UnityEvent<Enemy> { }
 [System.Serializable] public class PlayerCounterEvent : UnityEvent<Enemy> { }
 

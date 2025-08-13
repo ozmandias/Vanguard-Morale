@@ -25,3 +25,11 @@ AI -> Better reposition near target/destination, Objective at Destination
 Scale Playable Characters size to 1
 Scale Environment Larger
 Arena Mode
+
+Arkham Combat
+- adapt combat manager events to github -> OnCombat(done), OnMove(done), OnDamage(done)
+- fix Player's managingAttack issue(done)
+- fix Enemy stops after being attack on Retreating(done), make Enemy combat-move animations BlendTree(done), fix enemyHurt - Issue on Attacking while Enemy is Attacking, enemyIsStunned is always on, also CombatHurt animation plays after one CombatHurt animation finishes, need to disable enemyIsAttacking
+- Counter Attack
+
+Error Steps: RetreatFromPlayer, PlayerMovementEvent, PlayerCombatEvent

@@ -18,6 +18,12 @@ public class AnimationManager : MonoBehaviour
         mainAnimator.Play(animationName);
     }
 
+    public void PlayWithParameter(string animationName, string parameterName, object parameterValue)
+    {
+        SetParameter(parameterName, parameterValue);
+        mainAnimator.Play(animationName);
+    }
+
     public void PlayByFrame(string animationName, float normalizedTime)
     {
         mainAnimator.Play("Base Layer." + animationName, 0, normalizedTime);
@@ -28,11 +34,11 @@ public class AnimationManager : MonoBehaviour
         switch (parameterName)
         {
             case "Velocity":
+            case "HorizontalMovement":
+            case "VerticalMovement":
                 mainAnimator.SetFloat(parameterName, (float)value);
                 break;
             case "Attacking":
-                mainAnimator.SetBool(parameterName, (bool)value);
-                break;
             case "ReduceHealth":
                 mainAnimator.SetBool(parameterName, (bool)value);
                 break;
@@ -81,20 +87,36 @@ public class AnimationManager : MonoBehaviour
         var combatManager = GetComponent<CombatManager>();
         if (combatEventParameter == "hit")
         {
-            Enemy eventTarget = combatManager.currentTarget;
-            eventTarget.personInfo.CombatReduceHealth(50);
-            eventTarget.hurtFrames = 0;
-            eventTarget.Hurt();
-            combatManager.isCombating = false;
+            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            {
+                combatManager.OnPlayerCombat.Invoke(combatManager.currentTarget);
+                // combat particles
+            }
         }
         else if (combatEventParameter == "hurt")
         {
-            
+            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            {
+
+            }
+            else
+            {
+                Debug.Log("Combat Event - Combat Hurt");
+                // combatManager.enemyIsStunned = false;
+            }
         }
         else if (combatEventParameter == "end")
         {
-            combatManager.managingMove = false;
-            Play("Default");
+            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            {
+                combatManager.managingMove = false;
+                Play("Default");
+            }
+            else
+            {
+                combatManager.enemyIsAttacking = false;
+                Play("CombatIdle"); //<- this is causing Enemies stop after CombatHit
+            }
         }
     }
 }

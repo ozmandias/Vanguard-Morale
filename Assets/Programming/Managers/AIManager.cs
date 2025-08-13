@@ -144,7 +144,7 @@ public class AIManager : MonoBehaviour
             );
             aiAgent.SetDestination(reposition);
         } /*else {
-            Debug.Log("Move to next line of position");
+            // move to next line of position
         }*/
     }
 
@@ -201,15 +201,13 @@ public class AIManager : MonoBehaviour
             foreach(Enemy enemy in GameManager.instance.enemyList) {
                 if(enemy.target) AIManager.instance.AgentCircleTarget(enemy.personInfo.personType, enemy.personAgent, enemy.target.transform, CircleType.Semicircle);
             }
-        }
+        }*/
 
-        if(GUI.Button(new Rect(10, 80, 150, 50), "AI To Destination")) {
-            Debug.Log("soldierDestination - tansform.forward: " + GameManager.instance.soldierDestination.forward);
+        /*if(GUI.Button(new Rect(10, 80, 150, 50), "AI To Destination")) {
             foreach(Friend soldier in GameManager.instance.soldierList) {
                 AIManager.instance.AgentRepositionAtDestination(soldier.personInfo.personType, soldier.personAgent, soldier.destination);
             }
 
-            Debug.Log("enemyDestination - transform.forward: " + GameManager.instance.enemyDestination.forward);
             foreach(Enemy enemy in GameManager.instance.enemyList) {
                 AIManager.instance.AgentRepositionAtDestination(enemy.personInfo.personType, enemy.personAgent, enemy.destination);
             }
@@ -282,7 +280,7 @@ public class AIManager : MonoBehaviour
         if (!combatingEnemy) yield break;
 
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsRetreating == false);
-        yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsLockingTarget == false);
+        yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsPlayerTarget == false);
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsStunned == false);
 
         combatingEnemy.personCombat.SetAttackPlayer();

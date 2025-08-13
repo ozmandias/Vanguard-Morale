@@ -8,12 +8,12 @@ using DG.Tweening;
 public class CombatManager : MonoBehaviour
 {
     [Header("Combat Manager Settings")]
+    public AnimationManager animationManager;
     public List<NavMeshAgent> circlingList;
     public int maxCirclingEnemies = 3;
     public Info characterInfo;
 
     [Header("Player Combat Settings")/*Space(10)*/]
-    public AnimationManager animationManager;
     public Camera playerCamera;
     public Collider combatCollider;
     public Vector3 checkDirection;
@@ -27,6 +27,7 @@ public class CombatManager : MonoBehaviour
     public float targetCheckMaxDistance = 30f;
     public float targetAttackOffset = 5f;
     public LayerMask layerMask;
+    public PlayerMovementEvent OnPlayerMovement = new PlayerMovementEvent();
     public PlayerCombatEvent OnPlayerCombat = new PlayerCombatEvent();
     public PlayerCounterEvent OnPlayerCounter = new PlayerCounterEvent();
 
@@ -34,8 +35,9 @@ public class CombatManager : MonoBehaviour
     Vector3 enemyMoveAroundDirection;
     public bool enemyIsPreparingAttack = false;
     public bool enemyIsMoving = false;
+    public bool enemyIsAttacking = false;
     public bool enemyIsRetreating = false;
-    public bool enemyIsLockingTarget = false;
+    public bool enemyIsPlayerTarget = false;
     public bool enemyIsStunned = false;
     public bool enemyIsWaiting = true;
     public bool enemyIsAttackable = true;
@@ -43,25 +45,28 @@ public class CombatManager : MonoBehaviour
     Coroutine AttackPlayerCoroutine;
     Coroutine RetreatFromPlayerCoroutine;
     Coroutine EnemyHurtCoroutine;
-    public EnemyHurtEvent OnEnemyHurt = new EnemyHurtEvent();
     public EnemyStopEvent OnEnemyStop = new EnemyStopEvent();
     public EnemyRetreatEvent OnEnemyRetreat = new EnemyRetreatEvent();
+    public EnemyHurtEvent OnEnemyHurt = new EnemyHurtEvent();
 
     void Start()
     {
+        animationManager = GetComponent<AnimationManager>();
         characterInfo = GetComponent<Info>();
         if (characterInfo is MasterKnightInfo || characterInfo is PlayerInfo)
         {
             playerCamera = Camera.main;
-            animationManager = GetComponent<AnimationManager>();
             combatCollider = characterInfo is MasterKnightInfo ? GameObject.FindWithTag("MasterKnightAttackCollider").GetComponent<Collider>() : GameObject.FindWithTag("PlayerAttackCollider").GetComponent<Collider>();
         }
         else
         {
             CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
-            playerCombat.OnPlayerCombat.AddListener(OnPlayerCombatEvent);
+            playerCombat.OnPlayerMovement.AddListener((combatEnemy) => OnPlayerMovementEvent(combatEnemy));
+            playerCombat.OnPlayerCombat.AddListener((combatEnemy) => OnPlayerCombatEvent(combatEnemy));
+            playerCombat.OnPlayerCounter.AddListener((combatEnemy) => OnPlayerCounterEvent(combatEnemy));
 
             MoveAroundPlayerCoroutine = StartCoroutine(SetMoveAroundPlayerCoroutine());
+            OnEnemyHurt.AddListener((combatEnemy) => OnEnemyHurtEvent(combatEnemy));
         }
     }
 
@@ -146,6 +151,7 @@ public class CombatManager : MonoBehaviour
     void MoveTowardsTarget()
     {
         managingMove = true;
+        OnPlayerMovement.Invoke(currentTarget);
         transform.DOLookAt(currentTarget.transform.position, 1f/*0.2f*/);
         transform.DOMove(TargetOffset(targetAttackOffset), 0.5f/*0.65f*/);
     }
@@ -162,7 +168,6 @@ public class CombatManager : MonoBehaviour
         if (currentTarget && Input.GetKeyDown(KeyCode.Mouse0) && isCombating == false)
         {
             isCombating = true;
-            OnPlayerCombat.Invoke(currentTarget);
             MoveTowardsTarget();
             combatNumber += 1;
             combatNumber = combatNumber == 3 ? 1 : combatNumber;
@@ -186,13 +191,13 @@ public class CombatManager : MonoBehaviour
     #region Enemy
     public void MoveAroundPlayer(Vector3 direction)
     {
-        float moveSpeed = 1;
-        
-        if (direction == Vector3.forward) { moveSpeed = 15; }
-        if (direction == Vector3.right || direction == Vector3.left) { moveSpeed = moveSpeed / 1.5f; }
-        if (direction == Vector3.back) { moveSpeed = 12; }
+        float moveSpeed = /*1*/ 14;
 
-        // set Animator values
+        if (direction == Vector3.forward) { moveSpeed = /*15*/ 14; animationManager.SetParameter("VerticalMovement", 1f); /*animationManager.PlayWithParameter("Move", "Velocity", moveSpeed);*/ }
+        if (direction == Vector3.right || direction == Vector3.left) { moveSpeed = moveSpeed / 2 /*1.5f*/; animationManager.SetParameter("HorizontalMovement", direction == Vector3.right ? 1f : -1f); /*animationManager.Play(direction == Vector3.right ? "StrafeRight" : "StrafeLeft");*/ }
+        if (direction == Vector3.back) { moveSpeed = 12; animationManager.SetParameter("VerticalMovement", -1f); /*animationManager.Play("Retreat");*/ }
+
+        if (enemyIsAttacking == false && enemyIsStunned == false) animationManager.Play("CombatMove");
 
         if (enemyIsMoving == false) return;
 
@@ -213,7 +218,6 @@ public class CombatManager : MonoBehaviour
         // attack
         if (Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position) < 10 /*2*/)
         {
-            Debug.Log("Thinking to Attack");
             StopAroundPlayer();
 
             // check counter
@@ -228,7 +232,10 @@ public class CombatManager : MonoBehaviour
     public void StopAroundPlayer()
     {
         enemyIsMoving = false;
+        enemyIsAttacking = false;
+        if (enemyIsRetreating) enemyIsRetreating = false;
         enemyMoveAroundDirection = Vector3.zero;
+        animationManager.SetParameter("HorizontalMovement", 0.0f); animationManager.SetParameter("VerticalMovement", 0.0f); // animationManager.Play("CombatIdle");
         transform.position += enemyMoveAroundDirection;
     }
 
@@ -254,9 +261,9 @@ public class CombatManager : MonoBehaviour
 
     public void AttackPlayer()
     {
-        Debug.Log("AttackPlayer");
+        enemyIsAttacking = true;
         transform.DOMove(transform.position + (transform.forward / 1), 0.5f);
-        // Set Animator values
+        animationManager.Play("Combat");
     }
 
     public void SetRetreatFromPlayer()
@@ -281,12 +288,49 @@ public class CombatManager : MonoBehaviour
         if (MoveAroundPlayerCoroutine != null) StopCoroutine(MoveAroundPlayerCoroutine);
     }
 
-    void OnPlayerCombatEvent(Enemy enemyTarget)
+    void OnPlayerMovementEvent(Enemy enemyTarget)
     {
-        if (enemyTarget == this)
+        if (enemyTarget == this.GetComponent<Enemy>())
         {
             StopEnemyCoroutines();
-            // CombatEvent from AnimationManager
+            enemyIsPlayerTarget = true;
+            PrepareAttackPlayer(false);
+            StopAroundPlayer();
+        }
+    }
+
+    void OnPlayerCombatEvent(Enemy enemyTarget)
+    {
+        if (enemyTarget == this.GetComponent<Enemy>())
+        {
+            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
+            playerCombat.currentTarget = null;
+            playerCombat.managingAttack = false;
+            playerCombat.isCombating = false;
+
+            // OnEnemyHurt.Invoke(enemyTarget);
+            StopEnemyCoroutines();
+            // enemyIsStunned = true;
+            EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
+            enemyTarget.personInfo.CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
+            Debug.Log("play CombatHurt animation");
+            animationManager.Play("CombatHurt");
+            enemyIsPlayerTarget = false;
+            StopAroundPlayer();
+        }
+    }
+
+    void OnPlayerCounterEvent(Enemy enemyTarget)
+    {
+        if (enemyTarget == this.GetComponent<Enemy>())
+        {
+        }
+    }
+
+    void OnEnemyHurtEvent(Enemy enemyTarget)
+    {
+        if (enemyTarget == this.GetComponent<Enemy>())
+        {
         }
     }
     #endregion
@@ -327,10 +371,11 @@ public class CombatManager : MonoBehaviour
             int directionRandom = Random.Range(0, 2);
             enemyMoveAroundDirection = directionRandom == 1 ? Vector3.right : Vector3.left;
             enemyIsMoving = true;
+            enemyIsAttacking = false;
         }
         else
         {
-            // StopAroundPlayer();
+            StopAroundPlayer();
         }
 
         yield return new WaitForSeconds(1);
@@ -348,12 +393,13 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetRetreatFromPlayerCoroutine()
     {
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(0.5f /*1.4f*/);
 
         OnEnemyRetreat.Invoke(GetComponent<Enemy>());
         enemyIsRetreating = true;
         enemyMoveAroundDirection = Vector3.back;
         enemyIsMoving = true;
+        enemyIsAttacking = false;
 
         yield return new WaitUntil(() => Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position) > 20 /*4*/);
 
@@ -362,5 +408,13 @@ public class CombatManager : MonoBehaviour
 
         enemyIsWaiting = true;
         MoveAroundPlayerCoroutine = StartCoroutine(SetMoveAroundPlayerCoroutine());
+    }
+
+    IEnumerator SetEnemyHurtCoroutine()
+    {
+        Debug.Log("EnemyHurtCoroutine");
+        enemyIsStunned = true;
+        yield return new WaitForSeconds(0.5f);
+        enemyIsStunned = false;
     }
 }
