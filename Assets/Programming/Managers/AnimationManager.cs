@@ -93,18 +93,6 @@ public class AnimationManager : MonoBehaviour
                 // combat particles
             }
         }
-        else if (combatEventParameter == "hurt")
-        {
-            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
-            {
-
-            }
-            else
-            {
-                Debug.Log("Combat Event - Combat Hurt");
-                // combatManager.enemyIsStunned = false;
-            }
-        }
         else if (combatEventParameter == "end")
         {
             if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)

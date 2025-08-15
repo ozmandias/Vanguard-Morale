@@ -311,7 +311,7 @@ public class CombatManager : MonoBehaviour
             // OnEnemyHurt.Invoke(enemyTarget);
             StopEnemyCoroutines();
             // enemyIsStunned = true;
-            EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
+            /*EnemyHurtCoroutine =*/ StartCoroutine(SetEnemyHurtCoroutine());
             enemyTarget.personInfo.CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
             Debug.Log("play CombatHurt animation");
             animationManager.Play("CombatHurt");
@@ -416,5 +416,6 @@ public class CombatManager : MonoBehaviour
         enemyIsStunned = true;
         yield return new WaitForSeconds(0.5f);
         enemyIsStunned = false;
+        Debug.Log("Set enemyIsStunned to false");
     }
 }
