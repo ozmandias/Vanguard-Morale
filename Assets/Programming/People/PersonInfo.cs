@@ -49,11 +49,9 @@ public class PersonInfo : Info
         if (isDead == true && personType == PersonType.Enemy)
         {
             GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
-            var enemyProgramming = GetComponent<Enemy>();
-            enemyProgramming.personCombat.enemyIsAttackable = false;
             personRagdollManager.EnableRagdoll();
             aiType = AIType.StateMachine;
-            enemyProgramming.ChangeState(StateMachine.Dead);
+            GetComponent<Person>().ChangeState(StateMachine.Dead);
             stateMachineDead = true;
         }
     }

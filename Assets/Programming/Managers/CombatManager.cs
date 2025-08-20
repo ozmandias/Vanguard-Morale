@@ -23,6 +23,7 @@ public class CombatManager : MonoBehaviour
     public bool isCombating = false;
     public bool isCountering = false;
     public int combatNumber = 0;
+    public int counterNumber = 0;
     public float targetCheckRadius = 12f;
     public float targetCheckMaxDistance = 30f;
     public float targetAttackOffset = 5f;
@@ -76,6 +77,7 @@ public class CombatManager : MonoBehaviour
         {
             CheckEnemies();
             AttackTarget();
+            CounterTarget();
         }
         else if (characterInfo is PersonInfo)
         {
@@ -171,18 +173,44 @@ public class CombatManager : MonoBehaviour
             MoveTowardsTarget();
             combatNumber += 1;
             combatNumber = combatNumber == 3 ? 1 : combatNumber;
-            GetComponent<AnimationManager>().Play("Combat" + combatNumber);
+            animationManager.Play("Combat" + combatNumber);
         }
     }
 
-    float counterTimer = 0;
-    public void CounterAttack(float attackTimer)
+    public void CounterTarget()
     {
-        counterTimer += Time.deltaTime;
-        if (counterTimer < attackTimer / 2)
+        if (NearestEnemyToCounter() && Input.GetKeyDown(KeyCode.E) && isCombating == false)
         {
+            isCombating = true;
+            currentTarget = NearestEnemyToCounter();
             MoveTowardsTarget();
+            counterNumber += 1;
+            counterNumber = counterNumber == 3 ? 1 : counterNumber;
+            animationManager.Play("Counter" + counterNumber);
         }
+    }
+
+    public Enemy NearestEnemyToCounter()
+    {
+        Enemy nearestEnemy = null;
+        float minDistance = 100f;
+        int nearestLocation = -1;
+
+        for (int i = 0; i < AIManager.instance.enemyStructs.Count; i = i + 1)
+        {
+            Enemy currentCheckEnemy = AIManager.instance.enemyStructs[i].enemy;
+            if (currentCheckEnemy.personCombat.enemyIsPreparingAttack)
+            {
+                float currentCheckDistance = Vector3.Distance(transform.position, currentCheckEnemy.transform.position);
+                if (currentCheckDistance < minDistance)
+                {
+                    minDistance = currentCheckDistance;
+                    nearestLocation = i;
+                }
+            }
+        }
+        if(nearestLocation > -1) nearestEnemy = AIManager.instance.enemyStructs[nearestLocation].enemy;
+        return nearestEnemy;
     }
     #endregion
 
@@ -251,6 +279,7 @@ public class CombatManager : MonoBehaviour
         if (status == true)
         {
             // display counterAttack warning
+            Debug.Log("Enemy is about to attack! Can Counter!");
         }
         else
         {
@@ -284,7 +313,7 @@ public class CombatManager : MonoBehaviour
 
         if (enemyIsRetreating && RetreatFromPlayerCoroutine != null) StopCoroutine(RetreatFromPlayerCoroutine);
         if (AttackPlayerCoroutine != null) StopCoroutine(AttackPlayerCoroutine);
-        if (EnemyHurtCoroutine != null) StopCoroutine(EnemyHurtCoroutine);
+        // if (EnemyHurtCoroutine != null) StopCoroutine(EnemyHurtCoroutine);
         if (MoveAroundPlayerCoroutine != null) StopCoroutine(MoveAroundPlayerCoroutine);
     }
 
@@ -311,11 +340,11 @@ public class CombatManager : MonoBehaviour
             // OnEnemyHurt.Invoke(enemyTarget);
             StopEnemyCoroutines();
             // enemyIsStunned = true;
-            /*EnemyHurtCoroutine =*/ StartCoroutine(SetEnemyHurtCoroutine());
-            enemyTarget.personInfo.CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
-            Debug.Log("play CombatHurt animation");
-            animationManager.Play("CombatHurt");
+            EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
             enemyIsPlayerTarget = false;
+            enemyTarget.personInfo.CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
+            if (characterInfo.isDead) { enemyIsAttackable = false; return; }
+            animationManager.Play("CombatHurt");
             StopAroundPlayer();
         }
     }
@@ -412,10 +441,8 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetEnemyHurtCoroutine()
     {
-        Debug.Log("EnemyHurtCoroutine");
         enemyIsStunned = true;
         yield return new WaitForSeconds(0.5f);
         enemyIsStunned = false;
-        Debug.Log("Set enemyIsStunned to false");
     }
 }

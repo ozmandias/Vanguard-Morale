@@ -719,8 +719,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340718563153110}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 8, y: 108, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4925105598374844}
@@ -729,7 +729,7 @@ Transform:
   - {fileID: 4121983229071836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4440751238398204
 Transform:
   m_ObjectHideFlags: 1
@@ -1154,35 +1154,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationManager: {fileID: 0}
   circlingList: []
   maxCirclingEnemies: 3
-  animationManager: {fileID: 0}
-  playerCamera: {fileID: 0}
   characterInfo: {fileID: 0}
+  playerCamera: {fileID: 0}
   combatCollider: {fileID: 0}
   checkDirection: {x: 0, y: 0, z: 0}
   currentTarget: {fileID: 0}
   managingMove: 0
   managingAttack: 0
   isCombating: 0
+  isCountering: 0
   combatNumber: 0
+  counterNumber: 0
   targetCheckRadius: 30
   targetCheckMaxDistance: 30
   targetAttackOffset: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  OnCombat:
+  OnPlayerMovement:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: CombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  personIsPreparingAttack: 0
-  personIsMoving: 0
-  personIsRetreating: 0
-  personIsLockingTarget: 0
-  personIsStunned: 0
-  personIsWaiting: 1
-  personIsAttackable: 1
+    m_TypeName: PlayerMovementEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPlayerCombat:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPlayerCounter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  enemyIsPreparingAttack: 0
+  enemyIsMoving: 0
+  enemyIsAttacking: 0
+  enemyIsRetreating: 0
+  enemyIsPlayerTarget: 0
+  enemyIsStunned: 0
+  enemyIsWaiting: 1
+  enemyIsAttackable: 1
+  OnEnemyStop:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyStopEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEnemyRetreat:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyRetreatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEnemyHurt:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114964376404513272
 MonoBehaviour:
   m_ObjectHideFlags: 1
