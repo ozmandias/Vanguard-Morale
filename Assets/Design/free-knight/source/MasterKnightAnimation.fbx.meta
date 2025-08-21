@@ -443,7 +443,7 @@ ModelImporter:
     - serializedVersion: 16
       name: CombatCounter1
       takeName: Take 001
-      firstFrame: 430
+      firstFrame: 470
       lastFrame: 626
       wrapMode: 0
       orientationOffsetY: -70
