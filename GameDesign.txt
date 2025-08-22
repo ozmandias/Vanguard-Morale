@@ -30,6 +30,7 @@ Arkham Combat
 - adapt combat manager events to github -> OnCombat(done), OnMove(done), OnDamage(done)
 - fix Player's managingAttack issue(done)
 - fix Enemy stops after being attack on Retreating(done), make Enemy combat-move animations BlendTree(done), fix enemyHurt - Issue on Attacking while Enemy is Attacking, enemyIsStunned is always on, also CombatHurt animation plays after one CombatHurt animation finishes, need to disable enemyIsAttacking, Error happens on enemyIsPlayerTarget and enemyIsHurt are both true, Error happens when Player attacks Enemy while Enemy is moving towards Player (done - fix by disabling StopCoroutine(EnemyHurtCoroutine) in StopEnemyCoroutines())
-- Counter Attack
+- Counter Attack(done)
+- fix Enemy isMoving and isRetreating even after enemyIsStunned on Counter.
 
 Error Steps: RetreatFromPlayer, PlayerMovementEvent, PlayerCombatEvent

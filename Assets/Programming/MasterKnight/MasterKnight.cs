@@ -64,7 +64,7 @@ public class MasterKnight : MonoBehaviour {
 		
 		direction = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
 
-		if(direction != Vector3.zero) {
+		if(direction != Vector3.zero && masterKnightCombat.managingMove == false) {
 			Rotate();
 			direction = transform.TransformDirection(Vector3.forward * speed * Time.deltaTime);
 			PlayAnimation("Run");
@@ -77,7 +77,7 @@ public class MasterKnight : MonoBehaviour {
 			StopAnimation("Run");
 		}
 
-		if(Input.GetKeyDown(KeyCode.Space) && atGround == true && isJumping == false && isAttacking == false) {
+		if(Input.GetKeyDown(KeyCode.Space) && atGround == true && isJumping == false && isAttacking == false && masterKnightCombat.managingMove == false) {
 			isJumping = true;
 			// direction.y += jumpForce * Time.deltaTime;
 			masterKnightBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);

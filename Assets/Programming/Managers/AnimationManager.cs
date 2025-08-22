@@ -107,4 +107,31 @@ public class AnimationManager : MonoBehaviour
             }
         }
     }
+
+    public void CounterEvent(string counterEventParameter)
+    {
+        var combatManager = GetComponent<CombatManager>();
+        if (counterEventParameter == "start")
+        {
+            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            {
+                combatManager.OnPlayerCounter.Invoke(combatManager.currentTarget);
+            }
+        }
+        else if (counterEventParameter == "end")
+        {
+            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            {
+                combatManager.managingMove = false;
+                combatManager.managingAttack = false;
+                combatManager.isCombating = false;
+                Play("Default");
+            }
+            else
+            {
+                combatManager.enemyIsStunned = false;
+                Play("CombatIdle");
+            }
+        }
+    }
 }

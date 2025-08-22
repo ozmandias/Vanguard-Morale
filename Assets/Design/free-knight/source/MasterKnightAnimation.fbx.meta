@@ -464,9 +464,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: CombatEvent
+      - time: 0.7003485
+        functionName: CounterEvent
         data: end
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: CounterEvent
+        data: start
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -481,7 +488,7 @@ ModelImporter:
       firstFrame: 630
       lastFrame: 742
       wrapMode: 0
-      orientationOffsetY: -40
+      orientationOffsetY: -30
       level: 0
       cycleOffset: 0
       loop: 0
@@ -499,9 +506,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: CombatEvent
+      - time: 0.9001609
+        functionName: CounterEvent
         data: end
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: CounterEvent
+        data: start
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

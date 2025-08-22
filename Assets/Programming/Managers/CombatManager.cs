@@ -242,6 +242,7 @@ public class CombatManager : MonoBehaviour
         transform.position += finalDirection;
 
         if (enemyIsPreparingAttack == false) return;
+        if (enemyIsStunned) Debug.Log("still moving after being stunned!");
 
         // attack
         if (Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position) < 10 /*2*/)
@@ -353,6 +354,15 @@ public class CombatManager : MonoBehaviour
     {
         if (enemyTarget == this.GetComponent<Enemy>())
         {
+            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
+
+            StopEnemyCoroutines();
+            enemyIsStunned = true;
+            enemyIsPlayerTarget = false;
+            enemyTarget.personInfo.CombatReduceHealth(10);
+            if (characterInfo.isDead) { enemyIsAttackable = false; return; }
+            animationManager.Play("CounterHurt" + playerCombat.counterNumber);
+            StopAroundPlayer();
         }
     }
 
