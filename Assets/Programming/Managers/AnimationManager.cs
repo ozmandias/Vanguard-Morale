@@ -130,6 +130,8 @@ public class AnimationManager : MonoBehaviour
             else
             {
                 combatManager.enemyIsStunned = false;
+                GetComponent<PersonInfo>().CombatReduceHealth(10);
+                if (combatManager.characterInfo.isDead) { combatManager.enemyIsAttackable = false; return; }
                 Play("CombatIdle");
             }
         }

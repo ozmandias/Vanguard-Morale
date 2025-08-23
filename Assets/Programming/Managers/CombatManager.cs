@@ -150,11 +150,12 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    void MoveTowardsTarget()
+    void MoveTowardsTarget(string moveTowardsType)
     {
         managingMove = true;
         OnPlayerMovement.Invoke(currentTarget);
-        transform.DOLookAt(currentTarget.transform.position, 1f/*0.2f*/);
+        targetAttackOffset = moveTowardsType == "combat" ? 5 : moveTowardsType == "counter" ? 8 : 0;
+        transform.DOLookAt(currentTarget.transform.position, 0.5f /*1f*/ /*0.2f*/);
         transform.DOMove(TargetOffset(targetAttackOffset), 0.5f/*0.65f*/);
     }
 
@@ -170,7 +171,7 @@ public class CombatManager : MonoBehaviour
         if (currentTarget && Input.GetKeyDown(KeyCode.Mouse0) && isCombating == false)
         {
             isCombating = true;
-            MoveTowardsTarget();
+            MoveTowardsTarget("combat");
             combatNumber += 1;
             combatNumber = combatNumber == 3 ? 1 : combatNumber;
             animationManager.Play("Combat" + combatNumber);
@@ -179,11 +180,11 @@ public class CombatManager : MonoBehaviour
 
     public void CounterTarget()
     {
-        if (NearestEnemyToCounter() && Input.GetKeyDown(KeyCode.E) && isCombating == false)
+        if (NearestEnemyToCounter() && Input.GetKeyDown(KeyCode.E) && isCombating == false && Vector3.Distance(transform.position, NearestEnemyToCounter().transform.position) < 10)
         {
             isCombating = true;
             currentTarget = NearestEnemyToCounter();
-            MoveTowardsTarget();
+            MoveTowardsTarget("counter");
             counterNumber += 1;
             counterNumber = counterNumber == 3 ? 1 : counterNumber;
             animationManager.Play("Counter" + counterNumber);
@@ -242,7 +243,6 @@ public class CombatManager : MonoBehaviour
         transform.position += finalDirection;
 
         if (enemyIsPreparingAttack == false) return;
-        if (enemyIsStunned) Debug.Log("still moving after being stunned!");
 
         // attack
         if (Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position) < 10 /*2*/)
@@ -280,7 +280,6 @@ public class CombatManager : MonoBehaviour
         if (status == true)
         {
             // display counterAttack warning
-            Debug.Log("Enemy is about to attack! Can Counter!");
         }
         else
         {
@@ -359,8 +358,6 @@ public class CombatManager : MonoBehaviour
             StopEnemyCoroutines();
             enemyIsStunned = true;
             enemyIsPlayerTarget = false;
-            enemyTarget.personInfo.CombatReduceHealth(10);
-            if (characterInfo.isDead) { enemyIsAttackable = false; return; }
             animationManager.Play("CounterHurt" + playerCombat.counterNumber);
             StopAroundPlayer();
         }
@@ -403,6 +400,7 @@ public class CombatManager : MonoBehaviour
     IEnumerator SetMoveAroundPlayerCoroutine()
     {
         yield return new WaitUntil(() => enemyIsWaiting == true);
+        yield return new WaitUntil(() => enemyIsStunned == false);
 
         int moveRandom = Random.Range(0, 2);
         if (moveRandom == 1)
@@ -424,6 +422,7 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetAttackPlayerCoroutine()
     {
+        yield return new WaitUntil(() => enemyIsStunned == false);
         PrepareAttackPlayer(true);
         yield return new WaitForSeconds(0.2f);
         enemyMoveAroundDirection = Vector3.forward;
@@ -432,6 +431,7 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetRetreatFromPlayerCoroutine()
     {
+        yield return new WaitUntil(() => enemyIsStunned == false);
         yield return new WaitForSeconds(0.5f /*1.4f*/);
 
         OnEnemyRetreat.Invoke(GetComponent<Enemy>());

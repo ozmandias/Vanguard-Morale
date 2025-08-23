@@ -127,6 +127,7 @@
      <None Include="Assets\FlatLighting\Shaders\FlatLightingTransparent.shader" />
      <None Include="Assets\FlatLighting\Shaders\Baked\TestObjectMaterial 1.shader" />
      <None Include="Assets\FlatLighting\Shaders\ShadowMapping\ShadowDepth.shader" />
+     <None Include="Assets\Design\Particle FX 1.3 Free\public-license.txt" />
      <None Include="Assets\FlatLighting\Shaders\SkyboxColorGradient.shader" />
      <None Include="Assets\DOTween\readme.txt" />
      <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingLightmapping.cginc" />
