@@ -228,7 +228,7 @@ public class CombatManager : MonoBehaviour
 
         if (enemyIsAttacking == false && enemyIsStunned == false) animationManager.Play("CombatMove");
 
-        if (enemyIsMoving == false) return;
+        if (enemyIsMoving == false || enemyIsStunned == true) return;
 
         Vector3 moveDirection = (GameManager.instance.playerGameObject.transform.position - transform.position).normalized;
         Vector3 sideDirection = Quaternion.AngleAxis(90, Vector3.up) * moveDirection;
@@ -400,7 +400,6 @@ public class CombatManager : MonoBehaviour
     IEnumerator SetMoveAroundPlayerCoroutine()
     {
         yield return new WaitUntil(() => enemyIsWaiting == true);
-        yield return new WaitUntil(() => enemyIsStunned == false);
 
         int moveRandom = Random.Range(0, 2);
         if (moveRandom == 1)
@@ -422,7 +421,6 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetAttackPlayerCoroutine()
     {
-        yield return new WaitUntil(() => enemyIsStunned == false);
         PrepareAttackPlayer(true);
         yield return new WaitForSeconds(0.2f);
         enemyMoveAroundDirection = Vector3.forward;
@@ -431,7 +429,6 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetRetreatFromPlayerCoroutine()
     {
-        yield return new WaitUntil(() => enemyIsStunned == false);
         yield return new WaitForSeconds(0.5f /*1.4f*/);
 
         OnEnemyRetreat.Invoke(GetComponent<Enemy>());
