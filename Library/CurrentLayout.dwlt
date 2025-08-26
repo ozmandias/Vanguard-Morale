@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 82
+  controlID: 12
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -262,7 +262,7 @@ MonoBehaviour:
   - {fileID: 21}
   - {fileID: 22}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 2
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 192}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 47
+  controlID: 13
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -509,7 +509,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Materials
+    - Assets/Design/guard-model-low-poly/source
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -546,10 +546,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 587.9989}
+    scrollPos: {x: 0, y: 24.00055}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c42a0000e82a0000742c00008a2d0000282e000078300000b0300000ae370000b2390000363a0000923a0000503c0000ac3c0000984f0000605100006e57000070570000725700007457000076570000785700007a5700007c5700007e57000080570000825700008457000086570000885700008a5700008c5700008e57000090570000925700009457000096570000
+    m_ExpandedIDs: 00000000c42a0000e82a0000742c00008a2d0000282e000078300000b0300000ae370000b23900001a3a0000363a0000923a0000923b0000503c0000863c0000bc3e0000984f0000605100006e57000070570000725700007457000076570000785700007a5700007c5700007e57000080570000825700008457000086570000885700008a5700008c5700008e57000090570000925700009457000096570000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -637,9 +637,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.4131373, y: 11.773672, z: 14.03343}
+    m_Target: {x: -3.2884989, y: -3.6053057, z: 31.511383}
     speed: 2
-    m_Value: {x: 1.4131373, y: 11.773672, z: 14.03343}
+    m_Value: {x: -3.2884989, y: -3.6053057, z: 31.511383}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -663,13 +663,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.037228223, y: 0.11813983, z: -0.004432315, w: 0.99228895}
+    m_Target: {x: 0.21059376, y: -0.5810524, z: 0.15893963, w: 0.76991814}
     speed: 2
-    m_Value: {x: -0.037228227, y: -0.11813983, z: 0.004432315, w: -0.99228895}
+    m_Value: {x: 0.21059299, y: -0.5810503, z: 0.15893905, w: 0.7699153}
   m_Size:
-    m_Target: 59.071674
+    m_Target: 39.61742
     speed: 2
-    m_Value: 59.071674
+    m_Value: 39.61742
   m_Ortho:
     m_Target: 0
     speed: 2

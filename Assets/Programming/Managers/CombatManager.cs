@@ -154,7 +154,7 @@ public class CombatManager : MonoBehaviour
     {
         managingMove = true;
         OnPlayerMovement.Invoke(currentTarget);
-        targetAttackOffset = moveTowardsType == "combat" ? 5 : moveTowardsType == "counter" ? 8 : 0;
+        targetAttackOffset = moveTowardsType == "combat" ? 5 : moveTowardsType == "counter" ? 7 : 0;
         transform.DOLookAt(currentTarget.transform.position, 0.5f /*1f*/ /*0.2f*/);
         transform.DOMove(TargetOffset(targetAttackOffset), 0.5f/*0.65f*/);
     }
