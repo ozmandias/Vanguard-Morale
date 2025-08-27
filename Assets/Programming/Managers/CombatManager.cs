@@ -42,6 +42,7 @@ public class CombatManager : MonoBehaviour
     public bool enemyIsStunned = false;
     public bool enemyIsWaiting = true;
     public bool enemyIsAttackable = true;
+    public ParticleSystem counterParticle;
     Coroutine MoveAroundPlayerCoroutine;
     Coroutine AttackPlayerCoroutine;
     Coroutine RetreatFromPlayerCoroutine;
@@ -279,12 +280,13 @@ public class CombatManager : MonoBehaviour
         enemyIsPreparingAttack = status;
         if (status == true)
         {
-            // display counterAttack warning
+            counterParticle.Play();
         }
         else
         {
             StopAroundPlayer();
-            // remove counterAttack warning
+            counterParticle.Clear();
+            counterParticle.Stop();
         }
     }
 
