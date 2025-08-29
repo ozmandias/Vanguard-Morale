@@ -12,6 +12,7 @@ public class CombatManager : MonoBehaviour
     public List<NavMeshAgent> circlingList;
     public int maxCirclingEnemies = 3;
     public Info characterInfo;
+    public bool available = true;
 
     [Header("Player Combat Settings")/*Space(10)*/]
     public Camera playerCamera;
@@ -345,7 +346,13 @@ public class CombatManager : MonoBehaviour
             EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
             enemyIsPlayerTarget = false;
             enemyTarget.personInfo.CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
-            if (characterInfo.isDead) { enemyIsAttackable = false; return; }
+            if (characterInfo.isDead)
+            {
+                available = false;
+                enemyIsAttackable = false;
+                AIManager.instance.SetEnemyAvailable(enemyTarget, false);
+                return;
+            }
             animationManager.Play("CombatHurt");
             StopAroundPlayer();
         }
@@ -401,6 +408,8 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetMoveAroundPlayerCoroutine()
     {
+        if (available == false) yield break;
+
         yield return new WaitUntil(() => enemyIsWaiting == true);
 
         int moveRandom = Random.Range(0, 2);
@@ -423,6 +432,8 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetAttackPlayerCoroutine()
     {
+        if (available == false) yield break;
+
         PrepareAttackPlayer(true);
         yield return new WaitForSeconds(0.2f);
         enemyMoveAroundDirection = Vector3.forward;
@@ -431,6 +442,8 @@ public class CombatManager : MonoBehaviour
 
     IEnumerator SetRetreatFromPlayerCoroutine()
     {
+        if (available == false) yield break;
+
         yield return new WaitForSeconds(0.5f /*1.4f*/);
 
         OnEnemyRetreat.Invoke(GetComponent<Enemy>());

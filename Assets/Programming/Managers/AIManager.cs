@@ -224,7 +224,7 @@ public class AIManager : MonoBehaviour
         List<int> randomLocationList = new List<int>();
         for (int i = 0; i < enemyStructs.Count; i = i + 1)
         {
-            if (enemyStructs[i].available)
+            if (enemyStructs[i].enemy.personCombat.available)
             {
                 randomLocationList.Add(i);
             }
@@ -247,7 +247,7 @@ public class AIManager : MonoBehaviour
         List<int> randomLocationList = new List<int>();
         for (int i = 0; i < enemyStructs.Count; i = i + 1)
         {
-            if (enemyStructs[i].available && enemyStructs[i].enemy != excludingEnemy)
+            if (enemyStructs[i].enemy.personCombat.available && enemyStructs[i].enemy != excludingEnemy)
             {
                 randomLocationList.Add(i);
             }
@@ -263,6 +263,20 @@ public class AIManager : MonoBehaviour
         randomEnemy = enemyStructs[randomLocationList[randomLocation]].enemy;
         randomLocationList.Clear();
         return randomEnemy;
+    }
+
+    public void SetEnemyAvailable(Enemy enemy, bool availiability)
+    {
+        EnemyStruct enemyStructToChange;
+        foreach (EnemyStruct enemyStruct in enemyStructs)
+        {
+            if (enemyStruct.enemy == enemy)
+            {
+                enemyStructToChange = enemyStruct;
+                enemyStructToChange.available = availiability;
+                break;
+            }
+        }
     }
     
     IEnumerator SetCombatAILoopCoroutine(Enemy enemy)
@@ -284,7 +298,7 @@ public class AIManager : MonoBehaviour
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsStunned == false);
 
         combatingEnemy.personCombat.SetAttackPlayer();
-        yield return new WaitForSeconds(Random.Range(0, 5f /*0.5f*/)); // <- change waitforseconds()
+        yield return new WaitForSeconds(Random.Range(0, 5f /*0.5f*/)); // change waitforseconds()
         combatingEnemy.personCombat.SetRetreatFromPlayer();
 
         if (enemyStructs.Count > 0)
