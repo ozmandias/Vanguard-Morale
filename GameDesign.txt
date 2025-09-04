@@ -5,16 +5,25 @@ Spawn Manager (done, needs improvements)
 Ragdoll Manager (done, needs improvements)
 Game Manager (done)
 People - Villagers, Castle Residents, Hero, Blacksmith, Soldier Trainer, Archer Trainer, Soldiers (done, needs improvements)
+State Machines (done)
 Horses
 UI
 Dialogues
 Shopping
 Skill Training
 Morality (done)
-Arkham Combat
+Arkham Combat (done, needs fixing + improvements)
 Battles between Soldiers and Enemies (done, needs improvements)
 Interactables
+AI Switch
+Mission Objective
+Dialogues
+Story
+Level Selector
+Boss
 
+Learn from Brackeys
+-----------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero
 Enemy -> Enemy Guard, Cyber Knight
@@ -29,8 +38,8 @@ Arena Mode
 Arkham Combat
 - adapt combat manager events to github -> OnCombat(done), OnMove(done), OnDamage(done)
 - fix Player's managingAttack issue(done)
-- fix Enemy stops after being attack on Retreating(done), make Enemy combat-move animations BlendTree(done), fix enemyHurt - Issue on Attacking while Enemy is Attacking, enemyIsStunned is always on, also CombatHurt animation plays after one CombatHurt animation finishes, need to disable enemyIsAttacking, Error happens on enemyIsPlayerTarget and enemyIsHurt are both true, Error happens when Player attacks Enemy while Enemy is moving towards Player (done - fix by disabling StopCoroutine(EnemyHurtCoroutine) in StopEnemyCoroutines())
+- fix Enemy stops after being attack on Retreating(done), make Enemy combat-move animations BlendTree(done), fix enemyHurt - Issue on Attacking while Enemy is Attacking, enemyIsStunned is always on, also CombatHurt animation plays after one CombatHurt animation finishes, need to disable enemyIsAttacking, Error happens on enemyIsPlayerTarget and enemyIsHurt are both true, Error happens when Player attacks Enemy while Enemy is moving towards Player (done - fix by disabling StopCoroutine(EnemyHurtCoroutine) in StopEnemyCoroutines()) Error Steps: RetreatFromPlayer, PlayerMovementEvent, PlayerCombatEvent
 - Counter Attack(done)
-- fix Enemy isMoving and isRetreating even after enemyIsStunned on Counter. isMoving, isRetreating, isStunned, isAttackable are all true.
-
-Error Steps: RetreatFromPlayer, PlayerMovementEvent, PlayerCombatEvent
+- fix Enemy isMoving and isRetreating even after enemyIsStunned on Counter. isMoving, isRetreating, isStunned, isAttackable, isWaiting are all true.
+- fix AIManager only assigning 1 CombatAI(done)
+- always check StateMachineAI or CombatAI between AIs and their targets

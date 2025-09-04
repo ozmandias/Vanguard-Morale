@@ -1,25 +1,22 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PersonInfo : Info
+[System.Serializable] public class PersonInfo : Info
 {
     public RagdollManager personRagdollManager;
     public PersonType personType = PersonType.Neutral;
     public AIType aiType = AIType.StateMachine;
     public bool stateMachineDead = false;
 
-    public override void Start()
+    public /*PersonInfo() : base()*/ void Init(GameObject owner)
     {
-        base.Start();
-
+        base.Init(owner);
         damage = 10;
         morality = personType == PersonType.Neutral ? 50 : personType == PersonType.Friend ? 60 : 40;
         alignment = (Morality)morality;
 
-        personRagdollManager = GetComponent<RagdollManager>();
+        personRagdollManager = owner.GetComponent<RagdollManager>();
     }
-
-    public override void Update() { }
 
     public override void ReduceHealth(int damageAmount)
     {
@@ -30,12 +27,12 @@ public class PersonInfo : Info
             switch (personType)
             {
                 case PersonType.Enemy:
-                    GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
+                    // GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
                     break;
                 case PersonType.Neutral:
                     break;
                 case PersonType.Friend:
-                    GameManager.instance.playerGameObject.GetComponent<Info>().ReduceMorality(6);
+                    // GameManager.instance.playerGameObject.GetComponent<Info>().ReduceMorality(6);
                     break;
                 default:
                     break;
@@ -48,11 +45,18 @@ public class PersonInfo : Info
 
         if (isDead == true && personType == PersonType.Enemy)
         {
-            GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
-            personRagdollManager.EnableRagdoll();
+            Person mainPerson = owner.GetComponent<Person>();
+            // GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
             aiType = AIType.StateMachine;
-            GetComponent<Person>().ChangeState(StateMachine.Dead);
+            mainPerson.ChangeState(StateMachine.Dead);
             stateMachineDead = true;
+            personRagdollManager.EnableRagdoll();
+            if (mainPerson.weapon)
+            {
+                mainPerson.weapon.transform.SetParent(null);
+                mainPerson.weapon.AddComponent<Rigidbody>();
+                mainPerson.weapon.AddComponent<BoxCollider>();
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ public class HurtState : StateMachineBehaviour {
 
         if(animator.GetBool("ReduceHealth") == true) {
             animator.SetBool("ReduceHealth", false);
-            mainPerson.personInfo.ReduceHealth(animator.GetInteger("HurtAmount"));
+            mainPerson.GetInfo().ReduceHealth(animator.GetInteger("HurtAmount"));
         }
     }
 

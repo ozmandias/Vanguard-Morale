@@ -19,10 +19,17 @@ public class MoveState : StateMachineBehaviour {
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if(mainPerson.target) {
-            targetInfo = mainPerson.target.GetComponent<Info>();
+            bool canAttackTarget = true;
+
+            targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? (Info) mainPerson.target.GetComponent<MasterKnight>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
+            if (targetInfo is PersonInfo) {
+                if (mainPerson.target.GetComponent<Person>().GetInfo().aiType == AIType.CombatAI) {
+                    canAttackTarget = false;
+                }
+            }
             
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
-            if(targetDistance <= followDistance && targetInfo.isDead == false) {
+            if(targetDistance <= followDistance && targetInfo.isDead == false && canAttackTarget) {
                 mainPerson.attackingTarget = true;
             }
         }
@@ -32,8 +39,8 @@ public class MoveState : StateMachineBehaviour {
             if(destinationDistance > reachDistance && destinationDistance > moveDistance) {
                 mainPerson.personAgent.destination = mainPerson.destination.position;
             } else if(destinationDistance <= moveDistance && destinationDistance > reachDistance) {
-                // AIManager.instance.AgentCircleTarget(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.destination, CircleType.Semicircle);
-                AIManager.instance.AgentRepositionAtDestination(mainPerson.personInfo.personType, mainPerson.personAgent, mainPerson.destination);
+                // AIManager.instance.AgentCircleTarget(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.destination, CircleType.Semicircle);
+                AIManager.instance.AgentRepositionAtDestination(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.destination);
             } else if(destinationDistance <= reachDistance) {
                 mainPerson.personAgent.velocity = Vector3.zero;
                 if(mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
@@ -44,7 +51,7 @@ public class MoveState : StateMachineBehaviour {
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        if(mainPerson.personInfo.isDead == false) {
+        if(mainPerson.GetInfo().isDead == false) {
             mainPerson.personAgent.ResetPath();
         }
     }

@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Info : MonoBehaviour {
+[System.Serializable] public class Info {
+    public GameObject owner;
     public int health;
     public int MaxHealth = 100;
     public int damage;
@@ -10,11 +11,11 @@ public class Info : MonoBehaviour {
     public CombatType combatType = CombatType.Melee;
     public bool isDead = false;
 
-    public virtual void Start() {
+    public /*Info()*/ void Init(GameObject owner)
+    {
+        this.owner = owner;
         health = MaxHealth;
     }
-
-    public virtual void Update() {}
 
     public virtual void AddHealth(int healthAmount) {
         health += healthAmount;

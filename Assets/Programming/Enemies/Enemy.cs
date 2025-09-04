@@ -7,9 +7,11 @@ public class Enemy : Person {
     public override void Start()
     {
         base.Start();
+        
+        personInfo.personType = PersonType.Enemy;
 
+        // target = GameManager.instance.playerGameObject;
         destination = GameManager.instance.enemyDestination /*GameObject.Find("EnemyDestination").transform*/;
-        target = GameManager.instance.playerGameObject;
 
         GameManager.instance.enemyList.Add(this);
         AIManager.instance.enemyAIList.Add(personAgent);
@@ -77,7 +79,7 @@ public class Enemy : Person {
 
         foreach(Friend soldier in GameManager.instance.soldierList) {
             CombatManager soldierCombat = soldier.GetComponent<CombatManager>();
-            if(soldier.personInfo.isDead == false && soldierCombat.IsCirclingListFull() == false) {
+            if(soldier.GetInfo().isDead == false && soldierCombat.IsCirclingListFull() == false && soldier.GetInfo().aiType == AIType.StateMachine) {
                 /*targetSoldierDistance = Vector3.Distance(soldier.transform.position, transform.position);
                 if(targetSoldierDistance <= 300f) {
                     targetSoldier = soldier.gameObject;
@@ -94,7 +96,7 @@ public class Enemy : Person {
 
         foreach(Person person in GameManager.instance.personList) {
             CombatManager personCombat = person.GetComponent<CombatManager>();
-            if(person.personInfo.isDead == false && personCombat.IsCirclingListFull() == false) {
+            if(person.GetInfo().isDead == false && personCombat.IsCirclingListFull() == false && person.GetInfo().aiType == AIType.StateMachine) {
                 /*targetPersonDistance = Vector3.Distance(person.transform.position, transform.position);
                 if(targetPersonDistance <= 300f) {
                     targetPerson = person.gameObject;
@@ -132,6 +134,7 @@ public class Enemy : Person {
                     {
                         personInfo.aiType = AIType.CombatAI;
                     }
+                    break;
                 }
             }
         }
@@ -142,7 +145,7 @@ public class Enemy : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("SoldierAttackCollider") || otherCollider.gameObject.CompareTag("PersonAttackCollider")) {
-            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
@@ -151,13 +154,13 @@ public class Enemy : Person {
                 }
                 isHurt = true;
 
-                int attackBackRandom = Random.Range(0, 10);
-                if(attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) {
+                int changeTargetRandom = Random.Range(0, 10);
+                if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
                     CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
                     if(currentTargetCombat.CirclingListContains(personAgent)) {
                         currentTargetCombat.circlingList.Remove(personAgent);
                     }
-                    SetTarget(attackCharacterInfo.gameObject);
+                    SetTarget(attackCharacterInfo.owner);
                 }
             }
         }

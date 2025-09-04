@@ -6,7 +6,7 @@ public class DeadState : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
 
-        if (mainPerson.personInfo.isDead == true)
+        if (mainPerson.GetInfo().isDead == true)
         {
             if (mainPerson.target)
             {
@@ -20,8 +20,8 @@ public class DeadState : StateMachineBehaviour {
             mainPerson.SetTarget(null);
             mainPerson.attackingTarget = false;
             mainPerson.personAgent.enabled = false;
-            mainPerson.personInfo.stateMachineDead = true;
-            mainPerson.personInfo.personRagdollManager.EnableRagdoll();
+            mainPerson.GetInfo().stateMachineDead = true;
+            mainPerson.GetInfo().personRagdollManager.EnableRagdoll();
             if (mainPerson.weapon)
             {
                 mainPerson.weapon.transform.SetParent(null);

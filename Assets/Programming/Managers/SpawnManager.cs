@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour {
     public GameObject enemyPrefab;
     public Transform []enemySpawnLocations;
     public int enemyCount = 0;
+    public bool combatAIsActive = false;
     
     void Awake() {
         if(instance == null) {
@@ -23,25 +24,37 @@ public class SpawnManager : MonoBehaviour {
         }
     }
 
-    void Start() {
+    void Start()
+    {
         allySpawnLocations = new Transform[transform.Find("AllySpawnLocations").childCount];
-        for(int i = 0; i < allySpawnLocations.Length; i = i + 1) {
+        for (int i = 0; i < allySpawnLocations.Length; i = i + 1)
+        {
             allySpawnLocations[i] = transform.Find("AllySpawnLocations").GetChild(i);
         }
 
         enemySpawnLocations = new Transform[transform.Find("EnemySpawnLocations").childCount /*1*/];
-        for(int i = 0; i < enemySpawnLocations.Length; i = i + 1) {
+        for (int i = 0; i < enemySpawnLocations.Length; i = i + 1)
+        {
             enemySpawnLocations[i /*0*/] = transform.Find("EnemySpawnLocations").GetChild(i /*0*/);
         }
     }
 
-    void Update() {
-        if(allyCount < allySpawnLocations.Length) {
+    void Update()
+    {
+        if (allyCount < allySpawnLocations.Length)
+        {
             SpawnAllies();
         }
 
-        if(enemyCount < enemySpawnLocations.Length /*10*/) {
+        if (enemyCount < enemySpawnLocations.Length /*10*/)
+        {
             SpawnEnemies();
+        }
+
+        if (combatAIsActive == false && enemyCount == enemySpawnLocations.Length)
+        {
+            AIManager.instance.SetupCombatAI();
+            combatAIsActive = true;
         }
     }
 

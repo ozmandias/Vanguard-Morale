@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4939720439474622}
   - component: {fileID: 33510079257747660}
   - component: {fileID: 23235368267096450}
+  - component: {fileID: 114335793860473584}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -433,7 +434,6 @@ GameObject:
   - component: {fileID: 65492941694292280}
   - component: {fileID: 195641387963278096}
   - component: {fileID: 114147868653679534}
-  - component: {fileID: 114898264132190446}
   - component: {fileID: 114000624600737640}
   - component: {fileID: 114559051868493206}
   - component: {fileID: 114382510883183128}
@@ -1362,7 +1362,20 @@ MonoBehaviour:
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
   personAgent: {fileID: 0}
-  personInfo: {fileID: 0}
+  personInfo:
+    owner: {fileID: 0}
+    health: 100
+    MaxHealth: 100
+    damage: 10
+    morality: 50
+    alignment: 50
+    gender: 0
+    combatType: 0
+    isDead: 0
+    personRagdollManager: {fileID: 0}
+    personType: 1
+    aiType: 0
+    stateMachineDead: 0
   attackFrames: 0
   hurtFrames: 0
   personState: 0
@@ -1370,6 +1383,21 @@ MonoBehaviour:
   attackingTarget: 0
   nearTarget: 0
   isHurt: 0
+  isMoving: 0
+  preparingAttack: 0
+--- !u!114 &114335793860473584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148547559045366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411a50b88ee9e468487717708915f25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCollider: {fileID: 0}
+  owner: {fileID: 0}
 --- !u!114 &114382510883183128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1410,31 +1438,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationManager: {fileID: 0}
   circlingList: []
   maxCirclingEnemies: 3
-  runAICircling: 0
---- !u!114 &114898264132190446
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763876978638708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d12befee58f4e8f8b8c636b403c9ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  MaxHealth: 100
-  damage: 0
-  morality: 60
-  alignment: 60
-  gender: 0
-  combatType: 0
-  isDead: 0
-  personRagdollManager: {fileID: 0}
-  personType: 0
-  stateMachineDead: 0
+  characterInfo:
+    owner: {fileID: 0}
+    health: 100
+    MaxHealth: 100
+    damage: 0
+    morality: 50
+    alignment: 50
+    gender: 0
+    combatType: 0
+    isDead: 0
+  available: 1
+  playerCamera: {fileID: 0}
+  combatCollider: {fileID: 0}
+  checkDirection: {x: 0, y: 0, z: 0}
+  currentTarget: {fileID: 0}
+  managingMove: 0
+  managingAttack: 0
+  isCombating: 0
+  isCountering: 0
+  combatNumber: 0
+  counterNumber: 0
+  targetCheckRadius: 12
+  targetCheckMaxDistance: 30
+  targetAttackOffset: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  OnPlayerMovement:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerMovementEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPlayerCombat:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPlayerCounter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  enemyIsPreparingAttack: 0
+  enemyIsMoving: 0
+  enemyIsAttacking: 0
+  enemyIsRetreating: 0
+  enemyIsPlayerTarget: 0
+  enemyIsStunned: 0
+  enemyIsWaiting: 1
+  enemyIsAttackable: 1
+  counterParticle: {fileID: 0}
+  OnEnemyStop:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyStopEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEnemyRetreat:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyRetreatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEnemyHurt:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!135 &135856991391032762
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class PlayerInfo : Info {
-    public override void Start()
+[System.Serializable] public class PlayerInfo : Info {
+    public /*PlayerInfo() : base()*/ void Init(GameObject owner)
     {
-        base.Start();
-
+        base.Init(owner);
         damage = 50;
         morality = 60;
         alignment = (Morality)morality;

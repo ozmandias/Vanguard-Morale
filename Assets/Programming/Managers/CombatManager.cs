@@ -55,7 +55,7 @@ public class CombatManager : MonoBehaviour
     void Start()
     {
         animationManager = GetComponent<AnimationManager>();
-        characterInfo = GetComponent<Info>();
+        characterInfo = gameObject.CompareTag("Player") ? gameObject == GameManager.instance.playerCharacters[0] ? (Info) GetComponent<MasterKnight>().GetInfo() : (Info) GetComponent<Player>().GetInfo() : (Info) GetComponent<Person>().GetInfo();
         if (characterInfo is MasterKnightInfo || characterInfo is PlayerInfo)
         {
             playerCamera = Camera.main;
@@ -199,20 +199,24 @@ public class CombatManager : MonoBehaviour
         float minDistance = 100f;
         int nearestLocation = -1;
 
-        for (int i = 0; i < AIManager.instance.enemyStructs.Count; i = i + 1)
+        if (AIManager.instance.enemyStructs.Count > 0)
         {
-            Enemy currentCheckEnemy = AIManager.instance.enemyStructs[i].enemy;
-            if (currentCheckEnemy.personCombat.enemyIsPreparingAttack)
+            for (int i = 0; i < AIManager.instance.enemyStructs.Count; i = i + 1)
             {
-                float currentCheckDistance = Vector3.Distance(transform.position, currentCheckEnemy.transform.position);
-                if (currentCheckDistance < minDistance)
+                Enemy currentCheckEnemy = AIManager.instance.enemyStructs[i].enemy;
+                if (currentCheckEnemy.GetComponent<CombatManager>()/*personCombat*/.enemyIsPreparingAttack)
                 {
-                    minDistance = currentCheckDistance;
-                    nearestLocation = i;
+                    float currentCheckDistance = Vector3.Distance(transform.position, currentCheckEnemy.transform.position);
+                    if (currentCheckDistance < minDistance)
+                    {
+                        minDistance = currentCheckDistance;
+                        nearestLocation = i;
+                    }
                 }
             }
         }
-        if(nearestLocation > -1) nearestEnemy = AIManager.instance.enemyStructs[nearestLocation].enemy;
+
+        if (nearestLocation > -1) nearestEnemy = AIManager.instance.enemyStructs[nearestLocation].enemy;
         return nearestEnemy;
     }
     #endregion
@@ -345,7 +349,7 @@ public class CombatManager : MonoBehaviour
             // enemyIsStunned = true;
             EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
             enemyIsPlayerTarget = false;
-            enemyTarget.personInfo.CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
+            enemyTarget.GetInfo().CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
             if (characterInfo.isDead)
             {
                 available = false;

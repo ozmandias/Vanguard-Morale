@@ -50,7 +50,7 @@ public class Villager : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
-            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false){
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
@@ -59,15 +59,15 @@ public class Villager : Person {
                 }
                 isHurt = true;
 
-                int attackBackRandom = Random.Range(0, 10);
-                if(attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) {
-                    if(attackingTarget && attackBackRandom >= 5) {
+                int changeTargetRandom = Random.Range(0, 10);
+                if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
+                    if(attackingTarget && changeTargetRandom >= 5) {
                         CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
                         if(currentTargetCombat.CirclingListContains(personAgent)) {
                             currentTargetCombat.circlingList.Remove(personAgent);
                         }
                     }
-                    SetTarget(attackCharacterInfo.gameObject);
+                    SetTarget(attackCharacterInfo.owner);
                 }
             }
         }

@@ -40,10 +40,10 @@ public class MasterKnight : MonoBehaviour {
 		attackCollider = GameObject.Find("MasterKnightAttackCollider").GetComponent<Collider>();
 		attackCollider.enabled = false;
 
-		masterKnightInfo = gameObject.GetComponent<MasterKnightInfo>();
 		masterKnightAnimation = gameObject.GetComponent<AnimationManager>();
 		masterKnightCombat = gameObject.GetComponent<CombatManager>();
 
+		masterKnightInfo.Init(gameObject);
 		/*masterKnightBody.interpolation = RigidbodyInterpolation.Interpolate;
 		masterKnightBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
 	}
@@ -154,6 +154,11 @@ public class MasterKnight : MonoBehaviour {
 		if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
 			
 		}
+	}
+
+	public MasterKnightInfo GetInfo()
+	{
+		return masterKnightInfo;
 	}
 
 	IEnumerator CheckGroundCoroutine() {

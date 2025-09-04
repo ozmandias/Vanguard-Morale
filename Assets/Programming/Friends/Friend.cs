@@ -7,6 +7,8 @@ public class Friend : Person {
     public override void Start() {
         base.Start();
 
+        personInfo.personType = PersonType.Friend;
+
         destination = GameManager.instance.soldierDestination /*GameObject.Find("SoldierDestination").transform*/;
 
         GameManager.instance.soldierList.Add(this);
@@ -60,7 +62,7 @@ public class Friend : Person {
 
         foreach(Enemy enemy in GameManager.instance.enemyList) {
             CombatManager enemyCombat = enemy.GetComponent<CombatManager>();
-            if(enemy.personInfo.isDead == false && enemyCombat.IsCirclingListFull() == false) {
+            if(enemy.GetInfo().isDead == false && enemyCombat.IsCirclingListFull() == false && enemy.GetInfo().aiType == AIType.StateMachine) {
                 /*targetEnemyDistance = Vector3.Distance(enemy.transform.position, transform.position);
                 if(targetEnemyDistance <= 300f) {
                     targetEnemy = enemy.gameObject;
@@ -93,6 +95,7 @@ public class Friend : Person {
                 if(targetDistance < nearestDistance) {
                     nearestDistance = targetDistance;
                     SetTarget(target);
+                    break;
                 }
             }
         }
@@ -103,7 +106,7 @@ public class Friend : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
-            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
@@ -112,13 +115,13 @@ public class Friend : Person {
                 }
                 isHurt = true;
 
-                int attackBackRandom = Random.Range(0, 10);
-                if(attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) {
+                int changeTargetRandom = Random.Range(0, 10);
+                if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
                     CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
                     if(currentTargetCombat.CirclingListContains(personAgent)) {
                         currentTargetCombat.circlingList.Remove(personAgent);
                     }
-                    SetTarget(attackCharacterInfo.gameObject);
+                    SetTarget(attackCharacterInfo.owner);
                 }
             }
         }

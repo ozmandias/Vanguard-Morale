@@ -36,10 +36,10 @@ public class Player : MonoBehaviour {
         playerAnimator = gameObject.GetComponent<Animator>();
         playerCamera = Camera.main;
 
-        playerInfo = GetComponent<PlayerInfo>();
         playerAnimation = GetComponent<AnimationManager>();
         playerCombat = GetComponent<CombatManager>();
 
+        playerInfo.Init(gameObject);
         /*playerBody.interpolation = RigidbodyInterpolation.Interpolate;
         playerBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
     }
@@ -142,6 +142,11 @@ public class Player : MonoBehaviour {
 
     public void CheckGround() {
         StartCoroutine(CheckGroundCoroutine());
+    }
+
+    public PlayerInfo GetInfo()
+    {
+        return playerInfo;
     }
 
     public IEnumerator CheckGroundCoroutine()

@@ -89,10 +89,8 @@ public class GameManager : MonoBehaviour {
 		if (playerCharacters.Length > 0)
 		{
 			playerCharacters[0]/*GameObject.Find("MasterKnight")*/.GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
-			playerCharacters[0]/*GameObject.Find("MasterKnight")*/.GetComponent<MasterKnightInfo>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
 
 			playerCharacters[1]/*GameObject.Find("Hero")*/.GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
-			playerCharacters[1]/*GameObject.Find("Hero")*/.GetComponent<PlayerInfo>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
 
 			playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
 		}

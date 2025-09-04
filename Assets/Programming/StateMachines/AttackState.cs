@@ -18,35 +18,47 @@ public class AttackState : StateMachineBehaviour {
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if(mainPerson.target) {
-            targetInfo = mainPerson.target.GetComponent<Info>();
-            targetCombat = mainPerson.target.GetComponent<CombatManager>();
+            bool canAttackTarget = true;
 
-            Vector3 targetDirection = (mainPerson.target.transform.position - animator.transform.position).normalized;
-            targetDirection.y = 0;
-            Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
-            animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, lookRotation, mainPerson.speed * Time.deltaTime);
-
-            if(animator.GetBool("Attacking") == true) {
-                mainPerson.isAttacking = true;
-                mainPerson.attackCollider.enabled = true;
-            } else {
-                mainPerson.isAttacking = false;
-                mainPerson.attackCollider.enabled = false;
-                stateTime = 0;
+            targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? (Info) mainPerson.target.GetComponent<MasterKnight>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
+            if(targetInfo is PersonInfo) {
+                if(mainPerson.target.GetComponent<Person>().GetInfo().aiType == AIType.CombatAI) {
+                    canAttackTarget = false;
+                }
             }
 
-            if(mainPerson.isAttacking == true) {
-                stateTime += Time.deltaTime /*stateInfo.normalizedTime % 1*/;
-                targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
-                if(targetDistance > nearDistance && targetInfo.isDead == false) {
-                    mainPerson.nearTarget = false;
-                } else if(targetDistance > followDistance || targetInfo.isDead == true) {
-                    if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
-                        targetCombat.circlingList.Remove(mainPerson.personAgent);
-                    }
-                    mainPerson.SetTarget(null);
-                    mainPerson.attackingTarget = false;
+            if(canAttackTarget) {
+                targetCombat = mainPerson.target.GetComponent<CombatManager>();
+
+                Vector3 targetDirection = (mainPerson.target.transform.position - animator.transform.position).normalized;
+                targetDirection.y = 0;
+                Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
+                animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, lookRotation, mainPerson.speed * Time.deltaTime);
+
+                if(animator.GetBool("Attacking") == true) {
+                    mainPerson.isAttacking = true;
+                    mainPerson.attackCollider.enabled = true;
+                } else {
+                    mainPerson.isAttacking = false;
+                    mainPerson.attackCollider.enabled = false;
+                    stateTime = 0;
                 }
+
+                if(mainPerson.isAttacking == true) {
+                    stateTime += Time.deltaTime /*stateInfo.normalizedTime % 1*/;
+                    targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
+                    if(targetDistance > nearDistance && targetInfo.isDead == false) {
+                        mainPerson.nearTarget = false;
+                    } else if(targetDistance > followDistance || targetInfo.isDead == true) {
+                        if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                            targetCombat.circlingList.Remove(mainPerson.personAgent);
+                        }
+                        mainPerson.SetTarget(null);
+                        mainPerson.attackingTarget = false;
+                    }
+                }
+            } else {
+                mainPerson.attackingTarget = false;
             }
         }
     }

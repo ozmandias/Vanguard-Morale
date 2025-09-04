@@ -32,7 +32,7 @@ public class AIManager : MonoBehaviour
 
     void Start()
     {
-        Enemy[] enemyObjects = FindObjectsOfType<Enemy>();
+        /*Enemy[] enemyObjects = FindObjectsOfType<Enemy>();
         foreach (Enemy enemyObject in enemyObjects)
         {
             EnemyStruct enemyStruct = new EnemyStruct();
@@ -41,7 +41,7 @@ public class AIManager : MonoBehaviour
             enemyStructs.Add(enemyStruct);
         }
 
-        StartAI();
+        StartAI();*/
     }
 
     public void AddToList(PersonType personType, NavMeshAgent aiAgent)
@@ -195,21 +195,21 @@ public class AIManager : MonoBehaviour
     {
         /*if(GUI.Button(new Rect(10, 10, 150, 50), "AI To Target")) {
             foreach(Friend soldier in GameManager.instance.soldierList) {
-                if(soldier.target) AIManager.instance.AgentCircleTarget(soldier.personInfo.personType, soldier.personAgent, soldier.target.transform, CircleType.Semicircle);
+                if(soldier.target) AIManager.instance.AgentCircleTarget(soldier.GetInfo().personType, soldier.personAgent, soldier.target.transform, CircleType.Semicircle);
             }
 
             foreach(Enemy enemy in GameManager.instance.enemyList) {
-                if(enemy.target) AIManager.instance.AgentCircleTarget(enemy.personInfo.personType, enemy.personAgent, enemy.target.transform, CircleType.Semicircle);
+                if(enemy.target) AIManager.instance.AgentCircleTarget(enemy.GetInfo().personType, enemy.personAgent, enemy.target.transform, CircleType.Semicircle);
             }
         }*/
 
         /*if(GUI.Button(new Rect(10, 80, 150, 50), "AI To Destination")) {
             foreach(Friend soldier in GameManager.instance.soldierList) {
-                AIManager.instance.AgentRepositionAtDestination(soldier.personInfo.personType, soldier.personAgent, soldier.destination);
+                AIManager.instance.AgentRepositionAtDestination(soldier.GetInfo().personType, soldier.personAgent, soldier.destination);
             }
 
             foreach(Enemy enemy in GameManager.instance.enemyList) {
-                AIManager.instance.AgentRepositionAtDestination(enemy.personInfo.personType, enemy.personAgent, enemy.destination);
+                AIManager.instance.AgentRepositionAtDestination(enemy.GetInfo().personType, enemy.personAgent, enemy.destination);
             }
         }*/
     }
@@ -217,6 +217,20 @@ public class AIManager : MonoBehaviour
     void StartAI()
     {
         CombatAILoopCoroutine = StartCoroutine(SetCombatAILoopCoroutine(null));
+    }
+
+    public void SetupCombatAI()
+    {
+        Enemy[] enemyObjects = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemyObject in enemyObjects)
+        {
+            EnemyStruct enemyStruct = new EnemyStruct();
+            enemyStruct.enemy = enemyObject;
+            enemyStruct.available = true;
+            enemyStructs.Add(enemyStruct);
+        }
+
+        StartAI();
     }
 
     public Enemy RandomEnemy()
@@ -286,6 +300,8 @@ public class AIManager : MonoBehaviour
             StopCoroutine(SetCombatAILoopCoroutine(null));
             yield break;
         }
+
+        Debug.Log("Total enemyStructs: " + enemyStructs.Count);
 
         yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
 

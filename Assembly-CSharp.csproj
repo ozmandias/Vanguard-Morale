@@ -86,6 +86,8 @@
      <Compile Include="Assets\Programming\Friends\AllyGuard.cs" />
      <Compile Include="Assets\Programming\Friends\AllySwordsman.cs" />
      <Compile Include="Assets\Programming\Friends\Friend.cs" />
+     <Compile Include="Assets\Programming\Items\Item.cs" />
+     <Compile Include="Assets\Programming\Items\Weapon.cs" />
      <Compile Include="Assets\Programming\Managers\AIManager.cs" />
      <Compile Include="Assets\Programming\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Programming\Managers\CombatManager.cs" />

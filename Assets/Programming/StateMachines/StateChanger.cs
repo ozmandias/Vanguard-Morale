@@ -12,7 +12,7 @@ public class StateChanger : MonoBehaviour {
     }
 
     void CheckState() {
-        if (mainPerson.personInfo.aiType == AIType.StateMachine) {
+        if (mainPerson.GetInfo().aiType == AIType.StateMachine) {
             switch(mainPerson.personState) {
                 case StateMachine.Idle:
                     if(mainPerson.target) {
@@ -81,7 +81,7 @@ public class StateChanger : MonoBehaviour {
                     }
                     break;
                 case StateMachine.Hurt:
-                    if(!mainPerson.personInfo.isDead) {
+                    if(!mainPerson.GetInfo().isDead) {
                         if(mainPerson.target) {
                             if(mainPerson.attackingTarget && mainPerson.nearTarget) {
                                 mainPerson.ChangeState(StateMachine.Attack);

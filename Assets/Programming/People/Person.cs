@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Person : MonoBehaviour {
+public class Person : MonoBehaviour
+{
     [Header("Move Settings")]
     public float speed = 20f;
     public Transform destination;
@@ -39,10 +40,12 @@ public class Person : MonoBehaviour {
         personAnimation = GetComponent<AnimationManager>();
         personCombat = GetComponent<CombatManager>();
         personAgent = GetComponent<NavMeshAgent>();
-        personInfo = GetComponent<PersonInfo>();
+
+        personInfo.Init(gameObject);
     }
 
-    public virtual void Update() {
+    public virtual void Update()
+    {
         if (personInfo.aiType == AIType.StateMachine && personInfo.stateMachineDead == false)
         {
             switch (personState)
@@ -78,47 +81,58 @@ public class Person : MonoBehaviour {
             }
         }
 
-        if(personInfo.isDead == true) {
-            if(Input.GetKeyDown(KeyCode.R)) {
+        if (personInfo.isDead == true)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
                 Resurrect();
             }
         }
     }
 
-    public virtual void Idle() {
+    public virtual void Idle()
+    {
         personAnimation.Play("Idle");
     }
 
-    public virtual void Move() {
+    public virtual void Move()
+    {
         personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
         personAnimation.Play("Move");
     }
 
-    public virtual void Work() {
+    public virtual void Work()
+    {
         personAnimation.Play("Work");
     }
 
-    public virtual void Follow() {
+    public virtual void Follow()
+    {
         personAnimation.SetParameter("Velocity", personAgent.velocity.magnitude);
         personAnimation.Play("Follow");
     }
-    
-    public virtual void Attack() {
+
+    public virtual void Attack()
+    {
         personAnimation.Play("Attack");
     }
 
-    public virtual void Hurt() {
+    public virtual void Hurt()
+    {
         hurtFrames += Time.deltaTime;
-        if(hurtFrames < 1) {
+        if (hurtFrames < 1)
+        {
             personAnimation.PlayByFrame("Hurt", hurtFrames);
         }
     }
 
-    public virtual void Dead() {
+    public virtual void Dead()
+    {
         personAnimation.Play("Dead");
     }
 
-    public virtual void Resurrect() {
+    public virtual void Resurrect()
+    {
         personInfo.isDead = false;
         personInfo.stateMachineDead = false;
         personAgent.enabled = true;
@@ -127,37 +141,45 @@ public class Person : MonoBehaviour {
         Idle();
     }
 
-    public void ChangeState(StateMachine _state) {
+    public void ChangeState(StateMachine _state)
+    {
         personState = _state;
     }
 
-    public virtual void SetTarget(GameObject _newTarget) {
+    public virtual void SetTarget(GameObject _newTarget)
+    {
         target = _newTarget;
     }
 
-    public virtual void FindTarget() {}
+    public virtual void FindTarget() { }
 
     bool collision = false;
     float nextHurtTime = 0;
     float hitRate = 1f;
-    public virtual void OnTriggerEnter(Collider otherCollider) {
-        if(otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider")) {
-            if(/*collision == false && Time.time > nextHurtTime &&*/ personInfo.isDead == false) {
+    public virtual void OnTriggerEnter(Collider otherCollider)
+    {
+        if (otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider"))
+        {
+            if (/*collision == false && Time.time > nextHurtTime &&*/ personInfo.isDead == false)
+            {
                 /*collision = true;
                 nextHurtTime = Time.time + hitRate;*/
 
-                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Info>();
+                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
-                if(isHurt == true) {
+                if (isHurt == true)
+                {
                     hurtFrames = 0;
                 }
                 isHurt = true;
 
-                int attackBackRandom = Random.Range(0, 10);
-                if((attackingTarget == false || (attackingTarget && attackBackRandom >= 5)) && personInfo.personType != PersonType.Friend) {
+                int changeTargetRandom = Random.Range(0, 10);
+                if ((attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) && personInfo.personType != PersonType.Friend)
+                {
                     CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                    if(currentTargetCombat.CirclingListContains(personAgent)) {
+                    if (currentTargetCombat.CirclingListContains(personAgent))
+                    {
                         currentTargetCombat.circlingList.Remove(personAgent);
                     }
                     SetTarget(GameManager.instance.playerGameObject);
@@ -165,7 +187,13 @@ public class Person : MonoBehaviour {
             }
         }
     }
-    public virtual void OnTriggerExit(Collider otherCollider) {
+    public virtual void OnTriggerExit(Collider otherCollider)
+    {
         // collision = false;
+    }
+
+    public PersonInfo GetInfo()
+    {
+        return personInfo;
     }
 }
