@@ -61,7 +61,7 @@ public class Villager : Person {
 
                 int changeTargetRandom = Random.Range(0, 10);
                 if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
-                    if(attackingTarget && changeTargetRandom >= 5) {
+                    if(target) {
                         CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
                         if(currentTargetCombat.CirclingListContains(personAgent)) {
                             currentTargetCombat.circlingList.Remove(personAgent);

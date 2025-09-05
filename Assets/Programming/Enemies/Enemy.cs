@@ -41,11 +41,13 @@ public class Enemy : Person {
         base.Hurt();
     }
 
-    public override void Dead() {
+    public override void Dead()
+    {
         base.Dead();
 
         GameManager.instance.enemyList.Remove(this);
         AIManager.instance.enemyAIList.Remove(personAgent);
+        AIManager.instance.RemoveEnemy(this);
     }
 
     public override void Resurrect() {
@@ -156,9 +158,11 @@ public class Enemy : Person {
 
                 int changeTargetRandom = Random.Range(0, 10);
                 if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
-                    CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                    if(currentTargetCombat.CirclingListContains(personAgent)) {
-                        currentTargetCombat.circlingList.Remove(personAgent);
+                    if(target) {
+                        CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
+                        if(currentTargetCombat.CirclingListContains(personAgent)) {
+                            currentTargetCombat.circlingList.Remove(personAgent);
+                        }
                     }
                     SetTarget(attackCharacterInfo.owner);
                 }

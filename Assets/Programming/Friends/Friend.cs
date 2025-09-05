@@ -117,9 +117,11 @@ public class Friend : Person {
 
                 int changeTargetRandom = Random.Range(0, 10);
                 if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
-                    CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                    if(currentTargetCombat.CirclingListContains(personAgent)) {
-                        currentTargetCombat.circlingList.Remove(personAgent);
+                    if(target) {
+                        CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
+                        if(currentTargetCombat.CirclingListContains(personAgent)) {
+                            currentTargetCombat.circlingList.Remove(personAgent);
+                        }
                     }
                     SetTarget(attackCharacterInfo.owner);
                 }

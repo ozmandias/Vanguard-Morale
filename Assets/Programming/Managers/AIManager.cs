@@ -292,6 +292,21 @@ public class AIManager : MonoBehaviour
             }
         }
     }
+
+    public void RemoveEnemy(Enemy enemy)
+    {
+        int removeLocation = 0;
+        foreach (EnemyStruct enemyStruct in enemyStructs)
+        {
+            if (enemyStruct.enemy == enemy)
+            {
+                break;
+            }
+            removeLocation += 1;
+        }
+
+        enemyStructs.Remove(enemyStructs[removeLocation]);
+    }
     
     IEnumerator SetCombatAILoopCoroutine(Enemy enemy)
     {

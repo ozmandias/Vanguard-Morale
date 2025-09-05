@@ -27,12 +27,28 @@ using UnityEngine.AI;
             switch (personType)
             {
                 case PersonType.Enemy:
-                    // GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
+                    (
+                        GameManager.instance.playerGameObject
+                        ==
+                        GameManager.instance.playerCharacters[0]
+                        ?
+                        (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
+                        :
+                        (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
+                    ).AddMorality(3);
                     break;
                 case PersonType.Neutral:
                     break;
                 case PersonType.Friend:
-                    // GameManager.instance.playerGameObject.GetComponent<Info>().ReduceMorality(6);
+                    (
+                        GameManager.instance.playerGameObject
+                        ==
+                        GameManager.instance.playerCharacters[0]
+                        ?
+                        (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
+                        :
+                        (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
+                    ).ReduceMorality(6);
                     break;
                 default:
                     break;
@@ -46,7 +62,15 @@ using UnityEngine.AI;
         if (isDead == true && personType == PersonType.Enemy)
         {
             Person mainPerson = owner.GetComponent<Person>();
-            // GameManager.instance.playerGameObject.GetComponent<Info>().AddMorality(3);
+            (
+                GameManager.instance.playerGameObject
+                ==
+                GameManager.instance.playerCharacters[0]
+                ?
+                (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
+                :
+                (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
+            ).AddMorality(3);
             aiType = AIType.StateMachine;
             mainPerson.ChangeState(StateMachine.Dead);
             stateMachineDead = true;
@@ -57,6 +81,7 @@ using UnityEngine.AI;
                 mainPerson.weapon.AddComponent<Rigidbody>();
                 mainPerson.weapon.AddComponent<BoxCollider>();
             }
+            mainPerson.Dead();
         }
     }
 }
