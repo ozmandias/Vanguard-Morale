@@ -23,7 +23,7 @@ public class MoveState : StateMachineBehaviour {
 
             targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? (Info) mainPerson.target.GetComponent<MasterKnight>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
             if (targetInfo is PersonInfo) {
-                if (mainPerson.target.GetComponent<Person>().GetInfo().aiType == AIType.CombatAI) {
+                if ((targetInfo as PersonInfo).aiType == AIType.CombatAI) {
                     canAttackTarget = false;
                 }
             }
@@ -39,7 +39,6 @@ public class MoveState : StateMachineBehaviour {
             if(destinationDistance > reachDistance && destinationDistance > moveDistance) {
                 mainPerson.personAgent.destination = mainPerson.destination.position;
             } else if(destinationDistance <= moveDistance && destinationDistance > reachDistance) {
-                // AIManager.instance.AgentCircleTarget(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.destination, CircleType.Semicircle);
                 AIManager.instance.AgentRepositionAtDestination(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.destination);
             } else if(destinationDistance <= reachDistance) {
                 mainPerson.personAgent.velocity = Vector3.zero;

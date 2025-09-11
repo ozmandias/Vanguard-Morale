@@ -26,16 +26,23 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 
+    public UnityEngine.SceneManagement.Scene GetCurrentScene()
+    {
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+    }
+
     void OnGUI()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "mainmenu") {
-            if (GUI.Button(new Rect(10, 10, 150, 50), "Test"))
-            {
+        if (SceneManager.instance.GetCurrentScene().name == "mainmenu") {
+            GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+            buttonStyle.fontSize = 30;
+
+            if (GUI.Button(new Rect(10, 10, 250, 100), "Test", buttonStyle)) {
                 UIManager.instance.ChangeUIType(UIType.Game);
                 ChangeScene("test");
             }
             
-            if(GUI.Button(new Rect(10, 80, 150, 50), "Lab")) {
+            if (GUI.Button(new Rect(10, 120, 250, 100), "Lab", buttonStyle)) {
                 UIManager.instance.ChangeUIType(UIType.Game);
                 ChangeScene("lab");
             }

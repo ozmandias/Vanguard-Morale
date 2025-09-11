@@ -116,38 +116,6 @@ public class AIManager : MonoBehaviour
         }
     }
 
-    public void AgentRepositionAtDestination(PersonType personType, NavMeshAgent aiAgent, Transform destinationTransform)
-    {
-        List<NavMeshAgent> aiList;
-        int agentIndex = -1;
-
-        switch (personType)
-        {
-            case PersonType.Friend:
-                aiList = soldierAIList;
-                break;
-            case PersonType.Enemy:
-                aiList = enemyAIList;
-                break;
-            default:
-                aiList = personAIList;
-                break;
-        }
-        agentIndex = aiList.IndexOf(aiAgent);
-
-        if (agentIndex != -1 /*&& agentIndex < 5*/)
-        {
-            Vector3 reposition = new Vector3(
-                destinationTransform.position.x + DistanceAroundDestination * Mathf.Cos(Mathf.PI * agentIndex / aiList.Count),
-                destinationTransform.position.y,
-                destinationTransform.position.z + DistanceAroundDestination * Mathf.Sin(Mathf.PI * agentIndex / aiList.Count)
-            );
-            aiAgent.SetDestination(reposition);
-        } /*else {
-            // move to next line of position
-        }*/
-    }
-
     public void AgentsCircleTarget(PersonType personType, Transform targetTransform, CircleType circleType)
     {
         List<NavMeshAgent> aiList;
@@ -191,27 +159,55 @@ public class AIManager : MonoBehaviour
         }
     }
 
-    void OnGUI()
+    public void AgentRepositionAtDestination(PersonType personType, NavMeshAgent aiAgent, Transform destinationTransform)
     {
-        /*if(GUI.Button(new Rect(10, 10, 150, 50), "AI To Target")) {
-            foreach(Friend soldier in GameManager.instance.soldierList) {
-                if(soldier.target) AIManager.instance.AgentCircleTarget(soldier.GetInfo().personType, soldier.personAgent, soldier.target.transform, CircleType.Semicircle);
-            }
+        List<NavMeshAgent> aiList;
+        int agentIndex = -1;
 
-            foreach(Enemy enemy in GameManager.instance.enemyList) {
-                if(enemy.target) AIManager.instance.AgentCircleTarget(enemy.GetInfo().personType, enemy.personAgent, enemy.target.transform, CircleType.Semicircle);
-            }
-        }*/
+        switch (personType)
+        {
+            case PersonType.Friend:
+                aiList = soldierAIList;
+                break;
+            case PersonType.Enemy:
+                aiList = enemyAIList;
+                break;
+            default:
+                aiList = personAIList;
+                break;
+        }
+        agentIndex = aiList.IndexOf(aiAgent);
 
-        /*if(GUI.Button(new Rect(10, 80, 150, 50), "AI To Destination")) {
-            foreach(Friend soldier in GameManager.instance.soldierList) {
-                AIManager.instance.AgentRepositionAtDestination(soldier.GetInfo().personType, soldier.personAgent, soldier.destination);
-            }
+        if (agentIndex != -1)
+        {
+            Vector3 reposition = CalculateLineUpPosition(aiList, agentIndex, destinationTransform);
+            aiAgent.SetDestination(/*destinationTransform.position*/ reposition);
+        }
+    }
 
-            foreach(Enemy enemy in GameManager.instance.enemyList) {
-                AIManager.instance.AgentRepositionAtDestination(enemy.GetInfo().personType, enemy.personAgent, enemy.destination);
+    public Vector3 CalculateLineUpPosition(List<NavMeshAgent> aiList, int agentIndex, Transform destinationTransform) {
+        int agentsPerRow = aiList.Count / 2;
+        int rowsToLineUp = 2;
+        float agentSpaceHorizontal = 10f;
+        float rowSpaceVertical = 12f;
+
+        List<Vector3> lineUpPositions = new List<Vector3>();
+        Vector3 lineUpPosition = Vector3.zero;
+        for(int row = 0; row < rowsToLineUp; row = row + 1) {
+            for (int agent = 0; agent < agentsPerRow; agent = agent + 1) {
+                Vector3 newLineUpPosition = new Vector3(
+                    destinationTransform.position.x + (agent * agentSpaceHorizontal),
+                    destinationTransform.position.y,
+                    destinationTransform.position.z + (row * rowSpaceVertical)
+                );
+                lineUpPositions.Add(newLineUpPosition);
             }
-        }*/
+        }
+
+        if(agentIndex < lineUpPositions.Count) {
+            lineUpPosition = lineUpPositions[agentIndex];
+        }
+        return lineUpPosition;
     }
 
     void StartAI()
@@ -307,7 +303,7 @@ public class AIManager : MonoBehaviour
 
         enemyStructs.Remove(enemyStructs[removeLocation]);
     }
-    
+
     IEnumerator SetCombatAILoopCoroutine(Enemy enemy)
     {
         if (enemyStructs.Count == 0)
@@ -315,8 +311,6 @@ public class AIManager : MonoBehaviour
             StopCoroutine(SetCombatAILoopCoroutine(null));
             yield break;
         }
-
-        Debug.Log("Total enemyStructs: " + enemyStructs.Count);
 
         yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
 
@@ -328,13 +322,42 @@ public class AIManager : MonoBehaviour
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsPlayerTarget == false);
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsStunned == false);
 
-        combatingEnemy.personCombat.SetAttackPlayer();
-        yield return new WaitForSeconds(Random.Range(0, 5f /*0.5f*/)); // change waitforseconds()
-        combatingEnemy.personCombat.SetRetreatFromPlayer();
+        if (combatingEnemy.GetInfo().aiType == AIType.CombatAI)
+        {
+            combatingEnemy.personCombat.SetAttackPlayer();
+            yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsNearPlayer == true && combatingEnemy.personCombat.enemyIsAttacking == false || combatingEnemy.GetInfo().isDead); // yield return new WaitForSeconds(Random.Range(0, 5f /*0.5f*/)); // change waitforseconds()
+            combatingEnemy.personCombat.SetRetreatFromPlayer();
+        }
 
         if (enemyStructs.Count > 0)
         {
             CombatAILoopCoroutine = StartCoroutine(SetCombatAILoopCoroutine(combatingEnemy)); // recursion
+        }
+    }
+    
+    void OnGUI()
+    {
+        GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+        buttonStyle.fontSize = 30;
+
+        if (SceneManager.instance.GetCurrentScene().name == "game") {
+            if (GUI.Button(new Rect(30, 250, 350, 100), "Agents to Destination", buttonStyle)) {
+                foreach(Friend soldier in GameManager.instance.soldierList) {
+                    soldier.personAgent.isStopped = false;
+                    AgentRepositionAtDestination(PersonType.Friend, soldier.personAgent, soldier.destination);
+                }
+
+                foreach (Enemy enemy in GameManager.instance.enemyList) {
+                    enemy.personAgent.isStopped = false;
+                    AgentRepositionAtDestination(PersonType.Enemy, enemy.personAgent, enemy.destination);
+                }
+            }
+        }
+
+        if(SceneManager.instance.GetCurrentScene().name == "lab") {
+            if (GUI.Button(new Rect(30, 250, 250, 100), "Run CombatAI", buttonStyle)) {
+                SetupCombatAI();
+            }
         }
     }
 }

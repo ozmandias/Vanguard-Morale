@@ -53,9 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlayer: 0
   playerGameObject: {fileID: 0}
-  playerCharacters:
-  - {fileID: 0}
-  - {fileID: 0}
+  playerCharacters: []
   soldierList: []
   personList: []
   enemyList: []

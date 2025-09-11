@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
         Info ownerInfo;
         if (owner.CompareTag("Player"))
         {
-            ownerInfo = owner == GameManager.instance.playerCharacters[0] ? (Info) owner.GetComponent<MasterKnight>().GetInfo() : (Info) owner.GetComponent<Player>().GetInfo();
+            ownerInfo = owner.name == PlayerCharacter.MasterKnight.ToString() ? (Info) owner.GetComponent<MasterKnight>().GetInfo() : (Info) owner.GetComponent<Player>().GetInfo();
         }
         else
         {

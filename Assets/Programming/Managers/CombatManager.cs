@@ -9,6 +9,7 @@ public class CombatManager : MonoBehaviour
 {
     [Header("Combat Manager Settings")]
     public AnimationManager animationManager;
+    public EffectManager effectManager;
     public List<NavMeshAgent> circlingList;
     public int maxCirclingEnemies = 3;
     public Info characterInfo;
@@ -35,6 +36,7 @@ public class CombatManager : MonoBehaviour
 
     [Header("Enemy Combat Settings")]
     Vector3 enemyMoveAroundDirection;
+    public bool enemyIsNearPlayer = false;
     public bool enemyIsPreparingAttack = false;
     public bool enemyIsMoving = false;
     public bool enemyIsAttacking = false;
@@ -43,7 +45,7 @@ public class CombatManager : MonoBehaviour
     public bool enemyIsStunned = false;
     public bool enemyIsWaiting = true;
     public bool enemyIsAttackable = true;
-    public ParticleSystem counterParticle;
+    public bool counterAlert = false;
     Coroutine MoveAroundPlayerCoroutine;
     Coroutine AttackPlayerCoroutine;
     Coroutine RetreatFromPlayerCoroutine;
@@ -55,7 +57,8 @@ public class CombatManager : MonoBehaviour
     void Start()
     {
         animationManager = GetComponent<AnimationManager>();
-        characterInfo = gameObject.CompareTag("Player") ? gameObject == GameManager.instance.playerCharacters[0] ? (Info) GetComponent<MasterKnight>().GetInfo() : (Info) GetComponent<Player>().GetInfo() : (Info) GetComponent<Person>().GetInfo();
+        effectManager = GetComponent<EffectManager>();
+        characterInfo = gameObject.CompareTag("Player") ? gameObject.name == PlayerCharacter.MasterKnight.ToString() ? (Info) GetComponent<MasterKnight>().GetInfo() : (Info) GetComponent<Player>().GetInfo() : (Info) GetComponent<Person>().GetInfo();
         if (characterInfo is MasterKnightInfo || characterInfo is PlayerInfo)
         {
             playerCamera = Camera.main;
@@ -89,6 +92,7 @@ public class CombatManager : MonoBehaviour
                 Vector3 playerCombatPosition = GameManager.instance.playerGameObject.transform.position;
                 transform.LookAt(new Vector3(playerCombatPosition.x, transform.position.y, playerCombatPosition.z));
                 MoveAroundPlayer(enemyMoveAroundDirection);
+                CheckCounterAlert();
             }
         }
     }
@@ -253,6 +257,7 @@ public class CombatManager : MonoBehaviour
         // attack
         if (Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position) < 10 /*2*/)
         {
+            enemyIsNearPlayer = true;
             StopAroundPlayer();
 
             // check counter
@@ -283,15 +288,14 @@ public class CombatManager : MonoBehaviour
     public void PrepareAttackPlayer(bool status)
     {
         enemyIsPreparingAttack = status;
-        if (status == true)
+        if (enemyIsPreparingAttack == true)
         {
-            counterParticle.Play();
+            effectManager.StartParticle("counter");
         }
         else
         {
             StopAroundPlayer();
-            counterParticle.Clear();
-            counterParticle.Stop();
+            effectManager.StopParticle("counter");
         }
     }
 
@@ -324,6 +328,18 @@ public class CombatManager : MonoBehaviour
         if (MoveAroundPlayerCoroutine != null) StopCoroutine(MoveAroundPlayerCoroutine);
     }
 
+    void CheckCounterAlert()
+    {
+        if (Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position) < 20)
+        {
+            counterAlert = true;
+        }
+        else
+        {
+            counterAlert = false;
+        }
+    }
+
     void OnPlayerMovementEvent(Enemy enemyTarget)
     {
         if (enemyTarget == this.GetComponent<Enemy>())
@@ -349,7 +365,7 @@ public class CombatManager : MonoBehaviour
             // enemyIsStunned = true;
             EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
             enemyIsPlayerTarget = false;
-            enemyTarget.GetInfo().CombatReduceHealth(10); // <- after this line, set Enemy's availiability to false on Enemy's death
+            enemyTarget.GetInfo().CombatReduceHealth(playerCombat.characterInfo.damage); // <- after this line, set Enemy's availiability to false on Enemy's death
             if (characterInfo.isDead)
             {
                 available = false;
@@ -458,6 +474,7 @@ public class CombatManager : MonoBehaviour
 
         yield return new WaitUntil(() => Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position) > 20 /*4*/);
 
+        enemyIsNearPlayer = false;
         enemyIsRetreating = false;
         StopAroundPlayer();
 

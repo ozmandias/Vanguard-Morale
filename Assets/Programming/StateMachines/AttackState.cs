@@ -21,8 +21,8 @@ public class AttackState : StateMachineBehaviour {
             bool canAttackTarget = true;
 
             targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? (Info) mainPerson.target.GetComponent<MasterKnight>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
-            if(targetInfo is PersonInfo) {
-                if(mainPerson.target.GetComponent<Person>().GetInfo().aiType == AIType.CombatAI) {
+            if (targetInfo is PersonInfo) {
+                if ((targetInfo as PersonInfo).aiType == AIType.CombatAI) {
                     canAttackTarget = false;
                 }
             }

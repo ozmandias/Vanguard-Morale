@@ -21,6 +21,7 @@ Dialogues
 Story
 Level Selector
 Boss
+Sandbox Style Gameplay like Hard Time
 
 Learn from Brackeys
 -----------------------------------------------------------------------------------------------

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 114276875199069724}
   - component: {fileID: 114964376404513272}
   - component: {fileID: 114871142083873576}
+  - component: {fileID: 114074982911059988}
   m_Layer: 0
   m_Name: MasterKnight
   m_TagString: Player
@@ -1096,6 +1097,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114074982911059988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340718563153110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648e73c5d500e49f095c4f6dc9a79201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterParticle: {fileID: 0}
 --- !u!114 &114276875199069724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1145,6 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationManager: {fileID: 0}
+  effectManager: {fileID: 0}
   circlingList: []
   maxCirclingEnemies: 3
   characterInfo:
@@ -1189,6 +1203,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  enemyIsNearPlayer: 0
   enemyIsPreparingAttack: 0
   enemyIsMoving: 0
   enemyIsAttacking: 0
@@ -1197,7 +1212,7 @@ MonoBehaviour:
   enemyIsStunned: 0
   enemyIsWaiting: 1
   enemyIsAttackable: 1
-  counterParticle: {fileID: 0}
+  counterAlert: 0
   OnEnemyStop:
     m_PersistentCalls:
       m_Calls: []

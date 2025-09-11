@@ -28,9 +28,7 @@ using UnityEngine.AI;
             {
                 case PersonType.Enemy:
                     (
-                        GameManager.instance.playerGameObject
-                        ==
-                        GameManager.instance.playerCharacters[0]
+                        GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
                         ?
                         (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
                         :
@@ -41,9 +39,7 @@ using UnityEngine.AI;
                     break;
                 case PersonType.Friend:
                     (
-                        GameManager.instance.playerGameObject
-                        ==
-                        GameManager.instance.playerCharacters[0]
+                        GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
                         ?
                         (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
                         :
@@ -63,9 +59,7 @@ using UnityEngine.AI;
         {
             Person mainPerson = owner.GetComponent<Person>();
             (
-                GameManager.instance.playerGameObject
-                ==
-                GameManager.instance.playerCharacters[0]
+                GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
                 ?
                 (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
                 :

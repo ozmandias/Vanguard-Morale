@@ -240,11 +240,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36e922fc12d9d436cb1138601a8ce304, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &93297814 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1149810568257456, guid: 1ff2ce0ad1d424f7e883ff784e07da3b,
-    type: 2}
-  m_PrefabInternal: {fileID: 449035047}
 --- !u!1001 &154326246
 Prefab:
   m_ObjectHideFlags: 0
@@ -373,16 +368,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114848529795861134, guid: 5784d0df86234419fbba33e2575c7611,
-        type: 2}
-      propertyPath: playerCharacters.Array.data[0]
-      value: 
-      objectReference: {fileID: 1304064949}
-    - target: {fileID: 114848529795861134, guid: 5784d0df86234419fbba33e2575c7611,
-        type: 2}
-      propertyPath: playerCharacters.Array.data[1]
-      value: 
-      objectReference: {fileID: 93297814}
     - target: {fileID: 114848529795861134, guid: 5784d0df86234419fbba33e2575c7611,
         type: 2}
       propertyPath: soldierDestination
@@ -1204,11 +1189,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39e2e43e6a615481b860b132552d3261, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1304064949 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1340718563153110, guid: abbaf6646236d4407ba069f0d4d411c9,
-    type: 2}
-  m_PrefabInternal: {fileID: 982000011}
 --- !u!1 &1434599723
 GameObject:
   m_ObjectHideFlags: 0

@@ -91,6 +91,7 @@
      <Compile Include="Assets\Programming\Managers\AIManager.cs" />
      <Compile Include="Assets\Programming\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Programming\Managers\CombatManager.cs" />
+     <Compile Include="Assets\Programming\Managers\EffectManager.cs" />
      <Compile Include="Assets\Programming\Managers\GameManager.cs" />
      <Compile Include="Assets\Programming\Managers\IntroManager.cs" />
      <Compile Include="Assets\Programming\Managers\RagdollManager.cs" />

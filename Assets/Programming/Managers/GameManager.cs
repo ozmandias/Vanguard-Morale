@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 
 	[Header("Player Character")]
-	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight;
-	public GameObject playerGameObject;
+	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight; // for checking
+	public GameObject playerGameObject; // for value
 	public GameObject []playerCharacters;
 
 	[Header("Character Lists")]
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		playerCharacters = GameObject.FindGameObjectsWithTag("Player");
 		SetPlayer();
 		HideCursor();
 	}
@@ -86,14 +87,27 @@ public class GameManager : MonoBehaviour {
 	void SetPlayer() {
 		currentPlayer = CharacterSelectController.instance.characterDetails.character;
 
+		GameObject masterKnightObject = null;
+		GameObject heroObject = null;
 		if (playerCharacters.Length > 0)
 		{
-			playerCharacters[0]/*GameObject.Find("MasterKnight")*/.GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
+			foreach (GameObject playerCharacter in playerCharacters)
+			{
+				if (playerCharacter.name == PlayerCharacter.MasterKnight.ToString())
+				{
+					// playerCharacters[0]/*GameObject.Find("MasterKnight")*/
+					playerCharacter.GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
+					masterKnightObject = playerCharacter;
+				}
+				if (playerCharacter.name == PlayerCharacter.Hero.ToString())
+				{
+					// playerCharacters[1]/*GameObject.Find("Hero")*/
+					playerCharacter.GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
+					heroObject = playerCharacter;
+				}
+			}
 
-			playerCharacters[1]/*GameObject.Find("Hero")*/.GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
-
-			playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? playerCharacters[0] : playerCharacters[1] /*GameObject.Find(currentPlayer.ToString())*/;
+			playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? masterKnightObject : heroObject /*GameObject.Find(currentPlayer.ToString())*/;
 		}
-		else { playerGameObject = GameObject.Find("MasterKnight"); }
 	}
 }

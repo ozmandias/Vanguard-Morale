@@ -235,9 +235,10 @@ GameObject:
   - component: {fileID: 65621774407500444}
   - component: {fileID: 195072185062108792}
   - component: {fileID: 114103562173904958}
+  - component: {fileID: 114004726108917776}
   - component: {fileID: 114408100305164290}
   - component: {fileID: 114533354163758070}
-  - component: {fileID: 114004726108917776}
+  - component: {fileID: 114316805568293834}
   - component: {fileID: 114496764344235626}
   m_Layer: 9
   m_Name: EnemyGuard
@@ -1294,7 +1295,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1422175888338986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ffbc16607a3340b2a903165b536c0c2, type: 3}
   m_Name: 
@@ -1342,6 +1343,18 @@ MonoBehaviour:
   isHurt: 0
   isMoving: 0
   preparingAttack: 0
+--- !u!114 &114316805568293834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422175888338986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648e73c5d500e49f095c4f6dc9a79201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterParticle: {fileID: 198640969617182500}
 --- !u!114 &114408100305164290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1384,6 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationManager: {fileID: 0}
+  effectManager: {fileID: 0}
   circlingList: []
   maxCirclingEnemies: 3
   characterInfo:
@@ -1428,6 +1442,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  enemyIsNearPlayer: 0
   enemyIsPreparingAttack: 0
   enemyIsMoving: 0
   enemyIsAttacking: 0
@@ -1436,7 +1451,7 @@ MonoBehaviour:
   enemyIsStunned: 0
   enemyIsWaiting: 1
   enemyIsAttackable: 1
-  counterParticle: {fileID: 198640969617182500}
+  counterAlert: 0
   OnEnemyStop:
     m_PersistentCalls:
       m_Calls: []

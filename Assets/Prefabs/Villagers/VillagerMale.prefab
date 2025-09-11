@@ -240,9 +240,10 @@ GameObject:
   - component: {fileID: 65802695288008910}
   - component: {fileID: 195613332181365770}
   - component: {fileID: 114221847060090814}
+  - component: {fileID: 114108189219818992}
   - component: {fileID: 114222116187569008}
   - component: {fileID: 114306401919144842}
-  - component: {fileID: 114108189219818992}
+  - component: {fileID: 114673837539460900}
   - component: {fileID: 114125604257743030}
   m_Layer: 0
   m_Name: VillagerMale
@@ -1117,7 +1118,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ffbc16607a3340b2a903165b536c0c2, type: 3}
   m_Name: 
@@ -1207,6 +1208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationManager: {fileID: 0}
+  effectManager: {fileID: 0}
   circlingList: []
   maxCirclingEnemies: 3
   characterInfo:
@@ -1251,6 +1253,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  enemyIsNearPlayer: 0
   enemyIsPreparingAttack: 0
   enemyIsMoving: 0
   enemyIsAttacking: 0
@@ -1259,7 +1262,7 @@ MonoBehaviour:
   enemyIsStunned: 0
   enemyIsWaiting: 1
   enemyIsAttackable: 1
-  counterParticle: {fileID: 0}
+  counterAlert: 0
   OnEnemyStop:
     m_PersistentCalls:
       m_Calls: []
@@ -1275,6 +1278,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114673837539460900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462443266412426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648e73c5d500e49f095c4f6dc9a79201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterParticle: {fileID: 0}
 --- !u!114 &114901752661461452
 MonoBehaviour:
   m_ObjectHideFlags: 1
