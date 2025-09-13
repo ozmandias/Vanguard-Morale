@@ -42,6 +42,7 @@ public class Person : MonoBehaviour
         personAgent = GetComponent<NavMeshAgent>();
 
         personInfo.Init(gameObject);
+        personAgent.speed = 100f;
     }
 
     public virtual void Update()

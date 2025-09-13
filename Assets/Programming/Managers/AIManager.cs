@@ -176,37 +176,67 @@ public class AIManager : MonoBehaviour
                 aiList = personAIList;
                 break;
         }
-        agentIndex = aiList.IndexOf(aiAgent);
 
+        agentIndex = aiList.IndexOf(aiAgent);
         if (agentIndex != -1)
         {
             Vector3 reposition = CalculateLineUpPosition(aiList, agentIndex, destinationTransform);
-            aiAgent.SetDestination(/*destinationTransform.position*/ reposition);
+            aiAgent.SetDestination(reposition);
         }
     }
 
     public Vector3 CalculateLineUpPosition(List<NavMeshAgent> aiList, int agentIndex, Transform destinationTransform) {
-        int agentsPerRow = aiList.Count / 2;
-        int rowsToLineUp = 2;
-        float agentSpaceHorizontal = 10f;
-        float rowSpaceVertical = 12f;
+        int lineUpAgentsPerRow = 5;
+        int rowsToLineUp = aiList.Count / lineUpAgentsPerRow;
+        float lineUpSpacing = 10f;
 
         List<Vector3> lineUpPositions = new List<Vector3>();
         Vector3 lineUpPosition = Vector3.zero;
-        for(int row = 0; row < rowsToLineUp; row = row + 1) {
-            for (int agent = 0; agent < agentsPerRow; agent = agent + 1) {
-                Vector3 newLineUpPosition = new Vector3(
-                    destinationTransform.position.x + (agent * agentSpaceHorizontal),
-                    destinationTransform.position.y,
-                    destinationTransform.position.z + (row * rowSpaceVertical)
-                );
+
+        int startAgentIndex = 0;
+        int endAgentIndex = aiList.Count - 1;
+        int middleAgentIndex = (startAgentIndex + endAgentIndex) / 2;
+        // for(int row = 0; row < rowsToLineUp; row = row + 1) {
+            // change startAgentIndex, endAgentIndex and middleAgentIndex
+            /*int halfStartIndex = middleAgentIndex * row;
+            int halfEndIndex = halfStartIndex + lineUpAgentsPerRow;
+            int halfMiddleIndex = (halfStartIndex + halfEndIndex) / 2;
+            Debug.Log("rowStart: " + halfStartIndex + ", rowMiddle: " + halfMiddleIndex + ", rowEnd: " + halfEndIndex);*/
+            for (int agent = 0; agent < aiList.Count /*lineUpAgentsPerRow*/; agent = agent + 1) {
+                Vector3 newLineUpPosition = Vector3.zero;
+                if (agentIndex == middleAgentIndex) {
+                    // center
+                    Debug.Log("center: " + agentIndex);
+                    newLineUpPosition = new Vector3(
+                        destinationTransform.position.x,
+                        destinationTransform.position.y,
+                        destinationTransform.position.z
+                    );
+                } else if (agentIndex < middleAgentIndex) {
+                    // left (1st), change end
+                    Debug.Log("left index: " + agentIndex);
+                    newLineUpPosition = new Vector3(
+                        destinationTransform.position.x - ((agent + 1) * lineUpSpacing), // from middle as space factor
+                        destinationTransform.position.y,
+                        destinationTransform.position.z /*- (row * lineUpSpacing)*/
+                    );
+                    
+                } else if (agentIndex > middleAgentIndex) {
+                    // right (2nd), change start
+                    Debug.Log("right index: " + agentIndex);
+                    newLineUpPosition = new Vector3(
+                        destinationTransform.position.x + ((agent - middleAgentIndex) * lineUpSpacing), // from middle as space factor. need to move only by 10 not 70
+                        destinationTransform.position.y,
+                        destinationTransform.position.z /*+ (row * lineUpSpacing)*/
+                    );
+                }
                 lineUpPositions.Add(newLineUpPosition);
             }
-        }
-
-        if(agentIndex < lineUpPositions.Count) {
+        // }
+        if (lineUpPositions.Count > agentIndex) {
             lineUpPosition = lineUpPositions[agentIndex];
         }
+
         return lineUpPosition;
     }
 
