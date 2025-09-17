@@ -64,7 +64,7 @@ public class CombatManager : MonoBehaviour
             playerCamera = Camera.main;
             combatCollider = characterInfo is MasterKnightInfo ? GameObject.FindWithTag("MasterKnightAttackCollider").GetComponent<Collider>() : GameObject.FindWithTag("PlayerAttackCollider").GetComponent<Collider>();
         }
-        else
+        else if(characterInfo is PersonInfo && GameManager.instance.playerGameObject)
         {
             CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
             playerCombat.OnPlayerMovement.AddListener((combatEnemy) => OnPlayerMovementEvent(combatEnemy));
@@ -84,7 +84,7 @@ public class CombatManager : MonoBehaviour
             AttackTarget();
             CounterTarget();
         }
-        else if (characterInfo is PersonInfo)
+        else if (characterInfo is PersonInfo && GameManager.instance.playerGameObject)
         {
             PersonInfo personInfo = characterInfo as PersonInfo;
             if (personInfo.personType == PersonType.Enemy && personInfo.aiType == AIType.CombatAI)

@@ -68,14 +68,16 @@ public class Enemy : Person {
         float nearestDistance = float.MaxValue;
         NavMeshPath path = new NavMeshPath();
 
-        CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
-        if(playerCombat.IsCirclingListFull() == false) {
-            if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit)) {
-                // targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
-                targetList.Add(targetPlayer);
-            } else {
-                // targetPlayerDistance = 0;
-                targetPlayer = null;
+        if(targetPlayer) {
+            CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
+            if(playerCombat.IsCirclingListFull() == false) {
+                if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit)) {
+                    // targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
+                    targetList.Add(targetPlayer);
+                } else {
+                    // targetPlayerDistance = 0;
+                    targetPlayer = null;
+                }
             }
         }
 

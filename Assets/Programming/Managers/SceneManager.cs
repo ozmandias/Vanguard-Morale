@@ -34,15 +34,15 @@ public class SceneManager : MonoBehaviour
     void OnGUI()
     {
         if (SceneManager.instance.GetCurrentScene().name == "mainmenu") {
-            GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
-            buttonStyle.fontSize = 30;
+            GUIStyle guiStyle = new GUIStyle(GUI.skin.button);
+            guiStyle.fontSize = 30;
 
-            if (GUI.Button(new Rect(10, 10, 250, 100), "Test", buttonStyle)) {
+            if (GUI.Button(new Rect(10, 10, 250, 100), "Test", guiStyle)) {
                 UIManager.instance.ChangeUIType(UIType.Game);
                 ChangeScene("test");
             }
             
-            if (GUI.Button(new Rect(10, 120, 250, 100), "Lab", buttonStyle)) {
+            if (GUI.Button(new Rect(10, 120, 250, 100), "Lab", guiStyle)) {
                 UIManager.instance.ChangeUIType(UIType.Game);
                 ChangeScene("lab");
             }
