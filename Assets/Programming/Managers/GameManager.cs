@@ -56,6 +56,10 @@ public class GameManager : MonoBehaviour {
 				UIManager.instance.HideQuitPanel();
 			}
 		}
+
+		if(Input.GetKeyDown(KeyCode.BackQuote)) {
+			ToggleCursor();
+		}
 	}
 	public void PauseGame() {
 		isPaused = true;

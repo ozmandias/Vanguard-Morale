@@ -184,8 +184,9 @@ public class AIManager : MonoBehaviour {
         }
     }
 
+    public int agentsPerRow = 5;
     public Vector3 CalculateLineUpPosition(List<NavMeshAgent> aiList, int agentIndex, Transform destinationTransform) {
-        int lineUpAgentsPerRow = 5;
+        int lineUpAgentsPerRow = /*5*/ agentsPerRow;
         int rowsToLineUp = Mathf.CeilToInt((float) aiList.Count / lineUpAgentsPerRow);
         float lineUpSpacing = 10f;
 
@@ -196,10 +197,10 @@ public class AIManager : MonoBehaviour {
         int endAgentIndex = aiList.Count - 1;
         int middleAgentIndex = (startAgentIndex + endAgentIndex) / 2;
         
+        // change startAgentIndex, endAgentIndex and middleAgentIndex
         int halfStartIndex = 0;
         for(int row = 0; row < rowsToLineUp; row = row + 1) {
-            // change startAgentIndex, endAgentIndex and middleAgentIndex
-            int halfEndIndex = halfStartIndex == endAgentIndex ? halfStartIndex : halfStartIndex + lineUpAgentsPerRow;
+            int halfEndIndex = halfStartIndex + lineUpAgentsPerRow - 1 > endAgentIndex ? endAgentIndex : halfStartIndex + lineUpAgentsPerRow - 1;
             int halfMiddleIndex = halfStartIndex == endAgentIndex ? halfStartIndex : (halfStartIndex + halfEndIndex) / 2;
             if (aiList == soldierAIList) Debug.Log("rowStart: " + halfStartIndex + ", rowMiddle: " + halfMiddleIndex + ", rowEnd: " + halfEndIndex);
 
@@ -207,24 +208,21 @@ public class AIManager : MonoBehaviour {
                 Vector3 newLineUpPosition = Vector3.zero;
                 if (agentIndex == halfMiddleIndex /*middleAgentIndex*/) {
                     // center
-                    // if(agentIndex == halfMiddleIndex && aiList == soldierAIList) Debug.Log("center: " + agentIndex);
                     newLineUpPosition = new Vector3(
                         destinationTransform.position.x,
                         destinationTransform.position.y,
                         destinationTransform.position.z - (row * lineUpSpacing)
                     );
-                } else if (agentIndex < halfMiddleIndex /*middleAgentIndex*/ && agentIndex >= halfStartIndex) {
+                } else if (agentIndex < halfMiddleIndex /*middleAgentIndex*/) {
                     // left (1st), change end
-                    // if(agentIndex < halfMiddleIndex && agentIndex >= halfStartIndex && aiList == soldierAIList) Debug.Log("left index: " + agentIndex);
                     newLineUpPosition = new Vector3(
                         destinationTransform.position.x - ((agent + 1) * lineUpSpacing), // From middle as space factor. Math observation leads to use agent.
                         destinationTransform.position.y,
                         destinationTransform.position.z - (row * lineUpSpacing)
                     );
                     // halfEndIndex = halfMiddleIndex; // < <(end)
-                } else if (agentIndex > halfMiddleIndex /*middleAgentIndex*/ && agentIndex < halfEndIndex) {
+                } else if (agentIndex > halfMiddleIndex /*middleAgentIndex*/) {
                     // right (2nd), change start
-                    // if(agentIndex > halfMiddleIndex && agentIndex < halfEndIndex && aiList == soldierAIList) Debug.Log("right index: " + agentIndex);
                     newLineUpPosition = new Vector3(
                         destinationTransform.position.x + ((agentIndex - halfMiddleIndex /*middleAgentIndex*/) * lineUpSpacing), // From middle as space factor. Math observation leads to use agentIndex instead of agent.
                         destinationTransform.position.y,
@@ -235,7 +233,7 @@ public class AIManager : MonoBehaviour {
                 lineUpPositions.Add(newLineUpPosition);
             }
 
-            halfStartIndex = halfStartIndex == endAgentIndex ? endAgentIndex : halfEndIndex;
+            halfStartIndex = halfStartIndex == endAgentIndex ? endAgentIndex : halfEndIndex + 1;
         }
 
         if (lineUpPositions.Count > agentIndex) {
@@ -369,7 +367,8 @@ public class AIManager : MonoBehaviour {
             CombatAILoopCoroutine = StartCoroutine(SetCombatAILoopCoroutine(combatingEnemy)); // recursion
         }
     }
-    
+
+    string textFieldInput = "";
     void OnGUI()
     {
         GUIStyle guiStyle = new GUIStyle(GUI.skin.button);
@@ -391,12 +390,15 @@ public class AIManager : MonoBehaviour {
 
         if (SceneManager.instance.GetCurrentScene().name == "lab")
         {
-            /*if (GUI.Button(new Rect(30, 250, 250, 100), "Run CombatAI", guiStyle))
-            {
+            /*if (GUI.Button(new Rect(30, 250, 250, 100), "Run CombatAI", guiStyle)) {
                 SetupCombatAI();
             }*/
             
-            if (GUI.Button(new Rect(30, 250, 350, 100), "Agents to Destination", guiStyle)) {
+            GUI.Label(new Rect(30, 250, 360, 50), "Enter AI Agents per Row:", guiStyle);
+            textFieldInput = GUI.TextField(new Rect(30, 300, 360, 50), textFieldInput, guiStyle);
+
+            if (GUI.Button(new Rect(30, 360, 360, 100), "Agents to Destination", guiStyle)) {
+                agentsPerRow = int.Parse(textFieldInput);
                 foreach(Friend soldier in GameManager.instance.soldierList) {
                     soldier.personAgent.isStopped = false;
                     AgentRepositionAtDestination(PersonType.Friend, soldier.personAgent, soldier.destination);
