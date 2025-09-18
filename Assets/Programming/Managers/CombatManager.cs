@@ -5,8 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 using DG.Tweening;
 
-public class CombatManager : MonoBehaviour
-{
+public class CombatManager : MonoBehaviour {
     [Header("Combat Manager Settings")]
     public AnimationManager animationManager;
     public EffectManager effectManager;
@@ -58,13 +57,13 @@ public class CombatManager : MonoBehaviour
     {
         animationManager = GetComponent<AnimationManager>();
         effectManager = GetComponent<EffectManager>();
-        characterInfo = gameObject.CompareTag("Player") ? gameObject.name == PlayerCharacter.MasterKnight.ToString() ? (Info) GetComponent<MasterKnight>().GetInfo() : (Info) GetComponent<Player>().GetInfo() : (Info) GetComponent<Person>().GetInfo();
+        characterInfo = gameObject.CompareTag("Player") ? gameObject.name == PlayerCharacter.MasterKnight.ToString() ? (Info)GetComponent<MasterKnight>().GetInfo() : (Info)GetComponent<Player>().GetInfo() : (Info)GetComponent<Person>().GetInfo();
         if (characterInfo is MasterKnightInfo || characterInfo is PlayerInfo)
         {
             playerCamera = Camera.main;
             combatCollider = characterInfo is MasterKnightInfo ? GameObject.FindWithTag("MasterKnightAttackCollider").GetComponent<Collider>() : GameObject.FindWithTag("PlayerAttackCollider").GetComponent<Collider>();
         }
-        else if(characterInfo is PersonInfo && GameManager.instance.playerGameObject)
+        else if (characterInfo is PersonInfo && GameManager.instance.playerGameObject)
         {
             CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
             playerCombat.OnPlayerMovement.AddListener((combatEnemy) => OnPlayerMovementEvent(combatEnemy));

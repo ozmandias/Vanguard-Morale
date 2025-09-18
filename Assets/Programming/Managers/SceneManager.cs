@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
-{
+public class SceneManager : MonoBehaviour {
     public static SceneManager instance;
 
     void Awake()

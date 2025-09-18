@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationManager : MonoBehaviour
-{
+public class AnimationManager : MonoBehaviour {
     public Animator mainAnimator;
     Dictionary<string, float> animationDictionary = new Dictionary<string, float>();
 

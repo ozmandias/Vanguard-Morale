@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
-{
+public class Item : MonoBehaviour {
     public Collider itemCollider;
     public GameObject owner;
 

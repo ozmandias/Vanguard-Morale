@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[System.Serializable] public class PersonInfo : Info
-{
+[System.Serializable] public class PersonInfo : Info {
     public RagdollManager personRagdollManager;
     public PersonType personType = PersonType.Neutral;
     public AIType aiType = AIType.StateMachine;

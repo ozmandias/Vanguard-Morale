@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Person : MonoBehaviour
-{
+public class Person : MonoBehaviour {
     [Header("Move Settings")]
     public float speed = 20f;
     public Transform destination;

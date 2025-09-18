@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIManager : MonoBehaviour
-{
+public class AIManager : MonoBehaviour {
     public static AIManager instance;
 
     public List<NavMeshAgent> soldierAIList;
@@ -187,9 +186,7 @@ public class AIManager : MonoBehaviour
 
     public Vector3 CalculateLineUpPosition(List<NavMeshAgent> aiList, int agentIndex, Transform destinationTransform) {
         int lineUpAgentsPerRow = 5;
-        int rowsToLineUp = aiList.Count / lineUpAgentsPerRow;
-        rowsToLineUp = Mathf.RoundToInt(rowsToLineUp) % 2 == 0 ? Mathf.RoundToInt(rowsToLineUp) + 1 : Mathf.RoundToInt(rowsToLineUp);
-        Debug.Log("rowsToLineUp: " + rowsToLineUp);
+        int rowsToLineUp = Mathf.CeilToInt((float) aiList.Count / lineUpAgentsPerRow);
         float lineUpSpacing = 10f;
 
         List<Vector3> lineUpPositions = new List<Vector3>();
@@ -198,18 +195,19 @@ public class AIManager : MonoBehaviour
         int startAgentIndex = 0;
         int endAgentIndex = aiList.Count - 1;
         int middleAgentIndex = (startAgentIndex + endAgentIndex) / 2;
+        
+        int halfStartIndex = 0;
         for(int row = 0; row < rowsToLineUp; row = row + 1) {
             // change startAgentIndex, endAgentIndex and middleAgentIndex
-            int halfStartIndex = middleAgentIndex * row;
-            int halfEndIndex = halfStartIndex + lineUpAgentsPerRow;
-            int halfMiddleIndex = (halfStartIndex + halfEndIndex) / 2;
+            int halfEndIndex = halfStartIndex == endAgentIndex ? halfStartIndex : halfStartIndex + lineUpAgentsPerRow;
+            int halfMiddleIndex = halfStartIndex == endAgentIndex ? halfStartIndex : (halfStartIndex + halfEndIndex) / 2;
             if (aiList == soldierAIList) Debug.Log("rowStart: " + halfStartIndex + ", rowMiddle: " + halfMiddleIndex + ", rowEnd: " + halfEndIndex);
 
             for (int agent = 0; agent < /*aiList.Count*/ lineUpAgentsPerRow; agent = agent + 1) {
                 Vector3 newLineUpPosition = Vector3.zero;
                 if (agentIndex == halfMiddleIndex /*middleAgentIndex*/) {
                     // center
-                    if(agentIndex == halfMiddleIndex && aiList == soldierAIList) Debug.Log("center: " + agentIndex);
+                    // if(agentIndex == halfMiddleIndex && aiList == soldierAIList) Debug.Log("center: " + agentIndex);
                     newLineUpPosition = new Vector3(
                         destinationTransform.position.x,
                         destinationTransform.position.y,
@@ -217,26 +215,29 @@ public class AIManager : MonoBehaviour
                     );
                 } else if (agentIndex < halfMiddleIndex /*middleAgentIndex*/ && agentIndex >= halfStartIndex) {
                     // left (1st), change end
-                    if(agentIndex < halfMiddleIndex && agentIndex >= halfStartIndex && aiList == soldierAIList) Debug.Log("left index: " + agentIndex);
+                    // if(agentIndex < halfMiddleIndex && agentIndex >= halfStartIndex && aiList == soldierAIList) Debug.Log("left index: " + agentIndex);
                     newLineUpPosition = new Vector3(
                         destinationTransform.position.x - ((agent + 1) * lineUpSpacing), // From middle as space factor. Math observation leads to use agent.
                         destinationTransform.position.y,
                         destinationTransform.position.z - (row * lineUpSpacing)
                     );
-                    // halfStartIndex = halfMiddleIndex + 1;
+                    // halfEndIndex = halfMiddleIndex; // < <(end)
                 } else if (agentIndex > halfMiddleIndex /*middleAgentIndex*/ && agentIndex < halfEndIndex) {
                     // right (2nd), change start
-                    if(agentIndex > halfMiddleIndex && agentIndex < halfEndIndex && aiList == soldierAIList) Debug.Log("right index: " + agentIndex);
+                    // if(agentIndex > halfMiddleIndex && agentIndex < halfEndIndex && aiList == soldierAIList) Debug.Log("right index: " + agentIndex);
                     newLineUpPosition = new Vector3(
                         destinationTransform.position.x + ((agentIndex - halfMiddleIndex /*middleAgentIndex*/) * lineUpSpacing), // From middle as space factor. Math observation leads to use agentIndex instead of agent.
                         destinationTransform.position.y,
                         destinationTransform.position.z - (row * lineUpSpacing)
                     );
-                    // halfEndIndex = halfMiddleIndex;
+                    // halfStartIndex = halfMiddleIndex + 1; // (start)> >
                 }
                 lineUpPositions.Add(newLineUpPosition);
             }
+
+            halfStartIndex = halfStartIndex == endAgentIndex ? endAgentIndex : halfEndIndex;
         }
+
         if (lineUpPositions.Count > agentIndex) {
             lineUpPosition = lineUpPositions[agentIndex];
         }

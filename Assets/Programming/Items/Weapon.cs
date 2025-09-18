@@ -1,6 +1,5 @@
 using UnityEngine;
 
-public class Weapon : Item
-{
+public class Weapon : Item {
     
 }

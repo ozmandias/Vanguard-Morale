@@ -1,5 +1,4 @@
-public enum Morality
-{
+public enum Morality {
     Good = 60,
     Neutral = 50,
     Evil = 40
@@ -45,14 +44,12 @@ public enum UIType {
     Skill
 }
 
-public enum CombatType
-{
+public enum CombatType {
     Melee,
     Range
 }
 
-public enum AIType
-{
+public enum AIType {
     StateMachine,
     CombatAI
 }
