@@ -15,7 +15,7 @@ Morality (done)
 Arkham Combat (done, needs fixing + improvements)
 Battles between Soldiers and Enemies (done, needs improvements)
 Interactables
-AI Switch
+AI Switch (done)
 Mission Objective
 Dialogues
 Story

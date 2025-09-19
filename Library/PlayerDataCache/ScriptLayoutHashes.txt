@@ -65,6 +65,8 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 8e9f5b922979e9356a11d2ee2b32ee60 Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TiltInput
+05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
+05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 e6c8387f3fc2403316ed8cf65b48436b Assembly-CSharp.dll:.CombatManager
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -266,7 +268,7 @@ b67dd26eef4dfa61c59965853bd0518a Assembly-CSharp.dll:.SpawnManager
 e7d0b05b6c362b922e0797f8e6f53ce7 Assembly-CSharp.dll:FlatLighting.ShadowProjector
 2dbfd4f7836c7f6a79e17be5f4bf7969 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.WaypointCircuit
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DeadState
-14a3ba610e1f99cfcc402ffef17aa131 Assembly-CSharp.dll:.AIManager
+cd906840207525dea40be29196a1b42e Assembly-CSharp.dll:.AIManager
 b1f0704fc1b542c80ecf3fa1bbf472a1 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController
 5e49fc5f9f876b52f55b724510e63820 Assembly-CSharp.dll:.AttackState
 f320fb7b799d5e502b1520726c5e5ec5 Assembly-CSharp.dll:.CharacterSelectController

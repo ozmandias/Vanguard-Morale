@@ -23,14 +23,13 @@ public class Boss : Person
         base.Attack();
     }
 
-    public void SpecialAbility() {
-
-    }
+    public virtual void SpecialAbility() {}
 
     public override void FindTarget() {
+        Debug.Log("FindTarget");
         target = GameManager.instance.playerGameObject;
         if(target) {
-
+            Debug.Log("Boss found Player to attack!");
         }
     }
 }
