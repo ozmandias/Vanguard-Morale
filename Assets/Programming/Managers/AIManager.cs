@@ -9,6 +9,7 @@ public class AIManager : MonoBehaviour {
     public List<NavMeshAgent> soldierAIList;
     public List<NavMeshAgent> personAIList;
     public List<NavMeshAgent> enemyAIList;
+    public List<NavMeshAgent> bossAIList;
 
     public List<EnemyStruct> enemyStructs = new List<EnemyStruct>();
 
@@ -53,6 +54,9 @@ public class AIManager : MonoBehaviour {
             case PersonType.Enemy:
                 enemyAIList.Add(aiAgent);
                 break;
+            case PersonType.Boss:
+                bossAIList.Add(aiAgent);
+                break;
             default:
                 personAIList.Add(aiAgent);
                 break;
@@ -69,6 +73,9 @@ public class AIManager : MonoBehaviour {
             case PersonType.Enemy:
                 enemyAIList.Remove(aiAgent);
                 break;
+            case PersonType.Boss:
+                bossAIList.Remove(aiAgent);
+                break;
             default:
                 personAIList.Remove(aiAgent);
                 break;
@@ -77,7 +84,7 @@ public class AIManager : MonoBehaviour {
 
     public bool ListsContain(NavMeshAgent aiAgent)
     {
-        if (soldierAIList.Contains(aiAgent) || personAIList.Contains(aiAgent) || enemyAIList.Contains(aiAgent))
+        if (soldierAIList.Contains(aiAgent) || personAIList.Contains(aiAgent) || enemyAIList.Contains(aiAgent) || bossAIList.Contains(aiAgent))
         {
             return true;
         }
@@ -97,6 +104,9 @@ public class AIManager : MonoBehaviour {
                 break;
             case PersonType.Enemy:
                 aiList = enemyAIList;
+                break;
+            case PersonType.Boss:
+                aiList = bossAIList;
                 break;
             default:
                 aiList = personAIList;
@@ -127,6 +137,9 @@ public class AIManager : MonoBehaviour {
                 break;
             case PersonType.Enemy:
                 aiList = enemyAIList;
+                break;
+            case PersonType.Boss:
+                aiList = bossAIList;
                 break;
             default:
                 aiList = personAIList;
@@ -171,6 +184,9 @@ public class AIManager : MonoBehaviour {
             case PersonType.Enemy:
                 aiList = enemyAIList;
                 break;
+            case PersonType.Boss:
+                aiList = bossAIList;
+                break;
             default:
                 aiList = personAIList;
                 break;
@@ -202,7 +218,7 @@ public class AIManager : MonoBehaviour {
         for(int row = 0; row < rowsToLineUp; row = row + 1) {
             int halfEndIndex = halfStartIndex + lineUpAgentsPerRow - 1 > endAgentIndex ? endAgentIndex : halfStartIndex + lineUpAgentsPerRow - 1;
             int halfMiddleIndex = halfStartIndex == endAgentIndex ? halfStartIndex : (halfStartIndex + halfEndIndex) / 2;
-            if (aiList == soldierAIList) Debug.Log("rowStart: " + halfStartIndex + ", rowMiddle: " + halfMiddleIndex + ", rowEnd: " + halfEndIndex);
+            // debug with rowStart, rowMiddle and rowEnd
 
             for (int agent = 0; agent < /*aiList.Count*/ lineUpAgentsPerRow; agent = agent + 1) {
                 Vector3 newLineUpPosition = Vector3.zero;
@@ -250,7 +266,7 @@ public class AIManager : MonoBehaviour {
 
     public void SetupCombatAI()
     {
-        Enemy[] enemyObjects = FindObjectsOfType<Enemy>();
+        Enemy []enemyObjects = FindObjectsOfType<Enemy>();
         foreach (Enemy enemyObject in enemyObjects)
         {
             EnemyStruct enemyStruct = new EnemyStruct();
@@ -324,8 +340,8 @@ public class AIManager : MonoBehaviour {
 
     public void RemoveEnemy(Enemy enemy)
     {
-        int removeLocation = 0;
-        foreach (EnemyStruct enemyStruct in enemyStructs)
+        int removeLocation = -1;
+        foreach(EnemyStruct enemyStruct in enemyStructs)
         {
             if (enemyStruct.enemy == enemy)
             {
@@ -333,8 +349,7 @@ public class AIManager : MonoBehaviour {
             }
             removeLocation += 1;
         }
-
-        enemyStructs.Remove(enemyStructs[removeLocation]);
+        if(removeLocation > -1) enemyStructs.Remove(enemyStructs[removeLocation]);
     }
 
     IEnumerator SetCombatAILoopCoroutine(Enemy enemy)
@@ -378,11 +393,13 @@ public class AIManager : MonoBehaviour {
             if (GUI.Button(new Rect(30, 250, 350, 100), "Agents to Destination", guiStyle)) {
                 foreach(Friend soldier in GameManager.instance.soldierList) {
                     soldier.personAgent.isStopped = false;
+                    soldier.personAgent.speed = 100f;
                     AgentRepositionAtDestination(PersonType.Friend, soldier.personAgent, soldier.destination);
                 }
 
                 foreach (Enemy enemy in GameManager.instance.enemyList) {
                     enemy.personAgent.isStopped = false;
+                    enemy.personAgent.speed = 100f;
                     AgentRepositionAtDestination(PersonType.Enemy, enemy.personAgent, enemy.destination);
                 }
             }
@@ -401,11 +418,13 @@ public class AIManager : MonoBehaviour {
                 agentsPerRow = int.Parse(textFieldInput);
                 foreach(Friend soldier in GameManager.instance.soldierList) {
                     soldier.personAgent.isStopped = false;
+                    soldier.personAgent.speed = 100f;
                     AgentRepositionAtDestination(PersonType.Friend, soldier.personAgent, soldier.destination);
                 }
 
                 foreach (Enemy enemy in GameManager.instance.enemyList) {
                     enemy.personAgent.isStopped = false;
+                    enemy.personAgent.speed = 100f;
                     AgentRepositionAtDestination(PersonType.Enemy, enemy.personAgent, enemy.destination);
                 }
             }

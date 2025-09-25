@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	public List<Friend> soldierList;
 	public List<Person> personList;
 	public List<Enemy> enemyList;
+	public List<Boss> bossList;
 
 	[Header("Character Destinations")]
 	public Transform soldierDestination;

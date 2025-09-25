@@ -5,6 +5,7 @@ public class DeadState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
+        mainPerson.attackNumberUpdate = false;
 
         if (mainPerson.GetInfo().isDead == true)
         {

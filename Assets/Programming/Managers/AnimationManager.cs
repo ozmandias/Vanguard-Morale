@@ -35,6 +35,7 @@ public class AnimationManager : MonoBehaviour {
             case "Velocity":
             case "HorizontalMovement":
             case "VerticalMovement":
+            case "AttackNumber":
                 mainAnimator.SetFloat(parameterName, (float)value);
                 break;
             case "Attacking":
@@ -78,6 +79,15 @@ public class AnimationManager : MonoBehaviour {
         else if (attackEventParameter == "off")
         {
             SetParameter("Attacking", false);
+        }
+    }
+
+    public void AttackNumberEvent(string attackEventParameter) {
+        if(attackEventParameter == "on") {
+            SetParameter("Attacking", true);
+        } else if(attackEventParameter == "off") {
+            SetParameter("Attacking", false);
+            gameObject.GetComponent<Person>().attackNumberUpdate = true;
         }
     }
 
@@ -129,7 +139,7 @@ public class AnimationManager : MonoBehaviour {
             else
             {
                 combatManager.enemyIsStunned = false;
-                GetComponent<Person>().GetInfo().CombatReduceHealth(GameManager.instance.playerGameObject.GetComponent<CombatManager>().characterInfo.damage);
+                GetComponent<Person>().GetInfo().CombatReduceHealth(GameManager.instance.playerGameObject.GetComponent<CombatManager>().characterInfo/*.damage*/);
                 if (combatManager.characterInfo.isDead)
                 {
                     combatManager.available = false;

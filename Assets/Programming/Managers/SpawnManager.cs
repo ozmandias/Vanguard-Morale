@@ -41,12 +41,12 @@ public class SpawnManager : MonoBehaviour {
 
     void Update()
     {
-        if (allyCount < allySpawnLocations.Length)
+        if (allySpawnLocations.Length > 0 && allyCount < allySpawnLocations.Length)
         {
             SpawnAllies();
         }
 
-        if (enemyCount < enemySpawnLocations.Length /*10*/)
+        if (enemySpawnLocations.Length > 0 && enemyCount < enemySpawnLocations.Length /*10*/)
         {
             SpawnEnemies();
         }

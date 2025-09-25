@@ -12,8 +12,9 @@ public class AttackState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
-
         mainPerson.personAgent.isStopped = true;
+
+        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 30f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -37,10 +38,16 @@ public class AttackState : StateMachineBehaviour {
 
                 if(animator.GetBool("Attacking") == true) {
                     mainPerson.isAttacking = true;
-                    mainPerson.attackCollider.enabled = true;
+                    if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee)
+                        mainPerson.attackCollider.enabled = true;   
+                    else
+                        Debug.Log("raycast and play magic shot particles"); 
                 } else {
                     mainPerson.isAttacking = false;
-                    mainPerson.attackCollider.enabled = false;
+                    if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee)
+                        mainPerson.attackCollider.enabled = false;
+                    else
+                        Debug.Log("stop magic shot particles");
                     stateTime = 0;
                 }
 
@@ -55,6 +62,7 @@ public class AttackState : StateMachineBehaviour {
                         }
                         mainPerson.SetTarget(null);
                         mainPerson.attackingTarget = false;
+                        if(mainPerson.GetInfo().personType == PersonType.Boss) Debug.Log("attackingTarget is false by distance");
                     }
                 }
             } else {
@@ -65,8 +73,11 @@ public class AttackState : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         animator.SetBool("Attacking", false);
+        mainPerson.attackNumberUpdate = false;
         mainPerson.isAttacking = false;
-        mainPerson.attackCollider.enabled = false;
+        mainPerson.nearTarget = false;
+        if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee)
+            mainPerson.attackCollider.enabled = false;
         stateTime = 0;
     }
 }

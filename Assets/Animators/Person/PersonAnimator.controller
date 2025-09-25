@@ -131,6 +131,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1f80d0e0ee741efa0c4638419094de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackerInfo:
+    owner: {fileID: 0}
+    health: 0
+    MaxHealth: 100
+    damage: 0
+    morality: 50
+    alignment: 50
+    gender: 0
+    combatType: 0
+    isDead: 0
 --- !u!114 &114668915797783612
 MonoBehaviour:
   m_ObjectHideFlags: 1

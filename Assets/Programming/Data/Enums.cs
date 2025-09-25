@@ -6,9 +6,10 @@ public enum Morality {
 
 public enum PersonType {
     Friend,
-    Neutral,
+    Normal,
     Enemy,
-    Companion
+    Companion,
+    Boss
 }
 
 public enum StateMachine {
@@ -51,5 +52,6 @@ public enum CombatType {
 
 public enum AIType {
     StateMachine,
-    CombatAI
+    CombatAI,
+    BossAI
 }

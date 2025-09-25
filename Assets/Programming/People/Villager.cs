@@ -54,6 +54,7 @@ public class Villager : Person {
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false){
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
+                personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackCharacterInfo;
                 if(isHurt == true) {
                     hurtFrames = 0;
                 }

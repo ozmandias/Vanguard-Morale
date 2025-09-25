@@ -6,15 +6,16 @@ public class MoveState : StateMachineBehaviour {
     float destinationDistance;
     float targetDistance;
 
-    public float moveDistance = 100f;
+    public float repositionDistance = 100f;
     public float reachDistance = 0;
     public float followDistance = 250f;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
-        reachDistance = AIManager.instance.DistanceAroundDestination /*mainPerson.personAgent.stoppingDistance*/ + 1f;
-        
+        mainPerson.attackNumberUpdate = false;
         mainPerson.personAgent.isStopped = false;
+
+        reachDistance = AIManager.instance.DistanceAroundDestination /*mainPerson.personAgent.stoppingDistance*/ + 1f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -36,9 +37,9 @@ public class MoveState : StateMachineBehaviour {
 
         if(mainPerson.destination) {
             destinationDistance = Vector3.Distance(mainPerson.destination.position, mainPerson.transform.position);
-            if(destinationDistance > reachDistance && destinationDistance > moveDistance) {
+            if(destinationDistance > reachDistance && destinationDistance > repositionDistance) {
                 mainPerson.personAgent.destination = mainPerson.destination.position;
-            } else if(destinationDistance <= moveDistance && destinationDistance > reachDistance) {
+            } else if(destinationDistance <= repositionDistance && destinationDistance > reachDistance) {
                 AIManager.instance.AgentRepositionAtDestination(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.destination);
             } else if(destinationDistance <= reachDistance) {
                 mainPerson.personAgent.velocity = Vector3.zero;

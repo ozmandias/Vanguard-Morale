@@ -364,7 +364,7 @@ public class CombatManager : MonoBehaviour {
             // enemyIsStunned = true;
             EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
             enemyIsPlayerTarget = false;
-            enemyTarget.GetInfo().CombatReduceHealth(playerCombat.characterInfo.damage); // <- after this line, set Enemy's availiability to false on Enemy's death
+            enemyTarget.GetInfo().CombatReduceHealth(playerCombat.characterInfo/*.damage*/); // <- after this line, set Enemy's availiability to false on Enemy's death
             if (characterInfo.isDead)
             {
                 available = false;

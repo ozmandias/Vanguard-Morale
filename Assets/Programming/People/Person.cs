@@ -11,6 +11,8 @@ public class Person : MonoBehaviour {
     public GameObject target;
     public Collider attackCollider;
     public GameObject weapon;
+    public bool attackNumberUpdate = false;
+    public int attackNumber = 0;
 
     [Header("Person Settings")]
     public AnimationManager personAnimation;
@@ -41,7 +43,6 @@ public class Person : MonoBehaviour {
         personAgent = GetComponent<NavMeshAgent>();
 
         personInfo.Init(gameObject);
-        personAgent.speed = 100f;
     }
 
     public virtual void Update()
@@ -75,7 +76,7 @@ public class Person : MonoBehaviour {
                     break;
             }
 
-            if (personInfo.personType != PersonType.Neutral && attackingTarget == false && personInfo.isDead == false)
+            if (personInfo.personType != PersonType.Normal && attackingTarget == false && personInfo.isDead == false)
             {
                 FindTarget();
             }
@@ -141,6 +142,10 @@ public class Person : MonoBehaviour {
         Idle();
     }
 
+    public virtual void PrepareHurt(Collider otherCollider) {
+
+    }
+
     public void ChangeState(StateMachine _state)
     {
         personState = _state;
@@ -168,6 +173,7 @@ public class Person : MonoBehaviour {
                 Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
+                personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackCharacterInfo;
                 if (isHurt == true)
                 {
                     hurtFrames = 0;

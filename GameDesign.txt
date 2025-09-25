@@ -13,7 +13,7 @@ Shopping
 Skill Training
 Morality (done)
 Arkham Combat (done, needs fixing + improvements)
-Battles between Soldiers and Enemies (done, needs improvements)
+Battle between Soldiers and Enemies (done, needs improvements)
 Interactables
 AI Switch (done)
 Mission Objective
@@ -41,6 +41,14 @@ Arkham Combat
 - fix Player's managingAttack issue(done)
 - fix Enemy stops after being attack on Retreating(done), make Enemy combat-move animations BlendTree(done), fix enemyHurt - Issue on Attacking while Enemy is Attacking, enemyIsStunned is always on, also CombatHurt animation plays after one CombatHurt animation finishes, need to disable enemyIsAttacking, Error happens on enemyIsPlayerTarget and enemyIsHurt are both true, Error happens when Player attacks Enemy while Enemy is moving towards Player (done - fix by disabling StopCoroutine(EnemyHurtCoroutine) in StopEnemyCoroutines()) Error Steps: RetreatFromPlayer, PlayerMovementEvent, PlayerCombatEvent
 - Counter Attack(done)
-- fix Enemy isMoving and isRetreating even after enemyIsStunned on Counter. isMoving, isRetreating, isStunned, isAttackable, isWaiting are all true.
+- fix Enemy isMoving and isRetreating even after enemyIsStunned on Counter. isMoving, isRetreating, isStunned, isAttackable, isWaiting are all true(done)
 - fix AIManager only assigning 1 CombatAI(done)
-- always check StateMachineAI or CombatAI between AIs and their targets
+- always check StateMachineAI or CombatAI between AIs and their targets(done)
+
+Boss
+- target change after current target dies(done)
+- soliders need to detect Boss(done)
+- multiple attack animations(done)
+- attack by raycast
+
+Fix Battle of Soldiers and Enemies, Boss, Line Up, Arkham Combat

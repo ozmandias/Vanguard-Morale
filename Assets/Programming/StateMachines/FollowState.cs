@@ -14,8 +14,10 @@ public class FollowState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
-
+        mainPerson.attackNumberUpdate = true;
         mainPerson.personAgent.isStopped = false;
+
+        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 30f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

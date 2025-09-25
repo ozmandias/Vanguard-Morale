@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 [System.Serializable] public class PersonInfo : Info {
     public RagdollManager personRagdollManager;
-    public PersonType personType = PersonType.Neutral;
+    public PersonType personType = PersonType.Normal;
     public AIType aiType = AIType.StateMachine;
     public bool stateMachineDead = false;
 
@@ -11,22 +11,22 @@ using UnityEngine.AI;
     {
         base.Init(owner);
         damage = 10;
-        morality = personType == PersonType.Neutral ? 50 : personType == PersonType.Friend ? 60 : 40;
+        morality = personType == PersonType.Normal ? 50 : personType == PersonType.Friend ? 60 : 40;
         alignment = (Morality)morality;
 
         personRagdollManager = owner.GetComponent<RagdollManager>();
     }
 
-    public override void ReduceHealth(int damageAmount)
+    public void ReduceHealth(Info attackerInfo)
     {
-        base.ReduceHealth(damageAmount);
+        base.ReduceHealth(attackerInfo.damage);
 
-        if (isDead == true)
+        if ((attackerInfo is MasterKnightInfo || attackerInfo is PlayerInfo) && isDead == true)
         {
             switch (personType)
             {
                 case PersonType.Enemy:
-                    (
+                    if(GameManager.instance.playerGameObject) (
                         GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
                         ?
                         (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
@@ -34,10 +34,10 @@ using UnityEngine.AI;
                         (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                     ).AddMorality(3);
                     break;
-                case PersonType.Neutral:
+                case PersonType.Normal:
                     break;
                 case PersonType.Friend:
-                    (
+                    if(GameManager.instance.playerGameObject) (
                         GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
                         ?
                         (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
@@ -51,10 +51,10 @@ using UnityEngine.AI;
         }
     }
     
-    public void CombatReduceHealth(int damageAmount) {
-        base.ReduceHealth(damageAmount);
+    public void CombatReduceHealth(Info attackerInfo) {
+        base.ReduceHealth(attackerInfo.damage);
 
-        if (isDead == true && personType == PersonType.Enemy)
+        if ((attackerInfo is MasterKnightInfo || attackerInfo is PlayerInfo) && isDead == true && personType == PersonType.Enemy)
         {
             Person mainPerson = owner.GetComponent<Person>();
             (

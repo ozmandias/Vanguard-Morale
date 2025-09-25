@@ -56,6 +56,7 @@ public class Friend : Person {
     public override void FindTarget() {
         float targetEnemyDistance = 0;
         GameObject targetEnemy = null;
+        GameObject targetBoss = null;
         List<GameObject> targetList = new List<GameObject>();
         float nearestDistance = float.MaxValue;
         NavMeshPath path = new NavMeshPath();
@@ -85,6 +86,17 @@ public class Friend : Person {
             SetTarget(targetEnemy);
         }*/
 
+        foreach(Boss boss in GameManager.instance.bossList) {
+            CombatManager bossCombat = boss.GetComponent<CombatManager>();
+            if(boss.GetInfo().isDead == false && bossCombat.IsCirclingListFull() == false && boss.GetInfo().aiType == AIType.StateMachine) {
+                if(!personAgent.Raycast(boss.transform.position, out personNavMeshHit)) {
+                    targetBoss = boss.gameObject;
+                    targetList.Add(targetBoss);
+                    break;
+                }
+            }
+        }
+
         foreach(GameObject target in targetList) {
             if(NavMesh.CalculatePath(transform.position, target.transform.position, personAgent.areaMask, path)) {
                 float targetDistance = Vector3.Distance(transform.position, path.corners[0]);
@@ -110,6 +122,7 @@ public class Friend : Person {
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
+                personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackCharacterInfo;
                 if(isHurt == true) {
                     hurtFrames = 0;
                 }

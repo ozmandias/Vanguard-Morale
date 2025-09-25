@@ -1,7 +1,7 @@
 using UnityEngine;
 
-public class BossFightManager : MonoBehaviour {
-    void Start() {
+public class BossFightManager : CombatManager {
+    /*void Start() {
 
     }
 
@@ -9,7 +9,7 @@ public class BossFightManager : MonoBehaviour {
         // if aiType == BossAI
             // run towards player
 
-            // shoot magic to player at a distance
+            // shoot magic to player at a distance (particles)
 
             // heal self
 
@@ -18,5 +18,5 @@ public class BossFightManager : MonoBehaviour {
             // make boss fight as a pattern
 
             // change aiType accordingly
-    }
+    }*/
 }
