@@ -55,3 +55,8 @@ public enum AIType {
     CombatAI,
     BossAI
 }
+
+public enum EffectType {
+    Play,
+    Spawn
+}

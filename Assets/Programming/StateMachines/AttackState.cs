@@ -38,16 +38,39 @@ public class AttackState : StateMachineBehaviour {
 
                 if(animator.GetBool("Attacking") == true) {
                     mainPerson.isAttacking = true;
-                    if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee)
+                    
+                    if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee) {
                         mainPerson.attackCollider.enabled = true;   
-                    else
-                        Debug.Log("raycast and play magic shot particles"); 
+                    } else {
+                        string raycastShooterName = "RaycastShooter" + animator.GetFloat("AttackNumber");
+                        GameObject raycastShooter = GameHelpers.FindGameObjectInChildren(raycastShooterName, animator.transform.gameObject);
+                        // LayerMask rangeLayerMask = layerMask.GetMask("");
+                        RaycastHit rangeRaycastHit;
+                        if(Physics.Raycast(raycastShooter.transform.position /*transform.position + Vector3.up * 8f*/, raycastShooter.transform.forward, out rangeRaycastHit, 60f /*, rangeLayerMask*/)) {
+                            Debug.DrawRay(raycastShooter.transform.position /*transform.position + Vector3.up * 8f*/, raycastShooter.transform.TransformDirection(Vector3.forward) * rangeRaycastHit.distance, Color.white);
+                            Debug.Log("hit: " + rangeRaycastHit.collider.gameObject.name);
+                            if(rangeRaycastHit.collider.gameObject.CompareTag("Player")) {
+
+                            } else if(rangeRaycastHit.collider.gameObject.CompareTag("Person")) {
+                                rangeRaycastHit.collider.GetComponent<Person>().MakePersonHurt(mainPerson.GetInfo());
+                            }
+                        }
+                        if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn) {
+                            GameObject newAttackEffect = mainPerson.personEffect.attackEffect.Create(raycastShooter.transform);
+                            if(newAttackEffect) {
+                                mainPerson.personEffect.DestroyEffect(newAttackEffect);
+                            }
+                        }
+                    }
                 } else {
                     mainPerson.isAttacking = false;
-                    if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee)
+
+                    if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee) {
                         mainPerson.attackCollider.enabled = false;
-                    else
-                        Debug.Log("stop magic shot particles");
+                    } else {
+
+                    }
+
                     stateTime = 0;
                 }
 

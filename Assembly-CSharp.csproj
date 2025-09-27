@@ -80,6 +80,7 @@
      <Compile Include="Assets\Programming\Data\Info.cs" />
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
      <Compile Include="Assets\Programming\Data\Structs.cs" />
+     <Compile Include="Assets\Programming\Effects\Effect.cs" />
      <Compile Include="Assets\Programming\Enemies\Boss.cs" />
      <Compile Include="Assets\Programming\Enemies\CyberKnight.cs" />
      <Compile Include="Assets\Programming\Enemies\Enemy.cs" />
@@ -87,6 +88,7 @@
      <Compile Include="Assets\Programming\Friends\AllyGuard.cs" />
      <Compile Include="Assets\Programming\Friends\AllySwordsman.cs" />
      <Compile Include="Assets\Programming\Friends\Friend.cs" />
+     <Compile Include="Assets\Programming\Helpers\GameHelpers.cs" />
      <Compile Include="Assets\Programming\Items\Item.cs" />
      <Compile Include="Assets\Programming\Items\Weapon.cs" />
      <Compile Include="Assets\Programming\Managers\AIManager.cs" />

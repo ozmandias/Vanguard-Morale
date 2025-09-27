@@ -11,6 +11,8 @@ TagManager:
   - PlayerAttackCollider
   - PersonAttackCollider
   - SoldierAttackCollider
+  - RaycastShooter
+  - Person
   layers:
   - Default
   - TransparentFX

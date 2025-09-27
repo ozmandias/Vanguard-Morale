@@ -289,12 +289,12 @@ public class CombatManager : MonoBehaviour {
         enemyIsPreparingAttack = status;
         if (enemyIsPreparingAttack == true)
         {
-            effectManager.StartParticle("counter");
+            effectManager.StartEffect("counter");
         }
         else
         {
             StopAroundPlayer();
-            effectManager.StopParticle("counter");
+            effectManager.StopEffect("counter");
         }
     }
 

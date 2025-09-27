@@ -10,6 +10,10 @@ public class Boss : Person
     public override void Start() {
         base.Start();
 
+        personInfo.personType = PersonType.Boss;
+
+        destination = GameManager.instance.enemyDestination;
+
         GameManager.instance.bossList.Add(this);
         AIManager.instance.bossAIList.Add(personAgent);
 

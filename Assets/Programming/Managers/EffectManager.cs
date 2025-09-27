@@ -3,44 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectManager : MonoBehaviour {
-    public ParticleSystem counterParticle;
-    Coroutine particleCoroutine;
+    public Effect attackEffect;
+    public Effect counterEffect;
+    Coroutine effectCoroutine;
 
     void Start() { }
 
     void Update() { }
 
-    public void StartParticle(string particleName) {
+    public void StartEffect(string particleName) {
         switch(particleName) {
+            case "attack":
+                effectCoroutine = StartCoroutine(SetEffectCoroutine(attackEffect, "on"));
+                break;
             case "counter":
-                particleCoroutine = StartCoroutine(SetParticleCoroutine(counterParticle, "on"));
+                effectCoroutine = StartCoroutine(SetEffectCoroutine(counterEffect, "on"));
                 break;
             default:
                 break;
         }
     }
 
-    public void StopParticle(string particleName) {
-        if (particleCoroutine != null) StopCoroutine(particleCoroutine);
-        switch (particleName) {
+    public void StopEffect(string effectName) {
+        if (effectCoroutine != null) StopCoroutine(effectCoroutine);
+        switch (effectName) {
+            case "attack":
+                break;
             case "counter":
-                particleCoroutine = StartCoroutine(SetParticleCoroutine(counterParticle, "off"));
+                effectCoroutine = StartCoroutine(SetEffectCoroutine(counterEffect, "off"));
                 break;
             default:
                 break;
         }
     }
 
-    IEnumerator SetParticleCoroutine(ParticleSystem particle, string particleSwitch) {
-        if(particle == counterParticle) {
+    public void DestroyEffect(GameObject destroyEffect) {
+        StartCoroutine(DestroyEffectCoroutine(destroyEffect));
+    }
+
+    IEnumerator SetEffectCoroutine(Effect effect, string effectSwitch) {
+        if(effect == counterEffect) {
             yield return new WaitUntil(() => GetComponent<CombatManager>().counterAlert == true);
         }
-        if (particleSwitch == "on") {
-            particle.Play();
+        if (effectSwitch == "on") {
+            effect.Play();
         } else {
-            particle.Clear();
-            particle.Stop();
+            effect.Clear();
+            effect.Stop();
         }
         yield return null;
+    }
+
+    IEnumerator DestroyEffectCoroutine(GameObject destroyObject) {
+        yield return new WaitForSeconds(1);
+        Destroy(destroyObject);
     }
 }

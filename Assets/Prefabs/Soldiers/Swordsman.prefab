@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 114458394206028062}
   m_Layer: 0
   m_Name: Swordsman
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1360,6 +1360,8 @@ MonoBehaviour:
   target: {fileID: 0}
   attackCollider: {fileID: 65045690830116490}
   weapon: {fileID: 1148547559045366}
+  attackNumberUpdate: 0
+  attackNumber: 0
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
   personAgent: {fileID: 0}

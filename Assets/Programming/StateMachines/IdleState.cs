@@ -32,6 +32,8 @@ public class IdleState : StateMachineBehaviour {
             if(targetDistance <= followDistance && targetInfo.isDead == false && canAttackTarget) {
                 mainPerson.reachDestination = false;
                 mainPerson.attackingTarget = true;
+            } else if(targetInfo.isDead == true) {
+                mainPerson.SetTarget(null);
             }
         }
 

@@ -32,6 +32,8 @@ public class MoveState : StateMachineBehaviour {
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
             if(targetDistance <= followDistance && targetInfo.isDead == false && canAttackTarget) {
                 mainPerson.attackingTarget = true;
+            } else if(targetInfo.isDead == true) {
+                mainPerson.SetTarget(null);
             }
         }
 
