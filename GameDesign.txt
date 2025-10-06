@@ -50,10 +50,12 @@ Boss
 - soliders need to detect Boss(done)
 - multiple attack animations(done)
 - attack by raycast(done)
+- shoot raycast for only one time(done)
+- reduce health only when hit by particle
 
 Fix Battle of Soldiers and Enemies, Boss, Line Up, Arkham Combat
 - set destination of AI agents in StateMachines instead of Person class
-- add Combat AIs into combatingList and change AI Type accordingly to combatingList
+- add Combat AIs into combatingList and change AI Type accordingly to combatingList(done)
 
 State Machines
 - do not play animations directly
@@ -61,3 +63,6 @@ State Machines
 
 Info
 - can change AIType
+
+CombatAI
+- Make forward or backward if obstacle is detected during strafe

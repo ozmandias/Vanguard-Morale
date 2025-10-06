@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 114032235182515548}
   m_Layer: 0
   m_Name: CyberKnight
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1315,6 +1315,8 @@ MonoBehaviour:
   effectManager: {fileID: 0}
   circlingList: []
   maxCirclingEnemies: 3
+  combatingList: []
+  maxCombatingEnemies: 5
   characterInfo:
     owner: {fileID: 0}
     health: 0

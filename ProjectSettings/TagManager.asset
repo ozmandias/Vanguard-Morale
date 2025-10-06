@@ -13,6 +13,7 @@ TagManager:
   - SoldierAttackCollider
   - RaycastShooter
   - Person
+  - Boss
   layers:
   - Default
   - TransparentFX

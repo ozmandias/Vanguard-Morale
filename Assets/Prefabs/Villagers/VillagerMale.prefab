@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 114125604257743030}
   m_Layer: 0
   m_Name: VillagerMale
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1158,6 +1158,8 @@ MonoBehaviour:
   target: {fileID: 0}
   attackCollider: {fileID: 65823846462550134}
   weapon: {fileID: 0}
+  attackNumberUpdate: 0
+  attackNumber: 0
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
   personAgent: {fileID: 0}
@@ -1175,6 +1177,7 @@ MonoBehaviour:
     personType: 1
     aiType: 0
     stateMachineDead: 0
+  personEffect: {fileID: 0}
   attackFrames: 0
   hurtFrames: 0
   personState: 0
@@ -1211,6 +1214,8 @@ MonoBehaviour:
   effectManager: {fileID: 0}
   circlingList: []
   maxCirclingEnemies: 3
+  combatingList: []
+  maxCombatingEnemies: 5
   characterInfo:
     owner: {fileID: 0}
     health: 100
@@ -1289,7 +1294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648e73c5d500e49f095c4f6dc9a79201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterParticle: {fileID: 0}
+  attackEffect: {fileID: 0}
+  counterEffect: {fileID: 0}
 --- !u!114 &114901752661461452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1942,7 +1948,7 @@ NavMeshAgent:
   m_Radius: 0.002
   m_Speed: 20
   m_Acceleration: 500
-  avoidancePriority: 50
+  avoidancePriority: 80
   m_AngularSpeed: 1000
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
@@ -1951,4 +1957,4 @@ NavMeshAgent:
   m_Height: 0.018
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3

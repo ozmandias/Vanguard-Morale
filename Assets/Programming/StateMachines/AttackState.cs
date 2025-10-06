@@ -45,19 +45,22 @@ public class AttackState : StateMachineBehaviour {
                         string raycastShooterName = "RaycastShooter" + animator.GetFloat("AttackNumber");
                         GameObject raycastShooter = GameHelpers.FindGameObjectInChildren(raycastShooterName, animator.transform.gameObject);
                         // LayerMask rangeLayerMask = layerMask.GetMask("");
+                        
                         RaycastHit rangeRaycastHit;
-                        if(Physics.Raycast(raycastShooter.transform.position /*transform.position + Vector3.up * 8f*/, raycastShooter.transform.forward, out rangeRaycastHit, 60f /*, rangeLayerMask*/)) {
-                            Debug.DrawRay(raycastShooter.transform.position /*transform.position + Vector3.up * 8f*/, raycastShooter.transform.TransformDirection(Vector3.forward) * rangeRaycastHit.distance, Color.white);
+                        if(Physics.Raycast(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.forward, out rangeRaycastHit, 60f /*, rangeLayerMask*/)) {
+                            Debug.DrawRay(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.TransformDirection(Vector3.forward) * 60f, Color.white);
                             Debug.Log("hit: " + rangeRaycastHit.collider.gameObject.name);
                             if(rangeRaycastHit.collider.gameObject.CompareTag("Player")) {
 
                             } else if(rangeRaycastHit.collider.gameObject.CompareTag("Person")) {
-                                rangeRaycastHit.collider.GetComponent<Person>().MakePersonHurt(mainPerson.GetInfo());
+
                             }
                         }
+
                         if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn && mainPerson.personEffect.attackEffect.canManageEffect) {
-                            GameObject newAttackEffect = mainPerson.personEffect.attackEffect.Create(raycastShooter.transform);
+                            GameObject newAttackEffect = mainPerson.personEffect.attackEffect.Create(raycastShooter.transform.position, animator.transform.rotation);
                             if(newAttackEffect) {
+                                newAttackEffect.GetComponent<Effect>().SetOwner(mainPerson.gameObject);
                                 mainPerson.personEffect.DestroyEffect(newAttackEffect);
                             }
                             mainPerson.personEffect.attackEffect.canManageEffect = false;
