@@ -5,6 +5,7 @@ using UnityEngine;
 public class Effect : MonoBehaviour {
     public ParticleSystem particle;
     public EffectType effectType = EffectType.Play;
+    public bool canManageEffect = false;
 
     void Start() {
         particle = GetComponent<ParticleSystem>();

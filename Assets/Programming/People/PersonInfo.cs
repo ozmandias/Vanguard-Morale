@@ -77,4 +77,9 @@ using UnityEngine.AI;
             mainPerson.Dead();
         }
     }
+
+    public void ChangeToStateMachineAI() {
+        aiType = AIType.StateMachine;
+        owner.GetComponent<Person>().ChangeState(StateMachine.Idle);
+    }
 }

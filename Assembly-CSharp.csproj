@@ -112,6 +112,7 @@
      <Compile Include="Assets\Programming\Player\Player.cs" />
      <Compile Include="Assets\Programming\Player\PlayerInfo.cs" />
      <Compile Include="Assets\Programming\StateMachines\AttackState.cs" />
+     <Compile Include="Assets\Programming\StateMachines\CombatState.cs" />
      <Compile Include="Assets\Programming\StateMachines\DeadState.cs" />
      <Compile Include="Assets\Programming\StateMachines\FollowState.cs" />
      <Compile Include="Assets\Programming\StateMachines\HurtState.cs" />

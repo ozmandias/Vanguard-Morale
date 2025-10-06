@@ -106,11 +106,13 @@ public class StateChanger : MonoBehaviour {
                 default:
                     break;
             }
-        }
 
-        if (mainPerson.isHurt)
-        {
-            mainPerson.ChangeState(StateMachine.Hurt);
+            if (mainPerson.isHurt)
+            {
+                mainPerson.ChangeState(StateMachine.Hurt);
+            }
+        } else if(mainPerson.GetInfo().aiType == AIType.CombatAI) {
+            mainPerson.ChangeState(StateMachine.Combat);
         }
     }
 }

@@ -47,7 +47,7 @@ public class Enemy : Person {
 
         GameManager.instance.enemyList.Remove(this);
         AIManager.instance.enemyAIList.Remove(personAgent);
-        AIManager.instance.RemoveEnemy(this);
+        AIManager.instance.RemoveCombatEnemy(this);
     }
 
     public override void Resurrect() {
@@ -70,7 +70,7 @@ public class Enemy : Person {
 
         if(targetPlayer) {
             CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
-            if(playerCombat.IsCirclingListFull() == false) {
+            if(playerCombat.IsCirclingListFull() == false && playerCombat.IsCombatingListFull() == false) {
                 if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit)) {
                     // targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
                     targetList.Add(targetPlayer);

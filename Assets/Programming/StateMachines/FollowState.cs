@@ -17,7 +17,7 @@ public class FollowState : StateMachineBehaviour {
         mainPerson.attackNumberUpdate = true;
         mainPerson.personAgent.isStopped = false;
 
-        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 30f;
+        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 50f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -66,8 +66,8 @@ public class FollowState : StateMachineBehaviour {
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        if(mainPerson.GetInfo().isDead == false) {
+        /*if(mainPerson.GetInfo().isDead == false) {
             mainPerson.personAgent.ResetPath();
-        }
+        }*/
     }
 }

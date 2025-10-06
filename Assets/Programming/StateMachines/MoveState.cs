@@ -53,8 +53,8 @@ public class MoveState : StateMachineBehaviour {
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        if(mainPerson.GetInfo().isDead == false) {
+        /*if(mainPerson.GetInfo().isDead == false) {
             mainPerson.personAgent.ResetPath();
-        }
+        }*/
     }
 }

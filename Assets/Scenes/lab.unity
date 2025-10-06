@@ -311,6 +311,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
   m_IsPrefabParent: 0
@@ -511,6 +515,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
   m_IsPrefabParent: 0
@@ -559,7 +567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1786993345329752, guid: 47ead6058f7c54cf4b92370c82e910f7, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47ead6058f7c54cf4b92370c82e910f7, type: 2}
@@ -1006,6 +1014,10 @@ Prefab:
     - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
       propertyPath: m_Name
       value: Swordsman (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
@@ -2015,6 +2027,10 @@ Prefab:
       propertyPath: m_Name
       value: Swordsman (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
   m_IsPrefabParent: 0
@@ -2465,6 +2481,10 @@ Prefab:
       propertyPath: m_ConnectedAnchor.z
       value: -0.00029213214
       objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
   m_IsPrefabParent: 0
@@ -2680,7 +2700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!124 &819457652
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2730,13 +2750,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 819457650}
-  m_LocalRotation: {x: 0.29883623, y: -0.64085644, z: 0.29883623, w: 0.64085644}
-  m_LocalPosition: {x: 120, y: 170, z: 0}
+  m_LocalRotation: {x: 0.27059805, y: -0.6532815, z: 0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: 120, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 36
-  m_LocalEulerAnglesHint: {x: 50, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: -90, z: 0}
 --- !u!1001 &933887653
 Prefab:
   m_ObjectHideFlags: 0
@@ -3100,6 +3120,10 @@ Prefab:
       propertyPath: m_Name
       value: Swordsman (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
   m_IsPrefabParent: 0
@@ -3299,6 +3323,10 @@ Prefab:
     - target: {fileID: 4535327573104670, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
@@ -3500,6 +3528,10 @@ Prefab:
       propertyPath: m_Name
       value: Swordsman (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
   m_IsPrefabParent: 0
@@ -3699,6 +3731,10 @@ Prefab:
     - target: {fileID: 4535327573104670, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
@@ -4123,6 +4159,10 @@ Prefab:
     - target: {fileID: 4535327573104670, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
@@ -5151,6 +5191,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1763876978638708, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbc974eeb02a54b2ebfa09ef5394d099, type: 2}
   m_IsPrefabParent: 0
@@ -5195,7 +5239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1340718563153110, guid: abbaf6646236d4407ba069f0d4d411c9, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abbaf6646236d4407ba069f0d4d411c9, type: 2}

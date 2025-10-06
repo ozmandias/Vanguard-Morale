@@ -14,7 +14,7 @@ public class AttackState : StateMachineBehaviour {
         mainPerson = animator.gameObject.GetComponent<Person>();
         mainPerson.personAgent.isStopped = true;
 
-        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 30f;
+        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 50f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -55,11 +55,12 @@ public class AttackState : StateMachineBehaviour {
                                 rangeRaycastHit.collider.GetComponent<Person>().MakePersonHurt(mainPerson.GetInfo());
                             }
                         }
-                        if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn) {
+                        if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn && mainPerson.personEffect.attackEffect.canManageEffect) {
                             GameObject newAttackEffect = mainPerson.personEffect.attackEffect.Create(raycastShooter.transform);
                             if(newAttackEffect) {
                                 mainPerson.personEffect.DestroyEffect(newAttackEffect);
                             }
+                            mainPerson.personEffect.attackEffect.canManageEffect = false;
                         }
                     }
                 } else {

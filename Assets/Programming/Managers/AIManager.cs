@@ -338,7 +338,7 @@ public class AIManager : MonoBehaviour {
         }
     }
 
-    public void RemoveEnemy(Enemy enemy)
+    public void RemoveCombatEnemy(Enemy enemy)
     {
         int removeLocation = -1;
         foreach(EnemyStruct enemyStruct in enemyStructs)
@@ -407,14 +407,14 @@ public class AIManager : MonoBehaviour {
 
         if (SceneManager.instance.GetCurrentScene().name == "lab")
         {
-            /*if (GUI.Button(new Rect(30, 250, 250, 100), "Run CombatAI", guiStyle)) {
+            if (GUI.Button(new Rect(30, 250, 250, 100), "Run CombatAI", guiStyle)) {
                 SetupCombatAI();
-            }*/
+            }
             
-            GUI.Label(new Rect(30, 250, 360, 50), "Enter AI Agents per Row:", guiStyle);
-            textFieldInput = GUI.TextField(new Rect(30, 300, 360, 50), textFieldInput, guiStyle);
+            GUI.Label(new Rect(30, 360, 360, 50), "Enter AI Agents per Row:", guiStyle);
+            textFieldInput = GUI.TextField(new Rect(30, 410, 360, 50), textFieldInput, guiStyle);
 
-            if (GUI.Button(new Rect(30, 360, 360, 100), "Agents to Destination", guiStyle)) {
+            if (GUI.Button(new Rect(30, 470, 360, 100), "Agents to Destination", guiStyle)) {
                 agentsPerRow = int.Parse(textFieldInput);
                 foreach(Friend soldier in GameManager.instance.soldierList) {
                     soldier.personAgent.isStopped = false;

@@ -11,6 +11,8 @@ public class CombatManager : MonoBehaviour {
     public EffectManager effectManager;
     public List<NavMeshAgent> circlingList;
     public int maxCirclingEnemies = 3;
+    public List<NavMeshAgent> combatingList;
+    public int maxCombatingEnemies = 5;
     public Info characterInfo;
     public bool available = true;
 
@@ -411,6 +413,16 @@ public class CombatManager : MonoBehaviour {
     public bool CirclingListContains(NavMeshAgent circlingAgent)
     {
         bool containStatus = circlingList.Contains(circlingAgent);
+        return containStatus;
+    }
+
+    public bool IsCombatingListFull() {
+        bool fullStatus = combatingList.Count == maxCombatingEnemies ? true : false;
+        return fullStatus;
+    }
+
+    public bool CombatingListContains(NavMeshAgent combatingAgent) {
+        bool containStatus = combatingList.Contains(combatingAgent);
         return containStatus;
     }
 

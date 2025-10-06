@@ -85,6 +85,7 @@ public class AnimationManager : MonoBehaviour {
     public void AttackNumberEvent(string attackEventParameter) {
         if(attackEventParameter == "on") {
             SetParameter("Attacking", true);
+            GetComponent<EffectManager>().attackEffect.canManageEffect = true;
         } else if(attackEventParameter == "off") {
             SetParameter("Attacking", false);
             gameObject.GetComponent<Person>().attackNumberUpdate = true;

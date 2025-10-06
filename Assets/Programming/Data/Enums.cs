@@ -16,6 +16,7 @@ public enum StateMachine {
     Idle,
     Move,
     Attack,
+    Combat,
     Work,
     Follow,
     Wait,

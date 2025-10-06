@@ -49,6 +49,15 @@ Boss
 - target change after current target dies(done)
 - soliders need to detect Boss(done)
 - multiple attack animations(done)
-- attack by raycast
+- attack by raycast(done)
 
 Fix Battle of Soldiers and Enemies, Boss, Line Up, Arkham Combat
+- set destination of AI agents in StateMachines instead of Person class
+- add Combat AIs into combatingList and change AI Type accordingly to combatingList
+
+State Machines
+- do not play animations directly
+- do not call ChangeState() directly
+
+Info
+- can change AIType
