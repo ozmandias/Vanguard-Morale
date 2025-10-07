@@ -4,6 +4,8 @@ public class CombatState : StateMachineBehaviour {
     Person mainPerson;
     Info targetInfo;
     CombatManager targetCombat;
+    float targetDistance;
+    public float followDistance = 250f;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
@@ -26,12 +28,19 @@ public class CombatState : StateMachineBehaviour {
             }
 
             // if far from Player, change CombatAI to StateMachine
+            if(targetCombat.CombatingListContains(mainPerson.personAgent)) {
+                targetDistance = Vector3.Distance(targetCombat.transform.position, mainPerson.transform.position);
+                if(targetDistance > followDistance) {
+                    targetCombat.combatingList.Remove(mainPerson.personAgent);
+                    canCombatTarget = false;
+                }
+            }
 
             if(canCombatTarget == false) {
                 //remove from CombatAI List
                 AIManager.instance.RemoveCombatEnemy(mainPerson as Enemy);
                 mainPerson.SetTarget(null);
-                mainPerson.GetInfo().ChangeToStateMachineAI();
+                mainPerson.personCombat.OnEnemyStop.Invoke(mainPerson as Enemy);
             }
         }
     }

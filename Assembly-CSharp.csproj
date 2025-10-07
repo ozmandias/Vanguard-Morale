@@ -79,7 +79,9 @@
      <Compile Include="Assets\Programming\Data\GameSettings.cs" />
      <Compile Include="Assets\Programming\Data\Info.cs" />
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
+     <Compile Include="Assets\Programming\Data\ItemData.cs" />
      <Compile Include="Assets\Programming\Data\Structs.cs" />
+     <Compile Include="Assets\Programming\Data\WorldData.cs" />
      <Compile Include="Assets\Programming\Effects\Effect.cs" />
      <Compile Include="Assets\Programming\Enemies\Boss.cs" />
      <Compile Include="Assets\Programming\Enemies\CyberKnight.cs" />

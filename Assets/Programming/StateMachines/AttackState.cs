@@ -48,8 +48,8 @@ public class AttackState : StateMachineBehaviour {
                         
                         RaycastHit rangeRaycastHit;
                         if(Physics.Raycast(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.forward, out rangeRaycastHit, 60f /*, rangeLayerMask*/)) {
-                            Debug.DrawRay(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.TransformDirection(Vector3.forward) * 60f, Color.white);
-                            Debug.Log("hit: " + rangeRaycastHit.collider.gameObject.name);
+                            // Debug.DrawRay(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.TransformDirection(Vector3.forward) * 60f, Color.white);
+
                             if(rangeRaycastHit.collider.gameObject.CompareTag("Player")) {
 
                             } else if(rangeRaycastHit.collider.gameObject.CompareTag("Person")) {

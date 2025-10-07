@@ -29,6 +29,7 @@ using UnityEngine;
         health = health - damageAmount;
 
         if(health <= 0) {
+            health = 0;
             isDead = true;
         }
     }

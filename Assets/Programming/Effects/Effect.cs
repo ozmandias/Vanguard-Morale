@@ -47,7 +47,6 @@ public class Effect : MonoBehaviour {
     void OnParticleCollision(GameObject otherGameObject) {
         if(otherGameObject.CompareTag("Person") && owner != null) {
             Info ownerInfo = GameHelpers.GetCharacterInfo(owner);
-            Debug.Log("ownerInfo-particle:" + ownerInfo);
             otherGameObject.GetComponent<Person>().MakePersonHurt(ownerInfo);
         }
     }

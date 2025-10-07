@@ -71,7 +71,7 @@ public class Enemy : Person {
         if(targetPlayer) {
             CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
             if(playerCombat.IsCirclingListFull() == false && playerCombat.IsCombatingListFull() == false) {
-                if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit)) {
+                if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit) && Vector3.Distance(targetPlayer.transform.position, transform.position) < 250f) {
                     // targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
                     targetList.Add(targetPlayer);
                 } else {

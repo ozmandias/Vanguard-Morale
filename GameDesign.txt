@@ -51,11 +51,13 @@ Boss
 - multiple attack animations(done)
 - attack by raycast(done)
 - shoot raycast for only one time(done)
-- reduce health only when hit by particle
+- reduce health only when hit by particle(done)
+- switch attacking on Player and Allies
 
 Fix Battle of Soldiers and Enemies, Boss, Line Up, Arkham Combat
-- set destination of AI agents in StateMachines instead of Person class
+- set destination of AI agents in StateMachines instead of Person class(done)
 - add Combat AIs into combatingList and change AI Type accordingly to combatingList(done)
+- check if targets are too near during attack and reposition accordingly
 
 State Machines
 - do not play animations directly

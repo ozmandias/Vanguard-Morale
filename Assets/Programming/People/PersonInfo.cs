@@ -65,7 +65,20 @@ using UnityEngine.AI;
                 (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
             ).AddMorality(3);
             aiType = AIType.StateMachine;
-            mainPerson.ChangeState(StateMachine.Dead);
+            MakeStateMachine("dead");
+        }
+    }
+
+    public void MakeStateMachine(string makeStatus) {
+        Person mainPerson = owner.GetComponent<Person>();
+        if(makeStatus == "alive") {
+            AddHealth(MaxHealth);
+            mainPerson.personAgent.enabled = true;
+            stateMachineDead = false;
+            personRagdollManager.DisableRagdoll();
+            mainPerson.ChangeState(StateMachine.Idle);
+        } else if(makeStatus == "dead") {
+            mainPerson.personAgent.enabled = false;
             stateMachineDead = true;
             personRagdollManager.EnableRagdoll();
             if (mainPerson.weapon)
@@ -74,12 +87,7 @@ using UnityEngine.AI;
                 mainPerson.weapon.AddComponent<Rigidbody>();
                 mainPerson.weapon.AddComponent<BoxCollider>();
             }
-            mainPerson.Dead();
+            mainPerson.ChangeState(StateMachine.Dead);
         }
-    }
-
-    public void ChangeToStateMachineAI() {
-        aiType = AIType.StateMachine;
-        owner.GetComponent<Person>().ChangeState(StateMachine.Idle);
     }
 }

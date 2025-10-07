@@ -137,11 +137,7 @@ public class Person : MonoBehaviour {
     public virtual void Resurrect()
     {
         personInfo.isDead = false;
-        personInfo.stateMachineDead = false;
-        personAgent.enabled = true;
-        personInfo.AddHealth(personInfo.MaxHealth);
-        personInfo.personRagdollManager.DisableRagdoll();
-        Idle();
+        personInfo.MakeStateMachine("alive");
     }
 
     public virtual void MakePersonHurt(Info attackerInfo) {

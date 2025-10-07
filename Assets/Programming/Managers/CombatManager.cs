@@ -73,6 +73,7 @@ public class CombatManager : MonoBehaviour {
             playerCombat.OnPlayerCounter.AddListener((combatEnemy) => OnPlayerCounterEvent(combatEnemy));
 
             MoveAroundPlayerCoroutine = StartCoroutine(SetMoveAroundPlayerCoroutine());
+            OnEnemyStop.AddListener((combatEnemy) => OnEnemyCombatStopEvent(combatEnemy));
             OnEnemyHurt.AddListener((combatEnemy) => OnEnemyHurtEvent(combatEnemy));
         }
     }
@@ -390,6 +391,13 @@ public class CombatManager : MonoBehaviour {
             enemyIsPlayerTarget = false;
             animationManager.Play("CounterHurt" + playerCombat.counterNumber);
             StopAroundPlayer();
+        }
+    }
+
+    void OnEnemyCombatStopEvent(Enemy enemy) {
+        if(enemy == this.GetComponent<Enemy>()) {
+            enemy.GetInfo().aiType = AIType.StateMachine;
+            enemy.GetInfo().MakeStateMachine("alive");
         }
     }
 
