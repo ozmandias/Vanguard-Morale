@@ -47,11 +47,11 @@ public class FollowState : StateMachineBehaviour {
                     }
 
                     if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
-                        AIManager.instance.AgentCircleTarget(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.target.transform, CircleType.Semicircle);
+                        AIManager.instance.AgentCircleTarget(targetCombat.circlingList /*mainPerson.GetInfo().personType*/, mainPerson.personAgent, mainPerson.target.transform, CircleType.Semicircle);
                     }
                 } else if(targetDistance <= nearDistance && targetInfo.isDead == false) {
                     mainPerson.personAgent.velocity = Vector3.zero;
-                    mainPerson.nearTarget = true;
+                    mainPerson.atAttackDistance = true;
                 } else if(targetDistance > followDistance || targetInfo.isDead == true) {
                     if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                         targetCombat.circlingList.Remove(mainPerson.personAgent);

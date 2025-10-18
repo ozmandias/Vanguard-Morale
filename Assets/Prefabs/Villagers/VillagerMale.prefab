@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 95848375281925594}
   - component: {fileID: 54219050543289558}
   - component: {fileID: 65802695288008910}
+  - component: {fileID: 136691092828852332}
   - component: {fileID: 195613332181365770}
   - component: {fileID: 114221847060090814}
   - component: {fileID: 114108189219818992}
@@ -1183,7 +1184,7 @@ MonoBehaviour:
   personState: 0
   reachDestination: 0
   attackingTarget: 0
-  nearTarget: 0
+  atAttackDistance: 0
   isHurt: 0
   isMoving: 0
   preparingAttack: 0
@@ -1386,6 +1387,19 @@ CapsuleCollider:
   m_Height: 0.0024
   m_Direction: 1
   m_Center: {x: 0, y: 0.0013014099, z: 0}
+--- !u!136 &136691092828852332
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462443266412426}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.005
+  m_Height: 0.018
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.0092, z: 0}
 --- !u!136 &136797925477091610
 CapsuleCollider:
   m_ObjectHideFlags: 1

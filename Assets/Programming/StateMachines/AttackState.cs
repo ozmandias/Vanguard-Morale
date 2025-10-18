@@ -82,12 +82,15 @@ public class AttackState : StateMachineBehaviour {
                     stateTime += Time.deltaTime /*stateInfo.normalizedTime % 1*/;
                     targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
                     if(targetDistance > nearDistance && targetInfo.isDead == false) {
-                        mainPerson.nearTarget = false;
+                        mainPerson.atAttackDistance = false;
+                    } else if(targetDistance < nearDistance && targetInfo.isDead == false) {
+                        Debug.Log(mainPerson.gameObject.name + " is getting too close to target");
                     } else if(targetDistance > followDistance || targetInfo.isDead == true) {
                         if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                             targetCombat.circlingList.Remove(mainPerson.personAgent);
                         }
                         mainPerson.SetTarget(null);
+                        mainPerson.atAttackDistance = false;
                         mainPerson.attackingTarget = false;
                         if(mainPerson.GetInfo().personType == PersonType.Boss) Debug.Log("attackingTarget is false by distance");
                     }
@@ -102,7 +105,6 @@ public class AttackState : StateMachineBehaviour {
         animator.SetBool("Attacking", false);
         mainPerson.attackNumberUpdate = false;
         mainPerson.isAttacking = false;
-        mainPerson.nearTarget = false;
         if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee)
             mainPerson.attackCollider.enabled = false;
         stateTime = 0;

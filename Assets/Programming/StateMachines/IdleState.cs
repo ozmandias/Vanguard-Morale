@@ -14,7 +14,7 @@ public class IdleState : StateMachineBehaviour {
         mainPerson.attackNumberUpdate = false;
         mainPerson.personAgent.isStopped = true;
 
-        reachDistance = AIManager.instance.DistanceAroundDestination /*mainPerson.personAgent.stoppingDistance*/ + 1f;
+        reachDistance = mainPerson.personAgent.stoppingDistance;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

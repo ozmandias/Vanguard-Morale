@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114117969186758812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114149611516267436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114160594984191580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114481492436188858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114486488811141878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114655879699409390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114873177561904118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!114 &114894115361121584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followDistance: 250
 --- !u!206 &206031856937297710
 BlendTree:
   m_ObjectHideFlags: 1

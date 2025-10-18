@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 [System.Serializable] public class PlayerMovementEvent : UnityEvent<Enemy> { }
@@ -8,3 +11,5 @@ using UnityEngine.Events;
 [System.Serializable] public class EnemyStopEvent : UnityEvent<Enemy> { }
 [System.Serializable] public class EnemyRetreatEvent : UnityEvent<Enemy> { }
 [System.Serializable] public class EnemyHurtEvent : UnityEvent<Enemy> { }
+
+[System.Serializable] public class AgentsCircleEvent : UnityEvent<List<NavMeshAgent>, Transform, CircleType> { }

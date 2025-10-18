@@ -54,5 +54,7 @@ MonoBehaviour:
   soldierAIList: []
   personAIList: []
   enemyAIList: []
-  RadiusAroundTarget: 8
-  DistanceAroundDestination: 8
+  bossAIList: []
+  RadiusAroundTarget: 10
+  DistanceAroundDestination: 10
+  agentsPerRow: 5

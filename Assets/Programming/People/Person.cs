@@ -30,7 +30,7 @@ public class Person : MonoBehaviour {
     public StateMachine personState = StateMachine.Idle;
     public bool reachDestination = false;
     public bool attackingTarget = false;
-    public bool nearTarget = false;
+    public bool atAttackDistance = false;
     public bool isHurt = false;
 
     [Header("Combat AI Settings")]
@@ -146,9 +146,7 @@ public class Person : MonoBehaviour {
             personAnimation.SetParameter("HurtAmount", attackerInfo.damage);
             personAnimation.SetParameter("ReduceHealth", true);
             personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackerInfo;
-            if(isHurt == true) {
-                hurtFrames = 0;
-            }
+            hurtFrames = 0;
             isHurt = true;
 
             DecideToChangeTarget(attackerInfo);
@@ -196,10 +194,7 @@ public class Person : MonoBehaviour {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
                 personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackCharacterInfo;
-                if (isHurt == true)
-                {
-                    hurtFrames = 0;
-                }
+                hurtFrames = 0;
                 isHurt = true;
 
                 int changeTargetRandom = Random.Range(0, 10);

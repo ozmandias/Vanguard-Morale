@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 95492136419142314}
   - component: {fileID: 54110459885665638}
   - component: {fileID: 65621774407500444}
+  - component: {fileID: 136560758340817542}
   - component: {fileID: 195072185062108792}
   - component: {fileID: 114103562173904958}
   - component: {fileID: 114004726108917776}
@@ -1343,7 +1344,7 @@ MonoBehaviour:
   personState: 0
   reachDestination: 0
   attackingTarget: 0
-  nearTarget: 0
+  atAttackDistance: 0
   isHurt: 0
   isMoving: 0
   preparingAttack: 0
@@ -1386,16 +1387,7 @@ MonoBehaviour:
   particle: {fileID: 198723765426711116}
   effectType: 0
   canManageEffect: 0
-  ownerInfo:
-    owner: {fileID: 0}
-    health: 0
-    MaxHealth: 100
-    damage: 0
-    morality: 50
-    alignment: 50
-    gender: 0
-    combatType: 0
-    isDead: 0
+  owner: {fileID: 0}
 --- !u!114 &114496764344235626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1588,6 +1580,19 @@ CapsuleCollider:
   m_Height: 1.2793624
   m_Direction: 1
   m_Center: {x: 0, y: 0.6396812, z: 0}
+--- !u!136 &136560758340817542
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422175888338986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 5.12
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.58, z: 0}
 --- !u!136 &136686166015560794
 CapsuleCollider:
   m_ObjectHideFlags: 1

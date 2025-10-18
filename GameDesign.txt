@@ -24,6 +24,8 @@ Boss
 Sandbox Style Gameplay like Hard Time
 
 Learn from Brackeys
+
+Vanguard Morale Game Programming - Has Electricity i
 -----------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero
@@ -58,6 +60,9 @@ Fix Battle of Soldiers and Enemies, Boss, Line Up, Arkham Combat
 - set destination of AI agents in StateMachines instead of Person class(done)
 - add Combat AIs into combatingList and change AI Type accordingly to combatingList(done)
 - check if targets are too near during attack and reposition accordingly
+- change attack programming from using Colliders to using Animation Events
+- units should not get too close while attacking
+- Warcraft III uses Animation Events instead of Colliders that allows damage to register even when units are further than the actual attack distance during battle
 
 State Machines
 - do not play animations directly

@@ -48,7 +48,7 @@ public class StateChanger : MonoBehaviour {
                     break;
                 case StateMachine.Follow:
                     if(mainPerson.target) {
-                        if(mainPerson.attackingTarget && mainPerson.nearTarget) {
+                        if(mainPerson.attackingTarget && mainPerson.atAttackDistance) {
                             mainPerson.ChangeState(StateMachine.Attack);
                         }
                     }
@@ -65,7 +65,7 @@ public class StateChanger : MonoBehaviour {
                     break;
                 case StateMachine.Attack:
                     if(mainPerson.target) {
-                        if(mainPerson.attackingTarget && !mainPerson.nearTarget) {
+                        if(mainPerson.attackingTarget && !mainPerson.atAttackDistance) {
                             mainPerson.ChangeState(StateMachine.Follow);
                         }
                     }
@@ -83,7 +83,7 @@ public class StateChanger : MonoBehaviour {
                 case StateMachine.Hurt:
                     if(!mainPerson.GetInfo().isDead) {
                         if(mainPerson.target) {
-                            if(mainPerson.attackingTarget && mainPerson.nearTarget) {
+                            if(mainPerson.attackingTarget && mainPerson.atAttackDistance) {
                                 mainPerson.ChangeState(StateMachine.Attack);
                             } else {
                                 mainPerson.ChangeState(StateMachine.Follow);

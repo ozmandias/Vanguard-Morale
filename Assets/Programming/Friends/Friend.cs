@@ -123,9 +123,7 @@ public class Friend : Person {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
                 personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackCharacterInfo;
-                if(isHurt == true) {
-                    hurtFrames = 0;
-                }
+                hurtFrames = 0;
                 isHurt = true;
 
                 int changeTargetRandom = Random.Range(0, 10);

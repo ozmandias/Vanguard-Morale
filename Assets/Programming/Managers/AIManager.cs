@@ -13,10 +13,12 @@ public class AIManager : MonoBehaviour {
 
     public List<EnemyStruct> enemyStructs = new List<EnemyStruct>();
 
-    public float RadiusAroundTarget = 8f;
-    public float DistanceAroundDestination = 8f;
+    public float RadiusAroundTarget = 10f;
+    public float DistanceAroundDestination = 10f;
 
     private Coroutine CombatAILoopCoroutine;
+    
+    public AgentsCircleEvent OnAgentsCircle = new AgentsCircleEvent();
 
     void Awake()
     {
@@ -42,6 +44,8 @@ public class AIManager : MonoBehaviour {
         }
 
         StartAI();*/
+
+        OnAgentsCircle.AddListener((aiList, transform, circleType) => ListCircleTarget(aiList, transform, circleType));
     }
 
     public void AddToList(PersonType personType, NavMeshAgent aiAgent)
@@ -125,6 +129,23 @@ public class AIManager : MonoBehaviour {
         }
     }
 
+    public void AgentCircleTarget(List<NavMeshAgent> aiList, NavMeshAgent aiAgent, Transform targetTransform, CircleType circleType) {
+        int circleMultiplier = circleType == CircleType.FullCircle ? 2 : 1;
+        int agentIndex = -1;
+        float circleSpacing = 3f;
+
+        agentIndex = aiList.IndexOf(aiAgent);
+
+        if (agentIndex != -1) {
+            Vector3 circleDestination = new Vector3(
+                targetTransform.position.x + RadiusAroundTarget * Mathf.Cos(circleMultiplier * Mathf.PI * agentIndex / aiList.Count),
+                targetTransform.position.y,
+                targetTransform.position.z + RadiusAroundTarget * Mathf.Sin(circleMultiplier * Mathf.PI * agentIndex / aiList.Count)
+            );
+            aiAgent.SetDestination(circleDestination);
+        }
+    }
+
     public void AgentsCircleTarget(PersonType personType, Transform targetTransform, CircleType circleType)
     {
         List<NavMeshAgent> aiList;
@@ -163,7 +184,7 @@ public class AIManager : MonoBehaviour {
         for (int i = 0; i < aiList.Count; i = i + 1)
         {
             Vector3 circleDestination = new Vector3(
-                targetTransform.position.x + RadiusAroundTarget * Mathf.Sin(circleMultiplier * Mathf.PI * i / aiList.Count),
+                targetTransform.position.x + RadiusAroundTarget * Mathf.Cos(circleMultiplier * Mathf.PI * i / aiList.Count),
                 targetTransform.position.y,
                 targetTransform.position.z + RadiusAroundTarget * Mathf.Sin(circleMultiplier * Mathf.PI * i / aiList.Count)
             );

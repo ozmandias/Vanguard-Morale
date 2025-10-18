@@ -15,7 +15,7 @@ public class MoveState : StateMachineBehaviour {
         mainPerson.attackNumberUpdate = false;
         mainPerson.personAgent.isStopped = false;
 
-        reachDistance = AIManager.instance.DistanceAroundDestination /*mainPerson.personAgent.stoppingDistance*/ + 1f;
+        reachDistance = mainPerson.personAgent.stoppingDistance;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -45,7 +45,7 @@ public class MoveState : StateMachineBehaviour {
                 AIManager.instance.AgentRepositionAtDestination(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.destination);
             } else if(destinationDistance <= reachDistance) {
                 mainPerson.personAgent.velocity = Vector3.zero;
-                if(mainPerson.personAgent.velocity.magnitude <= Vector3.zero.magnitude) {
+                if(mainPerson.personAgent.velocity.magnitude == Vector3.zero.magnitude) {
                     mainPerson.reachDestination = true;
                 }
             }
