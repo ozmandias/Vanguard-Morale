@@ -15,7 +15,7 @@ public class Boss : Person
         destination = GameManager.instance.enemyDestination;
 
         GameManager.instance.bossList.Add(this);
-        AIManager.instance.bossAIList.Add(personAgent);
+        AIManager.instance.enemyAIList .Add(personAgent); /*bossAIList*/
 
         OnSpecialAbility += SpecialAbility;
     }

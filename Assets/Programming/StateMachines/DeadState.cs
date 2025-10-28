@@ -22,7 +22,7 @@ public class DeadState : StateMachineBehaviour {
             mainPerson.atAttackDistance = false;
             mainPerson.personCombat.circlingList.Clear();
             mainPerson.SetTarget(null);
-            mainPerson.GetInfo().MakeStateMachine("dead");
+            mainPerson.GetInfo().MakePerson("dead");
         }
     }
 

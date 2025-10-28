@@ -40,25 +40,23 @@ public class AttackState : StateMachineBehaviour {
                     mainPerson.isAttacking = true;
                     
                     if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee) {
-                        mainPerson.attackCollider.enabled = true;   
+                        mainPerson.attackCollider.enabled = true;
+                        // Play Effect
                     } else {
                         string raycastShooterName = "RaycastShooter" + animator.GetFloat("AttackNumber");
                         GameObject raycastShooter = GameHelpers.FindGameObjectInChildren(raycastShooterName, animator.transform.gameObject);
-                        // LayerMask rangeLayerMask = layerMask.GetMask("");
                         
                         RaycastHit rangeRaycastHit;
+                        // LayerMask rangeLayerMask = layerMask.GetMask("");
                         if(Physics.Raycast(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.forward, out rangeRaycastHit, 60f /*, rangeLayerMask*/)) {
                             // Debug.DrawRay(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.TransformDirection(Vector3.forward) * 60f, Color.white);
-
                             if(rangeRaycastHit.collider.gameObject.CompareTag("Player")) {
-
                             } else if(rangeRaycastHit.collider.gameObject.CompareTag("Person")) {
-
                             }
                         }
 
                         if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn && mainPerson.personEffect.attackEffect.canManageEffect) {
-                            GameObject newAttackEffect = mainPerson.personEffect.attackEffect.Create(raycastShooter.transform.position, animator.transform.rotation);
+                            GameObject newAttackEffect = mainPerson.personEffect.attackEffect.Create(raycastShooter.transform.position, Quaternion.LookRotation(mainPerson.target.transform.position - animator.transform.position, Vector3.up) /*animator.transform.rotation*/);
                             if(newAttackEffect) {
                                 newAttackEffect.GetComponent<Effect>().SetOwner(mainPerson.gameObject);
                                 mainPerson.personEffect.DestroyEffect(newAttackEffect);
@@ -72,7 +70,6 @@ public class AttackState : StateMachineBehaviour {
                     if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee) {
                         mainPerson.attackCollider.enabled = false;
                     } else {
-
                     }
 
                     stateTime = 0;
@@ -84,7 +81,7 @@ public class AttackState : StateMachineBehaviour {
                     if(targetDistance > nearDistance && targetInfo.isDead == false) {
                         mainPerson.atAttackDistance = false;
                     } else if(targetDistance < nearDistance && targetInfo.isDead == false) {
-                        Debug.Log(mainPerson.gameObject.name + " is getting too close to target");
+                        // Debug.Log(mainPerson.gameObject.name + " is getting too close to target");
                     } else if(targetDistance > followDistance || targetInfo.isDead == true) {
                         if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                             targetCombat.circlingList.Remove(mainPerson.personAgent);
@@ -92,7 +89,6 @@ public class AttackState : StateMachineBehaviour {
                         mainPerson.SetTarget(null);
                         mainPerson.atAttackDistance = false;
                         mainPerson.attackingTarget = false;
-                        if(mainPerson.GetInfo().personType == PersonType.Boss) Debug.Log("attackingTarget is false by distance");
                     }
                 }
             } else {

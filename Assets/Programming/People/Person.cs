@@ -137,10 +137,10 @@ public class Person : MonoBehaviour {
     public virtual void Resurrect()
     {
         personInfo.isDead = false;
-        personInfo.MakeStateMachine("alive");
+        personInfo.MakePerson("alive");
     }
 
-    public virtual void MakePersonHurt(Info attackerInfo) {
+    public virtual void HurtByOther(Info attackerInfo) {
         if(personInfo.isDead == false && Time.time > nextHurtTime) {
             nextHurtTime = Time.time + hitRate;
             personAnimation.SetParameter("HurtAmount", attackerInfo.damage);

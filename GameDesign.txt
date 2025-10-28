@@ -60,9 +60,12 @@ Fix Battle of Soldiers and Enemies, Boss, Line Up, Arkham Combat
 - set destination of AI agents in StateMachines instead of Person class(done)
 - add Combat AIs into combatingList and change AI Type accordingly to combatingList(done)
 - check if targets are too near during attack and reposition accordingly
-- change attack programming from using Colliders to using Animation Events
+- change attack programming from using Colliders to using Animation Events(later)
 - units should not get too close while attacking
 - Warcraft III uses Animation Events instead of Colliders that allows damage to register even when units are further than the actual attack distance during battle
+- face to forward direction of destination on lineup(done)
+- fix in actual gameplay(done)
+- enemy units change from StateMachine to CombatAI when Player attacks and they decides to attack back
 
 State Machines
 - do not play animations directly
@@ -73,3 +76,6 @@ Info
 
 CombatAI
 - Make forward or backward if obstacle is detected during strafe
+
+When something is not working
+- Check if a Component is truned off or not

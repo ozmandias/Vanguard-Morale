@@ -396,8 +396,7 @@ public class CombatManager : MonoBehaviour {
 
     void OnEnemyCombatStopEvent(Enemy enemy) {
         if(enemy == this.GetComponent<Enemy>()) {
-            enemy.GetInfo().aiType = AIType.StateMachine;
-            enemy.GetInfo().MakeStateMachine("alive");
+            enemy.GetInfo().MakeAI("stateMachine");
         }
     }
 

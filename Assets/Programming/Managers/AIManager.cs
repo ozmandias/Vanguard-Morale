@@ -9,15 +9,17 @@ public class AIManager : MonoBehaviour {
     public List<NavMeshAgent> soldierAIList;
     public List<NavMeshAgent> personAIList;
     public List<NavMeshAgent> enemyAIList;
-    public List<NavMeshAgent> bossAIList;
-
-    public List<EnemyStruct> enemyStructs = new List<EnemyStruct>();
-
+    // public List<NavMeshAgent> bossAIList;
+    
+    public List<Vector3> soldierPositions;
+    public List<Vector3> enemyPositions;
+    public List<Vector3> personPositions;
+    
     public float RadiusAroundTarget = 10f;
     public float DistanceAroundDestination = 10f;
 
+    public List<EnemyStruct> enemyStructs = new List<EnemyStruct>();
     private Coroutine CombatAILoopCoroutine;
-    
     public AgentsCircleEvent OnAgentsCircle = new AgentsCircleEvent();
 
     void Awake()
@@ -56,11 +58,11 @@ public class AIManager : MonoBehaviour {
                 soldierAIList.Add(aiAgent);
                 break;
             case PersonType.Enemy:
+            case PersonType.Boss:
                 enemyAIList.Add(aiAgent);
                 break;
-            case PersonType.Boss:
-                bossAIList.Add(aiAgent);
-                break;
+                /*bossAIList.Add(aiAgent);
+                break;*/
             default:
                 personAIList.Add(aiAgent);
                 break;
@@ -75,11 +77,11 @@ public class AIManager : MonoBehaviour {
                 soldierAIList.Remove(aiAgent);
                 break;
             case PersonType.Enemy:
+            case PersonType.Boss:
                 enemyAIList.Remove(aiAgent);
                 break;
-            case PersonType.Boss:
-                bossAIList.Remove(aiAgent);
-                break;
+                /*bossAIList.Remove(aiAgent);
+                break;*/
             default:
                 personAIList.Remove(aiAgent);
                 break;
@@ -88,7 +90,7 @@ public class AIManager : MonoBehaviour {
 
     public bool ListsContain(NavMeshAgent aiAgent)
     {
-        if (soldierAIList.Contains(aiAgent) || personAIList.Contains(aiAgent) || enemyAIList.Contains(aiAgent) || bossAIList.Contains(aiAgent))
+        if (soldierAIList.Contains(aiAgent) || personAIList.Contains(aiAgent) || enemyAIList.Contains(aiAgent) /*|| bossAIList.Contains(aiAgent)*/)
         {
             return true;
         }
@@ -107,11 +109,11 @@ public class AIManager : MonoBehaviour {
                 aiList = soldierAIList;
                 break;
             case PersonType.Enemy:
+            case PersonType.Boss:
                 aiList = enemyAIList;
                 break;
-            case PersonType.Boss:
-                aiList = bossAIList;
-                break;
+                /*aiList = bossAIList;
+                break;*/
             default:
                 aiList = personAIList;
                 break;
@@ -157,11 +159,11 @@ public class AIManager : MonoBehaviour {
                 aiList = soldierAIList;
                 break;
             case PersonType.Enemy:
+            case PersonType.Boss:
                 aiList = enemyAIList;
                 break;
-            case PersonType.Boss:
-                aiList = bossAIList;
-                break;
+                /*aiList = bossAIList;
+                break;*/
             default:
                 aiList = personAIList;
                 break;
@@ -203,11 +205,11 @@ public class AIManager : MonoBehaviour {
                 aiList = soldierAIList;
                 break;
             case PersonType.Enemy:
+            case PersonType.Boss:
                 aiList = enemyAIList;
                 break;
-            case PersonType.Boss:
-                aiList = bossAIList;
-                break;
+                /*aiList = bossAIList;
+                break;*/
             default:
                 aiList = personAIList;
                 break;
@@ -237,6 +239,8 @@ public class AIManager : MonoBehaviour {
         // change startAgentIndex, endAgentIndex and middleAgentIndex
         int halfStartIndex = 0;
         for(int row = 0; row < rowsToLineUp; row = row + 1) {
+            int column = 0;
+
             int halfEndIndex = halfStartIndex + lineUpAgentsPerRow - 1 > endAgentIndex ? endAgentIndex : halfStartIndex + lineUpAgentsPerRow - 1;
             int halfMiddleIndex = halfStartIndex == endAgentIndex ? halfStartIndex : (halfStartIndex + halfEndIndex) / 2;
             // debug with rowStart, rowMiddle and rowEnd
@@ -250,6 +254,8 @@ public class AIManager : MonoBehaviour {
                         destinationTransform.position.y,
                         destinationTransform.position.z - (row * lineUpSpacing)
                     );
+                    
+                    column = 0;
                 } else if (agentIndex < halfMiddleIndex /*middleAgentIndex*/) {
                     // left (1st), change end
                     newLineUpPosition = new Vector3(
@@ -258,15 +264,21 @@ public class AIManager : MonoBehaviour {
                         destinationTransform.position.z - (row * lineUpSpacing)
                     );
                     // halfEndIndex = halfMiddleIndex; // < <(end)
+                    
+                    column = agent + 1;
                 } else if (agentIndex > halfMiddleIndex /*middleAgentIndex*/) {
                     // right (2nd), change start
                     newLineUpPosition = new Vector3(
-                        destinationTransform.position.x + ((agentIndex - halfMiddleIndex /*middleAgentIndex*/) * lineUpSpacing), // From middle as space factor. Math observation leads to use agentIndex instead of agent.
+                        destinationTransform.position.x - ((halfMiddleIndex /*middleAgentIndex*/ - agentIndex ) * lineUpSpacing), // From middle as space factor. Math observation leads to use agentIndex instead of agent.
                         destinationTransform.position.y,
                         destinationTransform.position.z - (row * lineUpSpacing)
                     );
                     // halfStartIndex = halfMiddleIndex + 1; // (start)> >
+                    
+                    column = halfMiddleIndex - agentIndex;
                 }
+                Vector3 lineUpRotatePosition = (column * lineUpSpacing * destinationTransform.right) + (row * lineUpSpacing * destinationTransform.forward);
+                newLineUpPosition = destinationTransform.position + lineUpRotatePosition;
                 lineUpPositions.Add(newLineUpPosition);
             }
 

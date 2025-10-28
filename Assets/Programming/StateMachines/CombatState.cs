@@ -9,6 +9,7 @@ public class CombatState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
+        mainPerson.personAgent.isStopped = true;
 
         targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;
 

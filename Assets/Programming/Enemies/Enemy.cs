@@ -136,7 +136,7 @@ public class Enemy : Person {
                     SetTarget(target);
                     if (target == targetPlayer)
                     {
-                        personInfo.aiType = AIType.CombatAI;
+                        personInfo.MakeAI("combatAI");
                     }
                     break;
                 }

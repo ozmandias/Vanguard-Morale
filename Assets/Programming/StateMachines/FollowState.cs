@@ -37,7 +37,7 @@ public class FollowState : StateMachineBehaviour {
                 targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
                 if(targetDistance <= followDistance && targetDistance > circleDistance && targetInfo.isDead == false) {
                     mainPerson.personAgent.destination = mainPerson.target.transform.position;
-                } else if(targetDistance <= circleDistance && targetDistance > nearDistance && targetInfo.isDead == false) {
+                } else if(targetDistance <= circleDistance && targetDistance > nearDistance && targetInfo.isDead == false && mainPerson.GetInfo().personType != PersonType.Boss) {
                     if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull() == false) {
                         targetCombat.circlingList.Add(mainPerson.personAgent);
                     } else if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull()) {

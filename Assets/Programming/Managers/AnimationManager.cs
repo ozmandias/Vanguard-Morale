@@ -75,9 +75,7 @@ public class AnimationManager : MonoBehaviour {
         if (attackEventParameter == "on")
         {
             SetParameter("Attacking", true);
-        }
-        else if (attackEventParameter == "off")
-        {
+        } else if (attackEventParameter == "off") {
             SetParameter("Attacking", false);
         }
     }

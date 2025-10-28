@@ -80,6 +80,9 @@ public class StateChanger : MonoBehaviour {
                         }
                     }
                     break;
+                case StateMachine.Combat:
+                    mainPerson.ChangeState(StateMachine.Idle);
+                    break;
                 case StateMachine.Hurt:
                     if(!mainPerson.GetInfo().isDead) {
                         if(mainPerson.target) {

@@ -34,8 +34,8 @@ public class Effect : MonoBehaviour {
         return newEffect;
     }
 
-    public GameObject Create(Vector3 createPosition, Quaternion createRoatation) {
-        GameObject newEffect = GameObject.Instantiate(gameObject, createPosition, createRoatation);
+    public GameObject Create(Vector3 createPosition, Quaternion createRotation) {
+        GameObject newEffect = GameObject.Instantiate(gameObject, createPosition, createRotation);
         newEffect.GetComponent<Effect>().Play();
         return newEffect;
     }
@@ -47,7 +47,7 @@ public class Effect : MonoBehaviour {
     void OnParticleCollision(GameObject otherGameObject) {
         if(otherGameObject.CompareTag("Person") && owner != null) {
             Info ownerInfo = GameHelpers.GetCharacterInfo(owner);
-            otherGameObject.GetComponent<Person>().MakePersonHurt(ownerInfo);
+            otherGameObject.GetComponent<Person>().HurtByOther(ownerInfo);
         }
     }
 }
