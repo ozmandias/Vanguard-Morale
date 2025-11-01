@@ -42,8 +42,9 @@ public enum CircleType {
 public enum UIType {
     MainMenu,
     Game,
+    Speak,
     Shop,
-    Skill
+    Skill,
 }
 
 public enum CombatType {

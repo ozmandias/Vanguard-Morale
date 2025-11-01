@@ -183,6 +183,10 @@ public class CombatManager : MonoBehaviour {
             combatNumber += 1;
             combatNumber = combatNumber == 3 ? 1 : combatNumber;
             animationManager.Play("Combat" + combatNumber);
+
+            if(currentTarget.GetInfo().aiType == AIType.StateMachine) {
+                currentTarget.GetInfo().MakeAI("combatAI");
+            }
         }
     }
 
@@ -205,7 +209,7 @@ public class CombatManager : MonoBehaviour {
         float minDistance = 100f;
         int nearestLocation = -1;
 
-        if (AIManager.instance.enemyStructs.Count > 0)
+        if (AIManager.instance && AIManager.instance.enemyStructs.Count > 0)
         {
             for (int i = 0; i < AIManager.instance.enemyStructs.Count; i = i + 1)
             {

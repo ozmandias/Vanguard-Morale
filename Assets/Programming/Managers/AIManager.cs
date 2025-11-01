@@ -36,16 +36,18 @@ public class AIManager : MonoBehaviour {
 
     void Start()
     {
-        /*Enemy[] enemyObjects = FindObjectsOfType<Enemy>();
-        foreach (Enemy enemyObject in enemyObjects)
-        {
-            EnemyStruct enemyStruct = new EnemyStruct();
-            enemyStruct.enemy = enemyObject;
-            enemyStruct.available = true;
-            enemyStructs.Add(enemyStruct);
-        }
+        Enemy[] enemyObjects = FindObjectsOfType<Enemy>();
+        if(enemyObjects.Length > 0) {
+            foreach (Enemy enemyObject in enemyObjects)
+            {
+                EnemyStruct enemyStruct = new EnemyStruct();
+                enemyStruct.enemy = enemyObject;
+                enemyStruct.available = true;
+                enemyStructs.Add(enemyStruct);
+            }
 
-        StartAI();*/
+            StartCombatAI();
+        }
 
         OnAgentsCircle.AddListener((aiList, transform, circleType) => ListCircleTarget(aiList, transform, circleType));
     }
@@ -275,7 +277,7 @@ public class AIManager : MonoBehaviour {
                     );
                     // halfStartIndex = halfMiddleIndex + 1; // (start)> >
                     
-                    column = halfMiddleIndex - agentIndex;
+                    column = halfMiddleIndex - agentIndex; // multiply with -1
                 }
                 Vector3 lineUpRotatePosition = (column * lineUpSpacing * destinationTransform.right) + (row * lineUpSpacing * destinationTransform.forward);
                 newLineUpPosition = destinationTransform.position + lineUpRotatePosition;
@@ -292,7 +294,7 @@ public class AIManager : MonoBehaviour {
         return lineUpPosition;
     }
 
-    void StartAI()
+    void StartCombatAI()
     {
         CombatAILoopCoroutine = StartCoroutine(SetCombatAILoopCoroutine(null));
     }
@@ -300,15 +302,17 @@ public class AIManager : MonoBehaviour {
     public void SetupCombatAI()
     {
         Enemy []enemyObjects = FindObjectsOfType<Enemy>();
-        foreach (Enemy enemyObject in enemyObjects)
-        {
-            EnemyStruct enemyStruct = new EnemyStruct();
-            enemyStruct.enemy = enemyObject;
-            enemyStruct.available = true;
-            enemyStructs.Add(enemyStruct);
-        }
+        if(enemyObjects.Length > 0) {
+            foreach (Enemy enemyObject in enemyObjects)
+            {
+                EnemyStruct enemyStruct = new EnemyStruct();
+                enemyStruct.enemy = enemyObject;
+                enemyStruct.available = true;
+                enemyStructs.Add(enemyStruct);
+            }
 
-        StartAI();
+            StartCombatAI();
+        }
     }
 
     public Enemy RandomEnemy()

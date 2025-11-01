@@ -60,11 +60,12 @@ public class CharacterSelectController : MonoBehaviour {
     }
 
     public void ConfirmCharacterSelect() {
-        PlayerProfileController.instance.SetProfilePicture(characterDetails.profileSprite);
-        UIManager.instance.PlayStory();
+        // PlayerProfileController.instance.SetProfilePicture(characterDetails.profileSprite);
+        SceneManager.instance.sceneData = characterDetails;
+        MainMenuManager.instance.PlayStory();
     }
 
     public void CancelCharacterSelect() {
-        UIManager.instance.HideCharacterSelectPanel();
+        MainMenuManager.instance.HideCharacterSelectPanel();
     }
 }

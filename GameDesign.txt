@@ -20,6 +20,7 @@ Mission Objective
 Dialogues
 Story
 Level Selector
+Loading (done, needs improvements)
 Boss
 Sandbox Style Gameplay like Hard Time
 
@@ -63,9 +64,9 @@ Fix Battle of Soldiers and Enemies, Boss, Line Up, Arkham Combat
 - change attack programming from using Colliders to using Animation Events(later)
 - units should not get too close while attacking
 - Warcraft III uses Animation Events instead of Colliders that allows damage to register even when units are further than the actual attack distance during battle
-- face to forward direction of destination on lineup(done)
+- face to forward direction of destination on lineup(done), check MoveState
 - fix in actual gameplay(done)
-- enemy units change from StateMachine to CombatAI when Player attacks and they decides to attack back
+- enemy units change from StateMachine to CombatAI when Player attacks and they decides to attack back(done), reset StateMachine properties, check if/make Enemy move by CombatManager
 
 State Machines
 - do not play animations directly

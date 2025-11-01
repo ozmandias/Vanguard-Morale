@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/lab.unity
+- path: Assets/Scenes/characterselection.unity
   isLoaded: 1
   isActive: 1

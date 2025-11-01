@@ -100,10 +100,13 @@
      <Compile Include="Assets\Programming\Managers\EffectManager.cs" />
      <Compile Include="Assets\Programming\Managers\GameManager.cs" />
      <Compile Include="Assets\Programming\Managers\IntroManager.cs" />
+     <Compile Include="Assets\Programming\Managers\LoadingManager.cs" />
+     <Compile Include="Assets\Programming\Managers\MainMenuManager.cs" />
      <Compile Include="Assets\Programming\Managers\RagdollManager.cs" />
      <Compile Include="Assets\Programming\Managers\SceneManager.cs" />
      <Compile Include="Assets\Programming\Managers\SpawnManager.cs" />
      <Compile Include="Assets\Programming\Managers\UIManager.cs" />
+     <Compile Include="Assets\Programming\Managers\WorldMapSelectionManager.cs" />
      <Compile Include="Assets\Programming\MasterKnight\MasterKnight.cs" />
      <Compile Include="Assets\Programming\MasterKnight\MasterKnightInfo.cs" />
      <Compile Include="Assets\Programming\People\Hero.cs" />
@@ -126,8 +129,11 @@
      <Compile Include="Assets\Programming\UI\GameUI\PlayerProfile\PlayerProfileController.cs" />
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSelectController.cs" />
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSerializable.cs" />
+     <Compile Include="Assets\Programming\UI\UIChanger.cs" />
      <Compile Include="Assets\Programming\UI\UIObject.cs" />
+     <Compile Include="Assets\Programming\UI\WorldMapSelectionObject.cs" />
      <Compile Include="Assets\ScreenShooter\Demo\Scripts\Rotator.cs" />
+     <None Include="Assets\kenney_fantasy-ui-borders\License.txt" />
      <None Include="Assets\FlatLighting\Shaders\cginc\BlendModes.cginc" />
      <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingCommon.cginc" />
      <None Include="Assets\FlatLighting\Shaders\Baked\CubeGradient.shader" />
