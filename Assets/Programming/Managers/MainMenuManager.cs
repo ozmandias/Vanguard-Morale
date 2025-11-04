@@ -20,7 +20,7 @@ public class MainMenuManager : MonoBehaviour {
 
     #region MainMenuUI
         public void PlayStory() {
-            SceneManager.instance.ChangeSceneByLoading("worldmapselection");
+            SceneManager.instance.ChangeSceneByFading("characterselection");
         }
         
         public void PlayArena() {

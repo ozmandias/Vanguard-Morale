@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneManager : MonoBehaviour {
@@ -21,6 +23,9 @@ public class SceneManager : MonoBehaviour {
     {
         DontDestroyOnLoad(this.gameObject);
 
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += ActiveSceneChangedEvent;
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneLoadedEvent;
+
         currentScene = GetCurrentScene().name;
     }
 
@@ -35,6 +40,10 @@ public class SceneManager : MonoBehaviour {
         currentScene = sceneName;
     }
 
+    public void ChangeSceneByFading(string sceneName) {
+        StartCoroutine(ChangeSceneByFadingCoroutine(sceneName));
+    }
+
     public UnityEngine.SceneManagement.Scene GetCurrentScene()
     {
         return UnityEngine.SceneManagement.SceneManager.GetActiveScene();
@@ -44,13 +53,20 @@ public class SceneManager : MonoBehaviour {
         return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
     }
 
+    public void ActiveSceneChangedEvent(UnityEngine.SceneManagement.Scene currentScene, UnityEngine.SceneManagement.Scene nextScene) {
+    }
+
+    public void SceneLoadedEvent(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode) {
+        StartCoroutine(SceneLoadedByFadingCoroutine());
+    }
+
     void OnGUI()
     {
         if (SceneManager.instance.GetCurrentScene().name == "mainmenu") {
             GUIStyle guiStyle = new GUIStyle(GUI.skin.button);
             guiStyle.fontSize = 30;
 
-            sceneData = CharacterSelectController.instance.characterDetailsList[0];
+            GlobalData.characterDetails = CharacterSelectController.instance.characterDetailsList[0];
 
             if (GUI.Button(new Rect(10, 10, 250, 100), "Test", guiStyle)) {
                 ChangeSceneByLoading("test");
@@ -60,5 +76,27 @@ public class SceneManager : MonoBehaviour {
                 ChangeSceneByLoading("lab");
             }
         }
+    }
+
+    IEnumerator ChangeSceneByFadingCoroutine(string sceneName) {
+        GameHelpers.GetUIChanger(currentScene).HideUIs();
+        if(FadeManager.instance) {
+            FadeManager.instance.Fade("out");
+            yield return new WaitForSeconds(FadeManager.instance.fadeTime);
+        }
+        ChangeScene(sceneName);
+    }
+
+    IEnumerator SceneLoadedByFadingCoroutine() {
+        UIChanger sceneUIChanger = GameHelpers.GetUIChanger(currentScene);
+        sceneUIChanger.OnUIChangerStartDelegate += sceneUIChanger.StopUIChanging;
+        if(FadeManager.instance) {
+            if(FadeManager.instance.currentFade == "out") {
+                FadeManager.instance.Fade("in");
+                yield return new WaitForSeconds(FadeManager.instance.fadeTime);
+            }
+        }
+        sceneUIChanger.hasUIChanges = true;
+        sceneUIChanger.OnUIChangerStartDelegate -= sceneUIChanger.StopUIChanging;
     }
 }

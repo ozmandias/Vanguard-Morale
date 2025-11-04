@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UIChanger : MonoBehaviour {
-    public static UIChanger instance;
-
     public UIType uiType;
     public bool hasUIChanges = false;
 
-    void Awake() {
-        if(instance == null) {
-            instance = this;
-        } else {
-            Destroy(this.gameObject);
-        }
-    }
+    public delegate void UIChangerStartDelegate();
+    public UIChangerStartDelegate OnUIChangerStartDelegate;
 
     void Start() {
         hasUIChanges = true;
+        if(OnUIChangerStartDelegate != null) {
+            OnUIChangerStartDelegate.Invoke();
+        }
     }
 
     void Update() {
@@ -46,5 +42,14 @@ public class UIChanger : MonoBehaviour {
         foreach(Transform uiChild in uiBase.transform) {
             uiChild.gameObject.SetActive(false);
         }
+    }
+
+    public void StartUIChanging() {
+        hasUIChanges = true;
+    }
+
+    public void StopUIChanging() {
+        hasUIChanges = false;
+        HideUIs();
     }
 }

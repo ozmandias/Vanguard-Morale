@@ -19,7 +19,7 @@ public class WorldMapSelectionManager : MonoBehaviour {
     }
 
     void Start() {
-        backButton.onClick.AddListener(BackFromWorldMapSelection);
+        backButton.onClick.AddListener(LeaveFromWorldMapSelection);
     }
 
     void Update() {
@@ -37,9 +37,9 @@ public class WorldMapSelectionManager : MonoBehaviour {
         }
     }
 
-    void BackFromWorldMapSelection() {
+    void LeaveFromWorldMapSelection() {
         if(SceneManager.instance) {
-            SceneManager.instance.ChangeSceneByLoading("mainmenu");
+            SceneManager.instance.ChangeScene("characterselection");
         }
     }
 

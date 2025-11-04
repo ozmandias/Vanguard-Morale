@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bf11f41aa9d4e059c3944a227d1d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiType: 1
+  uiType: 3
   hasUIChanges: 0
 --- !u!114 &114273969068251562
 MonoBehaviour:

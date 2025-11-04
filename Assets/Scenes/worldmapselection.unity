@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 105481916}
   - component: {fileID: 105481918}
   - component: {fileID: 105481917}
+  - component: {fileID: 105481919}
   m_Layer: 5
   m_Name: WorldMapImage
   m_TagString: Untagged
@@ -182,6 +183,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 105481915}
+--- !u!114 &105481919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105481915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76324a7697a074ac7b5900aa6ce1389e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoDisplay: 1
 --- !u!1 &195943339
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +313,7 @@ GameObject:
   - component: {fileID: 748258066}
   - component: {fileID: 748258068}
   - component: {fileID: 748258067}
+  - component: {fileID: 748258069}
   m_Layer: 0
   m_Name: Kingdom Of Fortis
   m_TagString: Untagged
@@ -613,6 +627,18 @@ PolygonCollider2D:
     - - {x: -0.17530456, y: 0.034040526}
       - {x: -0.083801575, y: -0.017634582}
       - {x: -0.11861145, y: -0.025101623}
+--- !u!114 &748258069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748258064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76324a7697a074ac7b5900aa6ce1389e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoDisplay: 1
 --- !u!1 &1042678658
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +753,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 50
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -835,6 +861,8 @@ GameObject:
   - component: {fileID: 1839160931}
   - component: {fileID: 1839160930}
   - component: {fileID: 1839160929}
+  - component: {fileID: 1839160932}
+  - component: {fileID: 1839160933}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -935,6 +963,32 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1839160927}
+--- !u!114 &1839160932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839160927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1839160933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839160927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76324a7697a074ac7b5900aa6ce1389e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoDisplay: 1
 --- !u!1 &2021808755
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +1001,7 @@ GameObject:
   - component: {fileID: 2021808757}
   - component: {fileID: 2021808756}
   - component: {fileID: 2021808760}
+  - component: {fileID: 2021808761}
   m_Layer: 5
   m_Name: WorldMapCanvas
   m_TagString: Untagged
@@ -999,7 +1054,7 @@ Canvas:
   m_GameObject: {fileID: 2021808755}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 1
   m_Camera: {fileID: 1191384465}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1018,8 +1073,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2021808755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 105481916}
   - {fileID: 748258065}
@@ -1030,8 +1085,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &2021808760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,3 +1101,16 @@ MonoBehaviour:
   mapName: 
   mapImage: {fileID: 105481917}
   backButton: {fileID: 1839160929}
+--- !u!114 &2021808761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2021808755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61bf11f41aa9d4e059c3944a227d1d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiType: 2
+  hasUIChanges: 0

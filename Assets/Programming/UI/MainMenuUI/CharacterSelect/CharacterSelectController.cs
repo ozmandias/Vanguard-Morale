@@ -61,7 +61,7 @@ public class CharacterSelectController : MonoBehaviour {
 
     public void ConfirmCharacterSelect() {
         // PlayerProfileController.instance.SetProfilePicture(characterDetails.profileSprite);
-        SceneManager.instance.sceneData = characterDetails;
+        GlobalData.characterDetails = characterDetails;
         MainMenuManager.instance.PlayStory();
     }
 

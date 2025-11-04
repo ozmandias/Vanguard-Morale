@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void SetPlayer() {
-		currentPlayer = CharacterSelectController.instance.characterDetails.character;
+		currentPlayer = GlobalData.characterDetails.character /*CharacterSelectController.instance.characterDetails.character*/;
 
 		GameObject masterKnightObject = null;
 		GameObject heroObject = null;

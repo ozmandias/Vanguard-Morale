@@ -539,12 +539,7 @@ ModelImporter:
     4300194: Farm
     4300196: Stone1
     4300198: Stone2
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: medieval_castle_with_village_mat21
-    second: {fileID: 2100000, guid: f30d6141f4afe4bc5823b85ea06fa9a9, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

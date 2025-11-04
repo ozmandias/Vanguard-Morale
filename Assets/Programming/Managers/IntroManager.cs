@@ -9,6 +9,7 @@ public class IntroManager : MonoBehaviour {
     float timePassed = 0;
     Color hiddenColor;
     Color displayColor;
+    bool introReady = false;
 
     void Start() {
         hiddenColor = introImage.color;
@@ -16,7 +17,9 @@ public class IntroManager : MonoBehaviour {
     }
 
     void Update() {
-        Introduction();
+        if(introReady == false) {
+            Introduction();
+        }
     }
 
     public void Introduction() {
@@ -24,6 +27,7 @@ public class IntroManager : MonoBehaviour {
             timePassed += Time.fixedDeltaTime;
             introImage.color = Color.LerpUnclamped(hiddenColor, displayColor, timePassed / interpolateTime); 
         } else {
+            introReady = true;
             StartCoroutine(IntroductionCoroutine());
         }
     }

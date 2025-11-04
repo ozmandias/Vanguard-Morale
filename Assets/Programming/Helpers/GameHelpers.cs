@@ -25,4 +25,29 @@ public static class GameHelpers {
         }
         return characterInfo;
     }
+
+    public static UIChanger GetUIChanger(string sceneName) {
+        UIChanger uiChanger = null;
+        switch(sceneName) {
+            case "mainmenu":
+                uiChanger = MainMenuManager.instance.GetComponent<UIChanger>();
+                break;
+            case "game":
+            case "KingdomOfFortis":
+            case "vs":
+            case "test":
+            case "lab":
+                uiChanger = UIManager.instance.GetComponent<UIChanger>();
+                break;
+            case "characterselection":
+                uiChanger = CharacterSelectionManager.instance.GetComponent<UIChanger>();
+                break;
+            case "worldmapselection":
+                uiChanger = WorldMapSelectionManager.instance.GetComponent<UIChanger>();
+                break;
+            default:
+                break;
+        }
+        return uiChanger;
+    }
 }

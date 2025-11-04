@@ -40,11 +40,14 @@ public enum CircleType {
 }
 
 public enum UIType {
+    Intro,
     MainMenu,
+    Selection,
     Game,
     Speak,
     Shop,
     Skill,
+    Effect
 }
 
 public enum CombatType {

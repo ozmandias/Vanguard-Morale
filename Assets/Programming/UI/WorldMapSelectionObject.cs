@@ -17,9 +17,6 @@ public class WorldMapSelectionObject : MonoBehaviour {
     void OnMouseUp() {
         mapRenderer.color = originalColor;
         if(SceneManager.instance) {
-            if(UIChanger.instance) {
-                UIChanger.instance.ChangeUIType(UIType.Game);
-            }
             SceneManager.instance.ChangeSceneByLoading(mapName);
         }
     }

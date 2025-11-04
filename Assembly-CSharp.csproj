@@ -77,6 +77,7 @@
      <Compile Include="Assets\Programming\Data\Enums.cs" />
      <Compile Include="Assets\Programming\Data\Events.cs" />
      <Compile Include="Assets\Programming\Data\GameSettings.cs" />
+     <Compile Include="Assets\Programming\Data\GlobalData.cs" />
      <Compile Include="Assets\Programming\Data\Info.cs" />
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
      <Compile Include="Assets\Programming\Data\ItemData.cs" />
@@ -96,8 +97,10 @@
      <Compile Include="Assets\Programming\Managers\AIManager.cs" />
      <Compile Include="Assets\Programming\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Programming\Managers\BossFightManager.cs" />
+     <Compile Include="Assets\Programming\Managers\CharacterSelectionManager.cs" />
      <Compile Include="Assets\Programming\Managers\CombatManager.cs" />
      <Compile Include="Assets\Programming\Managers\EffectManager.cs" />
+     <Compile Include="Assets\Programming\Managers\FadeManager.cs" />
      <Compile Include="Assets\Programming\Managers\GameManager.cs" />
      <Compile Include="Assets\Programming\Managers\IntroManager.cs" />
      <Compile Include="Assets\Programming\Managers\LoadingManager.cs" />
