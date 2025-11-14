@@ -57,7 +57,7 @@ public class SceneManager : MonoBehaviour {
     }
 
     public void SceneLoadedEvent(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode) {
-        StartCoroutine(SceneLoadedByFadingCoroutine());
+        StartCoroutine(SceneLoadedByFadingCoroutine(scene));
     }
 
     void OnGUI()
@@ -79,7 +79,9 @@ public class SceneManager : MonoBehaviour {
     }
 
     IEnumerator ChangeSceneByFadingCoroutine(string sceneName) {
-        GameHelpers.GetUIChanger(currentScene).HideUIs();
+        if(GetCurrentScene().name != "worldmapselection") {
+            GameHelpers.GetUIChanger(currentScene).HideUIs();
+        }
         if(FadeManager.instance) {
             FadeManager.instance.Fade("out");
             yield return new WaitForSeconds(FadeManager.instance.fadeTime);
@@ -87,9 +89,11 @@ public class SceneManager : MonoBehaviour {
         ChangeScene(sceneName);
     }
 
-    IEnumerator SceneLoadedByFadingCoroutine() {
+    IEnumerator SceneLoadedByFadingCoroutine(UnityEngine.SceneManagement.Scene scene) {
         UIChanger sceneUIChanger = GameHelpers.GetUIChanger(currentScene);
-        sceneUIChanger.OnUIChangerStartDelegate += sceneUIChanger.StopUIChanging;
+        if(scene.name != "worldmapselection") {
+            sceneUIChanger.OnUIChangerStartDelegate += sceneUIChanger.StopUIChanging;
+        }
         if(FadeManager.instance) {
             if(FadeManager.instance.currentFade == "out") {
                 FadeManager.instance.Fade("in");
@@ -97,6 +101,8 @@ public class SceneManager : MonoBehaviour {
             }
         }
         sceneUIChanger.hasUIChanges = true;
-        sceneUIChanger.OnUIChangerStartDelegate -= sceneUIChanger.StopUIChanging;
+        if(sceneUIChanger.OnUIChangerStartDelegate != null) {
+            sceneUIChanger.OnUIChangerStartDelegate -= sceneUIChanger.StopUIChanging;
+        }
     }
 }

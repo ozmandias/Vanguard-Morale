@@ -39,7 +39,7 @@ public class WorldMapSelectionManager : MonoBehaviour {
 
     void LeaveFromWorldMapSelection() {
         if(SceneManager.instance) {
-            SceneManager.instance.ChangeScene("characterselection");
+            SceneManager.instance.ChangeSceneByFading("characterselection");
         }
     }
 

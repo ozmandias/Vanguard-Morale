@@ -129,6 +129,7 @@
      <Compile Include="Assets\Programming\StateMachines\StateChanger.cs" />
      <Compile Include="Assets\Programming\StateMachines\WaitState.cs" />
      <Compile Include="Assets\Programming\StateMachines\WorkState.cs" />
+     <Compile Include="Assets\Programming\UI\CharacterSelectionObject.cs" />
      <Compile Include="Assets\Programming\UI\GameUI\PlayerProfile\PlayerProfileController.cs" />
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSelectController.cs" />
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSerializable.cs" />
