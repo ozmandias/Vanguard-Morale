@@ -27,6 +27,9 @@ Sandbox Style Gameplay like Hard Time
 Learn from Brackeys
 
 Vanguard Morale Game Programming - Has Electricity i
+
+Character Name - Vanguard - Sir Van Davian, Duke - Henrique
+Rename MasterKnight Programming to Vanguard.
 -----------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero

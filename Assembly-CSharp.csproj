@@ -135,12 +135,13 @@
      <Compile Include="Assets\Programming\StateMachines\StateChanger.cs" />
      <Compile Include="Assets\Programming\StateMachines\WaitState.cs" />
      <Compile Include="Assets\Programming\StateMachines\WorkState.cs" />
-     <Compile Include="Assets\Programming\UI\CharacterSelectionObject.cs" />
+     <Compile Include="Assets\Programming\UI\CharacterSelection\CharacterDetailsController.cs" />
+     <Compile Include="Assets\Programming\UI\CharacterSelection\CharacterSelectionObject.cs" />
      <Compile Include="Assets\Programming\UI\GameUI\PlayerProfile\PlayerProfileController.cs" />
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSelectController.cs" />
      <Compile Include="Assets\Programming\UI\UIChanger.cs" />
      <Compile Include="Assets\Programming\UI\UIObject.cs" />
-     <Compile Include="Assets\Programming\UI\WorldMapSelectionObject.cs" />
+     <Compile Include="Assets\Programming\UI\WorldMapSelection\WorldMapSelectionObject.cs" />
      <Compile Include="Assets\ScreenShooter\Demo\Scripts\Rotator.cs" />
      <None Include="Assets\kenney_fantasy-ui-borders\License.txt" />
      <None Include="Assets\FlatLighting\Shaders\cginc\BlendModes.cginc" />

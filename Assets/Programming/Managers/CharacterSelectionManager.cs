@@ -13,6 +13,7 @@ public class CharacterSelectionManager : MonoBehaviour {
     public CharacterSerializable currentCharacterSelection;
     public GameObject currentCharacterObject;
     public Transform cameraOriginalTransform;
+    public UIObject characterDetailsUI;
     public GameObject originalCinemachineObject;
     public GameObject selectionCinemachineObject;
     public Transform characterFocusTransform;
@@ -134,10 +135,14 @@ public class CharacterSelectionManager : MonoBehaviour {
     void ShowCharacter() {
         if(currentCharacterObject) currentCharacterObject.SetActive(true);
         selectButton.gameObject.SetActive(true);
+        CharacterDetailsController.instance.SetCharacterDetails(currentCharacterSelection);
+        characterDetailsUI.gameObject.SetActive(true);
     }
 
     void HideCharacter() {
         if(currentCharacterObject) currentCharacterObject.SetActive(false);
         selectButton.gameObject.SetActive(false);
+        CharacterDetailsController.instance.ClearCharacterDetails();
+        characterDetailsUI.gameObject.SetActive(false);
     }
 }
