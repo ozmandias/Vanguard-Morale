@@ -463,3 +463,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 
+  sceneScriptableObject: {fileID: 11400000, guid: 841b296f623044dc8a38f629ca3228a9,
+    type: 2}

@@ -30,20 +30,20 @@ public static class GameHelpers {
         UIChanger uiChanger = null;
         switch(sceneName) {
             case "mainmenu":
-                uiChanger = MainMenuManager.instance.GetComponent<UIChanger>();
+                if(MainMenuManager.instance) uiChanger = MainMenuManager.instance.GetComponent<UIChanger>();
                 break;
             case "game":
             case "KingdomOfFortis":
             case "vs":
             case "test":
             case "lab":
-                uiChanger = UIManager.instance.GetComponent<UIChanger>();
+                if(UIManager.instance) uiChanger = UIManager.instance.GetComponent<UIChanger>();
                 break;
             case "characterselection":
-                uiChanger = CharacterSelectionManager.instance.GetComponent<UIChanger>();
+                if(CharacterSelectionManager.instance) uiChanger = CharacterSelectionManager.instance.GetComponent<UIChanger>();
                 break;
             case "worldmapselection":
-                uiChanger = WorldMapSelectionManager.instance.GetComponent<UIChanger>();
+                if(WorldMapSelectionManager.instance) uiChanger = WorldMapSelectionManager.instance.GetComponent<UIChanger>();
                 break;
             default:
                 break;

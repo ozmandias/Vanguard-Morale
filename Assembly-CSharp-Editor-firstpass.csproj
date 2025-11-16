@@ -287,6 +287,14 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{B039776D-E4C6-B675-641B-E33F003BDB3B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{964EDF46-43FB-5751-52C3-CD766FB4E363}</Project>      <Name>Cinemachine</Name>    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.Tests.csproj">
+      <Project>{D111EC48-AD30-6198-D015-BC5D2DE54E39}</Project>      <Name>com.unity.cinemachine.Tests</Name>    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.EditorTests.csproj">
+      <Project>{479D3CB4-3700-7D5A-9BA6-E03CFBAB2B5E}</Project>      <Name>com.unity.cinemachine.EditorTests</Name>    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{11130909-EB32-2347-28AF-8E3DF2651C59}</Project>      <Name>com.unity.cinemachine.editor</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

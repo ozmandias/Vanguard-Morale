@@ -7,8 +7,9 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: lambert2SG
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: FL_COLORS_WORLD FL_MAIN_TEXTURE FL_SYMETRIC_COLORS_OFF _EMISSION
+  m_Shader: {fileID: 4800000, guid: 22809332eb72c4e6d91369b41e0f9859, type: 3}
+  m_ShaderKeywords: FL_COLORS_WORLD FL_DIRECTIONAL_LIGHT FL_MAIN_TEXTURE FL_SYMETRIC_COLORS_OFF
+    _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -98,7 +99,7 @@ Material:
     - _BlendedLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _BlendedLightIntensities: {r: 0, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _GradienColorGoal: {r: 1, g: 1, b: 1, a: 1}
     - _GradientUnitAxis: {r: 0, g: 1, b: 0, a: 0}
     - _LightNegative2X: {r: 1, g: 1, b: 1, a: 1}

@@ -80,9 +80,15 @@
      <Compile Include="Assets\Programming\Data\GlobalData.cs" />
      <Compile Include="Assets\Programming\Data\Info.cs" />
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
-     <Compile Include="Assets\Programming\Data\ItemData.cs" />
+     <Compile Include="Assets\Programming\Data\ScriptableObjects\CharacterScriptableObject.cs" />
+     <Compile Include="Assets\Programming\Data\ScriptableObjects\ItemScriptableObject.cs" />
+     <Compile Include="Assets\Programming\Data\ScriptableObjects\SceneScriptableObject.cs" />
+     <Compile Include="Assets\Programming\Data\ScriptableObjects\WorldScriptableObject.cs" />
+     <Compile Include="Assets\Programming\Data\Serializable\CharacterSerializable.cs" />
+     <Compile Include="Assets\Programming\Data\Serializable\ItemSerializable.cs" />
+     <Compile Include="Assets\Programming\Data\Serializable\KingdomSerializable.cs" />
+     <Compile Include="Assets\Programming\Data\Serializable\SceneSerializable.cs" />
      <Compile Include="Assets\Programming\Data\Structs.cs" />
-     <Compile Include="Assets\Programming\Data\WorldData.cs" />
      <Compile Include="Assets\Programming\Effects\Effect.cs" />
      <Compile Include="Assets\Programming\Enemies\Boss.cs" />
      <Compile Include="Assets\Programming\Enemies\CyberKnight.cs" />
@@ -132,13 +138,13 @@
      <Compile Include="Assets\Programming\UI\CharacterSelectionObject.cs" />
      <Compile Include="Assets\Programming\UI\GameUI\PlayerProfile\PlayerProfileController.cs" />
      <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSelectController.cs" />
-     <Compile Include="Assets\Programming\UI\MainMenuUI\CharacterSelect\CharacterSerializable.cs" />
      <Compile Include="Assets\Programming\UI\UIChanger.cs" />
      <Compile Include="Assets\Programming\UI\UIObject.cs" />
      <Compile Include="Assets\Programming\UI\WorldMapSelectionObject.cs" />
      <Compile Include="Assets\ScreenShooter\Demo\Scripts\Rotator.cs" />
      <None Include="Assets\kenney_fantasy-ui-borders\License.txt" />
      <None Include="Assets\FlatLighting\Shaders\cginc\BlendModes.cginc" />
+     <None Include="Assets\com.unity.cinemachine@2.2.9\license.txt" />
      <None Include="Assets\FlatLighting\Shaders\cginc\FlatLightingCommon.cginc" />
      <None Include="Assets\FlatLighting\Shaders\Baked\CubeGradient.shader" />
      <None Include="Assets\FlatLighting\Shaders\Baked\monuMistSurface.shader" />
@@ -347,6 +353,14 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{B039776D-E4C6-B675-641B-E33F003BDB3B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{964EDF46-43FB-5751-52C3-CD766FB4E363}</Project>      <Name>Cinemachine</Name>    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.Tests.csproj">
+      <Project>{D111EC48-AD30-6198-D015-BC5D2DE54E39}</Project>      <Name>com.unity.cinemachine.Tests</Name>    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.EditorTests.csproj">
+      <Project>{479D3CB4-3700-7D5A-9BA6-E03CFBAB2B5E}</Project>      <Name>com.unity.cinemachine.EditorTests</Name>    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{11130909-EB32-2347-28AF-8E3DF2651C59}</Project>      <Name>com.unity.cinemachine.editor</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

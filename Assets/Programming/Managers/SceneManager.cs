@@ -5,7 +5,9 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour {
     public static SceneManager instance;
     public string currentScene = "";
-    public object sceneData;
+    // public object sceneData;
+    public SceneScriptableObject sceneScriptableObject;
+    SceneSerializable sceneDetails;
 
     void Awake()
     {
@@ -27,17 +29,20 @@ public class SceneManager : MonoBehaviour {
         UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneLoadedEvent;
 
         currentScene = GetCurrentScene().name;
+        sceneDetails = sceneScriptableObject.dataList.Find(scene => scene.sceneName.Contains(currentScene));
     }
 
     public void ChangeScene(string sceneName)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         currentScene = sceneName;
+        sceneDetails = sceneScriptableObject.dataList.Find(scene => scene.sceneName.Contains(currentScene));
     }
 
     public void ChangeSceneByLoading(string sceneName) {
         ChangeScene("loading");
         currentScene = sceneName;
+        sceneDetails = sceneScriptableObject.dataList.Find(scene => scene.sceneName.Contains(currentScene));
     }
 
     public void ChangeSceneByFading(string sceneName) {
@@ -79,7 +84,7 @@ public class SceneManager : MonoBehaviour {
     }
 
     IEnumerator ChangeSceneByFadingCoroutine(string sceneName) {
-        if(GetCurrentScene().name != "worldmapselection") {
+        if(sceneDetails != null && sceneDetails.fadeUI) {
             GameHelpers.GetUIChanger(currentScene).HideUIs();
         }
         if(FadeManager.instance) {
@@ -91,8 +96,8 @@ public class SceneManager : MonoBehaviour {
 
     IEnumerator SceneLoadedByFadingCoroutine(UnityEngine.SceneManagement.Scene scene) {
         UIChanger sceneUIChanger = GameHelpers.GetUIChanger(currentScene);
-        if(scene.name != "worldmapselection") {
-            sceneUIChanger.OnUIChangerStartDelegate += sceneUIChanger.StopUIChanging;
+        if(sceneDetails != null && sceneDetails.fadeUI) {
+            if(sceneUIChanger) sceneUIChanger.OnUIChangerStartDelegate += sceneUIChanger.StopUIChanging;
         }
         if(FadeManager.instance) {
             if(FadeManager.instance.currentFade == "out") {
@@ -100,8 +105,8 @@ public class SceneManager : MonoBehaviour {
                 yield return new WaitForSeconds(FadeManager.instance.fadeTime);
             }
         }
-        sceneUIChanger.hasUIChanges = true;
-        if(sceneUIChanger.OnUIChangerStartDelegate != null) {
+        if(sceneUIChanger) sceneUIChanger.hasUIChanges = true;
+        if(sceneUIChanger && sceneUIChanger.OnUIChangerStartDelegate != null) {
             sceneUIChanger.OnUIChangerStartDelegate -= sceneUIChanger.StopUIChanging;
         }
     }

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6958c508588a643948dcdd8e1a34ba6b, type: 3}
+  m_Name: VanguardWorldData
+  m_EditorClassIdentifier: 
+  dataList:
+  - kingdomName: Kingdom Of Fortis
+    kingdomDescription: 
+    kingdomMap: {fileID: 21300000, guid: fc137a6b93cda4119864204bfafb0a50, type: 3}
+  - kingdomName: Desertus Lands
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: See Of Stories
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: Terra Of Ignis
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: Kingdom Of Unmortus
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: Ghostian Theocracy
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: Damnum Empire
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: Republic Of Scientia
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: Principality Of Karus
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
+  - kingdomName: Central Forest
+    kingdomDescription: 
+    kingdomMap: {fileID: 0}
