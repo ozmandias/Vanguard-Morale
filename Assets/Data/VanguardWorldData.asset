@@ -15,30 +15,41 @@ MonoBehaviour:
   - kingdomName: Kingdom Of Fortis
     kingdomDescription: 
     kingdomMap: {fileID: 21300000, guid: fc137a6b93cda4119864204bfafb0a50, type: 3}
+    questScriptableObject: {fileID: 11400000, guid: 397eb98a7f6e543218bda8a3bb4c4598,
+      type: 2}
   - kingdomName: Desertus Lands
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: See Of Stories
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: Terra Of Ignis
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: Kingdom Of Unmortus
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: Ghostian Theocracy
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: Damnum Empire
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: Republic Of Scientia
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: Principality Of Karus
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}
   - kingdomName: Central Forest
     kingdomDescription: 
     kingdomMap: {fileID: 0}
+    questScriptableObject: {fileID: 0}

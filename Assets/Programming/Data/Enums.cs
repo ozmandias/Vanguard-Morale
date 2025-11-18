@@ -65,3 +65,23 @@ public enum EffectType {
     Play,
     Spawn
 }
+
+public enum QuestType {
+    KillEnemies,
+    CollectItem,
+    TalkToSomeone,
+    GoToSomewhere,
+    DestroySomething
+}
+
+public enum RewardType {
+    Level,
+    Health,
+    Damage,
+    Strength,
+    Agility,
+    Intelligence,
+    Magic,
+    Item,
+    Weapon
+}

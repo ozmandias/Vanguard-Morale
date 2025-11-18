@@ -16,7 +16,7 @@ Arkham Combat (done, needs fixing + improvements)
 Battle between Soldiers and Enemies (done, needs improvements)
 Interactables
 AI Switch (done)
-Mission Objective
+Mission Objective/Quest
 Dialogues
 Story
 Level Selector
@@ -83,3 +83,14 @@ CombatAI
 
 When something is not working
 - Check if a Component is truned off or not
+
+Mission/Quest
+- Each kingdom will have missions
+- Quest title
+- what to do/description
+- finish state
+- reward
+- replay
+- prerequisites(other quests, Player level, stats amount, etc)
+- quest type(defeat enemies, talk to someone, collect item, go to somewhere, etc)
+Design - Quest Object Prefab -> QuestSerializable -> QuestScriptableObject -> KingdomManager -> GlobalData -> QuestManager -> Quest(DefeatEnemyQuest, TalkQuest, CollectItemQuest, GoToLocationQuest)

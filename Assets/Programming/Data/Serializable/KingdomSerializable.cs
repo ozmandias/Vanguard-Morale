@@ -5,4 +5,5 @@ using UnityEngine.UI;
     public string kingdomName;
     public string kingdomDescription;
     public Sprite kingdomMap;
+    public QuestScriptableObject questScriptableObject;
 }
