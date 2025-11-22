@@ -67,11 +67,12 @@ public enum EffectType {
 }
 
 public enum QuestType {
-    KillEnemies,
-    CollectItem,
-    TalkToSomeone,
-    GoToSomewhere,
-    DestroySomething
+    Kill,
+    Collect,
+    Talk,
+    Travel,
+    Protect,
+    Destroy
 }
 
 public enum RewardType {

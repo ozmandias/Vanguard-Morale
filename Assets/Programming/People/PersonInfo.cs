@@ -10,7 +10,11 @@ using UnityEngine.AI;
     public /*PersonInfo() : base()*/ void Init(GameObject owner)
     {
         base.Init(owner);
-        damage = 10;
+        strength = 30;
+        agility = 30;
+        intelligence = 30;
+        damage = 10 + (int) Mathf.Round(strength / 10);
+        magic = 5;
         morality = personType == PersonType.Normal ? 50 : personType == PersonType.Friend ? 60 : 40;
         alignment = (Morality)morality;
 

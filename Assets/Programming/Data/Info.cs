@@ -2,9 +2,13 @@ using UnityEngine;
 
 [System.Serializable] public class Info {
     public GameObject owner;
+    public int strength;
+    public int agility;
+    public int intelligence;
     public int health;
     public int MaxHealth = 100;
     public int damage;
+    public int magic;
     public int morality = 50;
     public Morality alignment = Morality.Neutral;
     public Gender gender = Gender.Male;

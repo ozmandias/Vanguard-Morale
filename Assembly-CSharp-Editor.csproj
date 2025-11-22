@@ -51,24 +51,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FlatLighting\Scripts\Editor\CreatePlane.cs" />
-     <Compile Include="Assets\FlatLighting\Scripts\Editor\FlatLightingAboutWindow.cs" />
-     <Compile Include="Assets\FlatLighting\Scripts\Editor\FlatLightingMenu.cs" />
-     <Compile Include="Assets\FlatLighting\Scripts\Editor\RangeWithStepAttributeDrawer.cs" />
-     <Compile Include="Assets\FlatLighting\Scripts\Editor\ShaderPacker.cs" />
-     <Compile Include="Assets\FlatLighting\Scripts\Editor\VectorAsSlidersAttributeDrawer.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingCelSurfaceEditor.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingCelSurfaceEditorTransparent.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingShaderEditor.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingSurfaceEditor.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingTransparentShaderEditor.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingWaterShaderEditor.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\FlatLightingWaterSurfaceShaderEditor.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\Labels.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\ShaderBaker.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\SkyboxColorGradientShaderEditor.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\UITools.cs" />
-     <Compile Include="Assets\FlatLighting\Shaders\Editor\ValueWrapper.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Scripts\Editor\CreatePlane.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Scripts\Editor\FlatLightingAboutWindow.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Scripts\Editor\FlatLightingMenu.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Scripts\Editor\RangeWithStepAttributeDrawer.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Scripts\Editor\ShaderPacker.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Scripts\Editor\VectorAsSlidersAttributeDrawer.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\FlatLightingCelSurfaceEditor.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\FlatLightingCelSurfaceEditorTransparent.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\FlatLightingShaderEditor.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\FlatLightingSurfaceEditor.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\FlatLightingTransparentShaderEditor.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\FlatLightingWaterShaderEditor.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\FlatLightingWaterSurfaceShaderEditor.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\Labels.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\ShaderBaker.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\SkyboxColorGradientShaderEditor.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\UITools.cs" />
+     <Compile Include="Assets\Design\FlatLighting\Shaders\Editor\ValueWrapper.cs" />
      <Compile Include="Assets\ScreenShooter\Editor\Scripts\Configs\PredefinedConfigs.cs" />
      <Compile Include="Assets\ScreenShooter\Editor\Scripts\Configs\ReorderableConfigsList.cs" />
      <Compile Include="Assets\ScreenShooter\Editor\Scripts\Configs\ScreenshotConfig.cs" />

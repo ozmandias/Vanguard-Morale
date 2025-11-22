@@ -11,7 +11,7 @@ UI
 Dialogues
 Shopping
 Skill Training
-Morality (done)
+Stats/Attributes/Characteristics/Abilities - Strength, Agility, Intelligence, Damage, Magic, Morality (done, make ScriptableObject)
 Arkham Combat (done, needs fixing + improvements)
 Battle between Soldiers and Enemies (done, needs improvements)
 Interactables
@@ -19,6 +19,7 @@ AI Switch (done)
 Mission Objective/Quest
 Dialogues
 Story
+Character Selector
 Level Selector
 Loading (done, needs improvements)
 Boss

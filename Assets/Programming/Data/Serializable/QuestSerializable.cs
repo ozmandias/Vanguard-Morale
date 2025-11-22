@@ -5,5 +5,5 @@ using UnityEngine;
     public string questDescription;
     public QuestType questType;
     public RewardType rewardType;
-    public GameObject questObject;
+    public GameObject []questObjects;
 }

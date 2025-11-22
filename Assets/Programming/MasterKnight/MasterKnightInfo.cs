@@ -4,7 +4,11 @@ using UnityEngine;
     public /*MasterKnightInfo() : base()*/ void Init(GameObject owner)
     {
         base.Init(owner);
-        damage = 50;
+        strength = 70;
+        agility = 50;
+        intelligence = 50;
+        damage = 50 + (int) Mathf.Round(strength / 10);
+        magic = 30;
         morality = 60;
         alignment = (Morality)morality;
 

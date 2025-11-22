@@ -13,34 +13,114 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataList:
   - character: 0
-    characterSprite: {fileID: 0}
-    profileSprite: {fileID: 0}
-    characterName: 
+    characterName: Van Davian
+    characterIdentity: The Vanguard
+    characterDescription: 
+    characterSprite: {fileID: 21300000, guid: 725356fcb61d84f8a890faea0fc0e0a3, type: 3}
+    profileSprite: {fileID: 21300000, guid: 80dab204160dc41e59745a5e89815d02, type: 3}
+    characterStats:
+      strength: 70
+      agility: 50
+      intelligence: 50
+      health: 100
+      damage: 50
+      magic: 30
+      morality: 60
+  - character: 1
+    characterName: Henrique
+    characterIdentity: The Duke
+    characterDescription: 
+    characterSprite: {fileID: 21300000, guid: 9eae50964dde14fd9a543436327d44c3, type: 3}
+    profileSprite: {fileID: 21300000, guid: c32afeab18bd14e6490c215fa7babce8, type: 3}
+    characterStats:
+      strength: 60
+      agility: 50
+      intelligence: 50
+      health: 100
+      damage: 50
+      magic: 30
+      morality: 60
   - character: 0
+    characterName: 
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
-    characterName: 
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   - character: 0
+    characterName: 
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
-    characterName: 
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   - character: 0
+    characterName: 
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
-    characterName: 
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   - character: 0
+    characterName: 
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
-    characterName: 
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   - character: 0
+    characterName: 
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
-    characterName: 
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   - character: 0
+    characterName: 
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
-    characterName: 
-  - character: 0
-    characterSprite: {fileID: 0}
-    profileSprite: {fileID: 0}
-    characterName: 
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
