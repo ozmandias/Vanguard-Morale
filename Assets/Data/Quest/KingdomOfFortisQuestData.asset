@@ -13,52 +13,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataList:
   - questTitle: Battle of Fortis and Ignis
-    questDescription: Kill all Ignis soldiers!
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo:
+    - questDescription: Kill all Ignis soldiers!
+      questType: 0
+      rewardType: 0
+      questObject: {fileID: 1886562366614428, guid: 1c8121f4329074a26b00fe2bebef8b91,
+        type: 2}
+    - questDescription: Defeat the Boss of Ignis!
+      questType: 0
+      rewardType: 0
+      questObject: {fileID: 1886562366614428, guid: 1c8121f4329074a26b00fe2bebef8b91,
+        type: 2}
+  - questTitle: Destruction of Fire
+    questInfo:
+    - questDescription: Destroy the Ignis Army Camp
+      questType: 5
+      rewardType: 0
+      questObject: {fileID: 0}
+    - questDescription: Interrogate the Castle Keeper
+      questType: 2
+      rewardType: 0
+      questObject: {fileID: 0}
+  - questTitle: The Prophet's advice
+    questInfo:
+    - questDescription: Seek guidance from the Prophet
+      questType: 2
+      rewardType: 0
+      questObject: {fileID: 0}
+  - questTitle: Works in the way of Fortis
+    questInfo:
+    - questDescription: Ask locals about the tasks
+      questType: 2
+      rewardType: 0
+      questObject: {fileID: 0}
+    - questDescription: Go to the crops
+      questType: 3
+      rewardType: 0
+      questObject: {fileID: 0}
+    - questDescription: Assist in agriculture
+      questType: 1
+      rewardType: 0
+      questObject: {fileID: 0}
+  - questTitle: A view to a Brave
+    questInfo:
+    - questDescription: Explore the Kingdom of Fortis
+      questType: 3
+      rewardType: 0
+      questObject: {fileID: 0}
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
-  - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
-  - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
-  - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
-  - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
