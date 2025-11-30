@@ -56,6 +56,7 @@ MonoBehaviour:
   particle: {fileID: 198210575682475460}
   effectType: 1
   canManageEffect: 0
+  owner: {fileID: 0}
 --- !u!198 &198210575682475460
 ParticleSystem:
   m_ObjectHideFlags: 1

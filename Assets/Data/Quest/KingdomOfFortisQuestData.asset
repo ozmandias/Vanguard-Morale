@@ -16,50 +16,49 @@ MonoBehaviour:
     questDescription: Kill all Ignis soldiers!
     questType: 0
     rewardType: 0
-    questObject: {fileID: 1886562366614428, guid: 1c8121f4329074a26b00fe2bebef8b91,
-      type: 2}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []
   - questTitle: 
     questDescription: 
     questType: 0
     rewardType: 0
-    questObject: {fileID: 0}
+    questObjects: []

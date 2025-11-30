@@ -1101,6 +1101,8 @@ MonoBehaviour:
   mapName: 
   mapImage: {fileID: 105481917}
   backButton: {fileID: 1839160929}
+  worldScriptableObject: {fileID: 11400000, guid: 65886bada29ff41d5964257649783d65,
+    type: 2}
 --- !u!114 &2021808761
 MonoBehaviour:
   m_ObjectHideFlags: 0

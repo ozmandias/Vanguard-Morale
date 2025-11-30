@@ -1,9 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour {
-    QuestScriptableObject questScriptableObject;
-    QuestSerializable currentQuest;
+    [SerializeField] QuestScriptableObject questScriptableObject;
+    [SerializeField] QuestSerializable currentQuest;
 
     public static QuestManager instance;
 
@@ -16,10 +18,14 @@ public class QuestManager : MonoBehaviour {
     }
 
     void Start() {
-
+        questScriptableObject = GlobalData.currentKingdomQuestScriptableObject;
     }
 
     void Update() {
+
+    }
+
+    public void LoadAllQuests() {
 
     }
 

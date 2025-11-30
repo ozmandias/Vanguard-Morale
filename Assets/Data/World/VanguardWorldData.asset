@@ -14,42 +14,53 @@ MonoBehaviour:
   dataList:
   - kingdomName: Kingdom Of Fortis
     kingdomDescription: 
+    mapName: KingdomOfFortis
     kingdomMap: {fileID: 21300000, guid: fc137a6b93cda4119864204bfafb0a50, type: 3}
     questScriptableObject: {fileID: 11400000, guid: 397eb98a7f6e543218bda8a3bb4c4598,
       type: 2}
   - kingdomName: Desertus Lands
     kingdomDescription: 
+    mapName: DesertusLands
     kingdomMap: {fileID: 0}
-    questScriptableObject: {fileID: 0}
+    questScriptableObject: {fileID: 11400000, guid: a2492cf435d2c464a8dd621df62492a0,
+      type: 2}
   - kingdomName: See Of Stories
     kingdomDescription: 
+    mapName: SeeOfStories
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}
   - kingdomName: Terra Of Ignis
     kingdomDescription: 
+    mapName: TerraOfIgnis
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}
   - kingdomName: Kingdom Of Unmortus
     kingdomDescription: 
+    mapName: KingdomOfUnmortus
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}
   - kingdomName: Ghostian Theocracy
     kingdomDescription: 
+    mapName: GhostianTheocracy
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}
   - kingdomName: Damnum Empire
     kingdomDescription: 
+    mapName: DamnumEmpire
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}
   - kingdomName: Republic Of Scientia
     kingdomDescription: 
+    mapName: RepublicOfScientia
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}
   - kingdomName: Principality Of Karus
     kingdomDescription: 
+    mapName: PrincipalityOfKarus
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}
   - kingdomName: Central Forest
     kingdomDescription: 
+    mapName: CentralForest
     kingdomMap: {fileID: 0}
     questScriptableObject: {fileID: 0}

@@ -1,29 +1,29 @@
 Master Knight
 Enemy Guard (done)
-Cyber Knight
+Cyber Knight (in progress)
 Spawn Manager (done, needs improvements)
 Ragdoll Manager (done, needs improvements)
 Game Manager (done)
 People - Villagers, Castle Residents, Hero, Blacksmith, Soldier Trainer, Archer Trainer, Soldiers (done, needs improvements)
 State Machines (done)
 Horses
-UI
-Dialogues
+UI (in progress)
+Dialogues (in progress)
 Shopping
 Skill Training
 Stats/Attributes/Characteristics/Abilities - Strength, Agility, Intelligence, Damage, Magic, Morality (done, make ScriptableObject)
 Arkham Combat (done, needs fixing + improvements)
 Battle between Soldiers and Enemies (done, needs improvements)
-Interactables
+Interactables (in progress)
 AI Switch (done)
-Mission Objective/Quest
-Dialogues
-Story
-Character Selector
-Level Selector
+Mission Objective/Quest (in progress)
+Story/World History (in progress)
+Character Selector (in progress)
+Level Selector/World Map Selector (in progress)
 Loading (done, needs improvements)
-Boss
-Sandbox Style Gameplay like Hard Time
+Boss (in progress)
+Sandbox Style Gameplay like Hard Time (in progress)
+New Playable Characters
 
 Learn from Brackeys
 
@@ -31,7 +31,13 @@ Vanguard Morale Game Programming - Has Electricity i
 
 Character Name - Vanguard - Sir Van Davian, Duke - Henrique
 Rename MasterKnight Programming to Vanguard.
------------------------------------------------------------------------------------------------
+
+Make Vanguard Programming universal to central playable characters. (Has Arkham Combat)
+Use Player Programming for switching to make any character playable.
+Use Person Programming for AI/NPC.
+Use Ally and Enemy based on kingdoms instead of making individual scripts for different kingdoms.
+Use Boss Programming for Bosses.
+-----------------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero
 Enemy -> Enemy Guard, Cyber Knight

@@ -6,7 +6,8 @@ public class CharacterSelectionObject : MonoBehaviour {
     public Image characterSelectFrame;
     public CharacterSerializable characterSelection;
     public GameObject characterObject;
-    Quaternion characterOriginalRotation;
+    public Quaternion characterOriginalRotation;
+    public Vector3 characterOriginalScale;
     Color selectColor = new Color(0.6f, 0.4f, 0.8f, 1f);
     Color originalColor = new Color(1f, 1f, 1f, 1f);
 
@@ -16,6 +17,7 @@ public class CharacterSelectionObject : MonoBehaviour {
 
         if(characterObject) {
             characterOriginalRotation = characterObject.transform.rotation;
+            characterOriginalScale = characterObject.transform.localScale;
         }
 
         if(CharacterSelectionManager.instance) {

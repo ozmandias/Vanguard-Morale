@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CharacterSelectionManager : MonoBehaviour {
     Camera characterSelectionCamera;
     float mouseHorizontal = -90f /*0f*/;
+    [Header("Character Selection Manager Settings")]
     public float characterSelectionRotateSpeed = 8f;
     public Button backButton;
     public Button selectButton;
@@ -13,11 +16,17 @@ public class CharacterSelectionManager : MonoBehaviour {
     public CharacterSerializable currentCharacterSelection;
     public GameObject currentCharacterObject;
     public Transform cameraOriginalTransform;
-    public UIObject characterDetailsUI;
+    public Transform characterFocusTransform;
     public GameObject originalCinemachineObject;
     public GameObject selectionCinemachineObject;
-    public Transform characterFocusTransform;
+    public Effect characterSelectionEffect;
+    [Header("UI")]
+    public GameObject characterDetailsUIObject;
+    public GameObject characterSelectionGroupUIObject;
+    [Header("Data")]
+    public CharacterScriptableObject characterScriptableObject;
     public CharacterSelectionObject []characterSelectionObjects;
+    public GameObject characterSelectionPrefab;
     CharacterSelectionObject previousCharacterSelectionObject;
 
     public delegate void CharacterSelectDelegate(string selectStatus);
@@ -37,8 +46,11 @@ public class CharacterSelectionManager : MonoBehaviour {
         characterSelectionCamera = Camera.main;
 
         characterSelectionObjects = GetComponentsInChildren<CharacterSelectionObject>();
-        if(characterSelectionObjects.Length > 0) {
-            
+        foreach(CharacterSelectionObject characterSelectionObject in characterSelectionObjects) {
+            if(characterSelectionObject.characterObject != null) {
+                characterSelectionObject.characterObject.transform.DOScale(Vector3.zero, 0);
+                characterSelectionObject.characterObject.SetActive(true);
+            }
         }
 
         selectButton.onClick.AddListener(ChangeToWorldMapSelection);
@@ -49,6 +61,13 @@ public class CharacterSelectionManager : MonoBehaviour {
 
     void Update() {
         RotateCharacter();
+    }
+
+    void LoadCharacterData() {
+        foreach(CharacterSerializable characterData in characterScriptableObject.dataList) {
+            CharacterSelectionObject newCharacterSelectionObject = Instantiate(characterSelectionPrefab, characterSelectionGroupUIObject.transform).GetComponent<CharacterSelectionObject>();
+            newCharacterSelectionObject.characterSelection = characterData;
+        }
     }
 
     public void SelectCharacter(CharacterSelectionObject characterSelectionObject) {
@@ -133,16 +152,39 @@ public class CharacterSelectionManager : MonoBehaviour {
     }
     
     void ShowCharacter() {
-        if(currentCharacterObject) currentCharacterObject.SetActive(true);
+        characterSelectionEffect.Play();
+        if(currentCharacterObject) {
+            // currentCharacterObject.SetActive(true);
+            // use DoTween to scale
+            currentCharacterObject.transform.DOScale(
+                Array.Find(characterSelectionObjects, (characterSelectionObject)=>{
+                    return characterSelectionObject.characterObject == currentCharacterObject;
+                })
+                .characterOriginalScale,
+                1f
+            ).OnUpdate(()=>{
+            }).OnComplete(()=>{
+            });
+        }
         selectButton.gameObject.SetActive(true);
         CharacterDetailsController.instance.SetCharacterDetails(currentCharacterSelection);
-        characterDetailsUI.gameObject.SetActive(true);
+        characterDetailsUIObject.SetActive(true);
     }
 
     void HideCharacter() {
-        if(currentCharacterObject) currentCharacterObject.SetActive(false);
+        characterSelectionEffect.Play() /*Stop()*/;
+        if(currentCharacterObject) {
+            // currentCharacterObject.SetActive(false);
+            // use DoTween to scale
+            currentCharacterObject.transform.DOKill();
+            currentCharacterObject.transform.DOScale(
+                Vector3.zero,
+                hasCharacterSelection == false ? 1f : 0
+            ).OnComplete(()=>{
+            });
+        }
         selectButton.gameObject.SetActive(false);
         CharacterDetailsController.instance.ClearCharacterDetails();
-        characterDetailsUI.gameObject.SetActive(false);
+        characterDetailsUIObject.SetActive(false);
     }
 }

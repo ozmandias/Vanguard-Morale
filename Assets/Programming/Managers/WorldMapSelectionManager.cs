@@ -5,6 +5,7 @@ public class WorldMapSelectionManager : MonoBehaviour {
     public string mapName;
     public Image mapImage;
     public Button backButton;
+    [SerializeField] WorldScriptableObject worldScriptableObject;
     Color originalColor = new Color(1f, 1f, 1f, 1f);
     Color fadeColor = new Color(0.8f, 0.8f, 0.8f, 1f);
 
@@ -41,6 +42,13 @@ public class WorldMapSelectionManager : MonoBehaviour {
         if(SceneManager.instance) {
             SceneManager.instance.ChangeSceneByFading("characterselection");
         }
+    }
+
+    public void SetQuestData(string mapName) {
+        KingdomSerializable kingdomDetails = worldScriptableObject.dataList.Find((kingdom)=>{
+            return kingdom.mapName == mapName;
+        });
+        if(kingdomDetails != null) GlobalData.currentKingdomQuestScriptableObject = kingdomDetails.questScriptableObject;
     }
 
     public void OnMouseEnterMap(string mapName) {

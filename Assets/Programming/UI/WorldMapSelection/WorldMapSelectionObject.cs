@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class WorldMapSelectionObject : MonoBehaviour {
     SpriteRenderer mapRenderer;
+    public string mapName;
     Color originalColor = new Color(1f, 1f, 1f, 1f);
     Color focusColor = new Color(0.5f, 0.5f, 0.5f, 1);
-    public string mapName;
 
     void Start() {
         mapRenderer = GetComponent<SpriteRenderer>();
@@ -16,6 +16,7 @@ public class WorldMapSelectionObject : MonoBehaviour {
 
     void OnMouseUp() {
         mapRenderer.color = originalColor;
+        WorldMapSelectionManager.instance.SetQuestData(mapName);
         if(SceneManager.instance) {
             SceneManager.instance.ChangeSceneByLoading(mapName);
         }
