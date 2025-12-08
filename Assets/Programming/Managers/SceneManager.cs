@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using DG.Tweening;
 
 public class SceneManager : MonoBehaviour {
     public static SceneManager instance;
@@ -34,6 +36,7 @@ public class SceneManager : MonoBehaviour {
 
     public void ChangeScene(string sceneName)
     {
+        DOTween.Clear(true);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         currentScene = sceneName;
         sceneDetails = sceneScriptableObject.dataList.Find(scene => scene.sceneName.Contains(currentScene));
@@ -72,6 +75,9 @@ public class SceneManager : MonoBehaviour {
             guiStyle.fontSize = 30;
 
             GlobalData.characterDetails = CharacterSelectController.instance.characterDetailsList[0];
+            WorldScriptableObject worldScriptableObject = (WorldScriptableObject) AssetDatabase.LoadAssetAtPath("Assets/Data/World/VanguardWorldData.asset", typeof(WorldScriptableObject));
+            GlobalData.kingdomDetails = worldScriptableObject.dataList[0];
+            GlobalData.currentKingdomQuestScriptableObject = GlobalData.kingdomDetails.questScriptableObject;
 
             if (GUI.Button(new Rect(10, 10, 250, 100), "Test", guiStyle)) {
                 ChangeSceneByLoading("test");

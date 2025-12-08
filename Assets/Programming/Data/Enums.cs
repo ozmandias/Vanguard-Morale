@@ -1,3 +1,4 @@
+// can rename ...Type to ...Set
 public enum Morality {
     Good = 60,
     Neutral = 50,
@@ -58,7 +59,8 @@ public enum CombatType {
 public enum AIType {
     StateMachine,
     CombatAI,
-    BossAI
+    BossAI,
+    QuestAI
 }
 
 public enum EffectType {

@@ -16,7 +16,7 @@ public class WorldMapSelectionObject : MonoBehaviour {
 
     void OnMouseUp() {
         mapRenderer.color = originalColor;
-        WorldMapSelectionManager.instance.SetQuestData(mapName);
+        WorldMapSelectionManager.instance.SetMapData(this);
         if(SceneManager.instance) {
             SceneManager.instance.ChangeSceneByLoading(mapName);
         }

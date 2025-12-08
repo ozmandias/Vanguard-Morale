@@ -100,4 +100,23 @@ Mission/Quest
 - replay
 - prerequisites(other quests, Player level, stats amount, etc)
 - quest type(defeat enemies, talk to someone, collect item, go to somewhere, etc)
-Design - Quest Object Prefab -> QuestSerializable -> QuestScriptableObject -> KingdomManager -> GlobalData -> QuestManager -> Quest(DefeatEnemyQuest, TalkQuest, CollectItemQuest, GoToLocationQuest)
+
+Quest Programming
+Design - Quest Prefab -> QuestSerializable -> QuestScriptableObject -> KingdomManager -> GlobalData -> QuestSelectionManager -> Quest(DefeatEnemyQuest, TalkQuest, CollectItemQuest, GoToLocationQuest)
+QuestSelectionManager gives data to GameManager
+GameManger controls SpawnManager based on data from QuestSelectionManager
+QuestManager will associate with active quest data from QuestSelectionManager
+QuestManager will control State Machines or turn off State Machines and QuestManager/QuestBehaviour will take over AIs
+AIs(StateMachine, CombatAI, QuestAI and BossAI) should run separately from each other
+Quest will have (or) will not have Quest Givers like in Fallout 1 and Fallout 3
+
+AI Programming
+Make StateMachines, CombatAI, QuestAI and BossAI are managed by one AI Changer on each AIs
+During Quest, QuestAI can also be a CombatAI with StateMachine's States when encountering with the Player
+Rename ...State to ...StateMachine
+
+Character Selection - To Fix (done)
+DoTween doesn't work on changing scenes - problem was caused by having zero as original scale value for character in CharacterSelectionObject
+
+Quest - To Fix (done)
+Make Characters only move after their Ragdoll is disabled or else they will get deformed - problem was caused by SpawnManager continuously spawning and Ragdolls in Prefabs

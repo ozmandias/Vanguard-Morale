@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateChanger : MonoBehaviour {
+public class StateMachineManager : MonoBehaviour {
     Person mainPerson;
 
     void Start() {

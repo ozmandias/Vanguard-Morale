@@ -987,6 +987,8 @@ MonoBehaviour:
       magic: 0
       morality: 0
   characterObject: {fileID: 0}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 0, y: 0, z: 0}
 --- !u!114 &473831602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,7 +1161,6 @@ MonoBehaviour:
       magic: 0
       morality: 0
   currentCharacterObject: {fileID: 0}
-  characterObjects: []
   cameraOriginalTransform: {fileID: 0}
   characterFocusTransform: {fileID: 0}
   originalCinemachineObject: {fileID: 968488604}
@@ -1305,6 +1306,8 @@ MonoBehaviour:
       magic: 30
       morality: 60
   characterObject: {fileID: 1825417261}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 1480, y: 1480, z: 1480}
 --- !u!114 &498264085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7841,6 +7844,8 @@ MonoBehaviour:
       magic: 0
       morality: 0
   characterObject: {fileID: 0}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1398331660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8003,6 +8008,8 @@ MonoBehaviour:
       magic: 30
       morality: 60
   characterObject: {fileID: 1050798632}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 2, y: 2, z: 2}
 --- !u!114 &1476412501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8926,6 +8933,8 @@ MonoBehaviour:
       magic: 0
       morality: 0
   characterObject: {fileID: 0}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1609490416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10127,6 +10136,8 @@ MonoBehaviour:
       magic: 0
       morality: 0
   characterObject: {fileID: 0}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1855471491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10288,6 +10299,8 @@ MonoBehaviour:
       magic: 0
       morality: 0
   characterObject: {fileID: 0}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1898280453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10449,6 +10462,8 @@ MonoBehaviour:
       magic: 0
       morality: 0
   characterObject: {fileID: 0}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1958099012
 MonoBehaviour:
   m_ObjectHideFlags: 0

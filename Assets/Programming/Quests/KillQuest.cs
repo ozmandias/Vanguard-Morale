@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class KillQuest : Quest {
-    public List<GameObject> toKillList;
+    public List<GameObject> toKillList = new List<GameObject>();
 
     public override void StartQuest() {
         isComplete = false;
@@ -13,6 +13,7 @@ public class KillQuest : Quest {
     public override void CheckQuest() {
         if(toKillList.Count == 0) {
             isComplete = true;
+            isActive = false;
         }
     }
 

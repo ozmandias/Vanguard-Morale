@@ -1,35 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class QuestManager : MonoBehaviour {
-    [SerializeField] QuestScriptableObject questScriptableObject;
-    [SerializeField] QuestSerializable currentQuest;
-
-    public static QuestManager instance;
-
-    void Awake() {
-        if(instance == null) {
-            instance = this;
-        } else {
-            Destroy(this.gameObject);
-        }
-    }
+public class QuestManager : MonoBehaviour { // for character
+    public QuestSerializable toDoQuest;
 
     void Start() {
-        questScriptableObject = GlobalData.currentKingdomQuestScriptableObject;
+
     }
 
     void Update() {
+        DoQuest();
+    }
+
+    void DoQuest() {
 
     }
 
-    public void LoadAllQuests() {
+    // for NPCs
+    void DoKillQuest() {
 
     }
 
-    public void AcceptQuest() {
-        
+    void DoCollectQuest() {
+
+    }
+
+    void DoTalkQuest() {
+
+    }
+
+    void DoTravelQuest() {
+
+    }
+
+    void DoProtectQuest() {
+
+    }
+
+    void DoDestroyQuest() {
+
     }
 }

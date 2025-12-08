@@ -1,18 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class Quest : MonoBehaviour, QuestInterface {
-    void Start() {
+    public virtual void Start() {
         StartQuest();
     }
 
-    void Update() {
-        if(isComplete == false) {
+    public virtual void Update() {
+        if(isActive == true && isComplete == false) {
             CheckQuest();
         }
     }
 
-    public Text questInfoText {get; set;}
+    public QuestSerializable questDetails {get; set;}
+    public bool isActive {get; set;}
     public bool isComplete {get; set;}
     public abstract void StartQuest();
     public abstract void CheckQuest();

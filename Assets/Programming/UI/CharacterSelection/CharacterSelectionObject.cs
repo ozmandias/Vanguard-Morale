@@ -17,7 +17,7 @@ public class CharacterSelectionObject : MonoBehaviour {
 
         if(characterObject) {
             characterOriginalRotation = characterObject.transform.rotation;
-            characterOriginalScale = characterObject.transform.localScale;
+            if(characterOriginalScale == Vector3.zero) characterOriginalScale = characterObject.transform.localScale;
         }
 
         if(CharacterSelectionManager.instance) {

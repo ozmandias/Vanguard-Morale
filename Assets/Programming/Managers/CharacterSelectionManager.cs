@@ -49,7 +49,8 @@ public class CharacterSelectionManager : MonoBehaviour {
         foreach(CharacterSelectionObject characterSelectionObject in characterSelectionObjects) {
             if(characterSelectionObject.characterObject != null) {
                 characterSelectionObject.characterObject.transform.DOScale(Vector3.zero, 0);
-                characterSelectionObject.characterObject.SetActive(true);
+                // characterSelectionObject.characterObject.transform.localScale = Vector3.zero;
+                characterSelectionObject.characterObject.SetActive(true /*false*/);
             }
         }
 
@@ -61,6 +62,14 @@ public class CharacterSelectionManager : MonoBehaviour {
 
     void Update() {
         RotateCharacter();
+    }
+
+    void OnEnable() {
+        
+    }
+
+    void OnDisable() {
+
     }
 
     void LoadCharacterData() {
@@ -132,12 +141,11 @@ public class CharacterSelectionManager : MonoBehaviour {
 
     void ChangeToWorldMapSelection() {
         GlobalData.characterDetails = currentCharacterSelection;
-        if(SceneManager.instance) {
-            SceneManager.instance.ChangeSceneByFading("worldmapselection");
-        }
+        SceneManager.instance.ChangeSceneByFading("worldmapselection");
     }
 
     void LeaveFromCharacterSelection() {
+        GlobalData.characterDetails = null;
         SceneManager.instance.ChangeSceneByFading("mainmenu");
     }
 
@@ -156,6 +164,7 @@ public class CharacterSelectionManager : MonoBehaviour {
         if(currentCharacterObject) {
             // currentCharacterObject.SetActive(true);
             // use DoTween to scale
+            // currentCharacterObject.transform.DOKill();
             currentCharacterObject.transform.DOScale(
                 Array.Find(characterSelectionObjects, (characterSelectionObject)=>{
                     return characterSelectionObject.characterObject == currentCharacterObject;
@@ -163,7 +172,9 @@ public class CharacterSelectionManager : MonoBehaviour {
                 .characterOriginalScale,
                 1f
             ).OnUpdate(()=>{
+                // check for problems
             }).OnComplete(()=>{
+                // check for problems
             });
         }
         selectButton.gameObject.SetActive(true);
@@ -180,7 +191,10 @@ public class CharacterSelectionManager : MonoBehaviour {
             currentCharacterObject.transform.DOScale(
                 Vector3.zero,
                 hasCharacterSelection == false ? 1f : 0
-            ).OnComplete(()=>{
+            ).OnUpdate(()=>{
+                // check for problems
+            }).OnComplete(()=>{
+                // check for problems
             });
         }
         selectButton.gameObject.SetActive(false);

@@ -9,5 +9,9 @@ using UnityEngine;
     public string questDescription;
     public QuestType questType;
     public RewardType rewardType;
-    public GameObject questObject;
+    // make a data structure for different questObjects and their counts
+    /*public GameObject []questObjects;
+    public int singleQuestObjectCount;*/
+    public ToKillSpawnSerializable []toKillSpawnSerializables;
+    public RewardSpawnSerializable []rewardSpawnSerializables;
 }

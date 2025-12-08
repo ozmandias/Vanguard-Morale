@@ -17,49 +17,72 @@ MonoBehaviour:
     - questDescription: Kill all Ignis soldiers!
       questType: 0
       rewardType: 0
-      questObject: {fileID: 1886562366614428, guid: 1c8121f4329074a26b00fe2bebef8b91,
-        type: 2}
+      toKillSpawnSerializables:
+      - assetObject: {fileID: 1422175888338986, guid: 36e922fc12d9d436cb1138601a8ce304,
+          type: 2}
+        assetName: 
+        assetSprite: {fileID: 0}
+        spawnCount: 10
+        spawnTransforms:
+        - {fileID: 0}
+        personType: 2
+      rewardSpawnSerializables: []
     - questDescription: Defeat the Boss of Ignis!
       questType: 0
       rewardType: 0
-      questObject: {fileID: 1886562366614428, guid: 1c8121f4329074a26b00fe2bebef8b91,
-        type: 2}
+      toKillSpawnSerializables:
+      - assetObject: {fileID: 1903520162299222, guid: 830379afaa1f2430597e82beb4d2ab0a,
+          type: 2}
+        assetName: 
+        assetSprite: {fileID: 0}
+        spawnCount: 1
+        spawnTransforms:
+        - {fileID: 0}
+        personType: 4
+      rewardSpawnSerializables: []
   - questTitle: Destruction of Fire
     questInfo:
     - questDescription: Destroy the Ignis Army Camp
       questType: 5
       rewardType: 0
-      questObject: {fileID: 0}
+      toKillSpawnSerializables: []
+      rewardSpawnSerializables: []
     - questDescription: Interrogate the Castle Keeper
       questType: 2
       rewardType: 0
-      questObject: {fileID: 0}
+      toKillSpawnSerializables: []
+      rewardSpawnSerializables: []
   - questTitle: The Prophet's advice
     questInfo:
     - questDescription: Seek guidance from the Prophet
       questType: 2
       rewardType: 0
-      questObject: {fileID: 0}
+      toKillSpawnSerializables: []
+      rewardSpawnSerializables: []
   - questTitle: Works in the way of Fortis
     questInfo:
     - questDescription: Ask locals about the tasks
       questType: 2
       rewardType: 0
-      questObject: {fileID: 0}
+      toKillSpawnSerializables: []
+      rewardSpawnSerializables: []
     - questDescription: Go to the crops
       questType: 3
       rewardType: 0
-      questObject: {fileID: 0}
+      toKillSpawnSerializables: []
+      rewardSpawnSerializables: []
     - questDescription: Assist in agriculture
       questType: 1
       rewardType: 0
-      questObject: {fileID: 0}
+      toKillSpawnSerializables: []
+      rewardSpawnSerializables: []
   - questTitle: A view to a Brave
     questInfo:
     - questDescription: Explore the Kingdom of Fortis
       questType: 3
       rewardType: 0
-      questObject: {fileID: 0}
+      toKillSpawnSerializables: []
+      rewardSpawnSerializables: []
   - questTitle: 
     questInfo: []
   - questTitle: 

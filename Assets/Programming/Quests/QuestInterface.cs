@@ -1,8 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public interface QuestInterface {
-    Text questInfoText {get; set;}
+    QuestSerializable questDetails {get; set;}
+    bool isActive {get; set;}
     bool isComplete {get; set;}
     void StartQuest();
     void CheckQuest();

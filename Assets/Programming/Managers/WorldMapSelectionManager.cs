@@ -44,11 +44,14 @@ public class WorldMapSelectionManager : MonoBehaviour {
         }
     }
 
-    public void SetQuestData(string mapName) {
+    public void SetMapData(WorldMapSelectionObject mapSelectionObject) {
         KingdomSerializable kingdomDetails = worldScriptableObject.dataList.Find((kingdom)=>{
-            return kingdom.mapName == mapName;
+            return kingdom.mapName == mapSelectionObject.mapName;
         });
-        if(kingdomDetails != null) GlobalData.currentKingdomQuestScriptableObject = kingdomDetails.questScriptableObject;
+        if(kingdomDetails != null) {
+            GlobalData.kingdomDetails = kingdomDetails;
+            GlobalData.currentKingdomQuestScriptableObject = kingdomDetails.questScriptableObject;
+        }
     }
 
     public void OnMouseEnterMap(string mapName) {

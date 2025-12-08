@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIManager : MonoBehaviour {
+public class AIManager : MonoBehaviour { // for AI group
     public static AIManager instance;
 
     public List<NavMeshAgent> soldierAIList;
