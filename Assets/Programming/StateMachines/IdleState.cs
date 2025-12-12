@@ -30,8 +30,8 @@ public class IdleState : StateMachineBehaviour {
             
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
             if(targetDistance <= followDistance && targetInfo.isDead == false && canAttackTarget) {
-                mainPerson.reachDestination = false;
-                mainPerson.attackingTarget = true;
+                mainPerson.personState.stateMachineMoving = true;
+                mainPerson.personState.stateMachineTargeting = true;
             } else if(targetInfo.isDead == true) {
                 mainPerson.SetTarget(null);
             }
@@ -47,7 +47,7 @@ public class IdleState : StateMachineBehaviour {
 
             destinationDistance = Vector3.Distance(mainPerson.destination.position, mainPerson.transform.position);
             if(destinationDistance > reachDistance) {
-                mainPerson.reachDestination = false;
+                mainPerson.personState.stateMachineMoving = true;
             }
         }
     }

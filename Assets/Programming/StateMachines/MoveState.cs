@@ -31,7 +31,7 @@ public class MoveState : StateMachineBehaviour {
             
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
             if(targetDistance <= followDistance && targetInfo.isDead == false && canAttackTarget) {
-                mainPerson.attackingTarget = true;
+                mainPerson.personState.stateMachineTargeting = true;
             } else if(targetInfo.isDead == true) {
                 mainPerson.SetTarget(null);
             }
@@ -46,7 +46,7 @@ public class MoveState : StateMachineBehaviour {
             } else if(destinationDistance <= reachDistance) {
                 mainPerson.personAgent.velocity = Vector3.zero;
                 if(mainPerson.personAgent.velocity.magnitude == Vector3.zero.magnitude) {
-                    mainPerson.reachDestination = true;
+                    mainPerson.personState.stateMachineMoving = false;
                 }
             }
         }

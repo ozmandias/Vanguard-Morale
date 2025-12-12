@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour { // for character
+    public Person mainPerson;
     public QuestSerializable toDoQuest;
 
     void Start() {

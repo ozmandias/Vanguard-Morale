@@ -17,30 +17,22 @@ public class Person : MonoBehaviour {
     [Header("Person Settings")]
     public AnimationManager personAnimation;
     public CombatManager personCombat;
+    public StateMachineManager personState;
     public NavMeshAgent personAgent;
     public NavMeshHit personNavMeshHit;
     public PersonInfo personInfo;
     public EffectManager personEffect;
+    public bool isHurt = false;
 
     [Header("Animation Settings")]
     public float attackFrames = 0;
     public float hurtFrames = 0;
 
-    [Header("State Machine Settings")]
-    public StateMachine personState = StateMachine.Idle;
-    public bool reachDestination = false;
-    public bool attackingTarget = false;
-    public bool atAttackDistance = false;
-    public bool isHurt = false;
-
-    [Header("Combat AI Settings")]
-    public bool isMoving = false;
-    public bool preparingAttack = false;
-
     public virtual void Start()
     {
         personAnimation = GetComponent<AnimationManager>();
         personCombat = GetComponent<CombatManager>();
+        personState = GetComponent<StateMachineManager>();
         personAgent = GetComponent<NavMeshAgent>();
         personEffect = GetComponent<EffectManager>();
 
@@ -51,7 +43,7 @@ public class Person : MonoBehaviour {
     {
         if (personInfo.aiType == AIType.StateMachine && personInfo.stateMachineDead == false)
         {
-            switch (personState)
+            switch (personState.state)
             {
                 case StateMachine.Idle:
                     Idle();
@@ -78,7 +70,7 @@ public class Person : MonoBehaviour {
                     break;
             }
 
-            if (personInfo.personType != PersonType.Normal && attackingTarget == false && personInfo.isDead == false)
+            if (personInfo.personType != PersonType.Normal && personState.stateMachineTargeting == false && personInfo.isDead == false)
             {
                 FindTarget();
             }
@@ -155,7 +147,7 @@ public class Person : MonoBehaviour {
 
     public virtual void DecideToChangeTarget(Info newTargetInfo) {
         int changeTargetRandom = Random.Range(0, 10);
-        if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
+        if(personState.stateMachineTargeting == false || (personState.stateMachineTargeting && changeTargetRandom >= 5)) {
             if(target) {
                 CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
                 if(currentTargetCombat.CirclingListContains(personAgent)) {
@@ -164,11 +156,6 @@ public class Person : MonoBehaviour {
             }
             SetTarget(newTargetInfo.owner);
         }
-    }
-
-    public void ChangeState(StateMachine _state)
-    {
-        personState = _state;
     }
 
     public virtual void SetTarget(GameObject _newTarget)
@@ -198,7 +185,7 @@ public class Person : MonoBehaviour {
                 isHurt = true;
 
                 int changeTargetRandom = Random.Range(0, 10);
-                if ((attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) && personInfo.personType != PersonType.Friend)
+                if ((personState.stateMachineTargeting == false || (personState.stateMachineTargeting && changeTargetRandom >= 5)) && personInfo.personType != PersonType.Friend)
                 {
                     if(target) {
                         CombatManager currentTargetCombat = target.GetComponent<CombatManager>();

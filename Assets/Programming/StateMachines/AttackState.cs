@@ -79,7 +79,7 @@ public class AttackState : StateMachineBehaviour {
                     stateTime += Time.deltaTime /*stateInfo.normalizedTime % 1*/;
                     targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
                     if(targetDistance > nearDistance && targetInfo.isDead == false) {
-                        mainPerson.atAttackDistance = false;
+                        mainPerson.personState.stateMachineAttacking = false;
                     } else if(targetDistance < nearDistance && targetInfo.isDead == false) {
                         // Debug.Log(mainPerson.gameObject.name + " is getting too close to target");
                     } else if(targetDistance > followDistance || targetInfo.isDead == true) {
@@ -87,12 +87,12 @@ public class AttackState : StateMachineBehaviour {
                             targetCombat.circlingList.Remove(mainPerson.personAgent);
                         }
                         mainPerson.SetTarget(null);
-                        mainPerson.atAttackDistance = false;
-                        mainPerson.attackingTarget = false;
+                        mainPerson.personState.stateMachineAttacking = false;
+                        mainPerson.personState.stateMachineTargeting = false;
                     }
                 }
             } else {
-                mainPerson.attackingTarget = false;
+                mainPerson.personState.stateMachineTargeting = false;
             }
         }
     }

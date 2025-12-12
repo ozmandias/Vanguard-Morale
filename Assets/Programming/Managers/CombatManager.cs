@@ -185,7 +185,7 @@ public class CombatManager : MonoBehaviour {
             animationManager.Play("Combat" + combatNumber);
 
             if(currentTarget.GetInfo().aiType == AIType.StateMachine) {
-                currentTarget.GetInfo().MakeAI("combatAI");
+                currentTarget.GetComponent<AIChanger>().OnChangeAIDelegate("combatAI");
             }
         }
     }
@@ -398,16 +398,16 @@ public class CombatManager : MonoBehaviour {
         }
     }
 
-    void OnEnemyCombatStopEvent(Enemy enemy) {
-        if(enemy == this.GetComponent<Enemy>()) {
-            enemy.GetInfo().MakeAI("stateMachine");
-        }
-    }
-
     void OnEnemyHurtEvent(Enemy enemyTarget)
     {
         if (enemyTarget == this.GetComponent<Enemy>())
         {
+        }
+    }
+
+    void OnEnemyCombatStopEvent(Enemy enemy) {
+        if(enemy == this.GetComponent<Enemy>()) {
+            this.GetComponent<AIChanger>().OnChangeAIDelegate("stateMachine");
         }
     }
     #endregion

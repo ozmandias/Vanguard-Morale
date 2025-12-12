@@ -134,9 +134,8 @@ public class Enemy : Person {
                 {
                     nearestDistance = targetDistance;
                     SetTarget(target);
-                    if (target == targetPlayer)
-                    {
-                        personInfo.MakeAI("combatAI");
+                    if(target == targetPlayer) {
+                        GetComponent<AIChanger>().OnChangeAIDelegate("combatAI");
                     }
                     break;
                 }
@@ -158,7 +157,7 @@ public class Enemy : Person {
                 isHurt = true;
 
                 int changeTargetRandom = Random.Range(0, 10);
-                if(attackingTarget == false || (attackingTarget && changeTargetRandom >= 5)) {
+                if(personState.stateMachineTargeting == false || (personState.stateMachineTargeting && changeTargetRandom >= 5)) {
                     if(target) {
                         CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
                         if(currentTargetCombat.CirclingListContains(personAgent)) {

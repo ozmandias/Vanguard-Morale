@@ -99,6 +99,7 @@ public class QuestSelectionManager : MonoBehaviour { // for Quest UI
                     .position,
                     Quaternion.identity
                 );
+                // associate object with quest
                 killQuest.toKillList.Add(toKillObject);
             }
         }

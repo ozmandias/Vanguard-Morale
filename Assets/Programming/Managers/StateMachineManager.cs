@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class StateMachineManager : MonoBehaviour {
     Person mainPerson;
+    public StateMachine state = StateMachine.Idle;
+    public bool stateMachineMoving = false;
+    public bool stateMachineTargeting = false;
+    public bool stateMachineAttacking = false;
+    public bool stateMachineWorking = false;
 
     void Start() {
         mainPerson = gameObject.GetComponent<Person>();
@@ -13,97 +18,97 @@ public class StateMachineManager : MonoBehaviour {
 
     void CheckState() {
         if (mainPerson.GetInfo().aiType == AIType.StateMachine) {
-            switch(mainPerson.personState) {
+            switch(state) {
                 case StateMachine.Idle:
                     if(mainPerson.target) {
-                        if(mainPerson.attackingTarget) {
-                            mainPerson.ChangeState(StateMachine.Follow);
+                        if(stateMachineTargeting) {
+                            ChangeState(StateMachine.Follow);
                         }
                     }
                     
                     if(mainPerson.destination) {
-                        if(mainPerson.reachDestination) {
-                            // mainPerson.ChangeState(StateMachine.Work);
+                        if(stateMachineMoving) {
+                            ChangeState(StateMachine.Move);
                         } else {
-                            mainPerson.ChangeState(StateMachine.Move);
+                            // ChangeState(StateMachine.Work);
                         }
                     }
                     break;
                 case StateMachine.Move:
                     if(mainPerson.target) {
-                        if(mainPerson.attackingTarget) {
-                            mainPerson.ChangeState(StateMachine.Follow);
+                        if(stateMachineTargeting) {
+                            ChangeState(StateMachine.Follow);
                         }
                     }
                     
                     if(mainPerson.destination) {
-                        if(mainPerson.reachDestination) {
-                            mainPerson.ChangeState(StateMachine.Idle);
+                        if(!stateMachineMoving) {
+                            ChangeState(StateMachine.Idle);
                         }
                     } else {
-                        mainPerson.ChangeState(StateMachine.Idle);
+                        ChangeState(StateMachine.Idle);
                     }
                     break;
                 case StateMachine.Work:
                     break;
                 case StateMachine.Follow:
                     if(mainPerson.target) {
-                        if(mainPerson.attackingTarget && mainPerson.atAttackDistance) {
-                            mainPerson.ChangeState(StateMachine.Attack);
+                        if(stateMachineTargeting && stateMachineAttacking) {
+                            ChangeState(StateMachine.Attack);
                         }
                     }
 
                     if(mainPerson.destination) {
-                        if(!mainPerson.attackingTarget) {
-                            mainPerson.ChangeState(StateMachine.Move);
+                        if(!stateMachineTargeting) {
+                            ChangeState(StateMachine.Move);
                         }
                     } else {
-                        if(!mainPerson.attackingTarget) {
-                            mainPerson.ChangeState(StateMachine.Idle);
+                        if(!stateMachineTargeting) {
+                            ChangeState(StateMachine.Idle);
                         }
                     }
                     break;
                 case StateMachine.Attack:
                     if(mainPerson.target) {
-                        if(mainPerson.attackingTarget && !mainPerson.atAttackDistance) {
-                            mainPerson.ChangeState(StateMachine.Follow);
+                        if(stateMachineTargeting && !stateMachineAttacking) {
+                            ChangeState(StateMachine.Follow);
                         }
                     }
                     
                     if(mainPerson.destination) {
-                        if(!mainPerson.attackingTarget) {
-                            mainPerson.ChangeState(StateMachine.Move);
+                        if(!stateMachineTargeting) {
+                            ChangeState(StateMachine.Move);
                         }          
                     } else {
-                        if(!mainPerson.attackingTarget) {
-                            mainPerson.ChangeState(StateMachine.Idle);
+                        if(!stateMachineTargeting) {
+                            ChangeState(StateMachine.Idle);
                         }
                     }
                     break;
                 case StateMachine.Combat:
-                    mainPerson.ChangeState(StateMachine.Idle);
+                    ChangeState(StateMachine.Idle);
                     break;
                 case StateMachine.Hurt:
                     if(!mainPerson.GetInfo().isDead) {
                         if(mainPerson.target) {
-                            if(mainPerson.attackingTarget && mainPerson.atAttackDistance) {
-                                mainPerson.ChangeState(StateMachine.Attack);
+                            if(stateMachineTargeting && stateMachineAttacking) {
+                                ChangeState(StateMachine.Attack);
                             } else {
-                                mainPerson.ChangeState(StateMachine.Follow);
+                                ChangeState(StateMachine.Follow);
                             }
                         }
 
                         if(mainPerson.destination) {
-                            if(!mainPerson.attackingTarget) {
-                                mainPerson.ChangeState(StateMachine.Move);
+                            if(!stateMachineTargeting) {
+                                ChangeState(StateMachine.Move);
                             }
                         } else {
-                            if(!mainPerson.attackingTarget) {
-                                mainPerson.ChangeState(StateMachine.Idle);
+                            if(!stateMachineTargeting) {
+                                ChangeState(StateMachine.Idle);
                             }
                         }
                     } else {
-                        mainPerson.ChangeState(StateMachine.Dead);
+                        ChangeState(StateMachine.Dead);
                     }
                     break;
                 default:
@@ -112,10 +117,15 @@ public class StateMachineManager : MonoBehaviour {
 
             if (mainPerson.isHurt)
             {
-                mainPerson.ChangeState(StateMachine.Hurt);
+                ChangeState(StateMachine.Hurt);
             }
         } else if(mainPerson.GetInfo().aiType == AIType.CombatAI) {
-            mainPerson.ChangeState(StateMachine.Combat);
+            ChangeState(StateMachine.Combat);
         }
+    }
+
+    public void ChangeState(StateMachine _state)
+    {
+        state = _state;
     }
 }

@@ -18,8 +18,8 @@ public class DeadState : StateMachineBehaviour {
                     targetCombat.circlingList.Remove(mainPerson.personAgent);
                 }
             }
-            mainPerson.attackingTarget = false;
-            mainPerson.atAttackDistance = false;
+            mainPerson.personState.stateMachineAttacking = false;
+            mainPerson.personState.stateMachineTargeting = false;
             mainPerson.personCombat.circlingList.Clear();
             mainPerson.SetTarget(null);
             mainPerson.GetInfo().MakePerson("dead");

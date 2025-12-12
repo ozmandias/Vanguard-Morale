@@ -42,7 +42,7 @@ public class FollowState : StateMachineBehaviour {
                         targetCombat.circlingList.Add(mainPerson.personAgent);
                     } else if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull()) {
                         mainPerson.SetTarget(null);
-                        mainPerson.attackingTarget = false;
+                        mainPerson.personState.stateMachineTargeting = false;
                         return;
                     }
 
@@ -51,16 +51,16 @@ public class FollowState : StateMachineBehaviour {
                     }
                 } else if(targetDistance <= nearDistance && targetInfo.isDead == false) {
                     mainPerson.personAgent.velocity = Vector3.zero;
-                    mainPerson.atAttackDistance = true;
+                    mainPerson.personState.stateMachineAttacking = true;
                 } else if(targetDistance > followDistance || targetInfo.isDead == true) {
                     if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                         targetCombat.circlingList.Remove(mainPerson.personAgent);
                     }
                     mainPerson.SetTarget(null);
-                    mainPerson.attackingTarget = false;
+                    mainPerson.personState.stateMachineTargeting = false;
                 }
             } else {
-                mainPerson.attackingTarget = false;
+                mainPerson.personState.stateMachineTargeting = false;
             }
         }
     }

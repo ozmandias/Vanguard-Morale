@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 114000624600737640}
   - component: {fileID: 114382510883183128}
   - component: {fileID: 114559051868493206}
+  - component: {fileID: 114708297726018796}
   - component: {fileID: 114925181467406450}
   - component: {fileID: 114458394206028062}
   m_Layer: 0
@@ -1524,6 +1525,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114708297726018796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1763876978638708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a13890c6a8954ab08567409747dcb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114925181467406450
 MonoBehaviour:
   m_ObjectHideFlags: 1
