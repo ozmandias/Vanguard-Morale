@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 114222116187569008}
   - component: {fileID: 114108189219818992}
   - component: {fileID: 114306401919144842}
+  - component: {fileID: 114229754675393196}
   - component: {fileID: 114369827005721928}
   - component: {fileID: 114673837539460900}
   - component: {fileID: 114125604257743030}
@@ -1125,6 +1126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e37f1d9356f4bcbaaf0cef0bfb808c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  stateMachineMoving: 0
+  stateMachineTargeting: 0
+  stateMachineAttacking: 0
+  stateMachineWorking: 0
 --- !u!114 &114125604257743030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1164,6 +1170,8 @@ MonoBehaviour:
   attackNumber: 0
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
+  personState: {fileID: 0}
+  personQuest: {fileID: 0}
   personAgent: {fileID: 0}
   personInfo:
     owner: {fileID: 0}
@@ -1184,15 +1192,9 @@ MonoBehaviour:
     aiType: 0
     stateMachineDead: 0
   personEffect: {fileID: 0}
+  isHurt: 0
   attackFrames: 0
   hurtFrames: 0
-  personState: 0
-  reachDestination: 0
-  attackingTarget: 0
-  atAttackDistance: 0
-  isHurt: 0
-  isMoving: 0
-  preparingAttack: 0
 --- !u!114 &114222116187569008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1205,6 +1207,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 0}
+--- !u!114 &114229754675393196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462443266412426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbcf519d57414d6ebe3760eaae3e834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
+  mainQuest: {fileID: 0}
 --- !u!114 &114306401919144842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1304,6 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a13890c6a8954ab08567409747dcb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasAIChanges: 0
 --- !u!114 &114673837539460900
 MonoBehaviour:
   m_ObjectHideFlags: 1

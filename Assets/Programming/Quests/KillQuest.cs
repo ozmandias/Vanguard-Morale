@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KillQuest : Quest {
+public class KillQuest : Quest { // for UI
     public List<GameObject> toKillList = new List<GameObject>();
 
     public override void StartQuest() {

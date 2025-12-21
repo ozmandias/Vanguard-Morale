@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 114408100305164290}
   - component: {fileID: 114004726108917776}
   - component: {fileID: 114533354163758070}
+  - component: {fileID: 114920202265507766}
   - component: {fileID: 114276422418043388}
   - component: {fileID: 114316805568293834}
   - component: {fileID: 114496764344235626}
@@ -1303,6 +1304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e37f1d9356f4bcbaaf0cef0bfb808c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  stateMachineMoving: 0
+  stateMachineTargeting: 0
+  stateMachineAttacking: 0
+  stateMachineWorking: 0
 --- !u!114 &114103562173904958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1324,6 +1330,7 @@ MonoBehaviour:
   attackNumber: 0
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
+  personState: {fileID: 0}
   personAgent: {fileID: 0}
   personInfo:
     owner: {fileID: 0}
@@ -1344,15 +1351,9 @@ MonoBehaviour:
     aiType: 0
     stateMachineDead: 0
   personEffect: {fileID: 0}
+  isHurt: 0
   attackFrames: 0
   hurtFrames: 0
-  personState: 0
-  reachDestination: 0
-  attackingTarget: 0
-  atAttackDistance: 0
-  isHurt: 0
-  isMoving: 0
-  preparingAttack: 0
 --- !u!114 &114276422418043388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1510,6 +1511,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114920202265507766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422175888338986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbcf519d57414d6ebe3760eaae3e834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
+  mainQuest: {fileID: 0}
 --- !u!114 &114928140394797086
 MonoBehaviour:
   m_ObjectHideFlags: 1

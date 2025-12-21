@@ -73,6 +73,7 @@
      <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
      <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+     <Compile Include="Assets\Programming\AI\AIChanger.cs" />
      <Compile Include="Assets\Programming\Camera\GameCamera.cs" />
      <Compile Include="Assets\Programming\Data\Enums.cs" />
      <Compile Include="Assets\Programming\Data\Events.cs" />
@@ -85,6 +86,7 @@
      <Compile Include="Assets\Programming\Data\ScriptableObjects\QuestScriptableObject.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\SceneScriptableObject.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\WorldScriptableObject.cs" />
+     <Compile Include="Assets\Programming\Data\Serializable\BehaviourSerializable.cs" />
      <Compile Include="Assets\Programming\Data\Serializable\CharacterSerializable.cs" />
      <Compile Include="Assets\Programming\Data\Serializable\ItemSerializable.cs" />
      <Compile Include="Assets\Programming\Data\Serializable\KeyValueSerializables.cs" />
@@ -128,7 +130,6 @@
      <Compile Include="Assets\Programming\Managers\WorldMapSelectionManager.cs" />
      <Compile Include="Assets\Programming\MasterKnight\MasterKnight.cs" />
      <Compile Include="Assets\Programming\MasterKnight\MasterKnightInfo.cs" />
-     <Compile Include="Assets\Programming\People\AIChanger.cs" />
      <Compile Include="Assets\Programming\People\Hero.cs" />
      <Compile Include="Assets\Programming\People\Person.cs" />
      <Compile Include="Assets\Programming\People\PersonInfo.cs" />

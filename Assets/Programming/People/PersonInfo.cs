@@ -71,7 +71,6 @@ using UnityEngine.AI;
                     (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                 ).AddMorality(3);
             }
-            owner.GetComponent<AIChanger>().OnChangeAIDelegate("stateMachine");
             MakePerson("dead");
         }
     }

@@ -1,43 +1,56 @@
 using UnityEngine;
 
-public class QuestManager : MonoBehaviour { // for character
+public class QuestManager : MonoBehaviour { // for AI
     public Person mainPerson;
-    public QuestSerializable toDoQuest;
+    public Quest mainQuest;
 
     void Start() {
-
+        mainPerson = GetComponent<Person>();
+        /*switch(mainQuest.questDetails.questInfo[mainQuest.questInfoId].questType) {
+            case QuestType.Kill:
+                // set up target and destination
+                break;
+            default:
+                break;
+        }*/
     }
 
     void Update() {
-        DoQuest();
-    }
-
-    void DoQuest() {
-
+        if(mainQuest) {
+            switch(mainQuest.questDetails.questInfo[mainQuest.questInfoId].questType) {
+                case QuestType.Kill:
+                    ManageKillQuest();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     // for NPCs
-    void DoKillQuest() {
+    void ManageKillQuest() {
+        if(mainPerson.GetInfo().isDead) {
+            (mainQuest as KillQuest).toKillList.Remove(gameObject);
+        }
+    }
+
+    void ManageCollectQuest() {
 
     }
 
-    void DoCollectQuest() {
+    void ManageTalkQuest() {
 
     }
 
-    void DoTalkQuest() {
+    void ManageTravelQuest() {
 
     }
 
-    void DoTravelQuest() {
+    void ManageProtectQuest() {
 
     }
 
-    void DoProtectQuest() {
-
-    }
-
-    void DoDestroyQuest() {
+    void ManageDestroyQuest() {
 
     }
 }

@@ -12,6 +12,7 @@ public abstract class Quest : MonoBehaviour, QuestInterface {
     }
 
     public QuestSerializable questDetails {get; set;}
+    public int questInfoId {get; set;}
     public bool isActive {get; set;}
     public bool isComplete {get; set;}
     public abstract void StartQuest();

@@ -10,6 +10,7 @@ public class CombatState : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
         mainPerson.personAgent.isStopped = true;
+        mainPerson.personCombat.OnEnemyStart.Invoke(mainPerson as Enemy);
 
         targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;
 
@@ -32,12 +33,17 @@ public class CombatState : StateMachineBehaviour {
             if(targetCombat.CombatingListContains(mainPerson.personAgent)) {
                 targetDistance = Vector3.Distance(targetCombat.transform.position, mainPerson.transform.position);
                 if(targetDistance > followDistance) {
-                    targetCombat.combatingList.Remove(mainPerson.personAgent);
+                    if(targetCombat.CombatingListContains(mainPerson.personAgent)) {
+                        targetCombat.combatingList.Remove(mainPerson.personAgent);
+                    }
                     canCombatTarget = false;
                 }
             }
 
             if(canCombatTarget == false) {
+                if(targetCombat.CombatingListContains(mainPerson.personAgent)) {
+                    targetCombat.combatingList.Remove(mainPerson.personAgent);
+                }
                 //remove from CombatAI List
                 AIManager.instance.RemoveCombatEnemy(mainPerson as Enemy);
                 mainPerson.SetTarget(null);

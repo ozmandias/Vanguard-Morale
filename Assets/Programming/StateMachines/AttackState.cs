@@ -92,6 +92,9 @@ public class AttackState : StateMachineBehaviour {
                     }
                 }
             } else {
+                if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                    targetCombat.circlingList.Remove(mainPerson.personAgent);
+                }
                 mainPerson.personState.stateMachineTargeting = false;
             }
         }

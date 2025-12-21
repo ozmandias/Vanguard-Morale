@@ -17,7 +17,7 @@ public class StateMachineManager : MonoBehaviour {
     }
 
     void CheckState() {
-        if (mainPerson.GetInfo().aiType == AIType.StateMachine) {
+        if (mainPerson.GetInfo().aiType == AIType.StateMachine || mainPerson.GetInfo().aiType == AIType.QuestAI) {
             switch(state) {
                 case StateMachine.Idle:
                     if(mainPerson.target) {

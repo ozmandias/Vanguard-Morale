@@ -46,11 +46,13 @@ public class CombatManager : MonoBehaviour {
     public bool enemyIsStunned = false;
     public bool enemyIsWaiting = true;
     public bool enemyIsAttackable = true;
+    public bool enemyInCombat = false;
     public bool counterAlert = false;
     Coroutine MoveAroundPlayerCoroutine;
     Coroutine AttackPlayerCoroutine;
     Coroutine RetreatFromPlayerCoroutine;
     Coroutine EnemyHurtCoroutine;
+    public EnemyStartEvent OnEnemyStart = new EnemyStartEvent();
     public EnemyStopEvent OnEnemyStop = new EnemyStopEvent();
     public EnemyRetreatEvent OnEnemyRetreat = new EnemyRetreatEvent();
     public EnemyHurtEvent OnEnemyHurt = new EnemyHurtEvent();
@@ -73,6 +75,7 @@ public class CombatManager : MonoBehaviour {
             playerCombat.OnPlayerCounter.AddListener((combatEnemy) => OnPlayerCounterEvent(combatEnemy));
 
             MoveAroundPlayerCoroutine = StartCoroutine(SetMoveAroundPlayerCoroutine());
+            OnEnemyStart.AddListener((combatEnemy) => OnEnemyStartEvent(combatEnemy));
             OnEnemyStop.AddListener((combatEnemy) => OnEnemyCombatStopEvent(combatEnemy));
             OnEnemyHurt.AddListener((combatEnemy) => OnEnemyHurtEvent(combatEnemy));
         }
@@ -91,6 +94,7 @@ public class CombatManager : MonoBehaviour {
             PersonInfo personInfo = characterInfo as PersonInfo;
             if (personInfo.personType == PersonType.Enemy && personInfo.aiType == AIType.CombatAI)
             {
+                (GetComponent<Person>() as Enemy).target = GameManager.instance.playerGameObject;
                 Vector3 playerCombatPosition = GameManager.instance.playerGameObject.transform.position;
                 transform.LookAt(new Vector3(playerCombatPosition.x, transform.position.y, playerCombatPosition.z));
                 MoveAroundPlayer(enemyMoveAroundDirection);
@@ -183,10 +187,6 @@ public class CombatManager : MonoBehaviour {
             combatNumber += 1;
             combatNumber = combatNumber == 3 ? 1 : combatNumber;
             animationManager.Play("Combat" + combatNumber);
-
-            if(currentTarget.GetInfo().aiType == AIType.StateMachine) {
-                currentTarget.GetComponent<AIChanger>().OnChangeAIDelegate("combatAI");
-            }
         }
     }
 
@@ -361,6 +361,9 @@ public class CombatManager : MonoBehaviour {
     {
         if (enemyTarget == this.GetComponent<Enemy>())
         {
+            // send message to AI Changer
+            enemyInCombat = true;
+
             CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
             playerCombat.currentTarget = null;
             playerCombat.managingAttack = false;
@@ -405,9 +408,17 @@ public class CombatManager : MonoBehaviour {
         }
     }
 
+    void OnEnemyStartEvent(Enemy enemy) {
+        if(enemy == this.GetComponent<Enemy>()) {
+            //send message to AI Changer
+            enemyInCombat = true;
+        }
+    }
+
     void OnEnemyCombatStopEvent(Enemy enemy) {
         if(enemy == this.GetComponent<Enemy>()) {
-            this.GetComponent<AIChanger>().OnChangeAIDelegate("stateMachine");
+            // send message to AI Changer
+            enemyInCombat = false;
         }
     }
     #endregion

@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 114007264884203570}
   - component: {fileID: 114639674759352346}
   - component: {fileID: 114866515381667604}
+  - component: {fileID: 114216125027350198}
   - component: {fileID: 114890611710772450}
   - component: {fileID: 114077137483467926}
   - component: {fileID: 114032235182515548}
@@ -1245,6 +1246,19 @@ MonoBehaviour:
   attackEffect: {fileID: 114647082951813818, guid: 22e98316a5e6b46a0a572f82b6640ada,
     type: 2}
   counterEffect: {fileID: 0}
+--- !u!114 &114216125027350198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903520162299222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbcf519d57414d6ebe3760eaae3e834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
+  mainQuest: {fileID: 0}
 --- !u!114 &114358268875241138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1266,6 +1280,8 @@ MonoBehaviour:
   attackNumber: 0
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
+  personState: {fileID: 0}
+  personQuest: {fileID: 0}
   personAgent: {fileID: 0}
   personInfo:
     owner: {fileID: 0}
@@ -1286,15 +1302,9 @@ MonoBehaviour:
     aiType: 0
     stateMachineDead: 0
   personEffect: {fileID: 0}
+  isHurt: 0
   attackFrames: 0
   hurtFrames: 0
-  personState: 0
-  reachDestination: 0
-  attackingTarget: 0
-  atAttackDistance: 0
-  isHurt: 0
-  isMoving: 0
-  preparingAttack: 0
 --- !u!114 &114639674759352346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1306,6 +1316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e37f1d9356f4bcbaaf0cef0bfb808c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  stateMachineMoving: 0
+  stateMachineTargeting: 0
+  stateMachineAttacking: 0
+  stateMachineWorking: 0
 --- !u!114 &114866515381667604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1405,6 +1420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a13890c6a8954ab08567409747dcb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasAIChanges: 0
 --- !u!135 &135710164443855370
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -18,6 +18,7 @@ public class Person : MonoBehaviour {
     public AnimationManager personAnimation;
     public CombatManager personCombat;
     public StateMachineManager personState;
+    public QuestManager personQuest;
     public NavMeshAgent personAgent;
     public NavMeshHit personNavMeshHit;
     public PersonInfo personInfo;
@@ -33,6 +34,7 @@ public class Person : MonoBehaviour {
         personAnimation = GetComponent<AnimationManager>();
         personCombat = GetComponent<CombatManager>();
         personState = GetComponent<StateMachineManager>();
+        personQuest = GetComponent<QuestManager>();
         personAgent = GetComponent<NavMeshAgent>();
         personEffect = GetComponent<EffectManager>();
 
@@ -74,6 +76,10 @@ public class Person : MonoBehaviour {
             {
                 FindTarget();
             }
+        }
+
+        if(personInfo.aiType == AIType.QuestAI && personInfo.stateMachineDead == false) {
+
         }
 
         if (personInfo.isDead == true)

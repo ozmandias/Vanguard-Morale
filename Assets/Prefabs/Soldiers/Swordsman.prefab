@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 114000624600737640}
   - component: {fileID: 114382510883183128}
   - component: {fileID: 114559051868493206}
+  - component: {fileID: 114814268736139978}
   - component: {fileID: 114708297726018796}
   - component: {fileID: 114925181467406450}
   - component: {fileID: 114458394206028062}
@@ -1366,6 +1367,8 @@ MonoBehaviour:
   attackNumber: 0
   personAnimation: {fileID: 0}
   personCombat: {fileID: 0}
+  personState: {fileID: 0}
+  personQuest: {fileID: 0}
   personAgent: {fileID: 0}
   personInfo:
     owner: {fileID: 0}
@@ -1386,15 +1389,9 @@ MonoBehaviour:
     aiType: 0
     stateMachineDead: 0
   personEffect: {fileID: 0}
+  isHurt: 0
   attackFrames: 0
   hurtFrames: 0
-  personState: 0
-  reachDestination: 0
-  attackingTarget: 0
-  atAttackDistance: 0
-  isHurt: 0
-  isMoving: 0
-  preparingAttack: 0
 --- !u!114 &114335793860473584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1419,6 +1416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e37f1d9356f4bcbaaf0cef0bfb808c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  stateMachineMoving: 0
+  stateMachineTargeting: 0
+  stateMachineAttacking: 0
+  stateMachineWorking: 0
 --- !u!114 &114458394206028062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1536,6 +1538,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a13890c6a8954ab08567409747dcb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasAIChanges: 0
+--- !u!114 &114814268736139978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1763876978638708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbcf519d57414d6ebe3760eaae3e834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
+  mainQuest: {fileID: 0}
 --- !u!114 &114925181467406450
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -60,6 +60,9 @@ public class FollowState : StateMachineBehaviour {
                     mainPerson.personState.stateMachineTargeting = false;
                 }
             } else {
+                if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                    targetCombat.circlingList.Remove(mainPerson.personAgent);
+                }
                 mainPerson.personState.stateMachineTargeting = false;
             }
         }

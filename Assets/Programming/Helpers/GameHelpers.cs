@@ -26,6 +26,11 @@ public static class GameHelpers {
         return characterInfo;
     }
 
+    public static CombatManager GetCharacterCombat(GameObject character) {
+        CombatManager characterCombat = character.GetComponent<CombatManager>();
+        return characterCombat;
+    }
+
     public static UIChanger GetUIChanger(string sceneName) {
         UIChanger uiChanger = null;
         switch(sceneName) {

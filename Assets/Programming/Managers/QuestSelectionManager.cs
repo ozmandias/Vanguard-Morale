@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestSelectionManager : MonoBehaviour { // for Quest UI
+public class QuestSelectionManager : MonoBehaviour { // for Quests
     [SerializeField] QuestScriptableObject questScriptableObject;
     [SerializeField] QuestSerializable currentQuest;
     List<QuestSerializable> questList;
@@ -59,7 +59,7 @@ public class QuestSelectionManager : MonoBehaviour { // for Quest UI
 
     void SetupQuest(QuestSerializable questToSetup) {
         // spawn quest giver in the world
-        // spawn quest into UI based on quest type in the world as child of QuestManager
+        // spawn quest into UI based on quest type in the world as child of QuestSelectionManager
         // quest will spawn its associated assets in the world
         // get transform locations from spawn manager and spawn at random locations in the range of the length of spawn locations
         // set asset for spawn manager to spawn
@@ -68,7 +68,7 @@ public class QuestSelectionManager : MonoBehaviour { // for Quest UI
         for(int i = 0; i < questToSetup.questInfo.Length; i = i + 1) {
             switch(questToSetup.questInfo[i].questType) {
                 case QuestType.Kill:
-                    SetupKillQuest(questToSetup.questInfo[i].toKillSpawnSerializables);
+                    SetupKillQuest(questToSetup, i);
                     break;
                 case QuestType.Collect:
                     break;
@@ -86,8 +86,13 @@ public class QuestSelectionManager : MonoBehaviour { // for Quest UI
         }
     }
 
-    void SetupKillQuest(ToKillSpawnSerializable []toKillSpawnSerializables) {
+    void SetupKillQuest(QuestSerializable questToSetup, int questInfoLocation) {
+        ToKillSpawnSerializable []toKillSpawnSerializables = questToSetup.questInfo[questInfoLocation].toKillSpawnSerializables;
+        
         KillQuest killQuest = Instantiate(questDictionary["Kill"], transform).GetComponent<KillQuest>();
+        killQuest.questDetails = questToSetup;
+        killQuest.questInfoId = questInfoLocation;
+
         for(int i = 0; i < toKillSpawnSerializables.Length; i = i + 1) {
             toKillSpawnSerializables[i].spawnTransforms = SpawnManager.instance.spawnLocations;
             for(int j = 0; j < toKillSpawnSerializables[i].spawnCount; j = j + 1) {
@@ -99,8 +104,11 @@ public class QuestSelectionManager : MonoBehaviour { // for Quest UI
                     .position,
                     Quaternion.identity
                 );
-                // associate object with quest
                 killQuest.toKillList.Add(toKillObject);
+                
+                // associate object with quest action
+                QuestManager toKillQuestManager = toKillObject.GetComponent<QuestManager>();
+                toKillQuestManager.mainQuest = killQuest;
             }
         }
     }

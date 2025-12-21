@@ -4,6 +4,7 @@ using UnityEngine.UI;
 // toKillSpawn
 [System.Serializable] public class ToKillSpawnSerializable : Spawn {
     public PersonType personType;
+    public BehaviourSerializable behaviourSerializable;
 }
 
 // toCollectSpawn
@@ -13,7 +14,7 @@ using UnityEngine.UI;
 
 // toTalkSpawn
 [System.Serializable] public class ToTalkSpawnSerializble : Spawn {
-
+    public PersonType personType;
 }
 
 // toTravelSpawn
@@ -23,7 +24,7 @@ using UnityEngine.UI;
 
 // toProtectSpawn
 [System.Serializable] public class ToProtectSpawnSerializable : Spawn {
-
+    public PersonType personType;
 }
 
 // toDestroySpawn

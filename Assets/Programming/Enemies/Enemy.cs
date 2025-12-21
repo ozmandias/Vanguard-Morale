@@ -134,9 +134,6 @@ public class Enemy : Person {
                 {
                     nearestDistance = targetDistance;
                     SetTarget(target);
-                    if(target == targetPlayer) {
-                        GetComponent<AIChanger>().OnChangeAIDelegate("combatAI");
-                    }
                     break;
                 }
             }
