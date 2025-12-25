@@ -17,7 +17,7 @@ public class StateMachineManager : MonoBehaviour {
     }
 
     void CheckState() {
-        if (mainPerson.GetInfo().aiType == AIType.StateMachine || mainPerson.GetInfo().aiType == AIType.QuestAI) {
+        if ((mainPerson.GetInfo().aiType == AIType.StateMachine || mainPerson.GetInfo().aiType == AIType.QuestAI) && mainPerson.GetInfo().stateMachineDead == false) {
             switch(state) {
                 case StateMachine.Idle:
                     if(mainPerson.target) {
@@ -118,6 +118,10 @@ public class StateMachineManager : MonoBehaviour {
             if (mainPerson.isHurt)
             {
                 ChangeState(StateMachine.Hurt);
+            }
+
+            if(mainPerson.GetInfo().isDead == true && mainPerson.GetInfo().stateMachineDead == false){
+                ChangeState(StateMachine.Dead);
             }
         } else if(mainPerson.GetInfo().aiType == AIType.CombatAI) {
             ChangeState(StateMachine.Combat);

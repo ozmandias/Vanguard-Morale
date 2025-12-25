@@ -6,7 +6,6 @@ using UnityEngine.AI;
     public PersonType personType = PersonType.Normal;
     public AIType aiType = AIType.StateMachine;
     public bool stateMachineDead = false;
-    public bool aiDead = false;
 
     public /*PersonInfo() : base()*/ void Init(GameObject owner)
     {
@@ -64,6 +63,9 @@ using UnityEngine.AI;
             if ((attackerInfo is VanguardInfo || attackerInfo is PlayerInfo) && personType == PersonType.Enemy)
             {
                 Person mainPerson = owner.GetComponent<Person>();
+                if(mainPerson.target.GetComponent<CombatManager>().CombatingListContains(mainPerson.personAgent)) {
+                    mainPerson.target.GetComponent<CombatManager>().combatingList.Remove(mainPerson.personAgent);
+                }
                 (
                     GameManager.instance.currentPlayer == PlayerCharacter.Vanguard
                     ?
@@ -72,11 +74,10 @@ using UnityEngine.AI;
                     (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                 ).AddMorality(3);
             }
-            MakePerson("dead");
         }
     }
 
-    public void MakePerson(string makeStatus) {
+    public void MakeLife(string makeStatus) {
         Person mainPerson = owner.GetComponent<Person>();
         if(makeStatus == "alive") {
             AddHealth(MaxHealth);

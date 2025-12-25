@@ -1,4 +1,4 @@
-Master Knight
+Vanguard (Master Knight)
 Enemy Guard (done)
 Cyber Knight (in progress)
 Spawn Manager (done, needs improvements)
@@ -31,6 +31,8 @@ Vanguard Morale Game Programming - Has Electricity i
 
 Character Name - Vanguard - Sir Van Davian, Duke - Henrique
 Rename MasterKnight Programming to Vanguard.
+Rename Hero to Duke.
+Rename CyberKnight to CyberVanguard.
 
 Make Vanguard Programming universal to central playable characters. (Has Arkham Combat)
 Use Player Programming for switching to make any character playable.
@@ -123,12 +125,12 @@ Quest specific Behaviours will be assigned on Quest Setup
 Quest specific Behaviour Data -> SpawnSerializable -> Quest AI (inherited from Person) -> Different Update()
 
 AI Programming
-Make StateMachines, CombatAI, QuestAI and BossAI are managed by one AI Changer on each AIs
+Make StateMachines, CombatAI, QuestAI and BossAI are managed by one AI Changer on each AIs (done)
 During Quest, QuestAI can also be a CombatAI with StateMachine's States when encountering with the Player
 Rename ...State to ...StateMachine (no need)
 Call AIChanger from Manager classes
 StateMachines - Find and Attack target after reaching destination
-CombatAI - Remove from circlingList after death, turn off CounterAlert when AI chages or dies, change to StateMachine on death
+CombatAI - Remove from circlingList/combatingList after death, turn off CounterAlert when AI chages or dies, change to StateMachine on death
 
 CombatManager
 Change CombatAI from enemy only to every person type

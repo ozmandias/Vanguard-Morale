@@ -135,7 +135,7 @@ public class Person : MonoBehaviour {
     public virtual void Resurrect()
     {
         personInfo.isDead = false;
-        personInfo.MakePerson("alive");
+        personInfo.MakeLife("alive");
     }
 
     public virtual void HurtByOther(Info attackerInfo) {

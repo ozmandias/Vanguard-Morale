@@ -607,7 +607,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Choose your Character
+  m_Text: Select your character
 --- !u!114 &114115839619002804
 MonoBehaviour:
   m_ObjectHideFlags: 1
