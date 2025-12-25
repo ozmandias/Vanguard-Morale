@@ -1674,9 +1674,13 @@ MonoBehaviour:
   maxCombatingEnemies: 5
   characterInfo:
     owner: {fileID: 0}
+    strength: 0
+    agility: 0
+    intelligence: 0
     health: 0
     MaxHealth: 100
     damage: 0
+    magic: 0
     morality: 50
     alignment: 50
     gender: 0
@@ -1723,7 +1727,13 @@ MonoBehaviour:
   enemyIsStunned: 0
   enemyIsWaiting: 1
   enemyIsAttackable: 1
+  enemyInCombat: 0
   counterAlert: 0
+  OnEnemyStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyStartEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   OnEnemyStop:
     m_PersistentCalls:
       m_Calls: []
@@ -1768,7 +1778,7 @@ MonoBehaviour:
   gravity: 9.81
   isJumping: 0
   isGrounded: 1
-  groundCheckDistance: 5
+  groundCheckDistance: 6
   isAttacking: 0
   attackNumber: 0
   attackTimer: 0
@@ -1779,9 +1789,13 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   playerInfo:
     owner: {fileID: 0}
+    strength: 0
+    agility: 0
+    intelligence: 0
     health: 0
     MaxHealth: 100
     damage: 0
+    magic: 0
     morality: 50
     alignment: 50
     gender: 0

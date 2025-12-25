@@ -7901,7 +7901,7 @@ GameObject:
   - component: {fileID: 1476412501}
   - component: {fileID: 1476412500}
   m_Layer: 5
-  m_Name: MasterKnightProfile
+  m_Name: VanguardProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9998,7 +9998,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 751acd1259d1b499f94ee3520a04e9b5, type: 3}
       propertyPath: m_Name
-      value: MasterKnightCharacter
+      value: VanguardCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 751acd1259d1b499f94ee3520a04e9b5, type: 3}
       propertyPath: m_Controller

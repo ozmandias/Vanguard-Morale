@@ -12,7 +12,7 @@ public class CombatState : StateMachineBehaviour {
         mainPerson.personAgent.isStopped = true;
         mainPerson.personCombat.OnEnemyStart.Invoke(mainPerson as Enemy);
 
-        targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;
+        targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;
 
         targetCombat = mainPerson.target.GetComponent<CombatManager>();
         if(targetCombat.CombatingListContains(mainPerson.personAgent) == false && targetCombat.IsCombatingListFull() == false) {

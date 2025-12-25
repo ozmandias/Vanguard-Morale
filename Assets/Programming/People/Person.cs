@@ -176,7 +176,7 @@ public class Person : MonoBehaviour {
     float hitRate = 1f;
     public virtual void OnTriggerEnter(Collider otherCollider)
     {
-        if (otherCollider.gameObject.CompareTag("MasterKnightAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider"))
+        if (otherCollider.gameObject.CompareTag("VanguardAttackCollider") || otherCollider.gameObject.CompareTag("PlayerAttackCollider"))
         {
             if (/*collision == false && Time.time > nextHurtTime &&*/ personInfo.isDead == false)
             {

@@ -13,9 +13,15 @@ public class DeadState : StateMachineBehaviour {
             if (mainPerson.target)
             {
                 CombatManager targetCombat = mainPerson.target.GetComponent<CombatManager>();
-                if (targetCombat.CirclingListContains(mainPerson.personAgent))
-                {
-                    targetCombat.circlingList.Remove(mainPerson.personAgent);
+                if(mainPerson.target.CompareTag("Player")) {
+                    if(targetCombat.CombatingListContains(mainPerson.personAgent)) {
+                        targetCombat.combatingList.Remove(mainPerson.personAgent);
+                    }
+                } else if(mainPerson.target.CompareTag("Person")) {
+                    if (targetCombat.CirclingListContains(mainPerson.personAgent))
+                    {
+                        targetCombat.circlingList.Remove(mainPerson.personAgent);
+                    }
                 }
             }
             mainPerson.personState.stateMachineAttacking = false;

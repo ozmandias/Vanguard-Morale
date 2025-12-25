@@ -61,11 +61,11 @@ public class CombatManager : MonoBehaviour {
     {
         animationManager = GetComponent<AnimationManager>();
         effectManager = GetComponent<EffectManager>();
-        characterInfo = gameObject.CompareTag("Player") ? gameObject.name == PlayerCharacter.MasterKnight.ToString() ? (Info)GetComponent<MasterKnight>().GetInfo() : (Info)GetComponent<Player>().GetInfo() : (Info)GetComponent<Person>().GetInfo();
-        if (characterInfo is MasterKnightInfo || characterInfo is PlayerInfo)
+        characterInfo = gameObject.CompareTag("Player") ? gameObject.name == PlayerCharacter.Vanguard.ToString() ? (Info)GetComponent<Vanguard>().GetInfo() : (Info)GetComponent<Player>().GetInfo() : (Info)GetComponent<Person>().GetInfo();
+        if (characterInfo is VanguardInfo || characterInfo is PlayerInfo)
         {
             playerCamera = Camera.main;
-            combatCollider = characterInfo is MasterKnightInfo ? GameObject.FindWithTag("MasterKnightAttackCollider").GetComponent<Collider>() : GameObject.FindWithTag("PlayerAttackCollider").GetComponent<Collider>();
+            combatCollider = characterInfo is VanguardInfo ? GameObject.FindWithTag("VanguardAttackCollider").GetComponent<Collider>() : GameObject.FindWithTag("PlayerAttackCollider").GetComponent<Collider>();
         }
         else if (characterInfo is PersonInfo && GameManager.instance.playerGameObject)
         {
@@ -83,7 +83,7 @@ public class CombatManager : MonoBehaviour {
 
     void Update()
     {
-        if (characterInfo is MasterKnightInfo || characterInfo is PlayerInfo)
+        if (characterInfo is VanguardInfo || characterInfo is PlayerInfo)
         {
             CheckEnemies();
             AttackTarget();

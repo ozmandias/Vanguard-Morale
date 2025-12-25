@@ -26,7 +26,7 @@ public enum StateMachine {
 }
 
 public enum PlayerCharacter {
-    MasterKnight,
+    Vanguard,
     Hero
 }
 

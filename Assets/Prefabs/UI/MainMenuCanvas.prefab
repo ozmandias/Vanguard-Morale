@@ -607,7 +607,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Choose your Vanguard
+  m_Text: Choose your Character
 --- !u!114 &114115839619002804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1495,7 +1495,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Master Knight
+  m_Text: Vanguard
 --- !u!114 &114647775444858536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2108,18 +2108,48 @@ MonoBehaviour:
   characterContainer: {fileID: 1945236652283524}
   characterDetails:
     character: 0
+    characterName: 
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
-    characterName: 
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   characterDetailsList:
   - character: 0
+    characterName: Master Knight
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 21300000, guid: 725356fcb61d84f8a890faea0fc0e0a3, type: 3}
     profileSprite: {fileID: 21300000, guid: 80dab204160dc41e59745a5e89815d02, type: 3}
-    characterName: Master Knight
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   - character: 1
+    characterName: Hero
+    characterIdentity: 
+    characterDescription: 
     characterSprite: {fileID: 21300000, guid: 9eae50964dde14fd9a543436327d44c3, type: 3}
     profileSprite: {fileID: 21300000, guid: c32afeab18bd14e6490c215fa7babce8, type: 3}
-    characterName: Hero
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
   nextButton: {fileID: 114402113894367108}
   previousButton: {fileID: 114916585507416092}
 --- !u!114 &114944779615252374

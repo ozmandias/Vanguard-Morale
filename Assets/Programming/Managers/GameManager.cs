@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 
 	[Header("Player Character")]
-	public PlayerCharacter currentPlayer = PlayerCharacter.MasterKnight; // for checking
+	public PlayerCharacter currentPlayer = PlayerCharacter.Vanguard; // for checking
 	public GameObject playerGameObject; // for value
 	public GameObject []playerCharacters;
 
@@ -92,17 +92,17 @@ public class GameManager : MonoBehaviour {
 	void SetPlayer() {
 		currentPlayer = GlobalData.characterDetails.character /*CharacterSelectController.instance.characterDetails.character*/;
 
-		GameObject masterKnightObject = null;
+		GameObject vanguardObject = null;
 		GameObject heroObject = null;
 		if (playerCharacters.Length > 0)
 		{
 			foreach (GameObject playerCharacter in playerCharacters)
 			{
-				if (playerCharacter.name == PlayerCharacter.MasterKnight.ToString())
+				if (playerCharacter.name == PlayerCharacter.Vanguard.ToString())
 				{
-					// playerCharacters[0]/*GameObject.Find("MasterKnight")*/
-					playerCharacter.GetComponent<MasterKnight>().enabled = currentPlayer == PlayerCharacter.MasterKnight ? true : false;
-					masterKnightObject = playerCharacter;
+					// playerCharacters[0]/*GameObject.Find("Vanguard")*/
+					playerCharacter.GetComponent<Vanguard>().enabled = currentPlayer == PlayerCharacter.Vanguard ? true : false;
+					vanguardObject = playerCharacter;
 				}
 				if (playerCharacter.name == PlayerCharacter.Hero.ToString())
 				{
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 
-			playerGameObject = currentPlayer == PlayerCharacter.MasterKnight ? masterKnightObject : heroObject /*GameObject.Find(currentPlayer.ToString())*/;
+			playerGameObject = currentPlayer == PlayerCharacter.Vanguard ? vanguardObject : heroObject /*GameObject.Find(currentPlayer.ToString())*/;
 		}
 	}
 }

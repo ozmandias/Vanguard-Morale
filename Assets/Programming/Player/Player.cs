@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
     public float gravity = 9.81f;
     public bool isJumping = false;
     public bool isGrounded = true;
-    public float groundCheckDistance = 1f;
+    public float groundCheckDistance = 6f;
 
     [Header("Attack Settings")]
     public bool isAttacking = false;

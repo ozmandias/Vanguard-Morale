@@ -128,8 +128,6 @@
      <Compile Include="Assets\Programming\Managers\StateMachineManager.cs" />
      <Compile Include="Assets\Programming\Managers\UIManager.cs" />
      <Compile Include="Assets\Programming\Managers\WorldMapSelectionManager.cs" />
-     <Compile Include="Assets\Programming\MasterKnight\MasterKnight.cs" />
-     <Compile Include="Assets\Programming\MasterKnight\MasterKnightInfo.cs" />
      <Compile Include="Assets\Programming\People\Hero.cs" />
      <Compile Include="Assets\Programming\People\Person.cs" />
      <Compile Include="Assets\Programming\People\PersonInfo.cs" />
@@ -163,6 +161,8 @@
      <Compile Include="Assets\Programming\UI\UIChanger.cs" />
      <Compile Include="Assets\Programming\UI\UIObject.cs" />
      <Compile Include="Assets\Programming\UI\WorldMapSelection\WorldMapSelectionObject.cs" />
+     <Compile Include="Assets\Programming\Vanguard\Vanguard.cs" />
+     <Compile Include="Assets\Programming\Vanguard\VanguardInfo.cs" />
      <Compile Include="Assets\ScreenShooter\Demo\Scripts\Rotator.cs" />
      <None Include="Assets\Design\kenney_fantasy-ui-borders\License.txt" />
      <None Include="Assets\Design\FlatLighting\Shaders\cginc\BlendModes.cginc" />

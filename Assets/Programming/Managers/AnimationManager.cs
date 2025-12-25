@@ -95,7 +95,7 @@ public class AnimationManager : MonoBehaviour {
         var combatManager = GetComponent<CombatManager>();
         if (combatEventParameter == "hit")
         {
-            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            if (combatManager.characterInfo is VanguardInfo || combatManager.characterInfo is PlayerInfo)
             {
                 combatManager.OnPlayerCombat.Invoke(combatManager.currentTarget);
                 // combat particles
@@ -103,7 +103,7 @@ public class AnimationManager : MonoBehaviour {
         }
         else if (combatEventParameter == "end")
         {
-            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            if (combatManager.characterInfo is VanguardInfo || combatManager.characterInfo is PlayerInfo)
             {
                 combatManager.managingMove = false;
                 Play("Default");
@@ -121,14 +121,14 @@ public class AnimationManager : MonoBehaviour {
         var combatManager = GetComponent<CombatManager>();
         if (counterEventParameter == "start")
         {
-            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            if (combatManager.characterInfo is VanguardInfo || combatManager.characterInfo is PlayerInfo)
             {
                 combatManager.OnPlayerCounter.Invoke(combatManager.currentTarget);
             }
         }
         else if (counterEventParameter == "end")
         {
-            if (combatManager.characterInfo is MasterKnightInfo || combatManager.characterInfo is PlayerInfo)
+            if (combatManager.characterInfo is VanguardInfo || combatManager.characterInfo is PlayerInfo)
             {
                 combatManager.managingMove = false;
                 combatManager.managingAttack = false;

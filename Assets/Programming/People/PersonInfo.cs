@@ -6,6 +6,7 @@ using UnityEngine.AI;
     public PersonType personType = PersonType.Normal;
     public AIType aiType = AIType.StateMachine;
     public bool stateMachineDead = false;
+    public bool aiDead = false;
 
     public /*PersonInfo() : base()*/ void Init(GameObject owner)
     {
@@ -25,15 +26,15 @@ using UnityEngine.AI;
     {
         base.ReduceHealth(attackerInfo.damage);
         if (isDead == true) {
-            if (attackerInfo is MasterKnightInfo || attackerInfo is PlayerInfo)
+            if (attackerInfo is VanguardInfo || attackerInfo is PlayerInfo)
             {
                 switch (personType)
                 {
                     case PersonType.Enemy:
                         if(GameManager.instance.playerGameObject) (
-                            GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
+                            GameManager.instance.currentPlayer == PlayerCharacter.Vanguard
                             ?
-                            (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
+                            (Info) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
                             :
                             (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                         ).AddMorality(3);
@@ -42,9 +43,9 @@ using UnityEngine.AI;
                         break;
                     case PersonType.Friend:
                         if(GameManager.instance.playerGameObject) (
-                            GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
+                            GameManager.instance.currentPlayer == PlayerCharacter.Vanguard
                             ?
-                            (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
+                            (Info) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
                             :
                             (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                         ).ReduceMorality(6);
@@ -60,13 +61,13 @@ using UnityEngine.AI;
         base.ReduceHealth(attackerInfo.damage);
 
         if(isDead == true) {
-            if ((attackerInfo is MasterKnightInfo || attackerInfo is PlayerInfo) && personType == PersonType.Enemy)
+            if ((attackerInfo is VanguardInfo || attackerInfo is PlayerInfo) && personType == PersonType.Enemy)
             {
                 Person mainPerson = owner.GetComponent<Person>();
                 (
-                    GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight
+                    GameManager.instance.currentPlayer == PlayerCharacter.Vanguard
                     ?
-                    (Info) GameManager.instance.playerGameObject.GetComponent<MasterKnight>().GetInfo()
+                    (Info) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
                     :
                     (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                 ).AddMorality(3);

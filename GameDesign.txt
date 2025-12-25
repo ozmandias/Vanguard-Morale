@@ -49,6 +49,15 @@ Scale Playable Characters size to 1
 Scale Environment Larger
 Arena Mode
 
+Vanguard
+Rename MasterKnight to Vanguard
+Vanguard is for every hero in the game
+Vanguard will have Arkham Combat
+
+Player
+Player is for any playable characters in the game
+Player will not have Arkham Combat
+
 Arkham Combat
 - adapt combat manager events to github -> OnCombat(done), OnMove(done), OnDamage(done)
 - fix Player's managingAttack issue(done)
@@ -118,6 +127,11 @@ Make StateMachines, CombatAI, QuestAI and BossAI are managed by one AI Changer o
 During Quest, QuestAI can also be a CombatAI with StateMachine's States when encountering with the Player
 Rename ...State to ...StateMachine (no need)
 Call AIChanger from Manager classes
+StateMachines - Find and Attack target after reaching destination
+CombatAI - Remove from circlingList after death, turn off CounterAlert when AI chages or dies, change to StateMachine on death
+
+CombatManager
+Change CombatAI from enemy only to every person type
 
 Character Selection - To Fix (done)
 DoTween doesn't work on changing scenes - problem was caused by having zero as original scale value for character in CharacterSelectionObject

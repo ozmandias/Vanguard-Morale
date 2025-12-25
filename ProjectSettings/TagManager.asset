@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Enemy
   - Runnable
-  - MasterKnightAttackCollider
   - EnemyAttackCollider
   - PlayerAttackCollider
   - PersonAttackCollider
@@ -14,6 +13,7 @@ TagManager:
   - RaycastShooter
   - Person
   - Boss
+  - VanguardAttackCollider
   layers:
   - Default
   - TransparentFX

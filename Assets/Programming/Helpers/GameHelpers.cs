@@ -19,7 +19,7 @@ public static class GameHelpers {
     public static Info GetCharacterInfo(GameObject character) {
         Info characterInfo = null;
         if(character.CompareTag("Player")) {
-            characterInfo = GameManager.instance.currentPlayer == PlayerCharacter.MasterKnight ? character.GetComponent<MasterKnight>().GetInfo() as Info : character.GetComponent<Player>().GetInfo() as Info;
+            characterInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? character.GetComponent<Vanguard>().GetInfo() as Info : character.GetComponent<Player>().GetInfo() as Info;
         } else if(character.CompareTag("Person") || character.CompareTag("Boss")) {
             characterInfo = character.GetComponent<Person>().GetInfo() as Info;
         }

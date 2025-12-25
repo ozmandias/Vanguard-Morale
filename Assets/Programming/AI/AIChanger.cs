@@ -19,7 +19,7 @@ public class AIChanger : MonoBehaviour {
     }
 
     void CheckAI() {
-        if(mainPerson.GetInfo().stateMachineDead == false) {
+        if(mainPerson.GetInfo().aiDead == false) {
             switch(mainPerson.GetInfo().aiType) {
                 case AIType.StateMachine:
                     if(mainPerson.personQuest.mainQuest) {
@@ -70,6 +70,7 @@ public class AIChanger : MonoBehaviour {
 
             if(mainPerson.GetInfo().isDead) {
                 ChangeAI("stateMachine");
+                mainPerson.GetInfo().aiDead = true;
             }
         }
     }
