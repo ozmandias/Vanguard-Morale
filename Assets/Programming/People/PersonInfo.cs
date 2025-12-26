@@ -55,27 +55,6 @@ using UnityEngine.AI;
             }
         }
     }
-    
-    public void CombatReduceHealth(Info attackerInfo) {
-        base.ReduceHealth(attackerInfo.damage);
-
-        if(isDead == true) {
-            if ((attackerInfo is VanguardInfo || attackerInfo is PlayerInfo) && personType == PersonType.Enemy)
-            {
-                Person mainPerson = owner.GetComponent<Person>();
-                if(mainPerson.target.GetComponent<CombatManager>().CombatingListContains(mainPerson.personAgent)) {
-                    mainPerson.target.GetComponent<CombatManager>().combatingList.Remove(mainPerson.personAgent);
-                }
-                (
-                    GameManager.instance.currentPlayer == PlayerCharacter.Vanguard
-                    ?
-                    (Info) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
-                    :
-                    (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
-                ).AddMorality(3);
-            }
-        }
-    }
 
     public void MakeLife(string makeStatus) {
         Person mainPerson = owner.GetComponent<Person>();

@@ -129,8 +129,9 @@ Make StateMachines, CombatAI, QuestAI and BossAI are managed by one AI Changer o
 During Quest, QuestAI can also be a CombatAI with StateMachine's States when encountering with the Player
 Rename ...State to ...StateMachine (no need)
 Call AIChanger from Manager classes
+Change StateMachine to CombatAI when Player attacks Enemy
 StateMachines - Find and Attack target after reaching destination
-CombatAI - Remove from circlingList/combatingList after death, turn off CounterAlert when AI chages or dies, change to StateMachine on death
+CombatAI - Remove from circlingList/combatingList after death, turn off CounterAlert when AI chages or dies, change to StateMachine on death (done)
 
 CombatManager
 Change CombatAI from enemy only to every person type

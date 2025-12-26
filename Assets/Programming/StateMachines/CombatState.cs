@@ -12,6 +12,7 @@ public class CombatState : StateMachineBehaviour {
         mainPerson.personAgent.isStopped = true;
         mainPerson.personCombat.OnEnemyStart.Invoke(mainPerson as Enemy);
 
+        mainPerson.SetTarget(GameManager.instance.playerGameObject);
         targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;
 
         targetCombat = mainPerson.target.GetComponent<CombatManager>();

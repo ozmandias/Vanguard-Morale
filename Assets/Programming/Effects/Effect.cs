@@ -10,21 +10,10 @@ public class Effect : MonoBehaviour {
 
     void Start() {
         particle = GetComponent<ParticleSystem>();
-        
-        if(effectType == EffectType.Play) {
-            owner = transform.parent.gameObject;
-        }
     }
 
     void Update() {
-        if(effectType == EffectType.Play) {
-            if(owner.CompareTag("Person")) {
-                if(particle.main.loop && particle.isPlaying && owner.GetComponent<Person>().GetInfo().isDead) {
-                    particle.Clear();
-                    particle.Stop();
-                }
-            }
-        }
+
     }
 
     public void Play() {

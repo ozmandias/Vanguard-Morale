@@ -374,7 +374,7 @@ public class CombatManager : MonoBehaviour {
             // enemyIsStunned = true;
             EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
             enemyIsPlayerTarget = false;
-            enemyTarget.GetInfo().CombatReduceHealth(playerCombat.characterInfo/*.damage*/); // <- after this line, set Enemy's availiability to false on Enemy's death
+            enemyTarget.GetInfo().ReduceHealth(playerCombat.characterInfo/*.damage*/); // <- after this line, set Enemy's availiability to false on Enemy's death
             if (characterInfo.isDead)
             {
                 available = false;
@@ -417,6 +417,7 @@ public class CombatManager : MonoBehaviour {
 
     void OnEnemyCombatStopEvent(Enemy enemy) {
         if(enemy == this.GetComponent<Enemy>()) {
+            StopEnemyCoroutines();
             // send message to AI Changer
             enemyInCombat = false;
         }

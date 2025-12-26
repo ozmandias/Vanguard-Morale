@@ -42,10 +42,10 @@ public class EffectManager : MonoBehaviour {
     }
 
     IEnumerator SetEffectCoroutine(Effect effect, string effectSwitch) {
-        if(effect == counterEffect) {
-            yield return new WaitUntil(() => GetComponent<CombatManager>().counterAlert == true);
-        }
         if (effectSwitch == "on") {
+            if(effect == counterEffect) {
+                yield return new WaitUntil(() => GetComponent<CombatManager>().counterAlert == true);
+            }
             effect.Play();
         } else {
             effect.Clear();

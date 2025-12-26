@@ -138,7 +138,7 @@ public class AnimationManager : MonoBehaviour {
             else
             {
                 combatManager.enemyIsStunned = false;
-                GetComponent<Person>().GetInfo().CombatReduceHealth(GameManager.instance.playerGameObject.GetComponent<CombatManager>().characterInfo/*.damage*/);
+                GetComponent<Person>().GetInfo().ReduceHealth(GameManager.instance.playerGameObject.GetComponent<CombatManager>().characterInfo/*.damage*/);
                 if (combatManager.characterInfo.isDead)
                 {
                     combatManager.available = false;
