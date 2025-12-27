@@ -32,9 +32,9 @@ public class AIChanger : MonoBehaviour {
                         }
 
                         if(
-                            (mainPerson.target == GameManager.instance.playerGameObject || mainPerson.personCombat.enemyInCombat)
-                            &&
-                            GameHelpers.GetCharacterCombat(GameManager.instance.playerGameObject).IsCombatingListFull() == false
+                            (mainPerson.GetInfo().personType == PersonType.Enemy && mainPerson.target == GameManager.instance.playerGameObject)
+                            ||
+                            mainPerson.personCombat.enemyInCombat
                         )
                         {
                             ChangeAI("combatAI");
@@ -46,11 +46,9 @@ public class AIChanger : MonoBehaviour {
                         }
 
                         if(
-                            ((mainPerson.GetInfo().personType == PersonType.Enemy && mainPerson.target == GameManager.instance.playerGameObject)
+                            (mainPerson.GetInfo().personType == PersonType.Enemy && mainPerson.target == GameManager.instance.playerGameObject)
                             ||
-                            (mainPerson.personCombat.enemyInCombat))
-                            &&
-                            (GameHelpers.GetCharacterCombat(GameManager.instance.playerGameObject).IsCombatingListFull() == false)
+                            mainPerson.personCombat.enemyInCombat
                         )
                         {
                             ChangeAI("combatAI");
@@ -72,7 +70,6 @@ public class AIChanger : MonoBehaviour {
                 }
             } else {
                 ChangeAI("stateMachine");
-                aiChangerRunning = false;
             }
         }
     }

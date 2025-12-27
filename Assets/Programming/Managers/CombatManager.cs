@@ -416,7 +416,7 @@ public class CombatManager : MonoBehaviour {
     }
 
     void OnEnemyCombatStopEvent(Enemy enemy) {
-        if(enemy == this.GetComponent<Enemy>()) {
+        if(enemy == this.GetComponent<Enemy>() && enemy.personCombat.enemyIsStunned == false) {
             StopEnemyCoroutines();
             // send message to AI Changer
             enemyInCombat = false;
@@ -521,5 +521,10 @@ public class CombatManager : MonoBehaviour {
         enemyIsStunned = true;
         yield return new WaitForSeconds(0.5f);
         enemyIsStunned = false;
+    }
+
+    IEnumerator EnemyCombatStopEventCoroutine() {
+        // this coroutine is making combatAIs not to attack player.
+        yield return null;
     }
 }

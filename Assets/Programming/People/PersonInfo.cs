@@ -65,6 +65,7 @@ using UnityEngine.AI;
             stateMachineDead = false;
             personRagdollManager.DisableRagdoll();
             owner.GetComponent<StateMachineManager>().ChangeState(StateMachine.Idle);
+            owner.GetComponent<AIChanger>().aiChangerRunning = true;
         } else if(makeStatus == "dead") {
             mainPerson.personAgent.enabled = false;
             mainPerson.personCombat.enemyIsAttackable = false;
@@ -77,6 +78,7 @@ using UnityEngine.AI;
                 mainPerson.weapon.AddComponent<BoxCollider>();
             }
             owner.GetComponent<StateMachineManager>().ChangeState(StateMachine.Dead);
+            owner.GetComponent<AIChanger>().aiChangerRunning = false;
         }
     }
 }
