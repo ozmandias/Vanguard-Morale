@@ -14,3 +14,5 @@ using UnityEngine.Events;
 [System.Serializable] public class EnemyHurtEvent : UnityEvent<Enemy> { }
 
 [System.Serializable] public class AgentsCircleEvent : UnityEvent<List<NavMeshAgent>, Transform, CircleType> { }
+
+[System.Serializable] public class CombatAISetupEvent: UnityEvent<Enemy> { }

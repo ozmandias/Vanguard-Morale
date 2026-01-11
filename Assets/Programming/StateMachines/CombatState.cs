@@ -11,6 +11,7 @@ public class CombatState : StateMachineBehaviour {
         mainPerson = animator.gameObject.GetComponent<Person>();
         mainPerson.personAgent.isStopped = true;
         mainPerson.personCombat.OnEnemyStart.Invoke(mainPerson as Enemy);
+        AIManager.instance.SetEnemyAvailable(mainPerson as Enemy, true);
 
         mainPerson.SetTarget(GameManager.instance.playerGameObject);
         targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;
@@ -45,8 +46,9 @@ public class CombatState : StateMachineBehaviour {
                 if(targetCombat.CombatingListContains(mainPerson.personAgent)) {
                     targetCombat.combatingList.Remove(mainPerson.personAgent);
                 }
-                //remove from CombatAI List
-                AIManager.instance.RemoveCombatEnemy(mainPerson as Enemy);
+                // remove from CombatAI List
+                // AIManager.instance.RemoveCombatEnemy(mainPerson as Enemy); // No need, this will break Combat AI Loop
+                AIManager.instance.SetEnemyAvailable(mainPerson as Enemy, false);
                 mainPerson.SetTarget(null);
                 mainPerson.personCombat.OnEnemyStop.Invoke(mainPerson as Enemy);
             }

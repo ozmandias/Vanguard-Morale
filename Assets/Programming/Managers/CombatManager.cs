@@ -14,7 +14,6 @@ public class CombatManager : MonoBehaviour {
     public List<NavMeshAgent> combatingList;
     public int maxCombatingEnemies = 5;
     public Info characterInfo;
-    public bool available = true;
 
     [Header("Player Combat Settings")/*Space(10)*/]
     public Camera playerCamera;
@@ -280,6 +279,7 @@ public class CombatManager : MonoBehaviour {
         enemyIsMoving = false;
         enemyIsAttacking = false;
         if (enemyIsRetreating) enemyIsRetreating = false;
+        enemyIsWaiting = false;
         enemyMoveAroundDirection = Vector3.zero;
         animationManager.SetParameter("HorizontalMovement", 0.0f); animationManager.SetParameter("VerticalMovement", 0.0f); // animationManager.Play("CombatIdle");
         transform.position += enemyMoveAroundDirection;
@@ -377,7 +377,6 @@ public class CombatManager : MonoBehaviour {
             enemyTarget.GetInfo().ReduceHealth(playerCombat.characterInfo/*.damage*/); // <- after this line, set Enemy's availiability to false on Enemy's death
             if (characterInfo.isDead)
             {
-                available = false;
                 enemyIsAttackable = false;
                 AIManager.instance.SetEnemyAvailable(enemyTarget, false);
                 return;
@@ -462,7 +461,7 @@ public class CombatManager : MonoBehaviour {
 
     IEnumerator SetMoveAroundPlayerCoroutine()
     {
-        if (available == false) yield break;
+        if (AIManager.instance.GetCombatEnemy(GetComponent<Person>() as Enemy).available == false) yield break;
 
         yield return new WaitUntil(() => enemyIsWaiting == true);
 
@@ -486,7 +485,7 @@ public class CombatManager : MonoBehaviour {
 
     IEnumerator SetAttackPlayerCoroutine()
     {
-        if (available == false) yield break;
+        if (AIManager.instance.GetCombatEnemy(GetComponent<Person>() as Enemy).available == false) yield break;
 
         PrepareAttackPlayer(true);
         yield return new WaitForSeconds(0.2f);
@@ -496,7 +495,7 @@ public class CombatManager : MonoBehaviour {
 
     IEnumerator SetRetreatFromPlayerCoroutine()
     {
-        if (available == false) yield break;
+        if (AIManager.instance.GetCombatEnemy(GetComponent<Person>() as Enemy).available == false) yield break;
 
         yield return new WaitForSeconds(0.5f /*1.4f*/);
 

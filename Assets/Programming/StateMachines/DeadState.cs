@@ -27,6 +27,8 @@ public class DeadState : StateMachineBehaviour {
             mainPerson.personState.stateMachineAttacking = false;
             mainPerson.personState.stateMachineTargeting = false;
             mainPerson.personCombat.circlingList.Clear();
+            mainPerson.personCombat.enemyInCombat = false;
+            mainPerson.personCombat.counterAlert = false;
             mainPerson.SetTarget(null);
             mainPerson.GetInfo().MakeLife("dead");
         }

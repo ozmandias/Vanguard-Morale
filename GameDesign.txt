@@ -132,10 +132,13 @@ Call AIChanger from Manager classes
 Change StateMachine to CombatAI when Player attacks Enemy (test)
 StateMachines - Find and Attack target after reaching destination
 CombatAI - Remove from circlingList/combatingList after death, turn off CounterAlert when AI chages or dies, change to StateMachine on death (done)
-CombatAI - Fix when one attacking Enemy dies, the other enemies won't attack player
+CombatAI - Fix when one attacking Enemy dies, the other enemies won't attack player, disable counterAlert and enemyInCombat on death, constantly synchronize enemyStructs with AI Manager, also synchronize enemyStructs with QuestAIs
 
 CombatManager
 Change CombatAI from enemy only to every person type
+if Enemy is CombatAI, add to enemyStructs (no need)
+Write an event to setup CombatAI structs (no need)
+Solution - add to combatAIStructs(formerly enemyStructs) as soon as an AI is spawned and never remove from combatAIStructs. Only remove from combatAIStructs when that AI is dead. But change available of combatAIStruct on combatState
 
 Character Selection - To Fix (done)
 DoTween doesn't work on changing scenes - problem was caused by having zero as original scale value for character in CharacterSelectionObject

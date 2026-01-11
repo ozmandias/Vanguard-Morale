@@ -141,9 +141,8 @@ public class AnimationManager : MonoBehaviour {
                 GetComponent<Person>().GetInfo().ReduceHealth(GameManager.instance.playerGameObject.GetComponent<CombatManager>().characterInfo/*.damage*/);
                 if (combatManager.characterInfo.isDead)
                 {
-                    combatManager.available = false;
                     combatManager.enemyIsAttackable = false;
-                    AIManager.instance.SetEnemyAvailable(GetComponent<Enemy>(), false);
+                    AIManager.instance.SetEnemyAvailable(GetComponent<Person>() as Enemy, false);
                     return;
                 }
                 Play("CombatIdle");

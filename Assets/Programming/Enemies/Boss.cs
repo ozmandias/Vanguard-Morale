@@ -99,6 +99,8 @@ public class Boss : Person
     }
 
     public override void OnTriggerEnter(Collider otherCollider) {
+        base.OnTriggerEnter(otherCollider);
+
         if(otherCollider.gameObject.CompareTag("SoldierAttackCollider") || otherCollider.gameObject.CompareTag("PersonAttackCollider")) {
             Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
