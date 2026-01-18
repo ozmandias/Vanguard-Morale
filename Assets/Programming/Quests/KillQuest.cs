@@ -7,6 +7,7 @@ public class KillQuest : Quest { // for UI
     public List<GameObject> toKillList = new List<GameObject>();
 
     public override void StartQuest() {
+        isActive = true;
         isComplete = false;
     }
 

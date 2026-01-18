@@ -79,7 +79,37 @@ public class Person : MonoBehaviour {
         }
 
         if(personInfo.aiType == AIType.QuestAI && personInfo.stateMachineDead == false) {
-
+            switch (personState.state)
+            {
+                case StateMachine.Idle:
+                    Idle();
+                    break;
+                case StateMachine.Move:
+                    Move();
+                    break;
+                case StateMachine.Work:
+                    Work();
+                    break;
+                case StateMachine.Follow:
+                    Follow();
+                    break;
+                case StateMachine.Attack:
+                    Attack();
+                    break;
+                case StateMachine.Hurt:
+                    Hurt();
+                    break;
+                case StateMachine.Dead:
+                    Dead();
+                    break;
+                default:
+                    break;
+            }
+            
+            if (personInfo.personType != PersonType.Normal && personState.stateMachineTargeting == false && personInfo.isDead == false)
+            {
+                FindTarget();
+            }
         }
 
         if (personInfo.isDead == true)

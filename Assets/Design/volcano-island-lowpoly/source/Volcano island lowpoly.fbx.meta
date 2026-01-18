@@ -1,0 +1,255 @@
+fileFormatVersion: 2
+guid: fc5c475b2ae6b4fbfa0b16250f5d56a7
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Clouds
+    100002: hammock
+    100004: Island_Grass
+    100006: Lava_bubble
+    100008: Ocean
+    100010: Palm tree_1
+    100012: Palm tree_2
+    100014: Pyramid
+    100016: shrubbery
+    100018: skeleton
+    100020: Sun
+    100022: Tequila_Bottle
+    100024: Volacano_Sand
+    100026: Volcanic_lava
+    100028: //RootNode
+    100030: Volcano_Base
+    100032: Volcano_Grass
+    400000: Clouds
+    400002: hammock
+    400004: Island_Grass
+    400006: Lava_bubble
+    400008: Ocean
+    400010: Palm tree_1
+    400012: Palm tree_2
+    400014: Pyramid
+    400016: shrubbery
+    400018: skeleton
+    400020: Sun
+    400022: Tequila_Bottle
+    400024: Volacano_Sand
+    400026: Volcanic_lava
+    400028: //RootNode
+    400030: Volcano_Base
+    400032: Volcano_Grass
+    2100000: Clouds
+    2100002: hammock
+    2100004: Tequila_Bottle
+    2100006: skeleton
+    2100008: Pyramid
+    2100010: Island_Grass
+    2100012: shrubbery
+    2100014: Lava_bubble
+    2100016: Volcanic_lava
+    2100018: Palm tree_2
+    2100020: Palm tree_1
+    2100022: Volacano_Sand
+    2100024: Ocean
+    2100026: Volcano_Grass
+    2100028: Volcano_Base
+    2300000: Clouds
+    2300002: hammock
+    2300004: Island_Grass
+    2300006: Lava_bubble
+    2300008: Ocean
+    2300010: Palm tree_1
+    2300012: Palm tree_2
+    2300014: Pyramid
+    2300016: shrubbery
+    2300018: skeleton
+    2300020: Tequila_Bottle
+    2300022: Volacano_Sand
+    2300024: Volcanic_lava
+    2300026: Volcano_Base
+    2300028: Volcano_Grass
+    3300000: Clouds
+    3300002: hammock
+    3300004: Island_Grass
+    3300006: Lava_bubble
+    3300008: Ocean
+    3300010: Palm tree_1
+    3300012: Palm tree_2
+    3300014: Pyramid
+    3300016: shrubbery
+    3300018: skeleton
+    3300020: Tequila_Bottle
+    3300022: Volacano_Sand
+    3300024: Volcanic_lava
+    3300026: Volcano_Base
+    3300028: Volcano_Grass
+    4300000: Clouds
+    4300002: hammock
+    4300004: Tequila_Bottle
+    4300006: skeleton
+    4300008: Pyramid
+    4300010: Island_Grass
+    4300012: shrubbery
+    4300014: Lava_bubble
+    4300016: Volcanic_lava
+    4300018: Palm tree_2
+    4300020: Palm tree_1
+    4300022: Volacano_Sand
+    4300024: Ocean
+    4300026: Volcano_Grass
+    4300028: Volcano_Base
+    10800000: Sun
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clouds
+    second: {fileID: 2100000, guid: 1a298c9be22fd4ef1bc7c195ef509261, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Island_Grass
+    second: {fileID: 2100000, guid: e2a61f61686a24e41aa6feb0a075664c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lava_bubble
+    second: {fileID: 2100000, guid: 168455041837d4dd582f78d6b93dc5ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ocean
+    second: {fileID: 2100000, guid: 13c94b070f1514c40ab28df33f30cb24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Palm tree_1
+    second: {fileID: 2100000, guid: 3a0882ad397714a9eb39f7d4b2f7fa74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Palm tree_2
+    second: {fileID: 2100000, guid: 283d0951aad56424c81f012c65af3715, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pyramid
+    second: {fileID: 2100000, guid: 2109fae2acca14fe7a3451ecbbf681db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tequila_Bottle
+    second: {fileID: 2100000, guid: b23505bc6fcfd49baa874b7319fe4edd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Volacano_Sand
+    second: {fileID: 2100000, guid: 4d59c5cdf65b74b6b91c68e9010496fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Volcanic_lava
+    second: {fileID: 2100000, guid: a15186a1f3e014d7695d6946cd329708, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Volcano_Base
+    second: {fileID: 2100000, guid: a9e7551fc30304bb5aca14d2d41913da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Volcano_Grass
+    second: {fileID: 2100000, guid: 55e2b92cf72f446d0a850bb91d1aff50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hammock
+    second: {fileID: 2100000, guid: 4f04f20edf1924f9e9be87da6deaca69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shrubbery
+    second: {fileID: 2100000, guid: c76f07a2d68094072bd880d9ea8e64fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skeleton
+    second: {fileID: 2100000, guid: 110282d526c1d45eb9bfcb0e9794950c, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

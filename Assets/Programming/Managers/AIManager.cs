@@ -303,15 +303,12 @@ public class AIManager : MonoBehaviour { // for AI group
     public void SetupCombatAI()
     {
         Enemy []enemies = FindObjectsOfType<Enemy>();
-        Debug.Log("enemies.Length: " + enemies.Length);
         if(enemies.Length > 0) {
             foreach (Enemy enemy in enemies)
             {
                 EnemyStruct enemyStruct = new EnemyStruct();
                 enemyStruct.enemy = enemy;
                 enemyStruct.available = true;
-                Debug.Log("enemyStruct.available: " + enemyStruct.available);
-                Debug.Break();
                 enemyStructs.Add(enemyStruct);
             }
 
@@ -322,20 +319,17 @@ public class AIManager : MonoBehaviour { // for AI group
     public Enemy RandomEnemy()
     {
         List<int> randomLocationList = new List<int>();
-        Debug.Log("enemyStructs.Count: " + enemyStructs.Count);
+        
         for (int i = 0; i < enemyStructs.Count; i = i + 1)
         {
             if (enemyStructs[i].available)
             {
                 randomLocationList.Add(i);
             }
-            Debug.Log("randomLocationList.Count: " + randomLocationList.Count);
-            Debug.Log("enemy available: " + enemyStructs[i].available);
         }
 
         if (randomLocationList.Count == 0)
         {
-            Debug.Log("RandomEnemy returns null");
             return null;
         }
 
@@ -349,20 +343,17 @@ public class AIManager : MonoBehaviour { // for AI group
     public Enemy RandomEnemyExcluding(Enemy excludingEnemy)
     {
         List<int> randomLocationList = new List<int>();
-        Debug.Log("enemyStructs.Count: " + enemyStructs.Count);
+        
         for (int i = 0; i < enemyStructs.Count; i = i + 1)
         {
             if (enemyStructs[i].available && enemyStructs[i].enemy != excludingEnemy)
             {
                 randomLocationList.Add(i);
             }
-            Debug.Log("randomLocationList.Count: " + randomLocationList.Count);
-            Debug.Log("enemy available: " + enemyStructs[i].available);
         }
 
         if (randomLocationList.Count == 0)
         {
-            Debug.Log("RandomEnemyExcluding returns null");
             return null;
         }
 
@@ -398,7 +389,6 @@ public class AIManager : MonoBehaviour { // for AI group
 
     public void RemoveCombatEnemy(Enemy enemy)
     {
-        Debug.Log("Remove Combat Enemy");
         int removeLocation = -1;
         foreach(EnemyStruct enemyStruct in enemyStructs)
         {
@@ -413,12 +403,9 @@ public class AIManager : MonoBehaviour { // for AI group
 
     IEnumerator SetCombatAILoopCoroutine(Enemy enemy)
     {
-        Debug.Log("SetCombatAILoopCoroutine - enemyStructs.Count: " + enemyStructs.Count);
-
         if (enemyStructs.Count == 0)
         {
             StopCoroutine(SetCombatAILoopCoroutine(null));
-            Debug.Log("CombatAILoop yield break");
             yield break;
         }
 
@@ -426,7 +413,7 @@ public class AIManager : MonoBehaviour { // for AI group
 
         Enemy combatingEnemy = RandomEnemyExcluding(enemy);
         if (!combatingEnemy) combatingEnemy = RandomEnemy();
-        if (!combatingEnemy) {Debug.Log("No combatingEnemy left - yield break"); yield break;}
+        if (!combatingEnemy) yield break;
 
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsRetreating == false);
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsPlayerTarget == false);
@@ -434,7 +421,6 @@ public class AIManager : MonoBehaviour { // for AI group
 
         if (combatingEnemy.GetInfo().aiType == AIType.CombatAI)
         {
-            Debug.Log("" + combatingEnemy.name + " is set to attack player");
             combatingEnemy.personCombat.SetAttackPlayer();
             yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsNearPlayer == true && combatingEnemy.personCombat.enemyIsAttacking == false || combatingEnemy.GetInfo().isDead); // yield return new WaitForSeconds(Random.Range(0, 5f /*0.5f*/)); // change waitforseconds()
             combatingEnemy.personCombat.SetRetreatFromPlayer();

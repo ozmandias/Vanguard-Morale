@@ -12,6 +12,8 @@ public class CombatState : StateMachineBehaviour {
         mainPerson.personAgent.isStopped = true;
         mainPerson.personCombat.OnEnemyStart.Invoke(mainPerson as Enemy);
         AIManager.instance.SetEnemyAvailable(mainPerson as Enemy, true);
+        Debug.Log("combatAI available");
+        // Debug.Break();
 
         mainPerson.SetTarget(GameManager.instance.playerGameObject);
         targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;

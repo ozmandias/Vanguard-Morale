@@ -3,6 +3,7 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour { // for AI
     public Person mainPerson;
     public Quest mainQuest;
+    public BehaviourSerializable questBehaviourSerializable;
 
     void Start() {
         mainPerson = GetComponent<Person>();

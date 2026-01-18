@@ -104,6 +104,7 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
                     .position,
                     Quaternion.identity
                 );
+                toKillObject.GetComponent<QuestManager>().questBehaviourSerializable = toKillSpawnSerializables[i].behaviourSerializable;
                 killQuest.toKillList.Add(toKillObject);
                 
                 // associate object with quest action
