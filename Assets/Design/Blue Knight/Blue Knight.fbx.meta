@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 6a0faaf1a70fe40729ab20f8b1dc0136
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: //RootNode
+    100004: Fot.L
+    100006: Fot.L_end
+    100008: Fot.L_end_end
+    100010: Fot.R
+    100012: Fot.R_end
+    100014: Fot.R_end_end
+    100016: Hand.L
+    100018: Hand.L_end
+    100020: Hand.L_end_end
+    100022: Hand.R
+    100024: Hand.R_end
+    100026: Hand.R_end_end
+    100028: Head
+    100030: Head_end
+    100032: Head_end_end
+    100034: IKLegPole.L
+    100036: IKLegPole.L_end
+    100038: IKLegPole.L_end_end
+    100040: IKLegPole.R
+    100042: IKLegPole.R_end
+    100044: IKLegPole.R_end_end
+    100046: IKTarget.L
+    100048: IKTarget.L_end
+    100050: IKTarget.L_end_end
+    100052: IKTarget.R
+    100054: IKTarget.R_end
+    100056: IKTarget.R_end_end
+    100058: Knight
+    100060: LowerArm.L
+    100062: LowerArm.R
+    100064: LowerLeg.L
+    100066: LowerLeg.R
+    100068: Root
+    100070: Shoulder.L
+    100072: Shoulder.R
+    100074: Spine1
+    100076: Spine2
+    100078: UpperArm.L
+    100080: UpperArm.R
+    100082: UpperLeg.L
+    100084: UpperLeg.R
+    400000: Armature
+    400002: //RootNode
+    400004: Fot.L
+    400006: Fot.L_end
+    400008: Fot.L_end_end
+    400010: Fot.R
+    400012: Fot.R_end
+    400014: Fot.R_end_end
+    400016: Hand.L
+    400018: Hand.L_end
+    400020: Hand.L_end_end
+    400022: Hand.R
+    400024: Hand.R_end
+    400026: Hand.R_end_end
+    400028: Head
+    400030: Head_end
+    400032: Head_end_end
+    400034: IKLegPole.L
+    400036: IKLegPole.L_end
+    400038: IKLegPole.L_end_end
+    400040: IKLegPole.R
+    400042: IKLegPole.R_end
+    400044: IKLegPole.R_end_end
+    400046: IKTarget.L
+    400048: IKTarget.L_end
+    400050: IKTarget.L_end_end
+    400052: IKTarget.R
+    400054: IKTarget.R_end
+    400056: IKTarget.R_end_end
+    400058: Knight
+    400060: LowerArm.L
+    400062: LowerArm.R
+    400064: LowerLeg.L
+    400066: LowerLeg.R
+    400068: Root
+    400070: Shoulder.L
+    400072: Shoulder.R
+    400074: Spine1
+    400076: Spine2
+    400078: UpperArm.L
+    400080: UpperArm.R
+    400082: UpperLeg.L
+    400084: UpperLeg.R
+    2100000: Knight
+    4300000: Knight
+    9500000: //RootNode
+    13700000: Knight
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knight
+    second: {fileID: 2100000, guid: 1d5aca1bdf6584673b81c8d298ccc6e5, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sonic-robo-blast-2-v22-32x
+    second: {fileID: 2800000, guid: 22df3591f5a8c422f86d0b0dc1ac0a82, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
