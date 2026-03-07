@@ -145,3 +145,6 @@ DoTween doesn't work on changing scenes - problem was caused by having zero as o
 
 Quest - To Fix (done)
 Make Characters only move after their Ragdoll is disabled or else they will get deformed - problem was caused by SpawnManager continuously spawning and Ragdolls in Prefabs
+
+Look for characters and npc assets
+Add rigging and animations

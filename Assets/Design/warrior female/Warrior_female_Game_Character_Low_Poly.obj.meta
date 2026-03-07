@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: b708bf1fda44b476dba1455b4ff263e1
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: cylinder1
+    100002: cylinder11
+    100004: cylinder2
+    100006: Object
+    100008: Object111
+    100010: Object3
+    100012: rectangle1
+    100014: rectangle11
+    100016: rectangle111
+    100018: rectangle12
+    100020: //RootNode
+    400000: cylinder1
+    400002: cylinder11
+    400004: cylinder2
+    400006: Object
+    400008: Object111
+    400010: Object3
+    400012: rectangle1
+    400014: rectangle11
+    400016: rectangle111
+    400018: rectangle12
+    400020: //RootNode
+    2100000: Swordhandle
+    2100002: SwordBlade
+    2100004: hairclip
+    2100006: scaf
+    2100008: handglovesandhipwear
+    2100010: Hairs
+    2100012: Skin
+    2100014: Eyes
+    2100016: Lip
+    2100018: cloth
+    2100020: Armorandfits
+    2100022: standard
+    2100024: cloth2outer
+    2100026: armorhips
+    2300000: cylinder1
+    2300002: cylinder11
+    2300004: cylinder2
+    2300006: Object
+    2300008: Object111
+    2300010: Object3
+    2300012: rectangle1
+    2300014: rectangle11
+    2300016: rectangle111
+    2300018: rectangle12
+    3300000: cylinder1
+    3300002: cylinder11
+    3300004: cylinder2
+    3300006: Object
+    3300008: Object111
+    3300010: Object3
+    3300012: rectangle1
+    3300014: rectangle11
+    3300016: rectangle111
+    3300018: rectangle12
+    4300000: cylinder1
+    4300002: cylinder11
+    4300004: cylinder2
+    4300006: Object
+    4300008: Object111
+    4300010: Object3
+    4300012: rectangle1
+    4300014: rectangle11
+    4300016: rectangle111
+    4300018: rectangle12
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

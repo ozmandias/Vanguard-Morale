@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterDetailsController : MonoBehaviour {
-    public Text characterIdentityText;
+    public Text vanguardTitleText;
     public Text characterNameText;
+    public Text characterTitleText;
     public Text characterDescriptionText;
     public Text strengthText;
     public Text agilityText;
@@ -29,9 +30,11 @@ public class CharacterDetailsController : MonoBehaviour {
     }
 
     public void SetCharacterDetails(CharacterSerializable characterDetails) {
-        characterIdentityText.text = characterDetails.characterIdentity;
+        vanguardTitleText.text = characterDetails.vanguardTitle;
         characterNameText.text = characterDetails.characterName;
+        characterTitleText.text = characterDetails.characterTitle;
         characterDescriptionText.text = characterDetails.characterDescription;
+
         strengthText.text = characterDetails.characterStats.strength.ToString();
         strengthProgress.fillAmount = (float) characterDetails.characterStats.strength / 100;
         agilityText.text = characterDetails.characterStats.agility.ToString();
@@ -47,9 +50,11 @@ public class CharacterDetailsController : MonoBehaviour {
     }
 
     public void ClearCharacterDetails() {
-        characterIdentityText.text = "";
+        vanguardTitleText.text = "";
         characterNameText.text = "";
+        characterTitleText.text = "";
         characterDescriptionText.text = "";
+
         strengthText.text = "";
         strengthProgress.fillAmount = 0;
         agilityText.text = "";

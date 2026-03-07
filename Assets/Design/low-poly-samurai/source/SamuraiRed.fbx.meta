@@ -16,7 +16,42 @@ ModelImporter:
     3300000: //RootNode
     4300000: Samurai
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Accessories
+    second: {fileID: 2100000, guid: 23f1416c269e744cf8f6a7f56e89fcc2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold
+    second: {fileID: 2100000, guid: 56aac7ae496694760a501acd3cfa7929, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 5967d1921bce74d21b66f5798b03d9e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main
+    second: {fileID: 2100000, guid: 9fb7d60a7ba8e4515afc0a54e904547e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sandle
+    second: {fileID: 2100000, guid: 0cb064f427ea14092b1e263902966661, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Secondary
+    second: {fileID: 2100000, guid: fd29f1d0bae704031be946cb0e7779b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: e5accd05f5e9e48aa81de7c371c4bfdf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

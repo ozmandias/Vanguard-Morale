@@ -27,12 +27,31 @@ public enum StateMachine {
 
 public enum PlayerCharacter {
     Vanguard,
-    Hero
+    Hero,
+    Justitcer,
+    DeathMage,
+    Ghost,
+    Viking,
+    SciBot,
+    Samurai
 }
 
 public enum Gender {
     Male,
     Female
+}
+
+public enum Faction {
+    Fortis,
+    Desertus,
+    Unmortus,
+    Ghostian,
+    Damnum,
+    Ignis,
+    Scientia,
+    Karus,
+    Forest,
+    Storia
 }
 
 public enum CircleType {
