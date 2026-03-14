@@ -187,6 +187,7 @@
      <None Include="Assets\Design\[BFW]SimpleDynamicClouds\Shaders\2DClouds.shader" />
      <None Include="Assets\Design\medieval-castle-with-village\readme.txt" />
      <None Include="Assets\Design\FlatLighting\Shaders\cginc\FlatLightingCommonSurface.cginc" />
+     <None Include="Assets\Design\low_poly_angel_knight\readme.txt" />
      <None Include="Assets\Design\FlatLighting\Shaders\Animated\FlatLightingWater.shader" />
      <None Include="Assets\Design\FlatLighting\Shaders\cginc\FlatLightingAxis.cginc" />
      <None Include="Assets\Design\[BFW]SimpleDynamicClouds\ReadMe.txt" />

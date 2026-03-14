@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: d5c68e24618404b64a0edfbf521bd32a
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: agent rig
+    100002: baseMesh
+    100004: fingers_1.L
+    100006: fingers_1.R
+    100008: fingers_2.L
+    100010: fingers_2.L_end
+    100012: fingers_2.R
+    100014: fingers_2.R_end
+    100016: foot.L
+    100018: foot.R
+    100020: forearm.L
+    100022: forearm.L_end
+    100024: forearm.R
+    100026: forearm.R_end
+    100028: hand.L
+    100030: hand.R
+    100032: Head
+    100034: Head_end
+    100036: heel.02.L
+    100038: heel.02.L_end
+    100040: heel.02.R
+    100042: heel.02.R_end
+    100044: ik_feet.L
+    100046: ik_feet.R
+    100048: ik_hand.L
+    100050: ik_hand.R
+    100052: index_1.L
+    100054: index_1.R
+    100056: index_2.L
+    100058: index_2.L_end
+    100060: index_2.R
+    100062: index_2.R_end
+    100064: //RootNode
+    100066: pelvis.L
+    100068: pelvis.L_end
+    100070: pelvis.R
+    100072: pelvis.R_end
+    100074: pole_arm.L
+    100076: pole_arm.L_end
+    100078: pole_arm.R
+    100080: pole_arm.R_end
+    100082: pole_leg.L
+    100084: pole_leg.L_end
+    100086: pole_leg.R
+    100088: pole_leg.R_end
+    100090: Root
+    100092: shin.L
+    100094: shin.R
+    100096: shin_inner_1.L
+    100098: shin_inner_1.R
+    100100: shin_inner_2.L
+    100102: shin_inner_2.L_end
+    100104: shin_inner_2.R
+    100106: shin_inner_2.R_end
+    100108: shoulder.L
+    100110: shoulder.R
+    100112: spine
+    100114: spine.001
+    100116: spine.002
+    100118: spine.003
+    100120: spine.004
+    100122: thigh.L
+    100124: thigh.R
+    100126: thumb_1.L
+    100128: thumb_1.R
+    100130: thumb_2.L
+    100132: thumb_2.L_end
+    100134: thumb_2.R
+    100136: thumb_2.R_end
+    100138: toe.L
+    100140: toe.L_end
+    100142: toe.R
+    100144: toe.R_end
+    100146: upper_arm.L
+    100148: upper_arm.L.001
+    100150: upper_arm.L.001_end
+    100152: upper_arm.R
+    100154: upper_arm.R.001
+    100156: upper_arm.R.001_end
+    100158: Weapon.L
+    100160: Weapon.L_end
+    100162: Weapon.R
+    100164: Weapon.R_end
+    400000: agent rig
+    400002: baseMesh
+    400004: fingers_1.L
+    400006: fingers_1.R
+    400008: fingers_2.L
+    400010: fingers_2.L_end
+    400012: fingers_2.R
+    400014: fingers_2.R_end
+    400016: foot.L
+    400018: foot.R
+    400020: forearm.L
+    400022: forearm.L_end
+    400024: forearm.R
+    400026: forearm.R_end
+    400028: hand.L
+    400030: hand.R
+    400032: Head
+    400034: Head_end
+    400036: heel.02.L
+    400038: heel.02.L_end
+    400040: heel.02.R
+    400042: heel.02.R_end
+    400044: ik_feet.L
+    400046: ik_feet.R
+    400048: ik_hand.L
+    400050: ik_hand.R
+    400052: index_1.L
+    400054: index_1.R
+    400056: index_2.L
+    400058: index_2.L_end
+    400060: index_2.R
+    400062: index_2.R_end
+    400064: //RootNode
+    400066: pelvis.L
+    400068: pelvis.L_end
+    400070: pelvis.R
+    400072: pelvis.R_end
+    400074: pole_arm.L
+    400076: pole_arm.L_end
+    400078: pole_arm.R
+    400080: pole_arm.R_end
+    400082: pole_leg.L
+    400084: pole_leg.L_end
+    400086: pole_leg.R
+    400088: pole_leg.R_end
+    400090: Root
+    400092: shin.L
+    400094: shin.R
+    400096: shin_inner_1.L
+    400098: shin_inner_1.R
+    400100: shin_inner_2.L
+    400102: shin_inner_2.L_end
+    400104: shin_inner_2.R
+    400106: shin_inner_2.R_end
+    400108: shoulder.L
+    400110: shoulder.R
+    400112: spine
+    400114: spine.001
+    400116: spine.002
+    400118: spine.003
+    400120: spine.004
+    400122: thigh.L
+    400124: thigh.R
+    400126: thumb_1.L
+    400128: thumb_1.R
+    400130: thumb_2.L
+    400132: thumb_2.L_end
+    400134: thumb_2.R
+    400136: thumb_2.R_end
+    400138: toe.L
+    400140: toe.L_end
+    400142: toe.R
+    400144: toe.R_end
+    400146: upper_arm.L
+    400148: upper_arm.L.001
+    400150: upper_arm.L.001_end
+    400152: upper_arm.R
+    400154: upper_arm.R.001
+    400156: upper_arm.R.001_end
+    400158: Weapon.L
+    400160: Weapon.L_end
+    400162: Weapon.R
+    400164: Weapon.R_end
+    2100000: Agent Mat
+    4300000: baseMesh
+    7400000: agent rig|demon ranged attack
+    7400002: agent rig|demon ranged idle
+    7400004: agent rig|demon ranged move
+    7400006: agent rig|rest pose
+    7400008: agent rig|rest pose.001
+    9500000: //RootNode
+    13700000: baseMesh
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Agent Mat
+    second: {fileID: 2100000, guid: 40cf648c033774593b3f3e4fb611dfe3, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
