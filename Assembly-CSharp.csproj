@@ -83,6 +83,7 @@
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
      <Compile Include="Assets\Programming\Data\Models\BehaviourModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\CharacterModel.cs" />
+     <Compile Include="Assets\Programming\Data\Models\FactionModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\ItemModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\KeyValueModels.cs" />
      <Compile Include="Assets\Programming\Data\Models\KingdomModel.cs" />
