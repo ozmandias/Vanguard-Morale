@@ -45,7 +45,7 @@ public class WorldMapSelectionManager : MonoBehaviour {
     }
 
     public void SetMapData(WorldMapSelectionObject mapSelectionObject) {
-        KingdomSerializable kingdomDetails = worldScriptableObject.dataList.Find((kingdom)=>{
+        KingdomModel kingdomDetails = worldScriptableObject.dataList.Find((kingdom)=>{
             return kingdom.mapName == mapSelectionObject.mapName;
         });
         if(kingdomDetails != null) {

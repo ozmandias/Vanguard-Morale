@@ -13,7 +13,7 @@ public class CharacterSelectionManager : MonoBehaviour {
     public Button backButton;
     public Button selectButton;
     public bool hasCharacterSelection = false;
-    public CharacterSerializable currentCharacterSelection;
+    public CharacterModel currentCharacterSelection;
     public GameObject currentCharacterObject;
     public Transform cameraOriginalTransform;
     public Transform characterFocusTransform;
@@ -73,7 +73,7 @@ public class CharacterSelectionManager : MonoBehaviour {
     }
 
     void LoadCharacterData() {
-        foreach(CharacterSerializable characterData in characterScriptableObject.dataList) {
+        foreach(CharacterModel characterData in characterScriptableObject.dataList) {
             CharacterSelectionObject newCharacterSelectionObject = Instantiate(characterSelectionPrefab, characterSelectionGroupUIObject.transform).GetComponent<CharacterSelectionObject>();
             newCharacterSelectionObject.characterSelection = characterData;
         }

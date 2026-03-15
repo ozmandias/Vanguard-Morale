@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CharacterSelectionObject : MonoBehaviour {
     public Button characterSelectButton;
     public Image characterSelectFrame;
-    public CharacterSerializable characterSelection;
+    public CharacterModel characterSelection;
     public GameObject characterObject;
     public Quaternion characterOriginalRotation;
     public Vector3 characterOriginalScale;

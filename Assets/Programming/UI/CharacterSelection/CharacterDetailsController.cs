@@ -29,7 +29,7 @@ public class CharacterDetailsController : MonoBehaviour {
         }
     }
 
-    public void SetCharacterDetails(CharacterSerializable characterDetails) {
+    public void SetCharacterDetails(CharacterModel characterDetails) {
         vanguardTitleText.text = characterDetails.vanguardTitle;
         characterNameText.text = characterDetails.characterName;
         characterTitleText.text = characterDetails.characterTitle;

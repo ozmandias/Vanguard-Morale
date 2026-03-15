@@ -28,12 +28,16 @@ public enum StateMachine {
 public enum PlayerCharacter {
     Vanguard,
     Hero,
-    Justitcer,
-    DeathMage,
-    Ghost,
-    Viking,
-    SciBot,
-    Samurai
+    VanguardOfDesertus,
+    VanguardOfUnmortus,
+    VanguardOfGhostian,
+    VanguardOfDamnum,
+    VanguardOfIgnis,
+    VanguardOfScientia,
+    VanguardOfKarus,
+    VanguardOfCentralForest,
+    VanguardOfStoria,
+    Viking
 }
 
 public enum Gender {
@@ -50,7 +54,7 @@ public enum Faction {
     Ignis,
     Scientia,
     Karus,
-    Forest,
+    CentralForest,
     Storia
 }
 

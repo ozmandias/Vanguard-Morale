@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName="WorldData", menuName="Data/World", order=2)] public class WorldScriptableObject : ScriptableObject {
-    public List<KingdomSerializable> dataList;
+    public List<KingdomModel> dataList;
 }

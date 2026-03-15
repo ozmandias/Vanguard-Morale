@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName="QuestData", menuName="Data/Quest", order=5)] public class QuestScriptableObject : ScriptableObject {
-    public List<QuestSerializable> dataList;
+    public List<QuestModel> dataList;
 }

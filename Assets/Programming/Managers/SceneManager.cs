@@ -9,7 +9,7 @@ public class SceneManager : MonoBehaviour {
     public string currentScene = "";
     // public object sceneData;
     public SceneScriptableObject sceneScriptableObject;
-    SceneSerializable sceneDetails;
+    SceneModel sceneDetails;
 
     void Awake()
     {

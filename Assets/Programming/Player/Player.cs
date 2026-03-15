@@ -144,6 +144,10 @@ public class Player : MonoBehaviour {
         StartCoroutine(CheckGroundCoroutine());
     }
 
+    void OnTriggerEnter(Collider otherCollider) {
+        
+    }
+
     public PlayerInfo GetInfo()
     {
         return playerInfo;

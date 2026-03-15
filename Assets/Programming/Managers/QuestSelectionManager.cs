@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class QuestSelectionManager : MonoBehaviour { // for Quests
     [SerializeField] QuestScriptableObject questScriptableObject;
-    [SerializeField] QuestSerializable currentQuest;
-    List<QuestSerializable> questList;
+    [SerializeField] QuestModel currentQuest;
+    List<QuestModel> questList;
     Dictionary<string, GameObject> questDictionary = new Dictionary<string, GameObject>();
-    public QuestKeyValueSerializable []questKeyValueSerializables;
+    public QuestKeyValueModel []questKeyValueModels;
 
     public static QuestSelectionManager instance;
 
@@ -23,7 +23,7 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
     void Start() {
         questScriptableObject = GlobalData.currentKingdomQuestScriptableObject;
 
-        foreach(QuestKeyValueSerializable questKeyValue in questKeyValueSerializables) {
+        foreach(QuestKeyValueModel questKeyValue in questKeyValueModels) {
             questDictionary.Add(questKeyValue.key, questKeyValue.value);
         }
 
@@ -36,16 +36,16 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
 
     public void LoadAllQuests() {
         // loop questScriptableObject and SetupQuest()
-        foreach(QuestSerializable quest in questScriptableObject.dataList) {
+        foreach(QuestModel quest in questScriptableObject.dataList) {
             SetupQuest(quest);
         }
     }
 
-    public void AcceptQuest(QuestSerializable questToAccept) {
+    public void AcceptQuest(QuestModel questToAccept) {
         questList.Add(questToAccept);
     }
 
-    public void FocusQuest(QuestSerializable questToFocus) {
+    public void FocusQuest(QuestModel questToFocus) {
         currentQuest = questToFocus;
     }
 
@@ -53,11 +53,11 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
         currentQuest = null;
     }
 
-    public void AbandonQuest(QuestSerializable questToAbandon) {
+    public void AbandonQuest(QuestModel questToAbandon) {
         questList.Remove(questToAbandon);
     }
 
-    void SetupQuest(QuestSerializable questToSetup) {
+    void SetupQuest(QuestModel questToSetup) {
         // spawn quest giver in the world
         // spawn quest into UI based on quest type in the world as child of QuestSelectionManager
         // quest will spawn its associated assets in the world
@@ -86,25 +86,25 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
         }
     }
 
-    void SetupKillQuest(QuestSerializable questToSetup, int questInfoLocation) {
-        ToKillSpawnSerializable []toKillSpawnSerializables = questToSetup.questInfo[questInfoLocation].toKillSpawnSerializables;
+    void SetupKillQuest(QuestModel questToSetup, int questInfoLocation) {
+        ToKillSpawnModel []toKillSpawnModels = questToSetup.questInfo[questInfoLocation].toKillSpawnModels;
         
         KillQuest killQuest = Instantiate(questDictionary["Kill"], transform).GetComponent<KillQuest>();
         killQuest.questDetails = questToSetup;
         killQuest.questInfoId = questInfoLocation;
 
-        for(int i = 0; i < toKillSpawnSerializables.Length; i = i + 1) {
-            toKillSpawnSerializables[i].spawnTransforms = SpawnManager.instance.spawnLocations;
-            for(int j = 0; j < toKillSpawnSerializables[i].spawnCount; j = j + 1) {
+        for(int i = 0; i < toKillSpawnModels.Length; i = i + 1) {
+            toKillSpawnModels[i].spawnTransforms = SpawnManager.instance.spawnLocations;
+            for(int j = 0; j < toKillSpawnModels[i].spawnCount; j = j + 1) {
                 GameObject toKillObject = Instantiate(
-                    toKillSpawnSerializables[i]
+                    toKillSpawnModels[i]
                     .assetObject,
-                    toKillSpawnSerializables[i]
-                    .spawnTransforms[Random.Range(0, toKillSpawnSerializables[i].spawnTransforms.Length)]
+                    toKillSpawnModels[i]
+                    .spawnTransforms[Random.Range(0, toKillSpawnModels[i].spawnTransforms.Length)]
                     .position,
                     Quaternion.identity
                 );
-                toKillObject.GetComponent<QuestManager>().questBehaviourSerializable = toKillSpawnSerializables[i].behaviourSerializable;
+                toKillObject.GetComponent<QuestManager>().questBehaviourModel = toKillSpawnModels[i].behaviourModel;
                 killQuest.toKillList.Add(toKillObject);
                 
                 // associate object with quest action

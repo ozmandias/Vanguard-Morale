@@ -8,8 +8,8 @@ public class CharacterSelectController : MonoBehaviour {
 
     public GameObject characterContainer;
 
-    public CharacterSerializable characterDetails;
-    public  List<CharacterSerializable> characterDetailsList;
+    public CharacterModel characterDetails;
+    public  List<CharacterModel> characterDetailsList;
     int currentLocation = 0;
 
     public Button nextButton;

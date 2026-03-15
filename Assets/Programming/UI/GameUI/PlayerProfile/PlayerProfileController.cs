@@ -36,7 +36,7 @@ public class PlayerProfileController : MonoBehaviour
 
     void Start()
     {
-        CharacterSerializable characterData = GlobalData.characterDetails;
+        CharacterModel characterData = GlobalData.characterDetails;
         SetProfilePicture(characterData.profileSprite);
 
         OnHealthChanges += SetHealth;
