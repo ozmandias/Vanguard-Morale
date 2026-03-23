@@ -4,6 +4,7 @@ public class AIChanger : MonoBehaviour {
     // make AI Types universal
     // change AI Types to State Machine, Combat (or) Quest
     Person mainPerson;
+    public AIType aiType = AIType.StateMachine;
     public bool aiChangerRunning = false;
     
     public delegate void ChangeAIDelegate(string aiStatus);
@@ -23,7 +24,7 @@ public class AIChanger : MonoBehaviour {
     void CheckAI() {
         if(aiChangerRunning) {
             if(mainPerson.GetInfo().isDead == false) {
-                switch(mainPerson.GetInfo().aiType) {
+                switch(aiType) {
                     case AIType.StateMachine:
                         if(mainPerson.personQuest.mainQuest) {
                             if(mainPerson.personQuest.mainQuest.isActive) {
@@ -76,11 +77,11 @@ public class AIChanger : MonoBehaviour {
 
     public void ChangeAI(string aiStatus) {
         if(aiStatus == "stateMachine") {
-            mainPerson.GetInfo().aiType = AIType.StateMachine;
+            aiType = AIType.StateMachine;
         } else if(aiStatus == "combatAI") {
-            mainPerson.GetInfo().aiType = AIType.CombatAI;
+            aiType = AIType.CombatAI;
         } else if(aiStatus == "questAI") {
-            mainPerson.GetInfo().aiType = AIType.QuestAI;
+            aiType = AIType.QuestAI;
         }
     }
 }

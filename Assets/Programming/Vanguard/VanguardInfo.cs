@@ -1,6 +1,8 @@
 using UnityEngine;
 
 [System.Serializable] public class VanguardInfo : Info {
+    Vanguard vanguard;
+
     public /*VanguardInfo() : base()*/ void Init(GameObject owner)
     {
         base.Init(owner);
@@ -11,6 +13,8 @@ using UnityEngine;
         magic = 30;
         morality = 60;
         alignment = (Morality)morality;
+
+        vanguard = owner.GetComponent<Vanguard>();
 
         if (PlayerProfileController.instance.OnHealthChanges != null)
         {
@@ -34,5 +38,9 @@ using UnityEngine;
         if(PlayerProfileController.instance.OnHealthChanges != null) {
             PlayerProfileController.instance.OnHealthChanges(health);
         }
+    }
+
+    public Vanguard GetVanguard() {
+        return vanguard;
     }
 }

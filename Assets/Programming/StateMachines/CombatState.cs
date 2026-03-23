@@ -10,9 +10,9 @@ public class CombatState : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
         mainPerson.personAgent.isStopped = true;
+        mainPerson.personState.stateMachineTargeting = false;
         mainPerson.personCombat.OnEnemyStart.Invoke(mainPerson as Enemy);
         AIManager.instance.SetEnemyAvailable(mainPerson as Enemy, true);
-        Debug.Log("combatAI available");
         // Debug.Break();
 
         mainPerson.SetTarget(GameManager.instance.playerGameObject);

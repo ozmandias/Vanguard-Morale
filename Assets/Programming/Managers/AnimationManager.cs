@@ -93,6 +93,7 @@ public class AnimationManager : MonoBehaviour {
     public void CombatEvent(string combatEventParameter)
     {
         var combatManager = GetComponent<CombatManager>();
+        // late because of "hit", try changing to "start"
         if (combatEventParameter == "hit")
         {
             if (combatManager.characterInfo is VanguardInfo || combatManager.characterInfo is PlayerInfo)
@@ -105,13 +106,11 @@ public class AnimationManager : MonoBehaviour {
         {
             if (combatManager.characterInfo is VanguardInfo || combatManager.characterInfo is PlayerInfo)
             {
-                combatManager.managingMove = false;
-                Play("Default");
+                combatManager.OnPlayerCombatEnd.Invoke(combatManager.currentTarget);
             }
             else
             {
-                combatManager.enemyIsAttacking = false;
-                Play("CombatIdle"); //<- this is causing Enemies stop after CombatHit
+                combatManager.OnEnemyCombatHurt.Invoke((combatManager.characterInfo as PersonInfo).person as Enemy);
             }
         }
     }
@@ -130,22 +129,11 @@ public class AnimationManager : MonoBehaviour {
         {
             if (combatManager.characterInfo is VanguardInfo || combatManager.characterInfo is PlayerInfo)
             {
-                combatManager.managingMove = false;
-                combatManager.managingAttack = false;
-                combatManager.isCombating = false;
-                Play("Default");
+                combatManager.OnPlayerCounterEnd.Invoke(combatManager.currentTarget);
             }
             else
             {
-                combatManager.enemyIsStunned = false;
-                GetComponent<Person>().GetInfo().ReduceHealth(GameManager.instance.playerGameObject.GetComponent<CombatManager>().characterInfo/*.damage*/);
-                if (combatManager.characterInfo.isDead)
-                {
-                    combatManager.enemyIsAttackable = false;
-                    AIManager.instance.SetEnemyAvailable(GetComponent<Person>() as Enemy, false);
-                    return;
-                }
-                Play("CombatIdle");
+                combatManager.OnEnemyCounterHurt.Invoke((combatManager.characterInfo as PersonInfo).person as Enemy);
             }
         }
     }

@@ -17,8 +17,10 @@ public class Person : MonoBehaviour {
     [Header("Person Settings")]
     public AnimationManager personAnimation;
     public CombatManager personCombat;
-    public StateMachineManager personState;
+    public AIChanger personAI;
+    public StateMachineChanger personState;
     public QuestManager personQuest;
+    public RagdollManager personRagdoll;
     public NavMeshAgent personAgent;
     public NavMeshHit personNavMeshHit;
     public PersonInfo personInfo;
@@ -33,8 +35,10 @@ public class Person : MonoBehaviour {
     {
         personAnimation = GetComponent<AnimationManager>();
         personCombat = GetComponent<CombatManager>();
-        personState = GetComponent<StateMachineManager>();
+        personAI = GetComponent<AIChanger>();
+        personState = GetComponent<StateMachineChanger>();
         personQuest = GetComponent<QuestManager>();
+        personRagdoll = GetComponent<RagdollManager>();
         personAgent = GetComponent<NavMeshAgent>();
         personEffect = GetComponent<EffectManager>();
 
@@ -43,7 +47,7 @@ public class Person : MonoBehaviour {
 
     public virtual void Update()
     {
-        if (personInfo.aiType == AIType.StateMachine && personInfo.stateMachineDead == false)
+        if (personAI.aiType == AIType.StateMachine && personState.stateMachineDead == false)
         {
             switch (personState.state)
             {
@@ -78,7 +82,7 @@ public class Person : MonoBehaviour {
             }
         }
 
-        if(personInfo.aiType == AIType.QuestAI && personInfo.stateMachineDead == false) {
+        if(personAI.aiType == AIType.QuestAI && personState.stateMachineDead == false) {
             switch (personState.state)
             {
                 case StateMachine.Idle:

@@ -32,7 +32,9 @@ public class CombatManager : MonoBehaviour {
     public LayerMask layerMask;
     public PlayerMovementEvent OnPlayerMovement = new PlayerMovementEvent();
     public PlayerCombatEvent OnPlayerCombat = new PlayerCombatEvent();
+    public PlayerCombatEvent OnPlayerCombatEnd = new PlayerCombatEvent();
     public PlayerCounterEvent OnPlayerCounter = new PlayerCounterEvent();
+    public PlayerCounterEvent OnPlayerCounterEnd = new PlayerCounterEvent();
 
     [Header("Enemy Combat Settings")]
     Vector3 enemyMoveAroundDirection;
@@ -55,6 +57,8 @@ public class CombatManager : MonoBehaviour {
     public EnemyStopEvent OnEnemyStop = new EnemyStopEvent();
     public EnemyRetreatEvent OnEnemyRetreat = new EnemyRetreatEvent();
     public EnemyHurtEvent OnEnemyHurt = new EnemyHurtEvent();
+    public EnemyHurtEvent OnEnemyCombatHurt = new EnemyHurtEvent();
+    public EnemyHurtEvent OnEnemyCounterHurt = new EnemyHurtEvent();
 
     void Start()
     {
@@ -71,12 +75,16 @@ public class CombatManager : MonoBehaviour {
             CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
             playerCombat.OnPlayerMovement.AddListener((combatEnemy) => OnPlayerMovementEvent(combatEnemy));
             playerCombat.OnPlayerCombat.AddListener((combatEnemy) => OnPlayerCombatEvent(combatEnemy));
+            playerCombat.OnPlayerCombatEnd.AddListener((combatEnemy) => OnPlayerCombatEndEvent(combatEnemy));
             playerCombat.OnPlayerCounter.AddListener((combatEnemy) => OnPlayerCounterEvent(combatEnemy));
+            playerCombat.OnPlayerCounterEnd.AddListener((combatEnemy) => OnPlayerCounterEndEvent(combatEnemy));
 
             MoveAroundPlayerCoroutine = StartCoroutine(SetMoveAroundPlayerCoroutine());
             OnEnemyStart.AddListener((combatEnemy) => OnEnemyStartEvent(combatEnemy));
             OnEnemyStop.AddListener((combatEnemy) => OnEnemyCombatStopEvent(combatEnemy));
             OnEnemyHurt.AddListener((combatEnemy) => OnEnemyHurtEvent(combatEnemy));
+            OnEnemyCombatHurt.AddListener((combatEnemy) => OnEnemyCombatHurtEvent(combatEnemy));
+            OnEnemyCounterHurt.AddListener((combatEnemy) => OnEnemyCounterHurtEvent(combatEnemy));
         }
     }
 
@@ -91,7 +99,7 @@ public class CombatManager : MonoBehaviour {
         else if (characterInfo is PersonInfo && GameManager.instance.playerGameObject)
         {
             PersonInfo personInfo = characterInfo as PersonInfo;
-            if (personInfo.personType == PersonType.Enemy && personInfo.aiType == AIType.CombatAI)
+            if (personInfo.personType == PersonType.Enemy && personInfo.person.personAI.aiType == AIType.CombatAI)
             {
                 (GetComponent<Person>() as Enemy).target = GameManager.instance.playerGameObject;
                 Vector3 playerCombatPosition = GameManager.instance.playerGameObject.transform.position;
@@ -345,82 +353,6 @@ public class CombatManager : MonoBehaviour {
             counterAlert = false;
         }
     }
-
-    void OnPlayerMovementEvent(Enemy enemyTarget)
-    {
-        if (enemyTarget == this.GetComponent<Enemy>())
-        {
-            StopEnemyCoroutines();
-            enemyIsPlayerTarget = true;
-            PrepareAttackPlayer(false);
-            StopAroundPlayer();
-        }
-    }
-
-    void OnPlayerCombatEvent(Enemy enemyTarget)
-    {
-        if (enemyTarget == this.GetComponent<Enemy>())
-        {
-            // send message to AI Changer
-            enemyInCombat = true;
-
-            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
-            playerCombat.currentTarget = null;
-            playerCombat.managingAttack = false;
-            playerCombat.isCombating = false;
-
-            // OnEnemyHurt.Invoke(enemyTarget);
-            StopEnemyCoroutines();
-            // enemyIsStunned = true;
-            EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine());
-            enemyIsPlayerTarget = false;
-            enemyTarget.GetInfo().ReduceHealth(playerCombat.characterInfo/*.damage*/); // <- after this line, set Enemy's availiability to false on Enemy's death
-            if (characterInfo.isDead)
-            {
-                enemyIsAttackable = false;
-                AIManager.instance.SetEnemyAvailable(enemyTarget, false);
-                return;
-            }
-            animationManager.Play("CombatHurt");
-            StopAroundPlayer();
-        }
-    }
-
-    void OnPlayerCounterEvent(Enemy enemyTarget)
-    {
-        if (enemyTarget == this.GetComponent<Enemy>())
-        {
-            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
-
-            StopEnemyCoroutines();
-            enemyIsStunned = true;
-            enemyIsPlayerTarget = false;
-            animationManager.Play("CounterHurt" + playerCombat.counterNumber);
-            StopAroundPlayer();
-        }
-    }
-
-    void OnEnemyHurtEvent(Enemy enemyTarget)
-    {
-        if (enemyTarget == this.GetComponent<Enemy>())
-        {
-        }
-    }
-
-    void OnEnemyStartEvent(Enemy enemy) {
-        if(enemy == this.GetComponent<Enemy>()) {
-            //send message to AI Changer
-            enemyInCombat = true;
-        }
-    }
-
-    void OnEnemyCombatStopEvent(Enemy enemy) {
-        if(enemy == this.GetComponent<Enemy>() && enemy.personCombat.enemyIsStunned == false) {
-            StopEnemyCoroutines();
-            // send message to AI Changer
-            enemyInCombat = false;
-        }
-    }
     #endregion
 
 
@@ -447,6 +379,126 @@ public class CombatManager : MonoBehaviour {
         bool containStatus = combatingList.Contains(combatingAgent);
         return containStatus;
     }
+    #endregion
+
+
+
+    #region Events
+    void OnPlayerMovementEvent(Enemy enemyTarget)
+    {
+        if (enemyTarget == this.GetComponent<Enemy>())
+        {
+            StopEnemyCoroutines();
+            enemyIsPlayerTarget = true;
+            PrepareAttackPlayer(false);
+            StopAroundPlayer();
+        }
+    }
+
+    void OnPlayerCombatEvent(Enemy enemyTarget)
+    {
+        if (enemyTarget == this.GetComponent<Enemy>())
+        {
+            // send message to AI Changer
+            enemyInCombat = true;
+
+            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
+            playerCombat.isCombating = false;
+
+            // OnEnemyHurt.Invoke(enemyTarget);
+            StopEnemyCoroutines();
+            EnemyHurtCoroutine = StartCoroutine(SetEnemyHurtCoroutine()); // enemyIsStunned = true;
+            enemyIsPlayerTarget = false;
+            enemyTarget.GetInfo().ReduceHealth(playerCombat.characterInfo/*.damage*/); // <- after this line, set Enemy's availiability to false on Enemy's death
+            if (characterInfo.isDead)
+            {
+                enemyIsAttackable = false;
+                AIManager.instance.SetEnemyAvailable(enemyTarget, false);
+                return;
+            }
+            this.animationManager.Play("CombatHurt");
+            StopAroundPlayer();
+        }
+    }
+
+    void OnPlayerCombatEndEvent(Enemy enemyTarget) {
+        if(enemyTarget == this.GetComponent<Enemy>()) {
+            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
+            playerCombat.currentTarget = null;
+            playerCombat.managingMove = false;
+            playerCombat.managingAttack = false;
+            playerCombat.animationManager.Play("Default");
+        }
+    }
+
+    void OnPlayerCounterEvent(Enemy enemyTarget)
+    {
+        if (enemyTarget == this.GetComponent<Enemy>())
+        {
+            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
+            StopEnemyCoroutines();
+            enemyIsStunned = true;
+            enemyIsPlayerTarget = false;
+            this.animationManager.Play("CounterHurt" + playerCombat.counterNumber);
+            StopAroundPlayer();
+        }
+    }
+
+    void OnPlayerCounterEndEvent(Enemy enemyTarget) {
+        if(enemyTarget == this.GetComponent<Enemy>()) {
+            CombatManager playerCombat = GameManager.instance.playerGameObject.GetComponent<CombatManager>();
+            playerCombat.managingMove = false;
+            playerCombat.managingAttack = false;
+            playerCombat.isCombating = false;
+            playerCombat.animationManager.Play("Default");
+        }
+    }
+
+    void OnEnemyHurtEvent(Enemy enemyTarget)
+    {
+        if (enemyTarget == this.GetComponent<Enemy>())
+        {
+        }
+    }
+
+    void OnEnemyCombatHurtEvent(Enemy enemyTarget) {
+        if(enemyTarget == this.GetComponent<Enemy>()) {
+            CombatManager enemyCombat = GetComponent<CombatManager>();
+            // enemyCombat.enemyIsStunned = false;
+            enemyCombat.enemyIsAttacking = false;
+            animationManager.Play("CombatIdle"); //<- this is causing Enemies stop after CombatHit
+        }
+    }
+
+    void OnEnemyCounterHurtEvent(Enemy enemyTarget) {
+        if(enemyTarget == this.GetComponent<Enemy>()) {
+            CombatManager enemyCombat = GetComponent<CombatManager>();
+            enemyCombat.enemyIsStunned = false;
+            GetComponent<Person>().GetInfo().ReduceHealth(GameManager.instance.playerGameObject.GetComponent<CombatManager>().characterInfo/*.damage*/);
+            if (enemyCombat.characterInfo.isDead)
+            {
+                enemyCombat.enemyIsAttackable = false;
+                AIManager.instance.SetEnemyAvailable(GetComponent<Person>() as Enemy, false);
+                return;
+            }
+            animationManager.Play("CombatIdle");
+        }
+    }
+
+    void OnEnemyStartEvent(Enemy enemy) {
+        if(enemy == this.GetComponent<Enemy>()) {
+            //send message to AI Changer
+            enemyInCombat = true;
+        }
+    }
+
+    void OnEnemyCombatStopEvent(Enemy enemy) {
+        if(enemy == this.GetComponent<Enemy>() && enemy.personCombat.enemyIsStunned == false) {
+            StopEnemyCoroutines();
+            // send message to AI Changer
+            enemyInCombat = false;
+        }
+    }
 
     void OnDrawGizmosSelected()
     {
@@ -459,6 +511,7 @@ public class CombatManager : MonoBehaviour {
 
 
 
+    #region Coroutines
     IEnumerator SetMoveAroundPlayerCoroutine()
     {
         if (AIManager.instance.GetCombatEnemy(GetComponent<Person>() as Enemy).available == false) yield break;
@@ -526,4 +579,5 @@ public class CombatManager : MonoBehaviour {
         // this coroutine is making combatAIs not to attack player.
         yield return null;
     }
+    #endregion
 }

@@ -83,6 +83,7 @@
      <Compile Include="Assets\Programming\Data\Interactable.cs" />
      <Compile Include="Assets\Programming\Data\Models\BehaviourModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\CharacterModel.cs" />
+     <Compile Include="Assets\Programming\Data\Models\DialogueModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\FactionModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\ItemModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\KeyValueModels.cs" />
@@ -92,6 +93,7 @@
      <Compile Include="Assets\Programming\Data\Models\SpawnModels.cs" />
      <Compile Include="Assets\Programming\Data\Models\StatsModel.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\CharacterScriptableObject.cs" />
+     <Compile Include="Assets\Programming\Data\ScriptableObjects\FactionScriptableObject.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\ItemScriptableObject.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\QuestScriptableObject.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\SceneScriptableObject.cs" />
@@ -111,6 +113,7 @@
      <Compile Include="Assets\Programming\Items\Weapon.cs" />
      <Compile Include="Assets\Programming\Managers\AIManager.cs" />
      <Compile Include="Assets\Programming\Managers\AnimationManager.cs" />
+     <Compile Include="Assets\Programming\Managers\ArenaManager.cs" />
      <Compile Include="Assets\Programming\Managers\BossFightManager.cs" />
      <Compile Include="Assets\Programming\Managers\CharacterSelectionManager.cs" />
      <Compile Include="Assets\Programming\Managers\CombatManager.cs" />
@@ -126,9 +129,9 @@
      <Compile Include="Assets\Programming\Managers\QuestManager.cs" />
      <Compile Include="Assets\Programming\Managers\QuestSelectionManager.cs" />
      <Compile Include="Assets\Programming\Managers\RagdollManager.cs" />
+     <Compile Include="Assets\Programming\Managers\ReputationManager.cs" />
      <Compile Include="Assets\Programming\Managers\SceneManager.cs" />
      <Compile Include="Assets\Programming\Managers\SpawnManager.cs" />
-     <Compile Include="Assets\Programming\Managers\StateMachineManager.cs" />
      <Compile Include="Assets\Programming\Managers\UIManager.cs" />
      <Compile Include="Assets\Programming\Managers\WarManager.cs" />
      <Compile Include="Assets\Programming\Managers\WorldMapSelectionManager.cs" />
@@ -155,6 +158,7 @@
      <Compile Include="Assets\Programming\StateMachines\IdleState.cs" />
      <Compile Include="Assets\Programming\StateMachines\MoveState.cs" />
      <Compile Include="Assets\Programming\StateMachines\QuestState.cs" />
+     <Compile Include="Assets\Programming\StateMachines\StateMachineChanger.cs" />
      <Compile Include="Assets\Programming\StateMachines\WaitState.cs" />
      <Compile Include="Assets\Programming\StateMachines\WorkState.cs" />
      <Compile Include="Assets\Programming\UI\CharacterSelection\CharacterDetailsController.cs" />

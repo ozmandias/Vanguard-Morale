@@ -197,7 +197,7 @@ public class AIManager : MonoBehaviour { // for AI group
         }
     }
 
-    public void AgentRepositionAtDestination(PersonType personType, NavMeshAgent aiAgent, Transform destinationTransform)
+    public /*void*/ Vector3 AgentRepositionAtDestination(NavMeshAgent aiAgent, Transform destinationTransform, PersonType personType, bool moveToDestination = true)
     {
         List<NavMeshAgent> aiList;
         int agentIndex = -1;
@@ -218,19 +218,21 @@ public class AIManager : MonoBehaviour { // for AI group
                 break;
         }
 
+        Vector3 reposition = Vector3.zero;
         agentIndex = aiList.IndexOf(aiAgent);
         if (agentIndex != -1)
         {
-            Vector3 reposition = CalculateLineUpPosition(aiList, agentIndex, destinationTransform);
-            aiAgent.SetDestination(reposition);
+            reposition = CalculateLineUpPosition(aiList, agentIndex, destinationTransform);
+            if(moveToDestination) aiAgent.SetDestination(reposition);
         }
+        return reposition;
     }
 
     public int agentsPerRow = 5;
+    public float lineUpSpacing = 10f;
     public Vector3 CalculateLineUpPosition(List<NavMeshAgent> aiList, int agentIndex, Transform destinationTransform) {
         int lineUpAgentsPerRow = /*5*/ agentsPerRow;
         int rowsToLineUp = Mathf.CeilToInt((float) aiList.Count / lineUpAgentsPerRow);
-        float lineUpSpacing = 10f;
 
         List<Vector3> lineUpPositions = new List<Vector3>();
         Vector3 lineUpPosition = Vector3.zero;
@@ -419,7 +421,7 @@ public class AIManager : MonoBehaviour { // for AI group
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsPlayerTarget == false);
         yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsStunned == false);
 
-        if (combatingEnemy.GetInfo().aiType == AIType.CombatAI)
+        if (combatingEnemy.personAI.aiType == AIType.CombatAI)
         {
             combatingEnemy.personCombat.SetAttackPlayer();
             yield return new WaitUntil(() => combatingEnemy.personCombat.enemyIsNearPlayer == true && combatingEnemy.personCombat.enemyIsAttacking == false || combatingEnemy.GetInfo().isDead); // yield return new WaitForSeconds(Random.Range(0, 5f /*0.5f*/)); // change waitforseconds()
@@ -443,13 +445,13 @@ public class AIManager : MonoBehaviour { // for AI group
                 foreach(Friend soldier in GameManager.instance.soldierList) {
                     soldier.personAgent.isStopped = false;
                     soldier.personAgent.speed = 100f;
-                    AgentRepositionAtDestination(PersonType.Friend, soldier.personAgent, soldier.destination);
+                    AgentRepositionAtDestination(soldier.personAgent, soldier.destination, PersonType.Friend);
                 }
 
                 foreach (Enemy enemy in GameManager.instance.enemyList) {
                     enemy.personAgent.isStopped = false;
                     enemy.personAgent.speed = 100f;
-                    AgentRepositionAtDestination(PersonType.Enemy, enemy.personAgent, enemy.destination);
+                    AgentRepositionAtDestination(enemy.personAgent, enemy.destination, PersonType.Enemy);
                 }
             }
         }
@@ -468,13 +470,13 @@ public class AIManager : MonoBehaviour { // for AI group
                 foreach(Friend soldier in GameManager.instance.soldierList) {
                     soldier.personAgent.isStopped = false;
                     soldier.personAgent.speed = 100f;
-                    AgentRepositionAtDestination(PersonType.Friend, soldier.personAgent, soldier.destination);
+                    AgentRepositionAtDestination(soldier.personAgent, soldier.destination, PersonType.Friend);
                 }
 
                 foreach (Enemy enemy in GameManager.instance.enemyList) {
                     enemy.personAgent.isStopped = false;
                     enemy.personAgent.speed = 100f;
-                    AgentRepositionAtDestination(PersonType.Enemy, enemy.personAgent, enemy.destination);
+                    AgentRepositionAtDestination(enemy.personAgent, enemy.destination, PersonType.Enemy);
                 }
             }
         }

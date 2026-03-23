@@ -5,16 +5,16 @@ public class AttackState : StateMachineBehaviour {
     Info targetInfo;
     CombatManager targetCombat;
     float targetDistance;
-    [SerializeField] float stateTime = 0;
+    [SerializeField] float attackStateTime = 0;
 
     public float followDistance = 250f;
-    public float nearDistance = 10f;
+    public float attackDistance = 10f;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
         mainPerson.personAgent.isStopped = true;
 
-        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 50f;
+        attackDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 50f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -23,7 +23,7 @@ public class AttackState : StateMachineBehaviour {
 
             targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
             if (targetInfo is PersonInfo) {
-                if ((targetInfo as PersonInfo).aiType == AIType.CombatAI) {
+                if ((targetInfo as PersonInfo).person.personAI.aiType == AIType.CombatAI) {
                     canAttackTarget = false;
                 }
             }
@@ -69,31 +69,34 @@ public class AttackState : StateMachineBehaviour {
                     if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee) {
                         mainPerson.attackCollider.enabled = false;
                     } else {
+                        // do range attack
                     }
 
-                    stateTime = 0;
+                    attackStateTime = 0;
                 }
 
                 if(mainPerson.isAttacking == true) {
-                    stateTime += Time.deltaTime /*stateInfo.normalizedTime % 1*/;
-                    targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
-                    if(targetDistance > nearDistance && targetInfo.isDead == false) {
-                        mainPerson.personState.stateMachineAttacking = false;
-                    } else if(targetDistance < nearDistance && targetInfo.isDead == false) {
-                        // Debug.Log(mainPerson.gameObject.name + " is getting too close to target");
-                    } else if(targetDistance > followDistance || targetInfo.isDead == true) {
-                        if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
-                            targetCombat.circlingList.Remove(mainPerson.personAgent);
-                        }
-                        mainPerson.SetTarget(null);
-                        mainPerson.personState.stateMachineAttacking = false;
-                        mainPerson.personState.stateMachineTargeting = false;
+                    attackStateTime += Time.deltaTime /*stateInfo.normalizedTime % 1*/;
+                }
+
+                targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
+                if(targetDistance > attackDistance && targetDistance <= followDistance && targetInfo.isDead == false) {
+                    mainPerson.personState.stateMachineAttacking = false;
+                }
+                else if(targetDistance > followDistance || targetInfo.isDead == true) {
+                    if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                        targetCombat.circlingList.Remove(mainPerson.personAgent);
                     }
+                    mainPerson.SetTarget(null);
+                    mainPerson.personState.stateMachineAttacking = false;
+                    mainPerson.personState.stateMachineTargeting = false;
                 }
             } else {
                 if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                     targetCombat.circlingList.Remove(mainPerson.personAgent);
                 }
+                mainPerson.SetTarget(null);
+                mainPerson.personState.stateMachineAttacking = false;
                 mainPerson.personState.stateMachineTargeting = false;
             }
         }
@@ -105,6 +108,6 @@ public class AttackState : StateMachineBehaviour {
         mainPerson.isAttacking = false;
         if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee)
             mainPerson.attackCollider.enabled = false;
-        stateTime = 0;
+        attackStateTime = 0;
     }
 }

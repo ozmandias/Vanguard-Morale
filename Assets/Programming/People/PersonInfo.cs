@@ -2,10 +2,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [System.Serializable] public class PersonInfo : Info {
-    public RagdollManager personRagdollManager;
+    public Person person;
     public PersonType personType = PersonType.Normal;
-    public AIType aiType = AIType.StateMachine;
-    public bool stateMachineDead = false;
 
     public /*PersonInfo() : base()*/ void Init(GameObject owner)
     {
@@ -18,7 +16,7 @@ using UnityEngine.AI;
         morality = personType == PersonType.Normal ? 50 : personType == PersonType.Friend ? 60 : 40;
         alignment = (Morality)morality;
 
-        personRagdollManager = owner.GetComponent<RagdollManager>();
+        person = owner.GetComponent<Person>();
     }
 
     public void ReduceHealth(Info attackerInfo)
@@ -57,27 +55,26 @@ using UnityEngine.AI;
     }
 
     public void MakeLife(string makeStatus) {
-        Person mainPerson = owner.GetComponent<Person>();
         if(makeStatus == "alive") {
             AddHealth(MaxHealth);
-            mainPerson.personAgent.enabled = true;
-            mainPerson.personCombat.enemyIsAttackable = true;
-            stateMachineDead = false;
-            personRagdollManager.DisableRagdoll();
-            owner.GetComponent<StateMachineManager>().ChangeState(StateMachine.Idle);
+            person.personAgent.enabled = true;
+            person.personCombat.enemyIsAttackable = true;
+            person.personState.stateMachineDead = false;
+            person.personRagdoll.DisableRagdoll();
+            owner.GetComponent<StateMachineChanger>().ChangeState(StateMachine.Idle);
             owner.GetComponent<AIChanger>().aiChangerRunning = true;
         } else if(makeStatus == "dead") {
-            mainPerson.personAgent.enabled = false;
-            mainPerson.personCombat.enemyIsAttackable = false;
-            stateMachineDead = true;
-            personRagdollManager.EnableRagdoll();
-            if (mainPerson.weapon)
+            person.personAgent.enabled = false;
+            person.personCombat.enemyIsAttackable = false;
+            person.personState.stateMachineDead = true;
+            person.personRagdoll.EnableRagdoll();
+            if (person.weapon)
             {
-                mainPerson.weapon.transform.SetParent(null);
-                mainPerson.weapon.AddComponent<Rigidbody>();
-                mainPerson.weapon.AddComponent<BoxCollider>();
+                person.weapon.transform.SetParent(null);
+                person.weapon.AddComponent<Rigidbody>();
+                person.weapon.AddComponent<BoxCollider>();
             }
-            owner.GetComponent<StateMachineManager>().ChangeState(StateMachine.Dead);
+            owner.GetComponent<StateMachineChanger>().ChangeState(StateMachine.Dead);
             owner.GetComponent<AIChanger>().aiChangerRunning = false;
         }
     }

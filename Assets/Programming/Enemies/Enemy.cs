@@ -83,7 +83,7 @@ public class Enemy : Person {
 
         foreach(Friend soldier in GameManager.instance.soldierList) {
             CombatManager soldierCombat = soldier.GetComponent<CombatManager>();
-            if(soldier.GetInfo().isDead == false && soldierCombat.IsCirclingListFull() == false && soldier.GetInfo().aiType == AIType.StateMachine) {
+            if(soldier.GetInfo().isDead == false && soldierCombat.IsCirclingListFull() == false && soldier.personAI.aiType == AIType.StateMachine) {
                 /*targetSoldierDistance = Vector3.Distance(soldier.transform.position, transform.position);
                 if(targetSoldierDistance <= 300f) {
                     targetSoldier = soldier.gameObject;
@@ -100,7 +100,7 @@ public class Enemy : Person {
 
         foreach(Person person in GameManager.instance.personList) {
             CombatManager personCombat = person.GetComponent<CombatManager>();
-            if(person.GetInfo().isDead == false && personCombat.IsCirclingListFull() == false && person.GetInfo().aiType == AIType.StateMachine) {
+            if(person.GetInfo().isDead == false && personCombat.IsCirclingListFull() == false && person.personAI.aiType == AIType.StateMachine) {
                 /*targetPersonDistance = Vector3.Distance(person.transform.position, transform.position);
                 if(targetPersonDistance <= 300f) {
                     targetPerson = person.gameObject;

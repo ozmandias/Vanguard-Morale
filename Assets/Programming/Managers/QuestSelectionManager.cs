@@ -36,8 +36,10 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
 
     public void LoadAllQuests() {
         // loop questScriptableObject and SetupQuest()
-        foreach(QuestModel quest in questScriptableObject.dataList) {
-            SetupQuest(quest);
+        if(questScriptableObject != null) {
+            foreach(QuestModel quest in questScriptableObject.dataList) {
+                SetupQuest(quest);
+            }
         }
     }
 

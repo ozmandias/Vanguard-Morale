@@ -6,6 +6,7 @@ public class MoveState : StateMachineBehaviour {
     float destinationDistance;
     float targetDistance;
 
+    public Vector3 reposition;
     public float repositionDistance = 100f;
     public float reachDistance = 0;
     public float followDistance = 250f;
@@ -24,7 +25,7 @@ public class MoveState : StateMachineBehaviour {
 
             targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
             if (targetInfo is PersonInfo) {
-                if ((targetInfo as PersonInfo).aiType == AIType.CombatAI) {
+                if ((targetInfo as PersonInfo).person.personAI.aiType == AIType.CombatAI) {
                     canAttackTarget = false;
                 }
             }
@@ -32,22 +33,28 @@ public class MoveState : StateMachineBehaviour {
             targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
             if(targetDistance <= followDistance && targetInfo.isDead == false && canAttackTarget) {
                 mainPerson.personState.stateMachineTargeting = true;
-            } else if(targetInfo.isDead == true) {
+            }
+            else {
                 mainPerson.SetTarget(null);
             }
         }
 
         if(mainPerson.destination) {
             destinationDistance = Vector3.Distance(mainPerson.destination.position, mainPerson.transform.position);
-            if(destinationDistance > reachDistance && destinationDistance > repositionDistance) {
+            if(reposition != Vector3.zero) {
+                // check with reposition
+                destinationDistance = Vector3.Distance(reposition, mainPerson.transform.position);
+            }
+            if(destinationDistance > repositionDistance) {
                 mainPerson.personAgent.destination = mainPerson.destination.position;
-            } else if(destinationDistance <= repositionDistance && destinationDistance > reachDistance) {
-                AIManager.instance.AgentRepositionAtDestination(mainPerson.GetInfo().personType, mainPerson.personAgent, mainPerson.destination);
-            } else if(destinationDistance <= reachDistance) {
+            }
+            else if(destinationDistance <= repositionDistance && destinationDistance > reachDistance) {
+                // return a reposition, calculate only one time
+                reposition = AIManager.instance.AgentRepositionAtDestination(mainPerson.personAgent, mainPerson.destination, mainPerson.GetInfo().personType);
+            }
+            else if(destinationDistance <= reachDistance) {
                 mainPerson.personAgent.velocity = Vector3.zero;
-                if(mainPerson.personAgent.velocity.magnitude == Vector3.zero.magnitude) {
-                    mainPerson.personState.stateMachineMoving = false;
-                }
+                mainPerson.personState.stateMachineMoving = false;
             }
         }
     }

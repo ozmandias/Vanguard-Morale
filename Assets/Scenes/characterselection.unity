@@ -209,6 +209,171 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 17322971}
+--- !u!1 &40122631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 40122632}
+  - component: {fileID: 40122637}
+  - component: {fileID: 40122636}
+  - component: {fileID: 40122635}
+  - component: {fileID: 40122634}
+  - component: {fileID: 40122633}
+  m_Layer: 5
+  m_Name: DamnumVanguardProfile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &40122632
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40122631}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1995288194}
+  m_Father: {fileID: 1109015268}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &40122633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40122631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526f1ae06a90d484d85335db667f37c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSelectButton: {fileID: 0}
+  characterSelectFrame: {fileID: 0}
+  characterSelection:
+    character: 0
+    characterName: Magnus Dravenholt
+    vanguardTitle: Vanguard of Damnum
+    characterTitle: The World Conqueror
+    characterDescription: 
+    faction: 0
+    characterSprite: {fileID: 0}
+    profileSprite: {fileID: 0}
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
+  characterObject: {fileID: 1136120007}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 700, y: 700, z: 700}
+--- !u!114 &40122634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40122631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 40122636}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &40122635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40122631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &40122636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40122631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &40122637
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40122631}
 --- !u!1 &45004763
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +573,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d1690ec2febc4459aa8c867988dd965, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &134175039 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 9d1690ec2febc4459aa8c867988dd965, type: 3}
+  m_PrefabInternal: {fileID: 134175038}
 --- !u!1 &154126131
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +605,171 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &197170946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 197170947}
+  - component: {fileID: 197170952}
+  - component: {fileID: 197170951}
+  - component: {fileID: 197170950}
+  - component: {fileID: 197170949}
+  - component: {fileID: 197170948}
+  m_Layer: 5
+  m_Name: IgnisVanguardProfile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &197170947
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197170946}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1279682388}
+  m_Father: {fileID: 1109015268}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &197170948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197170946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526f1ae06a90d484d85335db667f37c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSelectButton: {fileID: 0}
+  characterSelectFrame: {fileID: 0}
+  characterSelection:
+    character: 0
+    characterName: Volcan Flameborn
+    vanguardTitle: Vanguard of Ignis
+    characterTitle: Inferno Lord
+    characterDescription: 
+    faction: 0
+    characterSprite: {fileID: 0}
+    profileSprite: {fileID: 0}
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
+  characterObject: {fileID: 2034803972}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 10, y: 10, z: 10}
+--- !u!114 &197170949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197170946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 197170951}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &197170950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197170946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &197170951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197170946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &197170952
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197170946}
 --- !u!1 &227777900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1360,7 @@ RectTransform:
   m_Children:
   - {fileID: 1123002912}
   m_Father: {fileID: 1109015268}
-  m_RootOrder: 5
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1100,9 +1434,9 @@ MonoBehaviour:
   characterSelectFrame: {fileID: 0}
   characterSelection:
     character: 0
-    characterName: 
-    vanguardTitle: 
-    characterTitle: 
+    characterName: Viking
+    vanguardTitle: Special Character
+    characterTitle: Viking
     characterDescription: 
     faction: 0
     characterSprite: {fileID: 0}
@@ -1115,9 +1449,9 @@ MonoBehaviour:
       damage: 0
       magic: 0
       morality: 0
-  characterObject: {fileID: 0}
+  characterObject: {fileID: 1648004980}
   characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
-  characterOriginalScale: {x: 7.5, y: 7.5, z: 7.5}
+  characterOriginalScale: {x: 7, y: 7, z: 7}
 --- !u!114 &473831602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,9 +1757,9 @@ MonoBehaviour:
   characterSelectFrame: {fileID: 0}
   characterSelection:
     character: 1
-    characterName: Henrique
-    vanguardTitle: 
-    characterTitle: 
+    characterName: Henrique Crownguard
+    vanguardTitle: Special Character
+    characterTitle: Count of Fortis
     characterDescription: 
     faction: 0
     characterSprite: {fileID: 21300000, guid: 9eae50964dde14fd9a543436327d44c3, type: 3}
@@ -1814,6 +2148,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 621ff1dbf77654778bb971870e79d3e1, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &660631535 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 621ff1dbf77654778bb971870e79d3e1, type: 3}
+  m_PrefabInternal: {fileID: 660631534}
 --- !u!1001 &674234774
 Prefab:
   m_ObjectHideFlags: 0
@@ -5875,6 +6213,171 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39e2e43e6a615481b860b132552d3261, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &806915247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 806915248}
+  - component: {fileID: 806915253}
+  - component: {fileID: 806915252}
+  - component: {fileID: 806915251}
+  - component: {fileID: 806915250}
+  - component: {fileID: 806915249}
+  m_Layer: 5
+  m_Name: StoriaVanguardProfile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &806915248
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806915247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2119200788}
+  m_Father: {fileID: 1109015268}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &806915249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806915247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526f1ae06a90d484d85335db667f37c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSelectButton: {fileID: 0}
+  characterSelectFrame: {fileID: 0}
+  characterSelection:
+    character: 3
+    characterName: Orin Mythwalker
+    vanguardTitle: Vanguard of Storia
+    characterTitle: Dream Guardian
+    characterDescription: 
+    faction: 0
+    characterSprite: {fileID: 0}
+    profileSprite: {fileID: 0}
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
+  characterObject: {fileID: 2031156737}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 6, y: 6, z: 6}
+--- !u!114 &806915250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806915247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 806915252}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &806915251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806915247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &806915252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806915247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &806915253
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806915247}
 --- !u!1 &821985949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7216,12 +7719,16 @@ RectTransform:
   m_Children:
   - {fileID: 1476412496}
   - {fileID: 498264080}
-  - {fileID: 1898280448}
+  - {fileID: 1922063071}
   - {fileID: 1398331655}
   - {fileID: 1958099007}
-  - {fileID: 473831597}
+  - {fileID: 40122632}
+  - {fileID: 197170947}
+  - {fileID: 1898280448}
   - {fileID: 1855471486}
   - {fileID: 1609490411}
+  - {fileID: 806915248}
+  - {fileID: 473831597}
   m_Father: {fileID: 1584317343}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7387,6 +7894,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5f0c00c9c0ee488e8d42f3814779bb6, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1136120007 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100016, guid: f5f0c00c9c0ee488e8d42f3814779bb6, type: 3}
+  m_PrefabInternal: {fileID: 1136120006}
 --- !u!1 &1205521175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7647,6 +8158,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1225006047}
+--- !u!1 &1279682387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1279682388}
+  - component: {fileID: 1279682390}
+  - component: {fileID: 1279682389}
+  m_Layer: 5
+  m_Name: FrameImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1279682388
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279682387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 197170947}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1279682389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279682387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 673b223f8f976437ab2aa482bd88b2d3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1279682390
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279682387}
 --- !u!1 &1293775721
 GameObject:
   m_ObjectHideFlags: 0
@@ -8150,6 +8729,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78fce67033a5942b4af83a1e0e99802c, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1368258518 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: 78fce67033a5942b4af83a1e0e99802c, type: 3}
+  m_PrefabInternal: {fileID: 1368258517}
 --- !u!1 &1398331654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8164,7 +8747,7 @@ GameObject:
   - component: {fileID: 1398331660}
   - component: {fileID: 1398331659}
   m_Layer: 5
-  m_Name: EvilWizardProfile
+  m_Name: UnmortusVanguardProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8256,9 +8839,9 @@ MonoBehaviour:
   characterSelectFrame: {fileID: 0}
   characterSelection:
     character: 0
-    characterName: 
-    vanguardTitle: 
-    characterTitle: 
+    characterName: Darion Morvane
+    vanguardTitle: Vanguard of Unmortus
+    characterTitle: Dread Hunter
     characterDescription: 
     faction: 0
     characterSprite: {fileID: 0}
@@ -8271,9 +8854,9 @@ MonoBehaviour:
       damage: 0
       magic: 0
       morality: 0
-  characterObject: {fileID: 0}
+  characterObject: {fileID: 134175039}
   characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
-  characterOriginalScale: {x: 1.6, y: 1.6, z: 1.6}
+  characterOriginalScale: {x: 2, y: 2, z: 2}
 --- !u!114 &1398331660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8425,7 +9008,10 @@ MonoBehaviour:
     characterName: Van Ironmark
     vanguardTitle: Vanguard of Fortis
     characterTitle: The Warstorm Knight
-    characterDescription: 
+    characterDescription: Born among the warrior clans of Fortis, Van Ironmark earned
+      his name in the crucible of countless battles. Known for charging headfirst
+      into the fiercest storms of war, he breaks enemy lines with unstoppable force.
+      To the soldiers of Fortis, he is the living symbol of courage and iron resolve.
     faction: 0
     characterSprite: {fileID: 21300000, guid: 725356fcb61d84f8a890faea0fc0e0a3, type: 3}
     profileSprite: {fileID: 21300000, guid: 80dab204160dc41e59745a5e89815d02, type: 3}
@@ -9085,6 +9671,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1249e42e4f92f483997dfeeba89a97b3, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1579921653 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100098, guid: 1249e42e4f92f483997dfeeba89a97b3, type: 3}
+  m_PrefabInternal: {fileID: 1579921652}
 --- !u!1 &1580417265
 GameObject:
   m_ObjectHideFlags: 0
@@ -9323,7 +9913,7 @@ GameObject:
   - component: {fileID: 1609490416}
   - component: {fileID: 1609490415}
   m_Layer: 5
-  m_Name: SamuraiProfile
+  m_Name: CentralForestVanguardProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9341,7 +9931,7 @@ RectTransform:
   m_Children:
   - {fileID: 2030130038}
   m_Father: {fileID: 1109015268}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9415,9 +10005,9 @@ MonoBehaviour:
   characterSelectFrame: {fileID: 0}
   characterSelection:
     character: 3
-    characterName: 
-    vanguardTitle: 
-    characterTitle: 
+    characterName: Rowan Nightleaf
+    vanguardTitle: Vanguard of Central Forest
+    characterTitle: Green Warden
     characterDescription: 
     faction: 0
     characterSprite: {fileID: 0}
@@ -9430,9 +10020,9 @@ MonoBehaviour:
       damage: 0
       magic: 0
       morality: 0
-  characterObject: {fileID: 0}
+  characterObject: {fileID: 1368258518}
   characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
-  characterOriginalScale: {x: 11, y: 11, z: 11}
+  characterOriginalScale: {x: 6, y: 6, z: 6}
 --- !u!114 &1609490416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9608,6 +10198,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58775114f09a94425a91e959d14d04fa, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1648004980 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 58775114f09a94425a91e959d14d04fa, type: 3}
+  m_PrefabInternal: {fileID: 1648004979}
 --- !u!1 &1664454304
 GameObject:
   m_ObjectHideFlags: 0
@@ -10594,7 +11188,7 @@ GameObject:
   - component: {fileID: 1855471491}
   - component: {fileID: 1855471490}
   m_Layer: 5
-  m_Name: Sci-BotProfile
+  m_Name: KarusVanguardProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10612,7 +11206,7 @@ RectTransform:
   m_Children:
   - {fileID: 834672029}
   m_Father: {fileID: 1109015268}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10686,9 +11280,9 @@ MonoBehaviour:
   characterSelectFrame: {fileID: 0}
   characterSelection:
     character: 2
-    characterName: 
-    vanguardTitle: 
-    characterTitle: 
+    characterName: Togan Lifebloom
+    vanguardTitle: Vanguard of Karus
+    characterTitle: Prophet of Life
     characterDescription: 
     faction: 0
     characterSprite: {fileID: 0}
@@ -10701,9 +11295,9 @@ MonoBehaviour:
       damage: 0
       magic: 0
       morality: 0
-  characterObject: {fileID: 0}
+  characterObject: {fileID: 660631535}
   characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
-  characterOriginalScale: {x: 240, y: 240, z: 240}
+  characterOriginalScale: {x: 150, y: 150, z: 150}
 --- !u!114 &1855471491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10759,7 +11353,7 @@ GameObject:
   - component: {fileID: 1898280453}
   - component: {fileID: 1898280452}
   m_Layer: 5
-  m_Name: JusticerProfile
+  m_Name: ScientiaVanguardProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10777,7 +11371,7 @@ RectTransform:
   m_Children:
   - {fileID: 45004764}
   m_Father: {fileID: 1109015268}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10851,9 +11445,9 @@ MonoBehaviour:
   characterSelectFrame: {fileID: 0}
   characterSelection:
     character: 0
-    characterName: 
-    vanguardTitle: 
-    characterTitle: 
+    characterName: Axiom Helix
+    vanguardTitle: Vanguard of Scientia
+    characterTitle: Grand Architect
     characterDescription: 
     faction: 0
     characterSprite: {fileID: 0}
@@ -10976,6 +11570,175 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87db23a494c75437ab1f5ae457a05348, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1910116129 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 87db23a494c75437ab1f5ae457a05348, type: 3}
+  m_PrefabInternal: {fileID: 1910116128}
+--- !u!1 &1922063070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1922063071}
+  - component: {fileID: 1922063076}
+  - component: {fileID: 1922063075}
+  - component: {fileID: 1922063074}
+  - component: {fileID: 1922063073}
+  - component: {fileID: 1922063072}
+  m_Layer: 5
+  m_Name: DesertusVanguardProfile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1922063071
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922063070}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2112338664}
+  m_Father: {fileID: 1109015268}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1922063072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922063070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526f1ae06a90d484d85335db667f37c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSelectButton: {fileID: 0}
+  characterSelectFrame: {fileID: 0}
+  characterSelection:
+    character: 0
+    characterName: Karl Sunpiercer
+    vanguardTitle: Vanguard of Desertus
+    characterTitle: Sand Reaper
+    characterDescription: 
+    faction: 0
+    characterSprite: {fileID: 0}
+    profileSprite: {fileID: 0}
+    characterStats:
+      strength: 0
+      agility: 0
+      intelligence: 0
+      health: 0
+      damage: 0
+      magic: 0
+      morality: 0
+  characterObject: {fileID: 1910116129}
+  characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+  characterOriginalScale: {x: 12, y: 12, z: 12}
+--- !u!114 &1922063073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922063070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1922063075}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1922063074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922063070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1922063075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922063070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1922063076
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922063070}
 --- !u!1001 &1926777869
 Prefab:
   m_ObjectHideFlags: 0
@@ -11060,7 +11823,7 @@ GameObject:
   - component: {fileID: 1958099012}
   - component: {fileID: 1958099011}
   m_Layer: 5
-  m_Name: GhostProfile
+  m_Name: GhostianVanguardProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11152,9 +11915,9 @@ MonoBehaviour:
   characterSelectFrame: {fileID: 0}
   characterSelection:
     character: 0
-    characterName: 
-    vanguardTitle: 
-    characterTitle: 
+    characterName: Mortavian Graveward
+    vanguardTitle: Vanguard of Ghostian
+    characterTitle: Keeper of Lost Souls
     characterDescription: 
     faction: 0
     characterSprite: {fileID: 0}
@@ -11167,9 +11930,9 @@ MonoBehaviour:
       damage: 0
       magic: 0
       morality: 0
-  characterObject: {fileID: 0}
+  characterObject: {fileID: 1579921653}
   characterOriginalRotation: {x: 0, y: 0, z: 0, w: 0}
-  characterOriginalScale: {x: 20, y: 20, z: 20}
+  characterOriginalScale: {x: 10, y: 10, z: 10}
 --- !u!114 &1958099012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11306,6 +12069,74 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1 &1995288193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1995288194}
+  - component: {fileID: 1995288196}
+  - component: {fileID: 1995288195}
+  m_Layer: 5
+  m_Name: FrameImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1995288194
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995288193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 40122632}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1995288195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995288193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 673b223f8f976437ab2aa482bd88b2d3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1995288196
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995288193}
 --- !u!1 &2030130037
 GameObject:
   m_ObjectHideFlags: 0
@@ -11452,6 +12283,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc70af6fa01dc429c82b3af4121a8478, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2031156737 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100508, guid: cc70af6fa01dc429c82b3af4121a8478, type: 3}
+  m_PrefabInternal: {fileID: 2031156736}
 --- !u!1001 &2034803971
 Prefab:
   m_ObjectHideFlags: 0
@@ -11518,6 +12353,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16b6c585d9f4443f490d12c181be2b99, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2034803972 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: 16b6c585d9f4443f490d12c181be2b99, type: 3}
+  m_PrefabInternal: {fileID: 2034803971}
 --- !u!1 &2051777872
 GameObject:
   m_ObjectHideFlags: 0
@@ -11806,6 +12645,74 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1 &2112338663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2112338664}
+  - component: {fileID: 2112338666}
+  - component: {fileID: 2112338665}
+  m_Layer: 5
+  m_Name: FrameImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2112338664
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112338663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1922063071}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2112338665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112338663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 673b223f8f976437ab2aa482bd88b2d3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2112338666
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112338663}
 --- !u!1 &2116466048
 GameObject:
   m_ObjectHideFlags: 0
@@ -11999,6 +12906,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2119200787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2119200788}
+  - component: {fileID: 2119200790}
+  - component: {fileID: 2119200789}
+  m_Layer: 5
+  m_Name: FrameImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2119200788
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2119200787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 806915248}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2119200789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2119200787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 673b223f8f976437ab2aa482bd88b2d3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2119200790
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2119200787}
 --- !u!1 &2130793421
 GameObject:
   m_ObjectHideFlags: 0

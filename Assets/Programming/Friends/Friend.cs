@@ -63,7 +63,7 @@ public class Friend : Person {
 
         foreach(Enemy enemy in GameManager.instance.enemyList) {
             CombatManager enemyCombat = enemy.GetComponent<CombatManager>();
-            if(enemy.GetInfo().isDead == false && enemyCombat.IsCirclingListFull() == false && enemy.GetInfo().aiType == AIType.StateMachine) {
+            if(enemy.GetInfo().isDead == false && enemyCombat.IsCirclingListFull() == false && enemy.personAI.aiType == AIType.StateMachine) {
                 /*targetEnemyDistance = Vector3.Distance(enemy.transform.position, transform.position);
                 if(targetEnemyDistance <= 300f) {
                     targetEnemy = enemy.gameObject;
@@ -88,7 +88,7 @@ public class Friend : Person {
 
         foreach(Boss boss in GameManager.instance.bossList) {
             CombatManager bossCombat = boss.GetComponent<CombatManager>();
-            if(boss.GetInfo().isDead == false && bossCombat.IsCirclingListFull() == false && boss.GetInfo().aiType == AIType.StateMachine) {
+            if(boss.GetInfo().isDead == false && bossCombat.IsCirclingListFull() == false && boss.personAI.aiType == AIType.StateMachine) {
                 if(!personAgent.Raycast(boss.transform.position, out personNavMeshHit)) {
                     targetBoss = boss.gameObject;
                     targetList.Add(targetBoss);

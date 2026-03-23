@@ -14,10 +14,13 @@ public class FactionManager : MonoBehaviour {
     }
 
     void GetFactionChoice() {
-        CreateFaction();
+        var kingdomDetails = GlobalData.kingdomDetails;
+        var factionDetials = kingdomDetails.factionModel;
+
+        CreateFaction(factionDetials);
     }
 
-    void CreateFaction() {
+    void CreateFaction(FactionModel factionModel) {
 
     }
 

@@ -9,4 +9,22 @@ using UnityEngine.UI;
     public Sprite kingdomMapSprite;
     public FactionModel factionModel;
     public QuestScriptableObject questScriptableObject;
+
+    public KingdomModel() {}
+
+    public KingdomModel(
+        string kingdomName,
+        string kingdomDescription,
+        string mapName,
+        Sprite kingdomMapSprite,
+        FactionModel factionModel,
+        QuestScriptableObject questScriptableObject
+    ) {
+        this.kingdomName = kingdomName;
+        this.kingdomDescription = kingdomDescription;
+        this.mapName = mapName;
+        this.kingdomMapSprite = kingdomMapSprite;
+        this.factionModel = factionModel;
+        this.questScriptableObject = questScriptableObject;
+    }
 }

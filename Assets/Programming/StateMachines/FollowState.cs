@@ -10,14 +10,14 @@ public class FollowState : StateMachineBehaviour {
 
     public float followDistance = 250f;
     public float circleDistance = 100f;
-    public float nearDistance = 10f;
+    public float attackDistance = 10f;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
         mainPerson.attackNumberUpdate = true;
         mainPerson.personAgent.isStopped = false;
 
-        nearDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 50f;
+        attackDistance = mainPerson.GetInfo().combatType == CombatType.Melee ? 10f : 50f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -26,7 +26,7 @@ public class FollowState : StateMachineBehaviour {
 
             targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
             if (targetInfo is PersonInfo) {
-                if ((targetInfo as PersonInfo).aiType == AIType.CombatAI) {
+                if ((targetInfo as PersonInfo).person.personAI.aiType == AIType.CombatAI) {
                     canAttackTarget = false;
                 }
             }
@@ -36,7 +36,8 @@ public class FollowState : StateMachineBehaviour {
                 targetDistance = Vector3.Distance(mainPerson.target.transform.position, mainPerson.transform.position);
                 if(targetDistance <= followDistance && targetDistance > circleDistance && targetInfo.isDead == false) {
                     mainPerson.personAgent.destination = mainPerson.target.transform.position;
-                } else if(targetDistance <= circleDistance && targetDistance > nearDistance && targetInfo.isDead == false && mainPerson.GetInfo().personType != PersonType.Boss) {
+                }
+                else if(targetDistance <= circleDistance && targetDistance > attackDistance && targetInfo.isDead == false) {
                     if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull() == false) {
                         targetCombat.circlingList.Add(mainPerson.personAgent);
                     } else if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull()) {
@@ -48,10 +49,12 @@ public class FollowState : StateMachineBehaviour {
                     if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                         AIManager.instance.AgentCircleTarget(targetCombat.circlingList /*mainPerson.GetInfo().personType*/, mainPerson.personAgent, mainPerson.target.transform, CircleType.Semicircle);
                     }
-                } else if(targetDistance <= nearDistance && targetInfo.isDead == false) {
+                }
+                else if(targetDistance <= attackDistance && targetInfo.isDead == false) {
                     mainPerson.personAgent.velocity = Vector3.zero;
                     mainPerson.personState.stateMachineAttacking = true;
-                } else if(targetDistance > followDistance || targetInfo.isDead == true) {
+                }
+                else if(targetDistance > followDistance || targetInfo.isDead == true) {
                     if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                         targetCombat.circlingList.Remove(mainPerson.personAgent);
                     }
@@ -62,14 +65,13 @@ public class FollowState : StateMachineBehaviour {
                 if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                     targetCombat.circlingList.Remove(mainPerson.personAgent);
                 }
+                mainPerson.SetTarget(null);
                 mainPerson.personState.stateMachineTargeting = false;
             }
         }
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        /*if(mainPerson.GetInfo().isDead == false) {
-            mainPerson.personAgent.ResetPath();
-        }*/
+
     }
 }

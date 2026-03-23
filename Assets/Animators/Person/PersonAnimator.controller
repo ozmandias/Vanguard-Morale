@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e45143924bb84dac95d81884ed32006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reposition: {x: 0, y: 0, z: 0}
   repositionDistance: 100
   reachDistance: 0
   followDistance: 250
@@ -205,9 +206,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackerInfo:
     owner: {fileID: 0}
+    strength: 0
+    agility: 0
+    intelligence: 0
     health: 0
     MaxHealth: 100
     damage: 0
+    magic: 0
     morality: 50
     alignment: 50
     gender: 0
@@ -235,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2231b5a570674f899af2492d6fd9744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateTime: 0
+  attackStateTime: 0
   followDistance: 250
   nearDistance: 10
 --- !u!114 &114746910939249078

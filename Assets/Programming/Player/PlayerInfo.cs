@@ -1,6 +1,8 @@
 using UnityEngine;
 
 [System.Serializable] public class PlayerInfo : Info {
+    Player player;
+
     public /*PlayerInfo() : base()*/ void Init(GameObject owner)
     {
         base.Init(owner);
@@ -11,6 +13,8 @@ using UnityEngine;
         magic = 20;
         morality = 60;
         alignment = (Morality)morality;
+
+        player = owner.GetComponent<Player>();
 
         if (PlayerProfileController.instance.OnHealthChanges != null)
         {
@@ -34,5 +38,9 @@ using UnityEngine;
         if(PlayerProfileController.instance.OnHealthChanges != null) {
             PlayerProfileController.instance.OnHealthChanges(health);
         }
+    }
+
+    public Player GetPlayer() {
+        return player;
     }
 }

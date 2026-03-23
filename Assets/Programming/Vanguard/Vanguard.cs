@@ -152,7 +152,7 @@ public class Vanguard : MonoBehaviour {
 
 	void OnTriggerEnter(Collider otherCollider) {
 		if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
-			
+			Debug.Log("Hurt by Enemy");
 		}
 	}
 

@@ -100,6 +100,14 @@ public enum QuestType {
     Destroy
 }
 
+public enum WorkType {
+    Farming,
+    ShopManaging,
+    Lumbering,
+    GoldMining,
+    BuildingDestroying
+}
+
 public enum RewardType {
     Level,
     Health,
@@ -110,4 +118,9 @@ public enum RewardType {
     Magic,
     Item,
     Weapon
+}
+
+public enum GameMode {
+    Game,
+    Arena
 }

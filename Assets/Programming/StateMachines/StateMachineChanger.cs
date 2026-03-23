@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class StateMachineManager : MonoBehaviour {
+public class StateMachineChanger : MonoBehaviour {
     Person mainPerson;
     public StateMachine state = StateMachine.Idle;
     public bool stateMachineMoving = false;
     public bool stateMachineTargeting = false;
     public bool stateMachineAttacking = false;
     public bool stateMachineWorking = false;
+    public bool stateMachineDead = false;
 
     void Start() {
         mainPerson = gameObject.GetComponent<Person>();
@@ -17,7 +18,7 @@ public class StateMachineManager : MonoBehaviour {
     }
 
     void CheckState() {
-        if ((mainPerson.GetInfo().aiType == AIType.StateMachine || mainPerson.GetInfo().aiType == AIType.QuestAI) && mainPerson.GetInfo().stateMachineDead == false) {
+        if ((mainPerson.personAI.aiType == AIType.StateMachine || mainPerson.personAI.aiType == AIType.QuestAI) && mainPerson.personState.stateMachineDead == false) {
             switch(state) {
                 case StateMachine.Idle:
                     if(mainPerson.target) {
@@ -50,6 +51,11 @@ public class StateMachineManager : MonoBehaviour {
                     }
                     break;
                 case StateMachine.Work:
+                    if(mainPerson.target) {
+                        if(stateMachineTargeting) {
+                            ChangeState(StateMachine.Follow);
+                        }
+                    }
                     break;
                 case StateMachine.Follow:
                     if(mainPerson.target) {
@@ -120,10 +126,10 @@ public class StateMachineManager : MonoBehaviour {
                 ChangeState(StateMachine.Hurt);
             }
 
-            if(mainPerson.GetInfo().isDead == true && mainPerson.GetInfo().stateMachineDead == false){
+            if(mainPerson.GetInfo().isDead == true && mainPerson.personState.stateMachineDead == false){
                 ChangeState(StateMachine.Dead);
             }
-        } else if(mainPerson.GetInfo().aiType == AIType.CombatAI) {
+        } else if(mainPerson.personAI.aiType == AIType.CombatAI) {
             ChangeState(StateMachine.Combat);
         }
     }

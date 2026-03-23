@@ -24,8 +24,10 @@ public class DeadState : StateMachineBehaviour {
                     }
                 }
             }
-            mainPerson.personState.stateMachineAttacking = false;
+            mainPerson.personState.stateMachineMoving = false;
             mainPerson.personState.stateMachineTargeting = false;
+            mainPerson.personState.stateMachineAttacking = false;
+            mainPerson.personState.stateMachineWorking = false;
             mainPerson.personCombat.circlingList.Clear();
             mainPerson.personCombat.enemyInCombat = false;
             mainPerson.personCombat.counterAlert = false;

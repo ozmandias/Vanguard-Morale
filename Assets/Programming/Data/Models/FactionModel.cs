@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable] public class FactionModel {
@@ -5,4 +7,5 @@ using UnityEngine;
     public GameObject specialCharacter;
     public GameObject []people;
     public GameObject []soldiers;
+    public GameObject []items;
 }

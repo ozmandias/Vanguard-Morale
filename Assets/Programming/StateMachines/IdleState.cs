@@ -23,8 +23,9 @@ public class IdleState : StateMachineBehaviour {
 
             targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
             if (targetInfo is PersonInfo) {
-                if ((targetInfo as PersonInfo).aiType == AIType.CombatAI) {
+                if ((targetInfo as PersonInfo).person.personAI.aiType == AIType.CombatAI) {
                     canAttackTarget = false;
+                    return;
                 }
             }
             
@@ -32,7 +33,8 @@ public class IdleState : StateMachineBehaviour {
             if(targetDistance <= followDistance && targetInfo.isDead == false && canAttackTarget) {
                 mainPerson.personState.stateMachineMoving = true;
                 mainPerson.personState.stateMachineTargeting = true;
-            } else if(targetInfo.isDead == true) {
+            }
+            else {
                 mainPerson.SetTarget(null);
             }
         }
@@ -45,7 +47,10 @@ public class IdleState : StateMachineBehaviour {
                 animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, lookRotation, mainPerson.speed * Time.deltaTime);
             }
 
-            destinationDistance = Vector3.Distance(mainPerson.destination.position, mainPerson.transform.position);
+            destinationDistance =
+            animator.GetBehaviour<MoveState>().reposition != Vector3.zero ?
+            Vector3.Distance(animator.GetBehaviour<MoveState>().reposition, mainPerson.transform.position) :
+            Vector3.Distance(mainPerson.destination.position, mainPerson.transform.position);
             if(destinationDistance > reachDistance) {
                 mainPerson.personState.stateMachineMoving = true;
             }
