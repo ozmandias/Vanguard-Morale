@@ -121,6 +121,6 @@ public enum RewardType {
 }
 
 public enum GameMode {
-    Game,
+    Story,
     Arena
 }

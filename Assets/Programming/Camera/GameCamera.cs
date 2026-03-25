@@ -10,7 +10,8 @@ public class GameCamera : MonoBehaviour {
     [SerializeField] GameObject cameraFollowObject;
 
     void Start() {
-        cameraFollowObject = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameObject.Find("Vanguard").transform.Find("CameraFollow").gameObject : GameObject.Find("Hero").transform.Find("CameraFollow").gameObject;
+        // cameraFollowObject = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameObject.Find("Vanguard").transform.Find("CameraFollow").gameObject : GameObject.Find("Hero").transform.Find("CameraFollow").gameObject;
+        if(cameraFollowObject == null) cameraFollowObject = PlayerManager.instance.playerPersonalData.cameraFollowObject;
     }
 
     void Update() {

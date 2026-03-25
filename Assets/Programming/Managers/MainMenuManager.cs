@@ -20,10 +20,12 @@ public class MainMenuManager : MonoBehaviour {
 
     #region MainMenuUI
         public void PlayStory() {
+            GlobalData.gameMode = GameMode.Story;
             SceneManager.instance.ChangeSceneByFading("characterselection");
         }
         
         public void PlayArena() {
+            GlobalData.gameMode = GameMode.Arena;
             SceneManager.instance.ChangeSceneByLoading("vs");
         }
 

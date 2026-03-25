@@ -5,6 +5,7 @@ public class WorldMapSelectionManager : MonoBehaviour {
     public string mapName;
     public Image mapImage;
     public Button backButton;
+    public WorldMapSelectionObject []mapSelectionObjects;
     [SerializeField] WorldScriptableObject worldScriptableObject;
     Color originalColor = new Color(1f, 1f, 1f, 1f);
     Color fadeColor = new Color(0.8f, 0.8f, 0.8f, 1f);

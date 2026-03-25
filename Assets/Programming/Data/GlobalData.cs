@@ -18,5 +18,9 @@ public static class GlobalData {
 
     public static QuestScriptableObject currentKingdomQuestScriptableObject;
 
+    public static CharacterModel arenaVanguardPlayer;
+
+    public static CharacterModel arenaVanguardPerson;
+
     public static GameMode gameMode;
 }

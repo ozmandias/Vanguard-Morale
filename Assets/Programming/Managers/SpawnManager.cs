@@ -67,7 +67,10 @@ public class SpawnManager : MonoBehaviour
     public void Spawn(GameObject spawnObject, Transform spawnLocation)
     {
         Instantiate(spawnObject, spawnLocation.position, Quaternion.identity);
-        // add to combatAIStructs
+    }
+
+    public void Spawn(GameObject spawnObject, Vector3 spawnPosition, Quaternion spawnRotation) {
+        Instantiate(spawnObject, spawnPosition, spawnRotation);
     }
 
     void SpawnAll()

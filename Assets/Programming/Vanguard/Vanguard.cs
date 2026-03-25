@@ -97,12 +97,14 @@ public class Vanguard : MonoBehaviour {
 
 	void Attack() {
 		if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false && vanguardCombat.managingAttack == false) {
-			isAttacking = true;
-			attackCollider.enabled = true;
-			attackNumber = attackNumber + 1; /*Random.Range(1,3)*/
-			attackNumber = attackNumber == 3 ? 1 : attackNumber;  /*Mathf.Clamp(attackNumber, 1, 2)*/
-			PlayAnimation("Attack" + attackNumber);
-			attackTimer = 0;
+			if(vanguardInfo.combatType == CombatType.Melee) {
+				isAttacking = true;
+				attackCollider.enabled = true;
+				attackNumber = attackNumber + 1; /*Random.Range(1,3)*/
+				attackNumber = attackNumber == 3 ? 1 : attackNumber;  /*Mathf.Clamp(attackNumber, 1, 2)*/
+				PlayAnimation("Attack" + attackNumber);
+				attackTimer = 0;
+			}
 		}
 
 		if(isAttacking) {

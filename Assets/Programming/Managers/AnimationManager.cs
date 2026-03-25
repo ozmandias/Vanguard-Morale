@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour {
     public Animator mainAnimator;
+    public RuntimeAnimatorController playerRuntimeAnimator;
+    public RuntimeAnimatorController personRuntimeAnimator;
     Dictionary<string, float> animationDictionary = new Dictionary<string, float>();
 
     void Start()
     {
         mainAnimator = GetComponent<Animator>();
         GetAnimationClipsFromAnimator();
+
+        // setup RuntimeController for Animator based on being player or npc
+        var animationPersonalData = GetComponent<PersonalData>();
+        if(animationPersonalData != null) {
+            playerRuntimeAnimator = animationPersonalData.playerRuntimeAnimator;
+            personRuntimeAnimator = animationPersonalData.personRuntimeAnimator;
+            if(mainAnimator.gameObject.CompareTag("Player")) {
+                mainAnimator.runtimeAnimatorController = playerRuntimeAnimator;
+            } else {
+                mainAnimator.runtimeAnimatorController = personRuntimeAnimator;
+            }
+        }
     }
 
     public void Play(string animationName)

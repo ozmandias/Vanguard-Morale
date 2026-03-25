@@ -5,7 +5,7 @@ AnimatorOverrideController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SwordsmanAnimatorOverride
+  m_Name: SwordsmanPersonAnimatorOverride
   m_Controller: {fileID: 9100000, guid: 11a2889b2cb984fb8a5f6c8ac0ae229b, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 31bd6d27f0e5842a4b97a758a12d477c, type: 2}

@@ -14,6 +14,7 @@ TagManager:
   - Person
   - Boss
   - VanguardAttackCollider
+  - RagdollBoneBase
   layers:
   - Default
   - TransparentFX

@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
     [SerializeField] Rigidbody playerBody;
     [SerializeField] Animator playerAnimator;
     [SerializeField] Camera playerCamera;
-    [SerializeField] PlayerInfo playerInfo;
+    [SerializeField] PlayerInfo playerInfo = new PlayerInfo();
     [SerializeField] AnimationManager playerAnimation;
     [SerializeField] CombatManager playerCombat;
 
@@ -35,10 +35,12 @@ public class Player : MonoBehaviour {
         playerBody = gameObject.GetComponent<Rigidbody>();
         playerAnimator = gameObject.GetComponent<Animator>();
         playerCamera = Camera.main;
+        if(attackCollider == null) attackCollider = PlayerManager.instance.playerPersonalData.attackColliderObject.GetComponent<Collider>();
 
         playerAnimation = GetComponent<AnimationManager>();
         playerCombat = GetComponent<CombatManager>();
 
+        Debug.Log("playerInfo Init: " + gameObject.name);
         playerInfo.Init(gameObject);
         /*playerBody.interpolation = RigidbodyInterpolation.Interpolate;
         playerBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
@@ -91,12 +93,14 @@ public class Player : MonoBehaviour {
 
     public void Attack() {
         if(Input.GetKeyDown(KeyCode.Mouse0) && isJumping == false && playerCombat.managingAttack == false) {
-            isAttacking = true;
-            attackCollider.enabled = true;
-            attackNumber += 1;
-            attackNumber = attackNumber == 3 ? 1 : attackNumber; /*Mathf.Clamp(attackNumber, 1, 2)*/
-            PlayAnimation("Attack" + attackNumber);
-            attackTimer = 0;
+            if(playerInfo.combatType == CombatType.Melee) {
+                isAttacking = true;
+                attackCollider.enabled = true;
+                attackNumber += 1;
+                attackNumber = attackNumber == 3 ? 1 : attackNumber; /*Mathf.Clamp(attackNumber, 1, 2)*/
+                PlayAnimation("Attack" + attackNumber);
+                attackTimer = 0;
+            }
         }
 
         if(isAttacking == true) {

@@ -23,7 +23,8 @@ public class MoveState : StateMachineBehaviour {
         if(mainPerson.target) {
             bool canAttackTarget = true;
 
-            targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
+            // targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
+            targetInfo = mainPerson.target.CompareTag("Player") ? PlayerManager.instance.playerGameObject.GetComponent<Vanguard>() != null ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
             if (targetInfo is PersonInfo) {
                 if ((targetInfo as PersonInfo).person.personAI.aiType == AIType.CombatAI) {
                     canAttackTarget = false;

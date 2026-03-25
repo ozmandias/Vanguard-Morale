@@ -37,6 +37,42 @@ public class EffectManager : MonoBehaviour {
         }
     }
 
+    public GameObject CreateEffect(string effectName, Transform createTransform) {
+        Effect effectToCreate = null;
+
+        switch (effectName) {
+            case "attack":
+                effectToCreate = attackEffect;
+                break;
+            default:
+                break;
+        }
+
+        var effectToCreateObject = GameObject.Instantiate(effectToCreate.gameObject, createTransform.position, createTransform.rotation);
+        effectToCreateObject.GetComponent<Effect>().owner = this.gameObject;
+        effectToCreateObject.GetComponent<Effect>().Play();
+        
+        return effectToCreateObject;
+    }
+
+    public GameObject CreateEffect(string effectName, Vector3 createPosition, Quaternion createRotation) {
+        Effect effectToCreate = null;
+        
+        switch (effectName) {
+            case "attack":
+                effectToCreate = attackEffect;
+                break;
+            default:
+                break;
+        }
+
+        var effectToCreateObject = GameObject.Instantiate(effectToCreate.gameObject, createPosition, createRotation);
+        effectToCreateObject.GetComponent<Effect>().owner = this.gameObject;
+        effectToCreateObject.GetComponent<Effect>().Play();
+        
+        return effectToCreateObject;
+    }
+
     public void DestroyEffect(GameObject destroyEffect) {
         StartCoroutine(DestroyEffectCoroutine(destroyEffect));
     }

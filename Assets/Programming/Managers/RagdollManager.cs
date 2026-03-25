@@ -11,9 +11,16 @@ public class RagdollManager : MonoBehaviour {
     [SerializeField] Collider[] ragdollColliders;
 
     void Start() {
-        ragdollBodies = boneBase.GetComponentsInChildren<Rigidbody>();
-        ragdollColliders = boneBase.GetComponentsInChildren<Collider>();
-        boneBase.AddComponent<RagdollPhysics>();
+        mainAnimator = GetComponent<Animator>();
+        mainBody = GetComponent<Rigidbody>();
+        mainCollider = GetComponent<BoxCollider>() as Collider;
+        boneBase = GameHelpers.FindWithTagInChildren("RagdollBoneBase", gameObject);
+
+        if(boneBase != null) {
+            ragdollBodies = boneBase.GetComponentsInChildren<Rigidbody>();
+            ragdollColliders = boneBase.GetComponentsInChildren<Collider>();
+            boneBase.AddComponent<RagdollPhysics>();
+        }
 
         DisableRagdoll();
     }

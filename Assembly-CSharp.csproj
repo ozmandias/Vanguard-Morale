@@ -92,6 +92,7 @@
      <Compile Include="Assets\Programming\Data\Models\SceneModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\SpawnModels.cs" />
      <Compile Include="Assets\Programming\Data\Models\StatsModel.cs" />
+     <Compile Include="Assets\Programming\Data\PersonalData.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\CharacterScriptableObject.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\FactionScriptableObject.cs" />
      <Compile Include="Assets\Programming\Data\ScriptableObjects\ItemScriptableObject.cs" />

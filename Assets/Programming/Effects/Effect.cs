@@ -28,23 +28,11 @@ public class Effect : MonoBehaviour {
         particle.Stop();
     }
 
-    public GameObject Create(Transform createTransform) {
-        GameObject newEffect = GameObject.Instantiate(gameObject, createTransform.position, createTransform.rotation);
-        newEffect.GetComponent<Effect>().Play();
-        return newEffect;
-    }
-
-    public GameObject Create(Vector3 createPosition, Quaternion createRotation) {
-        GameObject newEffect = GameObject.Instantiate(gameObject, createPosition, createRotation);
-        newEffect.GetComponent<Effect>().Play();
-        return newEffect;
-    }
-
-    public void SetOwner(GameObject _owner) {
-        owner = _owner;
-    }
-
     void OnParticleCollision(GameObject otherGameObject) {
+        if(otherGameObject.CompareTag("Player") && owner != null) {
+            Debug.Log("Hurt by Boss");
+        }
+
         if(otherGameObject.CompareTag("Person") && owner != null) {
             Info ownerInfo = GameHelpers.GetCharacterInfo(owner);
             otherGameObject.GetComponent<Person>().HurtByOther(ownerInfo);

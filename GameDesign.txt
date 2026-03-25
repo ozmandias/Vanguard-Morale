@@ -39,6 +39,8 @@ Use Player Programming for switching to make any character playable.
 Use Person Programming for AI/NPC.
 Use Ally and Enemy based on kingdoms instead of making individual scripts for different kingdoms.
 Use Boss Programming for Bosses.
+
+Every Programming do their related things instead of having the related things in other Programming.
 -----------------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero

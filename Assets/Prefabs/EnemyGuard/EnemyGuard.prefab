@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 65832848446547704}
   m_Layer: 0
   m_Name: mixamorig:Hips
-  m_TagString: Untagged
+  m_TagString: RagdollBoneBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1377,6 +1377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 0}
+  playerRuntimeAnimator: {fileID: 0}
+  personRuntimeAnimator: {fileID: 0}
 --- !u!114 &114447618818302818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1467,7 +1469,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  OnPlayerCombatEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   OnPlayerCounter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPlayerCounterEnd:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
@@ -1499,6 +1511,16 @@ MonoBehaviour:
     m_TypeName: EnemyRetreatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnEnemyHurt:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEnemyCombatHurt:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEnemyCounterHurt:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,

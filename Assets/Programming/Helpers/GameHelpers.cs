@@ -16,6 +16,21 @@ public static class GameHelpers {
         return null;
     }
 
+    public static GameObject FindWithTagInChildren(string tag, GameObject parent) {
+        if(parent.CompareTag(tag)) {
+            return parent;
+        }
+
+        for(int i = 0; i < parent.transform.childCount; i = i + 1) {
+            GameObject searchObject = FindWithTagInChildren(tag, parent.transform.GetChild(i).gameObject);
+            if(searchObject) {
+                return searchObject;
+            }
+        }
+
+        return null;
+    }
+
     public static Info GetCharacterInfo(GameObject character) {
         Info characterInfo = null;
         if(character.CompareTag("Player")) {

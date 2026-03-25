@@ -68,7 +68,7 @@ public class CombatManager : MonoBehaviour {
         if (characterInfo is VanguardInfo || characterInfo is PlayerInfo)
         {
             playerCamera = Camera.main;
-            combatCollider = characterInfo is VanguardInfo ? GameObject.FindWithTag("VanguardAttackCollider").GetComponent<Collider>() : GameObject.FindWithTag("PlayerAttackCollider").GetComponent<Collider>();
+            // combatCollider = characterInfo is VanguardInfo ? GameObject.FindWithTag("VanguardAttackCollider").GetComponent<Collider>() : GameObject.FindWithTag("PlayerAttackCollider").GetComponent<Collider>();
         }
         else if (characterInfo is PersonInfo && GameManager.instance.playerGameObject)
         {

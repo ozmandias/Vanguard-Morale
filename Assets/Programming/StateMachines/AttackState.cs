@@ -21,7 +21,8 @@ public class AttackState : StateMachineBehaviour {
         if(mainPerson.target) {
             bool canAttackTarget = true;
 
-            targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
+            // targetInfo = mainPerson.target.CompareTag("Player") ? GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
+            targetInfo = mainPerson.target.CompareTag("Player") ? PlayerManager.instance.playerGameObject.GetComponent<Vanguard>() != null ? (Info) mainPerson.target.GetComponent<Vanguard>().GetInfo() : (Info) mainPerson.target.GetComponent<Player>().GetInfo() : (Info) mainPerson.target.GetComponent<Person>().GetInfo();
             if (targetInfo is PersonInfo) {
                 if ((targetInfo as PersonInfo).person.personAI.aiType == AIType.CombatAI) {
                     canAttackTarget = false;
@@ -55,9 +56,8 @@ public class AttackState : StateMachineBehaviour {
                         }
 
                         if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn && mainPerson.personEffect.attackEffect.canManageEffect) {
-                            GameObject newAttackEffect = mainPerson.personEffect.attackEffect.Create(raycastShooter.transform.position, Quaternion.LookRotation(mainPerson.target.transform.position - animator.transform.position, Vector3.up) /*animator.transform.rotation*/);
+                            GameObject newAttackEffect = mainPerson.personEffect.CreateEffect("attack", raycastShooter.transform.position, Quaternion.LookRotation(mainPerson.target.transform.position - animator.transform.position, Vector3.up) /*animator.transform.rotation*/);
                             if(newAttackEffect) {
-                                newAttackEffect.GetComponent<Effect>().SetOwner(mainPerson.gameObject);
                                 mainPerson.personEffect.DestroyEffect(newAttackEffect);
                             }
                             mainPerson.personEffect.attackEffect.canManageEffect = false;
