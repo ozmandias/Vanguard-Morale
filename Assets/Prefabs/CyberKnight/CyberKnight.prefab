@@ -1322,6 +1322,7 @@ MonoBehaviour:
     combatType: 1
     isDead: 0
     person: {fileID: 0}
+    personCharacter: 3
     personType: 4
   personEffect: {fileID: 0}
   isHurt: 0

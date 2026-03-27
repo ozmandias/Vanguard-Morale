@@ -11,7 +11,7 @@ public class GameCamera : MonoBehaviour {
 
     void Start() {
         // cameraFollowObject = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameObject.Find("Vanguard").transform.Find("CameraFollow").gameObject : GameObject.Find("Hero").transform.Find("CameraFollow").gameObject;
-        if(cameraFollowObject == null) cameraFollowObject = PlayerManager.instance.playerPersonalData.cameraFollowObject;
+        if(cameraFollowObject == null) cameraFollowObject = PlayerManager.instance.currentCharacter.personalData.cameraFollowObject;
     }
 
     void Update() {

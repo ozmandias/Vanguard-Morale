@@ -35,12 +35,11 @@ public class Player : MonoBehaviour {
         playerBody = gameObject.GetComponent<Rigidbody>();
         playerAnimator = gameObject.GetComponent<Animator>();
         playerCamera = Camera.main;
-        if(attackCollider == null) attackCollider = PlayerManager.instance.playerPersonalData.attackColliderObject.GetComponent<Collider>();
+        if(attackCollider == null) attackCollider = PlayerManager.instance.currentCharacter.personalData.attackColliderObject.GetComponent<Collider>();
 
         playerAnimation = GetComponent<AnimationManager>();
         playerCombat = GetComponent<CombatManager>();
 
-        Debug.Log("playerInfo Init: " + gameObject.name);
         playerInfo.Init(gameObject);
         /*playerBody.interpolation = RigidbodyInterpolation.Interpolate;
         playerBody.collisionDetectionMode = CollisionDetectionMode.Continuous;*/

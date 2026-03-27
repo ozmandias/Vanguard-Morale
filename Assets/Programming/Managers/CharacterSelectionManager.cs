@@ -8,6 +8,7 @@ using DG.Tweening;
 public class CharacterSelectionManager : MonoBehaviour {
     Camera characterSelectionCamera;
     float mouseHorizontal = -90f /*0f*/;
+
     [Header("Character Selection Manager Settings")]
     public float characterSelectionRotateSpeed = 8f;
     public Button backButton;
@@ -20,9 +21,11 @@ public class CharacterSelectionManager : MonoBehaviour {
     public GameObject originalCinemachineObject;
     public GameObject selectionCinemachineObject;
     public Effect characterSelectionEffect;
+
     [Header("UI")]
     public GameObject characterDetailsUIObject;
     public GameObject characterSelectionGroupUIObject;
+
     [Header("Data")]
     public CharacterScriptableObject characterScriptableObject;
     public CharacterSelectionObject []characterSelectionObjects;

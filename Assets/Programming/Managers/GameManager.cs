@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerCharacters = GameObject.FindGameObjectsWithTag("Player");
-		SetPlayer();
+		// SetPlayer();
 		HideCursor();
 	}
 	
@@ -91,28 +91,30 @@ public class GameManager : MonoBehaviour {
 
 	void SetPlayer() {
 		currentPlayer = GlobalData.characterDetails.character /*CharacterSelectController.instance.characterDetails.character*/;
-
 		GameObject vanguardObject = null;
-		GameObject heroObject = null;
+		GameObject playerObject = null;
+		
 		if (playerCharacters.Length > 0)
 		{
 			foreach (GameObject playerCharacter in playerCharacters)
 			{
-				if (playerCharacter.name == PlayerCharacter.Vanguard.ToString())
+				if (playerCharacter.GetComponent<Character>().playerCharacter == PlayerCharacter.Vanguard)
 				{
-					// playerCharacters[0]/*GameObject.Find("Vanguard")*/
 					playerCharacter.GetComponent<Vanguard>().enabled = currentPlayer == PlayerCharacter.Vanguard ? true : false;
 					vanguardObject = playerCharacter;
-				}
-				if (playerCharacter.name == PlayerCharacter.Hero.ToString())
-				{
-					// playerCharacters[1]/*GameObject.Find("Hero")*/
-					playerCharacter.GetComponent<Hero>().enabled = currentPlayer == PlayerCharacter.Hero ? true : false;
-					heroObject = playerCharacter;
+				} else {
+					playerCharacter.GetComponent<Player>().enabled = currentPlayer == PlayerCharacter.Player ? true : false;
+					playerObject = playerCharacter;
 				}
 			}
 
-			playerGameObject = currentPlayer == PlayerCharacter.Vanguard ? vanguardObject : heroObject /*GameObject.Find(currentPlayer.ToString())*/;
+			playerGameObject = currentPlayer == PlayerCharacter.Vanguard ? vanguardObject : playerObject;
 		}
+	}
+
+	public void InitPlayer(PlayerCharacter playerCharacter, GameObject playerGameObject) {
+		// assign data from PlayerManager
+		this.currentPlayer = playerCharacter;
+		this.playerGameObject = playerGameObject;
 	}
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class PersonalData : MonoBehaviour {
+[System.Serializable]
+public class PersonalData {
     public Rigidbody body;
     public Collider collider;
     public GameObject attackColliderObject;
@@ -9,6 +10,8 @@ public class PersonalData : MonoBehaviour {
     public RuntimeAnimatorController playerRuntimeAnimator;
     public RuntimeAnimatorController personRuntimeAnimator;
     public GameObject weaponObject;
-    public Transform weaponDefaultTransform;
+    public Vector3 weaponDefaultPosition;
+    public Vector3 weaponDefaultEulerRotation;
+    public Vector3 weaponDefaultScale;
     public Transform weaponParentTransform;
 }

@@ -9,9 +9,9 @@ public class CombatManager : MonoBehaviour {
     [Header("Combat Manager Settings")]
     public AnimationManager animationManager;
     public EffectManager effectManager;
-    public List<NavMeshAgent> circlingList;
+    public List<NavMeshAgent> circlingList = new List<NavMeshAgent>();
     public int maxCirclingEnemies = 3;
-    public List<NavMeshAgent> combatingList;
+    public List<NavMeshAgent> combatingList = new List<NavMeshAgent>();
     public int maxCombatingEnemies = 5;
     public Info characterInfo;
 

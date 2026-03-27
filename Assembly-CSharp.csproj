@@ -75,6 +75,7 @@
      <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\Programming\AI\AIChanger.cs" />
      <Compile Include="Assets\Programming\Camera\GameCamera.cs" />
+     <Compile Include="Assets\Programming\Character\Character.cs" />
      <Compile Include="Assets\Programming\Data\Enums.cs" />
      <Compile Include="Assets\Programming\Data\Events.cs" />
      <Compile Include="Assets\Programming\Data\GameSettings.cs" />

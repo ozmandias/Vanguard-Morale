@@ -14,10 +14,10 @@ public class AnimationManager : MonoBehaviour {
         GetAnimationClipsFromAnimator();
 
         // setup RuntimeController for Animator based on being player or npc
-        var animationPersonalData = GetComponent<PersonalData>();
-        if(animationPersonalData != null) {
-            playerRuntimeAnimator = animationPersonalData.playerRuntimeAnimator;
-            personRuntimeAnimator = animationPersonalData.personRuntimeAnimator;
+        var character = GetComponent<Character>();
+        if(character != null) {
+            playerRuntimeAnimator = character.personalData.playerRuntimeAnimator;
+            personRuntimeAnimator = character.personalData.personRuntimeAnimator;
             if(mainAnimator.gameObject.CompareTag("Player")) {
                 mainAnimator.runtimeAnimatorController = playerRuntimeAnimator;
             } else {
@@ -44,23 +44,28 @@ public class AnimationManager : MonoBehaviour {
 
     public void SetParameter(string parameterName, object value)
     {
-        switch (parameterName)
-        {
-            case "Velocity":
-            case "HorizontalMovement":
-            case "VerticalMovement":
-            case "AttackNumber":
-                mainAnimator.SetFloat(parameterName, (float)value);
-                break;
-            case "Attacking":
-            case "ReduceHealth":
-                mainAnimator.SetBool(parameterName, (bool)value);
-                break;
-            case "HurtAmount":
-                mainAnimator.SetInteger(parameterName, (int)value);
-                break;
-            default:
-                break;
+        // condition check to set parameters for player and person
+        if(gameObject.CompareTag("Player")) {
+
+        } else {
+            switch (parameterName)
+            {
+                case "Velocity":
+                case "HorizontalMovement":
+                case "VerticalMovement":
+                case "AttackNumber":
+                    mainAnimator.SetFloat(parameterName, (float)value);
+                    break;
+                case "Attacking":
+                case "ReduceHealth":
+                    mainAnimator.SetBool(parameterName, (bool)value);
+                    break;
+                case "HurtAmount":
+                    mainAnimator.SetInteger(parameterName, (int)value);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

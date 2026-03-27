@@ -3428,10 +3428,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b091112aca4bafb91dd5f0ca29dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChoiceCharacter: _Swordsman
+  playerCodeName: _Swordsman
+  playerGameObject: {fileID: 0}
   playerPrefabs:
   - {fileID: 1755395566562944, guid: 5b15ac40f0c294f78a1d9391e895df21, type: 2}
   - {fileID: 1422175888338986, guid: 36e922fc12d9d436cb1138601a8ce304, type: 2}
+  playerPersonalData:
+    body: {fileID: 0}
+    collider: {fileID: 0}
+    attackColliderObject: {fileID: 0}
+    cameraFollowObject: {fileID: 0}
+    groundCheckObject: {fileID: 0}
+    playerRuntimeAnimator: {fileID: 0}
+    personRuntimeAnimator: {fileID: 0}
+    weaponObject: {fileID: 0}
+    weaponDefaultPosition: {x: 0, y: 0, z: 0}
+    weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
+    weaponDefaultScale: {x: 0, y: 0, z: 0}
+    weaponParentTransform: {fileID: 0}
 --- !u!4 &1038040434
 Transform:
   m_ObjectHideFlags: 0

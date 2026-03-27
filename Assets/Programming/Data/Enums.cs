@@ -5,6 +5,11 @@ public enum Morality {
     Evil = 40
 }
 
+public enum PlayerType {
+    Single,
+    Group
+}
+
 public enum PersonType {
     Friend,
     Normal,
@@ -27,17 +32,13 @@ public enum StateMachine {
 
 public enum PlayerCharacter {
     Vanguard,
-    Hero,
-    VanguardOfDesertus,
-    VanguardOfUnmortus,
-    VanguardOfGhostian,
-    VanguardOfDamnum,
-    VanguardOfIgnis,
-    VanguardOfScientia,
-    VanguardOfKarus,
-    VanguardOfCentralForest,
-    VanguardOfStoria,
-    Viking
+    Player
+}
+
+public enum PersonCharacter {
+    Citizen,
+    Soldier,
+    Leader
 }
 
 public enum Gender {

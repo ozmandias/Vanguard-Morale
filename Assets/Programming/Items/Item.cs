@@ -15,7 +15,8 @@ public class Item : MonoBehaviour {
         Info ownerInfo;
         if (owner.CompareTag("Player"))
         {
-            ownerInfo = owner.name == PlayerCharacter.Vanguard.ToString() ? (Info) owner.GetComponent<Vanguard>().GetInfo() : (Info) owner.GetComponent<Player>().GetInfo();
+            // ownerInfo = owner.name == PlayerCharacter.Vanguard.ToString() ? (Info) owner.GetComponent<Vanguard>().GetInfo() : (Info) owner.GetComponent<Player>().GetInfo();
+            ownerInfo = owner.GetComponent<Character>().playerCharacter == PlayerCharacter.Vanguard ? (Info) owner.GetComponent<Vanguard>().GetInfo() : (Info) owner.GetComponent<Player>().GetInfo();
         }
         else
         {

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
-    public string playerChoiceCharacter;
+    public string playerCodeName;
     public GameObject playerGameObject;
     public GameObject []playerPrefabs;
-    public PersonalData playerPersonalData;
+    public Character currentCharacter;
 
     public static PlayerManager instance;
 
@@ -29,9 +29,9 @@ public class PlayerManager : MonoBehaviour {
 
     void GetPlayerChoice() {
         var playerChoice = GlobalData.characterDetails;
-        if(string.IsNullOrEmpty(playerChoiceCharacter)) playerChoiceCharacter = playerChoice.character.ToString();
+        if(string.IsNullOrEmpty(playerCodeName)) playerCodeName = playerChoice.codeName;
         GameObject playerChoicePrefab = Array.Find(playerPrefabs, (playerPrefab) => {
-            return playerPrefab.name == playerChoiceCharacter; 
+            return playerPrefab.name == playerCodeName; 
         });
         if(playerChoicePrefab != null) CreatePlayer(playerChoicePrefab);
     }
@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour {
     void CreatePlayer(GameObject playerPrefab) {
         var createPoint = GameObject.Find("GameStartPoint");
         playerGameObject = Instantiate(playerPrefab, createPoint != null ? createPoint.transform.position : Vector3.zero, Quaternion.identity);
-        playerPersonalData = playerGameObject.GetComponent<PersonalData>();
+        currentCharacter = playerGameObject.GetComponent<Character>();
 
         // set player tag
         playerGameObject.tag = "Player";
@@ -52,5 +52,7 @@ public class PlayerManager : MonoBehaviour {
         playerGameObject.AddComponent<RagdollManager>();
 
         // person - Person, AnimationManager, CombatManager, EffectManager, RagdollManager, QuestManager(optional), AIChanger, StateMachineChanger, NavMeshAgent
+
+        GameManager.instance.InitPlayer(currentCharacter.playerCharacter, playerGameObject);
     }
 }

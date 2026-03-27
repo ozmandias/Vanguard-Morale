@@ -2,6 +2,7 @@ using UnityEngine;
 
 [System.Serializable] public class PlayerInfo : Info {
     Player player;
+    public PlayerType playerType = PlayerType.Single;
 
     public /*PlayerInfo() : base()*/ void Init(GameObject owner)
     {

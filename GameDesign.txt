@@ -22,7 +22,7 @@ Character Selector (in progress)
 Level Selector/World Map Selector (in progress)
 Loading (done, needs improvements)
 Boss (in progress)
-Sandbox Style Gameplay like Hard Time / Action Gameplay like Star Wars: Battlefront II & Lord of the Rings: Conquest (in progress)
+Sandbox Style Gameplay like Hard Time / Action Gameplay like Star Wars: Battlefront II, Lord of the Rings: Conquest, Dragon Age Inquisition (in progress)
 New Playable Characters
 
 Learn from Brackeys

@@ -6,6 +6,7 @@ using UnityEngine;
     public string vanguardTitle;
     public string characterTitle;
     public string characterDescription;
+    public string codeName;
     public Faction faction;
     public Sprite characterSprite;
     public Sprite profileSprite;
@@ -19,6 +20,7 @@ using UnityEngine;
         string vanguardTitle,
         string characterTitle,
         string characterDescription,
+        string codeName,
         Faction faction,
         Sprite characterSprite,
         Sprite profileSprite,
@@ -29,6 +31,7 @@ using UnityEngine;
         this.vanguardTitle = vanguardTitle;
         this.characterTitle = characterTitle;
         this.characterDescription = characterDescription;
+        this.codeName = codeName;
         this.faction = faction;
         this.characterSprite = characterSprite;
         this.profileSprite = profileSprite;

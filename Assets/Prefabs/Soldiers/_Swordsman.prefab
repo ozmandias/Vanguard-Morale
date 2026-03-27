@@ -418,10 +418,10 @@ GameObject:
   - component: {fileID: 65994306475580142}
   - component: {fileID: 136505982171268310}
   - component: {fileID: 195060858309835342}
-  - component: {fileID: 114218717706916890}
+  - component: {fileID: 114262228137479582}
   m_Layer: 0
   m_Name: _Swordsman
-  m_TagString: Person
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1385,7 +1385,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114218717706916890
+--- !u!114 &114262228137479582
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1393,21 +1393,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1755395566562944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58296918b8faa409c952a870a4dbd63c, type: 3}
+  m_Script: {fileID: 11500000, guid: 854a38f2851bb40c2b8c02748ead2ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 54333213210926750}
-  collider: {fileID: 65994306475580142}
-  attackColliderObject: {fileID: 1513332782278360}
-  cameraFollowObject: {fileID: 1679029708526762}
-  groundCheckObject: {fileID: 1996883404969322}
-  playerRuntimeAnimator: {fileID: 22100000, guid: 7485b2fa3cf724cc9b9c272ed3de4305,
-    type: 2}
-  personRuntimeAnimator: {fileID: 22100000, guid: 272fcfa7520ba4158ab3e2735f9bbba7,
-    type: 2}
-  weaponObject: {fileID: 1740019288390642}
-  weaponDefaultTransform: {fileID: 4360153165034070}
-  weaponParentTransform: {fileID: 4833490234424594}
+  speed: 30
+  jumpForce: 60
+  gravity: 9.81
+  personalData:
+    body: {fileID: 54333213210926750}
+    collider: {fileID: 65994306475580142}
+    attackColliderObject: {fileID: 1513332782278360}
+    cameraFollowObject: {fileID: 1679029708526762}
+    groundCheckObject: {fileID: 1996883404969322}
+    playerRuntimeAnimator: {fileID: 22100000, guid: 7485b2fa3cf724cc9b9c272ed3de4305,
+      type: 2}
+    personRuntimeAnimator: {fileID: 22100000, guid: 272fcfa7520ba4158ab3e2735f9bbba7,
+      type: 2}
+    weaponObject: {fileID: 1740019288390642}
+    weaponDefaultPosition: {x: -0.00014, y: 0.00092, z: 0}
+    weaponDefaultEulerRotation: {x: -53.058, y: -81.483, z: 91.415}
+    weaponDefaultScale: {x: 1, y: 1, z: 1}
+    weaponParentTransform: {fileID: 4833490234424594}
+  playerCharacter: 1
+  personCharacter: 1
+  faction: 0
 --- !u!114 &114847918713489660
 MonoBehaviour:
   m_ObjectHideFlags: 1

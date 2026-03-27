@@ -2,6 +2,7 @@ using UnityEngine;
 
 [System.Serializable] public class VanguardInfo : Info {
     Vanguard vanguard;
+    public PlayerType playerType = PlayerType.Single;
 
     public /*VanguardInfo() : base()*/ void Init(GameObject owner)
     {
