@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[System.Serializable] public class PersonInfo : Info {
+[System.Serializable] public class PersonInfo : CharacterInfo {
     public Person person;
     public PersonType personType = PersonType.Normal;
 
@@ -19,7 +19,7 @@ using UnityEngine.AI;
         person = owner.GetComponent<Person>();
     }
 
-    public void ReduceHealth(Info attackerInfo)
+    public void ReduceHealth(CharacterInfo attackerInfo)
     {
         base.ReduceHealth(attackerInfo.damage);
         if (isDead == true) {
@@ -31,9 +31,9 @@ using UnityEngine.AI;
                         if(GameManager.instance.playerGameObject) (
                             GameManager.instance.currentPlayer == PlayerCharacter.Vanguard
                             ?
-                            (Info) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
+                            (CharacterInfo) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
                             :
-                            (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
+                            (CharacterInfo) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                         ).AddMorality(3);
                         break;
                     case PersonType.Normal:
@@ -42,9 +42,9 @@ using UnityEngine.AI;
                         if(GameManager.instance.playerGameObject) (
                             GameManager.instance.currentPlayer == PlayerCharacter.Vanguard
                             ?
-                            (Info) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
+                            (CharacterInfo) GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo()
                             :
-                            (Info) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
+                            (CharacterInfo) GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo()
                         ).ReduceMorality(6);
                         break;
                     default:

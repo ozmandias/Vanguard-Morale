@@ -41,6 +41,8 @@ Use Ally and Enemy based on kingdoms instead of making individual scripts for di
 Use Boss Programming for Bosses.
 
 Every Programming do their related things instead of having the related things in other Programming.
+
+ScriptbleObjects should only be in Manager classes.
 -----------------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero
@@ -150,3 +152,5 @@ Make Characters only move after their Ragdoll is disabled or else they will get 
 
 Look for characters and npc assets
 Add rigging and animations
+
+War - Kingdom Selection -> Faction Manager -> Reputation Manager -> War Manager -> War Team

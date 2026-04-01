@@ -14,8 +14,32 @@ MonoBehaviour:
   dataList:
   - character: 0
     characterName: Van Davian
-    characterIdentity: The Vanguard
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations:
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 0
+      reputation: 0
     characterSprite: {fileID: 21300000, guid: 725356fcb61d84f8a890faea0fc0e0a3, type: 3}
     profileSprite: {fileID: 21300000, guid: 80dab204160dc41e59745a5e89815d02, type: 3}
     characterStats:
@@ -28,8 +52,12 @@ MonoBehaviour:
       morality: 60
   - character: 1
     characterName: Henrique
-    characterIdentity: The Duke
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations: []
     characterSprite: {fileID: 21300000, guid: 9eae50964dde14fd9a543436327d44c3, type: 3}
     profileSprite: {fileID: 21300000, guid: c32afeab18bd14e6490c215fa7babce8, type: 3}
     characterStats:
@@ -42,8 +70,12 @@ MonoBehaviour:
       morality: 60
   - character: 0
     characterName: 
-    characterIdentity: 
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations: []
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
     characterStats:
@@ -56,8 +88,12 @@ MonoBehaviour:
       morality: 0
   - character: 0
     characterName: 
-    characterIdentity: 
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations: []
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
     characterStats:
@@ -70,8 +106,12 @@ MonoBehaviour:
       morality: 0
   - character: 0
     characterName: 
-    characterIdentity: 
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations: []
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
     characterStats:
@@ -84,8 +124,12 @@ MonoBehaviour:
       morality: 0
   - character: 0
     characterName: 
-    characterIdentity: 
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations: []
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
     characterStats:
@@ -98,8 +142,12 @@ MonoBehaviour:
       morality: 0
   - character: 0
     characterName: 
-    characterIdentity: 
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations: []
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
     characterStats:
@@ -112,8 +160,12 @@ MonoBehaviour:
       morality: 0
   - character: 0
     characterName: 
-    characterIdentity: 
+    vanguardTitle: 
+    characterTitle: 
     characterDescription: 
+    codeName: 
+    faction: 0
+    reputations: []
     characterSprite: {fileID: 0}
     profileSprite: {fileID: 0}
     characterStats:

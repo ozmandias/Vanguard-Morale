@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour {
 	public GameObject []playerCharacters;
 
 	[Header("Character Lists")]
-	public List<Friend> soldierList;
-	public List<Person> personList;
-	public List<Enemy> enemyList;
-	public List<Boss> bossList;
+	// switch with faction lists
+	public List<Person> friendList;
+	public List<Person> normalPersonList;
+	public List<Person> enemyList;
+	public List<Person> bossList;
 
 	[Header("Character Destinations")]
 	public Transform soldierDestination;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerCharacters = GameObject.FindGameObjectsWithTag("Player");
-		// SetPlayer();
+		SetPlayer();
 		HideCursor();
 	}
 	

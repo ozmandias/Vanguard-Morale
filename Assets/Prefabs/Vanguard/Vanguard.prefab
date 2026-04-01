@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 114964376404513272}
   - component: {fileID: 114871142083873576}
   - component: {fileID: 114074982911059988}
+  - component: {fileID: 114863104119439084}
   m_Layer: 0
   m_Name: Vanguard
   m_TagString: Player
@@ -1149,8 +1150,40 @@ MonoBehaviour:
     gender: 0
     combatType: 0
     isDead: 0
+    playerType: 0
   vanguardAnimation: {fileID: 0}
   vanguardCombat: {fileID: 0}
+--- !u!114 &114863104119439084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340718563153110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854a38f2851bb40c2b8c02748ead2ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  jumpForce: 60
+  gravity: 9.81
+  personalData:
+    body: {fileID: 0}
+    collider: {fileID: 0}
+    attackColliderObject: {fileID: 0}
+    cameraFollowObject: {fileID: 0}
+    groundCheckObject: {fileID: 0}
+    playerRuntimeAnimator: {fileID: 9100000, guid: 929399b848da04e7a8a9fc98b669c44f,
+      type: 2}
+    personRuntimeAnimator: {fileID: 0}
+    weaponObject: {fileID: 0}
+    weaponDefaultPosition: {x: 0, y: 0, z: 0}
+    weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
+    weaponDefaultScale: {x: 0, y: 0, z: 0}
+    weaponParentTransform: {fileID: 0}
+  playerCharacter: 0
+  personCharacter: 2
+  faction: 0
 --- !u!114 &114871142083873576
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -15,9 +15,14 @@ public static class GlobalData {
         new StatsModel(70, 50, 50, 100, 50, 30, 60)
     );
 
-    public static KingdomModel kingdomDetails;
-
-    public static QuestScriptableObject currentKingdomQuestScriptableObject;
+    public static KingdomModel kingdomDetails =
+    new KingdomModel(
+        "Kingdom of Fortis",
+        "Description",
+        "KingdomOfFortis",
+        null,
+        Faction.Fortis
+    );
 
     public static CharacterModel arenaVanguardPlayer;
 

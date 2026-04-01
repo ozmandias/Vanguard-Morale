@@ -13,7 +13,7 @@ public class Enemy : Person {
         // target = GameManager.instance.playerGameObject;
         destination = GameManager.instance.enemyDestination /*GameObject.Find("EnemyDestination").transform*/;
 
-        GameManager.instance.enemyList.Add(this);
+        GameManager.instance.enemyList.Add(this as Person);
         AIManager.instance.enemyAIList.Add(personAgent);
     }
 
@@ -45,7 +45,7 @@ public class Enemy : Person {
     {
         base.Dead();
 
-        GameManager.instance.enemyList.Remove(this);
+        GameManager.instance.enemyList.Remove(this as Person);
         AIManager.instance.enemyAIList.Remove(personAgent);
         AIManager.instance.RemoveCombatEnemy(this);
     }
@@ -53,7 +53,7 @@ public class Enemy : Person {
     public override void Resurrect() {
         base.Resurrect();
 
-        GameManager.instance.enemyList.Add(this);
+        GameManager.instance.enemyList.Add(this as Person);
         AIManager.instance.enemyAIList.Add(personAgent);
     }
 
@@ -81,7 +81,7 @@ public class Enemy : Person {
             }
         }
 
-        foreach(Friend soldier in GameManager.instance.soldierList) {
+        foreach(Friend soldier in GameManager.instance.friendList) {
             CombatManager soldierCombat = soldier.GetComponent<CombatManager>();
             if(soldier.GetInfo().isDead == false && soldierCombat.IsCirclingListFull() == false && soldier.personAI.aiType == AIType.StateMachine) {
                 /*targetSoldierDistance = Vector3.Distance(soldier.transform.position, transform.position);
@@ -98,7 +98,7 @@ public class Enemy : Person {
             }
         }
 
-        foreach(Person person in GameManager.instance.personList) {
+        foreach(Person person in GameManager.instance.normalPersonList) {
             CombatManager personCombat = person.GetComponent<CombatManager>();
             if(person.GetInfo().isDead == false && personCombat.IsCirclingListFull() == false && person.personAI.aiType == AIType.StateMachine) {
                 /*targetPersonDistance = Vector3.Distance(person.transform.position, transform.position);
@@ -145,7 +145,7 @@ public class Enemy : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("SoldierAttackCollider") || otherCollider.gameObject.CompareTag("PersonAttackCollider")) {
-            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
+            CharacterInfo attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);

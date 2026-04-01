@@ -38,6 +38,7 @@ public enum PlayerCharacter {
 public enum PersonCharacter {
     Citizen,
     Soldier,
+    Guard,
     Leader
 }
 
@@ -57,6 +58,12 @@ public enum Faction {
     Karus,
     CentralForest,
     Storia
+}
+
+public enum Reputation {
+    Friendly,
+    Neutral,
+    Hostile
 }
 
 public enum CircleType {

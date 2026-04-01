@@ -31,12 +31,12 @@ public static class GameHelpers {
         return null;
     }
 
-    public static Info GetCharacterInfo(GameObject character) {
-        Info characterInfo = null;
+    public static CharacterInfo GetCharacterInfo(GameObject character) {
+        CharacterInfo characterInfo = null;
         if(character.CompareTag("Player")) {
-            characterInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? character.GetComponent<Vanguard>().GetInfo() as Info : character.GetComponent<Player>().GetInfo() as Info;
+            characterInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? character.GetComponent<Vanguard>().GetInfo() as CharacterInfo : character.GetComponent<Player>().GetInfo() as CharacterInfo;
         } else if(character.CompareTag("Person") || character.CompareTag("Boss")) {
-            characterInfo = character.GetComponent<Person>().GetInfo() as Info;
+            characterInfo = character.GetComponent<Person>().GetInfo() as CharacterInfo;
         }
         return characterInfo;
     }

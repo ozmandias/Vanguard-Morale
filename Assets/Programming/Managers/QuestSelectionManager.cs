@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class QuestSelectionManager : MonoBehaviour { // for Quests
-    [SerializeField] QuestScriptableObject questScriptableObject;
+    [SerializeField] QuestScriptableObject []questScriptableObjects;
     [SerializeField] QuestModel currentQuest;
     List<QuestModel> questList;
     Dictionary<string, GameObject> questDictionary = new Dictionary<string, GameObject>();
@@ -21,20 +22,24 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
     }
 
     void Start() {
-        questScriptableObject = GlobalData.currentKingdomQuestScriptableObject;
+        // questScriptableObject = GlobalData.kingdomDetails.questScriptableObject;
+        var currentQuestScriptableObject = Array.Find(questScriptableObjects, (questScriptableObject) => {
+            return questScriptableObject.faction == GlobalData.kingdomDetails.faction;
+        });
 
+        // quest objects
         foreach(QuestKeyValueModel questKeyValue in questKeyValueModels) {
             questDictionary.Add(questKeyValue.key, questKeyValue.value);
         }
 
-        LoadAllQuests();
+        LoadAllQuests(currentQuestScriptableObject);
     }
 
     void Update() {
 
     }
 
-    public void LoadAllQuests() {
+    public void LoadAllQuests(QuestScriptableObject questScriptableObject) {
         // loop questScriptableObject and SetupQuest()
         if(questScriptableObject != null) {
             foreach(QuestModel quest in questScriptableObject.dataList) {
@@ -102,7 +107,7 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
                     toKillSpawnModels[i]
                     .assetObject,
                     toKillSpawnModels[i]
-                    .spawnTransforms[Random.Range(0, toKillSpawnModels[i].spawnTransforms.Length)]
+                    .spawnTransforms[UnityEngine.Random.Range(0, toKillSpawnModels[i].spawnTransforms.Length)]
                     .position,
                     Quaternion.identity
                 );

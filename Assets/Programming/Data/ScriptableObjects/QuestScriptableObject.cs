@@ -4,4 +4,5 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName="QuestData", menuName="Data/Quest", order=5)] public class QuestScriptableObject : ScriptableObject {
     public List<QuestModel> dataList;
+    public Faction faction;
 }

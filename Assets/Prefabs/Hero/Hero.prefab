@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 114598877633590774}
   - component: {fileID: 114638475379757874}
   - component: {fileID: 114737486925663588}
+  - component: {fileID: 114706506873254334}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -1770,6 +1771,36 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114706506873254334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149810568257456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854a38f2851bb40c2b8c02748ead2ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  jumpForce: 60
+  gravity: 9.81
+  personalData:
+    body: {fileID: 0}
+    collider: {fileID: 0}
+    attackColliderObject: {fileID: 0}
+    cameraFollowObject: {fileID: 0}
+    groundCheckObject: {fileID: 0}
+    playerRuntimeAnimator: {fileID: 0}
+    personRuntimeAnimator: {fileID: 0}
+    weaponObject: {fileID: 0}
+    weaponDefaultPosition: {x: 0, y: 0, z: 0}
+    weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
+    weaponDefaultScale: {x: 0, y: 0, z: 0}
+    weaponParentTransform: {fileID: 0}
+  playerCharacter: 1
+  personCharacter: 2
+  faction: 0
 --- !u!114 &114737486925663588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1822,6 +1853,7 @@ MonoBehaviour:
     gender: 0
     combatType: 0
     isDead: 0
+    playerType: 0
   playerAnimation: {fileID: 0}
   playerCombat: {fileID: 0}
 --- !u!136 &136361004470309420

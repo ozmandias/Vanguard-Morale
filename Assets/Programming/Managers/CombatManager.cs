@@ -13,7 +13,7 @@ public class CombatManager : MonoBehaviour {
     public int maxCirclingEnemies = 3;
     public List<NavMeshAgent> combatingList = new List<NavMeshAgent>();
     public int maxCombatingEnemies = 5;
-    public Info characterInfo;
+    public CharacterInfo characterInfo;
 
     [Header("Player Combat Settings")/*Space(10)*/]
     public Camera playerCamera;
@@ -64,7 +64,7 @@ public class CombatManager : MonoBehaviour {
     {
         animationManager = GetComponent<AnimationManager>();
         effectManager = GetComponent<EffectManager>();
-        characterInfo = gameObject.CompareTag("Player") ? gameObject.name == PlayerCharacter.Vanguard.ToString() ? (Info)GetComponent<Vanguard>().GetInfo() : (Info)GetComponent<Player>().GetInfo() : (Info)GetComponent<Person>().GetInfo();
+        characterInfo = gameObject.CompareTag("Player") ? gameObject.name == PlayerCharacter.Vanguard.ToString() ? (CharacterInfo) GetComponent<Vanguard>().GetInfo() : (CharacterInfo) GetComponent<Player>().GetInfo() : (CharacterInfo) GetComponent<Person>().GetInfo();
         if (characterInfo is VanguardInfo || characterInfo is PlayerInfo)
         {
             playerCamera = Camera.main;

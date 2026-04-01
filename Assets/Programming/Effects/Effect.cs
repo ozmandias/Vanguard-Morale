@@ -34,7 +34,7 @@ public class Effect : MonoBehaviour {
         }
 
         if(otherGameObject.CompareTag("Person") && owner != null) {
-            Info ownerInfo = GameHelpers.GetCharacterInfo(owner);
+            CharacterInfo ownerInfo = GameHelpers.GetCharacterInfo(owner);
             otherGameObject.GetComponent<Person>().HurtByOther(ownerInfo);
         }
     }

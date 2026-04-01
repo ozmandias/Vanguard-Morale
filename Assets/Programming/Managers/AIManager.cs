@@ -442,7 +442,7 @@ public class AIManager : MonoBehaviour { // for AI group
 
         if (SceneManager.instance.GetCurrentScene().name == "game") {
             if (GUI.Button(new Rect(30, 250, 350, 100), "Agents to Destination", guiStyle)) {
-                foreach(Friend soldier in GameManager.instance.soldierList) {
+                foreach(Friend soldier in GameManager.instance.friendList) {
                     soldier.personAgent.isStopped = false;
                     soldier.personAgent.speed = 100f;
                     AgentRepositionAtDestination(soldier.personAgent, soldier.destination, PersonType.Friend);
@@ -467,7 +467,7 @@ public class AIManager : MonoBehaviour { // for AI group
 
             if (GUI.Button(new Rect(30, 470, 360, 100), "Agents to Destination", guiStyle)) {
                 agentsPerRow = int.Parse(textFieldInput);
-                foreach(Friend soldier in GameManager.instance.soldierList) {
+                foreach(Friend soldier in GameManager.instance.friendList) {
                     soldier.personAgent.isStopped = false;
                     soldier.personAgent.speed = 100f;
                     AgentRepositionAtDestination(soldier.personAgent, soldier.destination, PersonType.Friend);

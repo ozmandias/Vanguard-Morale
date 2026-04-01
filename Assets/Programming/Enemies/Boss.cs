@@ -14,7 +14,7 @@ public class Boss : Person
 
         destination = GameManager.instance.enemyDestination;
 
-        GameManager.instance.bossList.Add(this);
+        GameManager.instance.bossList.Add(this as Person);
         AIManager.instance.enemyAIList .Add(personAgent); /*bossAIList*/
 
         OnSpecialAbility += SpecialAbility;
@@ -70,7 +70,7 @@ public class Boss : Person
             List<GameObject> targetList = new List<GameObject>();
             float nearestDistance = float.MaxValue;
 
-            foreach(Friend soldier in GameManager.instance.soldierList) {
+            foreach(Friend soldier in GameManager.instance.friendList) {
                 if(!personAgent.Raycast(soldier.gameObject.transform.position, out personNavMeshHit) && soldier.GetInfo().isDead == false) {
                     targetSoldier = soldier.gameObject;
                     targetList.Add(targetSoldier);
@@ -78,7 +78,7 @@ public class Boss : Person
                 }
             }
 
-            foreach(Person person in GameManager.instance.personList) {
+            foreach(Person person in GameManager.instance.normalPersonList) {
                 if(!personAgent.Raycast(person.gameObject.transform.position, out personNavMeshHit) && person.GetInfo().isDead == false) {
                     targetPerson = person.gameObject;
                     targetList.Add(targetPerson);
@@ -102,7 +102,7 @@ public class Boss : Person
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("SoldierAttackCollider") || otherCollider.gameObject.CompareTag("PersonAttackCollider")) {
-            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
+            CharacterInfo attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);

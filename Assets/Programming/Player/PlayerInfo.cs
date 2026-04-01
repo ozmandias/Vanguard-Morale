@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[System.Serializable] public class PlayerInfo : Info {
+[System.Serializable] public class PlayerInfo : CharacterInfo {
     Player player;
     public PlayerType playerType = PlayerType.Single;
 

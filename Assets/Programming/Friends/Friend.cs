@@ -11,7 +11,7 @@ public class Friend : Person {
 
         destination = GameManager.instance.soldierDestination /*GameObject.Find("SoldierDestination").transform*/;
 
-        GameManager.instance.soldierList.Add(this);
+        GameManager.instance.friendList.Add(this as Person);
         AIManager.instance.soldierAIList.Add(personAgent);
     }
 
@@ -42,14 +42,14 @@ public class Friend : Person {
     public override void Dead() {
         base.Dead();
 
-        GameManager.instance.soldierList.Remove(this);
+        GameManager.instance.friendList.Remove(this as Person);
         AIManager.instance.soldierAIList.Remove(personAgent);
     }
 
     public override void Resurrect() {
         base.Resurrect();
 
-        GameManager.instance.soldierList.Add(this);
+        GameManager.instance.friendList.Add(this as Person);
         AIManager.instance.soldierAIList.Add(personAgent);
     }
 
@@ -118,7 +118,7 @@ public class Friend : Person {
         base.OnTriggerEnter(otherCollider);
 
         if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
-            Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
+            CharacterInfo attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false) {
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);

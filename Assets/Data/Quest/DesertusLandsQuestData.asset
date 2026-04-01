@@ -13,52 +13,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataList:
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
   - questTitle: 
-    questDescription: 
-    questType: 0
-    rewardType: 0
-    questObjects: []
+    questInfo: []
+  faction: 1

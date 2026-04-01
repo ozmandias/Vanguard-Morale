@@ -8,6 +8,7 @@ using UnityEngine;
     public string characterDescription;
     public string codeName;
     public Faction faction;
+    public ReputationModel []reputations;
     public Sprite characterSprite;
     public Sprite profileSprite;
     public StatsModel characterStats;

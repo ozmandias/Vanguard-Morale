@@ -46,12 +46,11 @@ public class WorldMapSelectionManager : MonoBehaviour {
     }
 
     public void SetMapData(WorldMapSelectionObject mapSelectionObject) {
-        KingdomModel kingdomDetails = worldScriptableObject.dataList.Find((kingdom)=>{
-            return kingdom.mapName == mapSelectionObject.mapName;
+        KingdomModel kingdomDetails = worldScriptableObject.dataList.Find((kingdom) => {
+            return kingdom.codeName == mapSelectionObject.mapName;
         });
         if(kingdomDetails != null) {
             GlobalData.kingdomDetails = kingdomDetails;
-            GlobalData.currentKingdomQuestScriptableObject = kingdomDetails.questScriptableObject;
         }
     }
 

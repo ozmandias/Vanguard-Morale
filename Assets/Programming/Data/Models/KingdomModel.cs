@@ -5,26 +5,24 @@ using UnityEngine.UI;
     public string kingdomName;
     // something to say "strength", "technology" or "life"
     public string kingdomDescription;
-    public string mapName;
+    public string codeName;
     public Sprite kingdomMapSprite;
-    public FactionModel factionModel;
-    public QuestScriptableObject questScriptableObject;
+    public Faction faction;
+    public ReputationModel []reputations;
 
     public KingdomModel() {}
 
     public KingdomModel(
         string kingdomName,
         string kingdomDescription,
-        string mapName,
+        string codeName,
         Sprite kingdomMapSprite,
-        FactionModel factionModel,
-        QuestScriptableObject questScriptableObject
+        Faction faction
     ) {
         this.kingdomName = kingdomName;
         this.kingdomDescription = kingdomDescription;
-        this.mapName = mapName;
+        this.codeName = codeName;
         this.kingdomMapSprite = kingdomMapSprite;
-        this.factionModel = factionModel;
-        this.questScriptableObject = questScriptableObject;
+        this.faction = faction;
     }
 }

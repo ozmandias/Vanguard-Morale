@@ -172,7 +172,7 @@ public class Person : MonoBehaviour {
         personInfo.MakeLife("alive");
     }
 
-    public virtual void HurtByOther(Info attackerInfo) {
+    public virtual void HurtByOther(CharacterInfo attackerInfo) {
         if(personInfo.isDead == false && Time.time > nextHurtTime) {
             nextHurtTime = Time.time + hitRate;
             personAnimation.SetParameter("HurtAmount", attackerInfo.damage);
@@ -185,7 +185,7 @@ public class Person : MonoBehaviour {
         }
     }
 
-    public virtual void DecideToChangeTarget(Info newTargetInfo) {
+    public virtual void DecideToChangeTarget(CharacterInfo newTargetInfo) {
         int changeTargetRandom = Random.Range(0, 10);
         if(personState.stateMachineTargeting == false || (personState.stateMachineTargeting && changeTargetRandom >= 5)) {
             if(target) {
@@ -217,7 +217,7 @@ public class Person : MonoBehaviour {
                 /*collision = true;
                 nextHurtTime = Time.time + hitRate;*/
 
-                Info attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
+                CharacterInfo attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
                 personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackCharacterInfo;

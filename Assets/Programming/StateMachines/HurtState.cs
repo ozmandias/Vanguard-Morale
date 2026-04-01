@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HurtState : StateMachineBehaviour {
     Person mainPerson;
-    public Info attackerInfo;
+    public CharacterInfo attackerInfo;
     float stateLength = 0;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

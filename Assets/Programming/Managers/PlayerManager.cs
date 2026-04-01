@@ -43,6 +43,7 @@ public class PlayerManager : MonoBehaviour {
 
         // set player tag
         playerGameObject.tag = "Player";
+        playerGameObject.GetComponent<Character>().personalData.attackColliderObject.tag = "PlayerAttackCollider";
         // add player component, player animator and other components
         // player - Vanguard/Player, AnimationManager, CombatManager, EffectManager, RagdollManager, QuestManager(optional)
         playerGameObject.AddComponent<Player>();

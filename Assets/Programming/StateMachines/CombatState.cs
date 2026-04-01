@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CombatState : StateMachineBehaviour {
     Person mainPerson;
-    Info targetInfo;
+    CharacterInfo targetInfo;
     CombatManager targetCombat;
     float targetDistance;
     public float followDistance = 250f;
@@ -16,7 +16,7 @@ public class CombatState : StateMachineBehaviour {
         // Debug.Break();
 
         mainPerson.SetTarget(GameManager.instance.playerGameObject);
-        targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo() as Info : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as Info;
+        targetInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? GameManager.instance.playerGameObject.GetComponent<Vanguard>().GetInfo() as CharacterInfo : GameManager.instance.playerGameObject.GetComponent<Player>().GetInfo() as CharacterInfo;
 
         targetCombat = mainPerson.target.GetComponent<CombatManager>();
         if(targetCombat.CombatingListContains(mainPerson.personAgent) == false && targetCombat.IsCombatingListFull() == false) {
