@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class DeadState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
@@ -24,6 +24,7 @@ public class DeadState : StateMachineBehaviour {
                     }
                 }
             }
+            mainPerson.personState.stateMachineReady = false;
             mainPerson.personState.stateMachineMoving = false;
             mainPerson.personState.stateMachineTargeting = false;
             mainPerson.personState.stateMachineAttacking = false;

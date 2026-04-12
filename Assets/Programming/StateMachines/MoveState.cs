@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class MoveState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
     CharacterInfo targetInfo;
     float destinationDistance;
     float targetDistance;

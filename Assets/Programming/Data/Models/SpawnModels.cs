@@ -1,37 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// toKillSpawn
-[System.Serializable] public class ToKillSpawnModel : Spawn {
+[System.Serializable] public class SpawnModel {
+    public GameObject spawnObject;
+    public int spawnCount;
+    public Vector3 []spawnPositions;
+}
+
+// KillQuestSpawnModel
+[System.Serializable] public class KillQuestSpawnModel : SpawnModel {
     public PersonType personType;
     public BehaviourModel behaviourModel;
 }
 
-// toCollectSpawn
-[System.Serializable] public class ToCollectSpawnModel : Spawn {
+// CollectQuestSpawnModel
+[System.Serializable] public class CollectQuestSpawnModel : SpawnModel {
     public RewardType rewardType;
 }
 
-// toTalkSpawn
-[System.Serializable] public class ToTalkSpawnModel : Spawn {
+// TalkQuestSpawnModel
+[System.Serializable] public class TalkQuestSpawnModel : SpawnModel {
     public PersonType personType;
 }
 
-// toTravelSpawn
-[System.Serializable] public class ToTravelSpawnModel : Spawn {
+// TravelQuestSpawnModel
+[System.Serializable] public class TravelQuestSpawnModel : SpawnModel {
 
 }
 
-// toProtectSpawn
-[System.Serializable] public class ToProtectSpawnModel : Spawn {
+// ProtectQuestSpawnModel
+[System.Serializable] public class ProtectQuestSpawnModel : SpawnModel {
     public PersonType personType;
 }
 
-// toDestroySpawn
-[System.Serializable] public class ToDestroySpawnModel : Spawn {
+// DestroyQuestSpawnModel
+[System.Serializable] public class DestroyQuestSpawnModel : SpawnModel {
 
 }
 
-[System.Serializable] public class RewardSpawnModel : Spawn {
+[System.Serializable] public class RewardSpawnModel : SpawnModel {
     public RewardType rewardType;
 }

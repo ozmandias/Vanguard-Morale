@@ -33,7 +33,12 @@ public class Effect : MonoBehaviour {
             Debug.Log("Hurt by Boss");
         }
 
-        if(otherGameObject.CompareTag("Person") && owner != null) {
+        /*if(otherGameObject.CompareTag("Person") && owner != null) {
+            CharacterInfo ownerInfo = GameHelpers.GetCharacterInfo(owner);
+            otherGameObject.GetComponent<Person>().HurtByOther(ownerInfo);
+        }*/
+
+        if((otherGameObject.CompareTag("Citizen") || otherGameObject.CompareTag("Soldier")) && owner != null) {
             CharacterInfo ownerInfo = GameHelpers.GetCharacterInfo(owner);
             otherGameObject.GetComponent<Person>().HurtByOther(ownerInfo);
         }

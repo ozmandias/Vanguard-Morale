@@ -4,9 +4,12 @@ using UnityEngine;
 
 [System.Serializable] public class FactionModel {
     public Faction faction;
-    public GameObject []vanguards;
-    public GameObject []specialCharacters;
-    public GameObject []people;
-    public GameObject []soldiers;
-    public GameObject []items;
+    public SpawnModel []vanguardSpawnModels;
+    public SpawnModel []specialCharacterSpawnModels;
+    public SpawnModel []personSpawnModels;
+    public SpawnModel []soldierSpawnModels;
+    public SpawnModel []guardSpawnModels;
+    public SpawnModel []vendorSpawnModels;
+    public SpawnModel []itemSpawnModels;
+
 }

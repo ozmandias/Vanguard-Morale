@@ -13,12 +13,13 @@ public class GameManager : MonoBehaviour {
 	[Header("Character Lists")]
 	// switch with faction lists
 	public List<Person> friendList;
-	public List<Person> normalPersonList;
+	public List<Person> companionList;
+	public List<Person> personList;
 	public List<Person> enemyList;
 	public List<Person> bossList;
 
 	[Header("Character Destinations")]
-	public Transform soldierDestination;
+	public Transform friendDestination;
 	public Transform personDestination;
 	public Transform enemyDestination;
 

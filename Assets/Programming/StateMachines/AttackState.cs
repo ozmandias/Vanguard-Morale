@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class AttackState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
     CharacterInfo targetInfo;
     CombatManager targetCombat;
     float targetDistance;
@@ -42,20 +42,17 @@ public class AttackState : StateMachineBehaviour {
                         mainPerson.attackCollider.enabled = true;
                         // Play Effect
                     } else {
-                        string raycastShooterName = "RaycastShooter" + animator.GetFloat("AttackNumber");
-                        GameObject raycastShooter = GameHelpers.FindGameObjectInChildren(raycastShooterName, animator.transform.gameObject);
-                        
                         RaycastHit rangeRaycastHit;
                         // LayerMask rangeLayerMask = layerMask.GetMask("");
-                        if(Physics.Raycast(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.forward, out rangeRaycastHit, 60f /*, rangeLayerMask*/)) {
-                            // Debug.DrawRay(raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.TransformDirection(Vector3.forward) * 60f, Color.white);
+                        if(Physics.Raycast(mainPerson.raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.forward, out rangeRaycastHit, 60f /*, rangeLayerMask*/)) {
+                            // Debug.DrawRay(mainPerson.raycastShooter.transform.position /*animator.transform.position + Vector3.up * 8f*/, animator.transform.TransformDirection(Vector3.forward) * 60f, Color.white);
                             if(rangeRaycastHit.collider.gameObject.CompareTag("Player")) {
                             } else if(rangeRaycastHit.collider.gameObject.CompareTag("Person")) {
                             }
                         }
 
                         if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn && mainPerson.personEffect.attackEffect.canManageEffect) {
-                            GameObject newAttackEffect = mainPerson.personEffect.CreateEffect("attack", raycastShooter.transform.position, Quaternion.LookRotation(mainPerson.target.transform.position - animator.transform.position, Vector3.up) /*animator.transform.rotation*/);
+                            GameObject newAttackEffect = mainPerson.personEffect.CreateEffect("attack", mainPerson.raycastShooter.transform.position, Quaternion.LookRotation(mainPerson.target.transform.position - animator.transform.position, Vector3.up) /*animator.transform.rotation*/);
                             if(newAttackEffect) {
                                 mainPerson.personEffect.DestroyEffect(newAttackEffect);
                             }

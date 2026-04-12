@@ -17,60 +17,258 @@ MonoBehaviour:
     codeName: KingdomOfFortis
     kingdomMapSprite: {fileID: 0}
     faction: 0
-    questScriptableObject: {fileID: 11400000, guid: 397eb98a7f6e543218bda8a3bb4c4598,
-      type: 2}
+    reputations:
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 1
+      reputation: 0
+    - otherFaction: 2
+      reputation: 2
+    - otherFaction: 3
+      reputation: 2
+    - otherFaction: 4
+      reputation: 2
+    - otherFaction: 5
+      reputation: 2
+    - otherFaction: 6
+      reputation: 1
+    - otherFaction: 7
+      reputation: 1
+    - otherFaction: 8
+      reputation: 0
+    - otherFaction: 9
+      reputation: 1
   - kingdomName: Desertus Lands
     kingdomDescription: 
     codeName: DesertusLands
     kingdomMapSprite: {fileID: 0}
     faction: 1
-    questScriptableObject: {fileID: 11400000, guid: a2492cf435d2c464a8dd621df62492a0,
-      type: 2}
+    reputations:
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 1
+      reputation: 0
+    - otherFaction: 2
+      reputation: 2
+    - otherFaction: 3
+      reputation: 2
+    - otherFaction: 4
+      reputation: 2
+    - otherFaction: 5
+      reputation: 1
+    - otherFaction: 6
+      reputation: 1
+    - otherFaction: 7
+      reputation: 1
+    - otherFaction: 8
+      reputation: 0
+    - otherFaction: 9
+      reputation: 2
   - kingdomName: Lands Of Storia
     kingdomDescription: 
     codeName: LandsOfStoria
     kingdomMapSprite: {fileID: 0}
     faction: 9
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 1
+    - otherFaction: 1
+      reputation: 2
+    - otherFaction: 2
+      reputation: 2
+    - otherFaction: 3
+      reputation: 2
+    - otherFaction: 4
+      reputation: 0
+    - otherFaction: 5
+      reputation: 2
+    - otherFaction: 6
+      reputation: 1
+    - otherFaction: 7
+      reputation: 1
+    - otherFaction: 8
+      reputation: 2
+    - otherFaction: 9
+      reputation: 0
   - kingdomName: Terra Of Ignis
     kingdomDescription: 
     codeName: TerraOfIgnis
     kingdomMapSprite: {fileID: 0}
     faction: 5
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 2
+    - otherFaction: 1
+      reputation: 2
+    - otherFaction: 2
+      reputation: 0
+    - otherFaction: 3
+      reputation: 0
+    - otherFaction: 4
+      reputation: 1
+    - otherFaction: 5
+      reputation: 0
+    - otherFaction: 6
+      reputation: 2
+    - otherFaction: 7
+      reputation: 1
+    - otherFaction: 8
+      reputation: 2
+    - otherFaction: 9
+      reputation: 2
   - kingdomName: Kingdom Of Unmortus
     kingdomDescription: 
     codeName: KingdomOfUnmortus
     kingdomMapSprite: {fileID: 0}
     faction: 2
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 2
+    - otherFaction: 1
+      reputation: 2
+    - otherFaction: 2
+      reputation: 0
+    - otherFaction: 3
+      reputation: 0
+    - otherFaction: 4
+      reputation: 1
+    - otherFaction: 5
+      reputation: 0
+    - otherFaction: 6
+      reputation: 2
+    - otherFaction: 7
+      reputation: 1
+    - otherFaction: 8
+      reputation: 2
+    - otherFaction: 9
+      reputation: 2
   - kingdomName: Ghostian Theocracy
     kingdomDescription: 
     codeName: GhostianTheocracy
     kingdomMapSprite: {fileID: 0}
     faction: 3
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 2
+    - otherFaction: 1
+      reputation: 2
+    - otherFaction: 2
+      reputation: 0
+    - otherFaction: 3
+      reputation: 0
+    - otherFaction: 4
+      reputation: 1
+    - otherFaction: 5
+      reputation: 0
+    - otherFaction: 6
+      reputation: 2
+    - otherFaction: 7
+      reputation: 1
+    - otherFaction: 8
+      reputation: 2
+    - otherFaction: 9
+      reputation: 2
   - kingdomName: Damnum Empire
     kingdomDescription: 
     codeName: DamnumEmpire
     kingdomMapSprite: {fileID: 0}
     faction: 4
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 2
+    - otherFaction: 1
+      reputation: 2
+    - otherFaction: 2
+      reputation: 1
+    - otherFaction: 3
+      reputation: 1
+    - otherFaction: 4
+      reputation: 0
+    - otherFaction: 5
+      reputation: 1
+    - otherFaction: 6
+      reputation: 2
+    - otherFaction: 7
+      reputation: 2
+    - otherFaction: 8
+      reputation: 2
+    - otherFaction: 9
+      reputation: 0
   - kingdomName: Republic Of Scientia
     kingdomDescription: 
     codeName: RepublicOfScientia
     kingdomMapSprite: {fileID: 0}
     faction: 6
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 1
+    - otherFaction: 1
+      reputation: 1
+    - otherFaction: 2
+      reputation: 2
+    - otherFaction: 3
+      reputation: 2
+    - otherFaction: 4
+      reputation: 2
+    - otherFaction: 5
+      reputation: 2
+    - otherFaction: 6
+      reputation: 0
+    - otherFaction: 7
+      reputation: 2
+    - otherFaction: 8
+      reputation: 2
+    - otherFaction: 9
+      reputation: 1
   - kingdomName: Principality Of Karus
     kingdomDescription: 
     codeName: PrincipalityOfKarus
     kingdomMapSprite: {fileID: 0}
     faction: 7
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 1
+    - otherFaction: 1
+      reputation: 1
+    - otherFaction: 2
+      reputation: 1
+    - otherFaction: 3
+      reputation: 1
+    - otherFaction: 4
+      reputation: 2
+    - otherFaction: 5
+      reputation: 1
+    - otherFaction: 6
+      reputation: 2
+    - otherFaction: 7
+      reputation: 0
+    - otherFaction: 8
+      reputation: 0
+    - otherFaction: 9
+      reputation: 1
   - kingdomName: Central Forest
     kingdomDescription: 
     codeName: CentralForest
     kingdomMapSprite: {fileID: 0}
     faction: 8
-    questScriptableObject: {fileID: 0}
+    reputations:
+    - otherFaction: 0
+      reputation: 0
+    - otherFaction: 1
+      reputation: 0
+    - otherFaction: 2
+      reputation: 2
+    - otherFaction: 3
+      reputation: 2
+    - otherFaction: 4
+      reputation: 2
+    - otherFaction: 5
+      reputation: 2
+    - otherFaction: 6
+      reputation: 2
+    - otherFaction: 7
+      reputation: 0
+    - otherFaction: 8
+      reputation: 0
+    - otherFaction: 9
+      reputation: 1

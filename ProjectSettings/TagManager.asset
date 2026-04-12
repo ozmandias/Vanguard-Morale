@@ -15,6 +15,12 @@ TagManager:
   - Boss
   - VanguardAttackCollider
   - RagdollBoneBase
+  - Citizen
+  - CitizenAttackCollider
+  - Soldier
+  - Leader
+  - Friend
+  - FriendAttackCollider
   layers:
   - Default
   - TransparentFX

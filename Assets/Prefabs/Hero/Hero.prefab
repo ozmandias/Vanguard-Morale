@@ -1789,17 +1789,21 @@ MonoBehaviour:
     body: {fileID: 0}
     collider: {fileID: 0}
     attackColliderObject: {fileID: 0}
+    raycastShooterObject: {fileID: 0}
     cameraFollowObject: {fileID: 0}
     groundCheckObject: {fileID: 0}
     playerRuntimeAnimator: {fileID: 0}
     personRuntimeAnimator: {fileID: 0}
-    weaponObject: {fileID: 0}
+    weaponObjects: []
     weaponDefaultPosition: {x: 0, y: 0, z: 0}
     weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
     weaponDefaultScale: {x: 0, y: 0, z: 0}
     weaponParentTransform: {fileID: 0}
   playerCharacter: 1
   personCharacter: 2
+  gender: 0
+  morality: 60
+  combatType: 0
   faction: 0
 --- !u!114 &114737486925663588
 MonoBehaviour:

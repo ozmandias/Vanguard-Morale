@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class WaitState : StateMachineBehaviour {
-    Person mainPerson;
+public class InitState : StateMachineBehaviour {
+    [SerializeField] Person mainPerson;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        // Wait in line for current target or move on to other target
+        if(mainPerson.initDone) {
+            mainPerson.personState.stateMachineReady = true;
+        }
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

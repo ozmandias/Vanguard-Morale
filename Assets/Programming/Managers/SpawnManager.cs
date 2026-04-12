@@ -7,16 +7,16 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager instance;
 
     [Header("Combat Manager Settings")]
-    public Transform[] spawnLocations;
+    public Vector3 []spawnLocations;
 
     [Header("Allies")]
     public GameObject allyPrefab;
-    public Transform[] allySpawnLocations;
+    public Vector3 []allySpawnLocations;
     public int allyCount = 0;
 
     [Header("Enemies")]
     public GameObject enemyPrefab;
-    public Transform[] enemySpawnLocations;
+    public Vector3 []enemySpawnLocations;
     public int enemyCount = 0;
     public bool combatAIsActive = false;
 
@@ -34,22 +34,22 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        spawnLocations = new Transform[transform.Find("SpawnLocations").childCount];
+        spawnLocations = new Vector3[transform.Find("SpawnLocations").childCount];
         for (int i = 0; i < spawnLocations.Length; i = i + 1)
         {
-            spawnLocations[i] = transform.Find("SpawnLocations").GetChild(i);
+            spawnLocations[i] = transform.Find("SpawnLocations").GetChild(i).position;
         }
 
-        allySpawnLocations = new Transform[transform.Find("AllySpawnLocations").childCount];
+        allySpawnLocations = new Vector3[transform.Find("AllySpawnLocations").childCount];
         for (int i = 0; i < allySpawnLocations.Length; i = i + 1)
         {
-            allySpawnLocations[i] = transform.Find("AllySpawnLocations").GetChild(i);
+            allySpawnLocations[i] = transform.Find("AllySpawnLocations").GetChild(i).position;
         }
 
-        enemySpawnLocations = new Transform[transform.Find("EnemySpawnLocations").childCount /*1*/];
+        enemySpawnLocations = new Vector3[transform.Find("EnemySpawnLocations").childCount /*1*/];
         for (int i = 0; i < enemySpawnLocations.Length; i = i + 1)
         {
-            enemySpawnLocations[i /*0*/] = transform.Find("EnemySpawnLocations").GetChild(i /*0*/);
+            enemySpawnLocations[i /*0*/] = transform.Find("EnemySpawnLocations").GetChild(i /*0*/).position;
         }
 
         SpawnAll();
@@ -64,9 +64,9 @@ public class SpawnManager : MonoBehaviour
     {
     }
 
-    public void Spawn(GameObject spawnObject, Transform spawnLocation)
+    public void Spawn(GameObject spawnObject, Vector3 spawnLocation)
     {
-        Instantiate(spawnObject, spawnLocation.position, Quaternion.identity);
+        Instantiate(spawnObject, spawnLocation, Quaternion.identity);
     }
 
     public void Spawn(GameObject spawnObject, Vector3 spawnPosition, Quaternion spawnRotation) {
@@ -81,7 +81,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnAllies()
     {
-        foreach (Transform spawnLocation in allySpawnLocations)
+        foreach (Vector3 spawnLocation in allySpawnLocations)
         {
             Spawn(allyPrefab, spawnLocation);
             allyCount += 1;
@@ -90,7 +90,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemies()
     {
-        foreach (Transform spawnLocation in enemySpawnLocations)
+        foreach (Vector3 spawnLocation in enemySpawnLocations)
         {
             Spawn(enemyPrefab, spawnLocation);
             enemyCount += 1;

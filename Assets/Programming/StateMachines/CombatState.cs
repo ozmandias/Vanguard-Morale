@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class CombatState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
     CharacterInfo targetInfo;
     CombatManager targetCombat;
     float targetDistance;

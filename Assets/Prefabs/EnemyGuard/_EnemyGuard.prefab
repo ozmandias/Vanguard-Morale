@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 65242538675726138}
   m_Layer: 0
   m_Name: EnemyAttackCollider
-  m_TagString: EnemyAttackCollider
+  m_TagString: SoldierAttackCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 114901456289176626}
   m_Layer: 0
   m_Name: _EnemyGuard
-  m_TagString: Untagged
+  m_TagString: Soldier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1299,7 +1299,7 @@ BoxCollider:
   m_GameObject: {fileID: 1073449089493104}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.2, z: 1.54}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1377,20 +1377,25 @@ MonoBehaviour:
     body: {fileID: 54110459885665638}
     collider: {fileID: 65621774407500444}
     attackColliderObject: {fileID: 1073449089493104}
+    raycastShooterObject: {fileID: 0}
     cameraFollowObject: {fileID: 1749607408892846}
     groundCheckObject: {fileID: 1145023880605250}
     playerRuntimeAnimator: {fileID: 22100000, guid: 136fd2f9ece92442c9a159e02b8d18a9,
       type: 2}
     personRuntimeAnimator: {fileID: 22100000, guid: 125984bc3b7b9408cbd31b5d7e7a27fe,
       type: 2}
-    weaponObject: {fileID: 1498509561267946}
+    weaponObjects:
+    - {fileID: 1498509561267946}
     weaponDefaultPosition: {x: 0.08896805, y: 0.2374647, z: 0.1016077}
     weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
     weaponDefaultScale: {x: 1, y: 1, z: 1}
     weaponParentTransform: {fileID: 4218544016340298}
   playerCharacter: 1
   personCharacter: 1
-  faction: 0
+  gender: 0
+  morality: 40
+  combatType: 0
+  faction: 5
 --- !u!114 &114928140394797086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1403,7 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCollider: {fileID: 0}
-  owner: {fileID: 0}
+  owner: {fileID: 1422175888338986}
 --- !u!135 &135477463764531530
 SphereCollider:
   m_ObjectHideFlags: 1

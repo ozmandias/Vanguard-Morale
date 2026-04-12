@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 65242538675726138}
   m_Layer: 0
   m_Name: EnemyAttackCollider
-  m_TagString: EnemyAttackCollider
+  m_TagString: SoldierAttackCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,9 +243,10 @@ GameObject:
   - component: {fileID: 114496764344235626}
   - component: {fileID: 114385854087541120}
   - component: {fileID: 114635347429306340}
+  - component: {fileID: 114502900325722746}
   m_Layer: 9
   m_Name: EnemyGuard
-  m_TagString: Person
+  m_TagString: Soldier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1248,7 +1249,7 @@ BoxCollider:
   m_GameObject: {fileID: 1073449089493104}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.2, z: 1.54}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1309,7 +1310,9 @@ MonoBehaviour:
   isAttacking: 0
   target: {fileID: 0}
   attackCollider: {fileID: 65242538675726138}
-  weapon: {fileID: 1498509561267946}
+  raycastShooter: {fileID: 0}
+  weapons:
+  - {fileID: 1498509561267946}
   attackNumberUpdate: 0
   attackNumber: 0
   personAnimation: {fileID: 0}
@@ -1337,6 +1340,7 @@ MonoBehaviour:
     personType: 1
   personEffect: {fileID: 0}
   isHurt: 0
+  initDone: 0
   attackFrames: 0
   hurtFrames: 0
 --- !u!114 &114316805568293834
@@ -1412,6 +1416,48 @@ MonoBehaviour:
   boneBase: {fileID: 1820666180030466}
   ragdollBodies: []
   ragdollColliders: []
+--- !u!114 &114502900325722746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422175888338986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854a38f2851bb40c2b8c02748ead2ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  jumpForce: 60
+  gravity: 9.81
+  personalData:
+    body: {fileID: 54110459885665638, guid: 77e8cc3f066eb41a283c5aa5ddce06a0, type: 2}
+    collider: {fileID: 65621774407500444, guid: 77e8cc3f066eb41a283c5aa5ddce06a0,
+      type: 2}
+    attackColliderObject: {fileID: 1073449089493104, guid: 77e8cc3f066eb41a283c5aa5ddce06a0,
+      type: 2}
+    raycastShooterObject: {fileID: 0}
+    cameraFollowObject: {fileID: 1749607408892846, guid: 77e8cc3f066eb41a283c5aa5ddce06a0,
+      type: 2}
+    groundCheckObject: {fileID: 1145023880605250, guid: 77e8cc3f066eb41a283c5aa5ddce06a0,
+      type: 2}
+    playerRuntimeAnimator: {fileID: 22100000, guid: 136fd2f9ece92442c9a159e02b8d18a9,
+      type: 2}
+    personRuntimeAnimator: {fileID: 22100000, guid: 125984bc3b7b9408cbd31b5d7e7a27fe,
+      type: 2}
+    weaponObjects:
+    - {fileID: 1498509561267946}
+    weaponDefaultPosition: {x: 0.08896805, y: 0.2374647, z: 0.1016077}
+    weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
+    weaponDefaultScale: {x: 1, y: 1, z: 1}
+    weaponParentTransform: {fileID: 4218544016340298, guid: 77e8cc3f066eb41a283c5aa5ddce06a0,
+      type: 2}
+  playerCharacter: 1
+  personCharacter: 1
+  gender: 0
+  morality: 40
+  combatType: 0
+  faction: 5
 --- !u!114 &114533354163758070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1537,6 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  stateMachineReady: 0
   stateMachineMoving: 0
   stateMachineTargeting: 0
   stateMachineAttacking: 0
@@ -1570,7 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCollider: {fileID: 0}
-  owner: {fileID: 0}
+  owner: {fileID: 1422175888338986}
 --- !u!135 &135477463764531530
 SphereCollider:
   m_ObjectHideFlags: 1

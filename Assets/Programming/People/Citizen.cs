@@ -4,8 +4,12 @@ public class Citizen : Person {
     public override void Start() {
         base.Start();
 
-        GameManager.instance.normalPersonList.Add(this);
+        GameManager.instance.personList.Add(this);
         AIManager.instance.personAIList.Add(personAgent);
+    }
+
+    public override void Update() {
+        base.Update();
     }
 
     public override void Idle() {
@@ -35,21 +39,29 @@ public class Citizen : Person {
     public override void Dead() {
         base.Dead();
 
-        GameManager.instance.normalPersonList.Remove(this);
+        GameManager.instance.personList.Remove(this);
         AIManager.instance.personAIList.Remove(personAgent);
     }
 
     public override void Resurrect() {
         base.Resurrect();
 
-        GameManager.instance.normalPersonList.Add(this);
+        GameManager.instance.personList.Add(this);
         AIManager.instance.personAIList.Add(personAgent);
+    }
+
+    public override void FindTarget() {
+        
+    }
+
+    public override bool ShouldFindTarget() {
+        return false;
     }
 
     public override void OnTriggerEnter(Collider otherCollider) {
         base.OnTriggerEnter(otherCollider);
 
-        if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
+        if(otherCollider.gameObject.CompareTag("SoldierAttackCollider")) {
             CharacterInfo attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
             if(personInfo.isDead == false && attackCharacterInfo.isDead == false){
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);

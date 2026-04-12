@@ -19,13 +19,13 @@ public enum PersonType {
 }
 
 public enum StateMachine {
+    Init,
     Idle,
     Move,
     Attack,
     Combat,
     Work,
     Follow,
-    Wait,
     Hurt,
     Dead
 }
@@ -39,7 +39,8 @@ public enum PersonCharacter {
     Citizen,
     Soldier,
     Guard,
-    Leader
+    Leader,
+    Vendor
 }
 
 public enum Gender {

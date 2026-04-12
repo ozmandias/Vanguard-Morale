@@ -10,4 +10,8 @@ public class ReputationChanger : MonoBehaviour {
     void Update() {
         
     }
+
+    void ChangeReputation() {
+        // change PersonType and update Lists in GameManager and AIManager
+    }
 }

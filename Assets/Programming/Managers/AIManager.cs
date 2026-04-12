@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class AIManager : MonoBehaviour { // for AI group
     public static AIManager instance;
 
-    public List<NavMeshAgent> soldierAIList;
+    public List<NavMeshAgent> friendAIList;
+    // public List<NavMeshAgent> companionAIList;
     public List<NavMeshAgent> personAIList;
     public List<NavMeshAgent> enemyAIList;
     // public List<NavMeshAgent> bossAIList;
@@ -58,7 +59,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
-                soldierAIList.Add(aiAgent);
+                friendAIList.Add(aiAgent);
                 break;
             case PersonType.Enemy:
             case PersonType.Boss:
@@ -77,7 +78,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
-                soldierAIList.Remove(aiAgent);
+                friendAIList.Remove(aiAgent);
                 break;
             case PersonType.Enemy:
             case PersonType.Boss:
@@ -93,7 +94,7 @@ public class AIManager : MonoBehaviour { // for AI group
 
     public bool ListsContain(NavMeshAgent aiAgent)
     {
-        if (soldierAIList.Contains(aiAgent) || personAIList.Contains(aiAgent) || enemyAIList.Contains(aiAgent) /*|| bossAIList.Contains(aiAgent)*/)
+        if (friendAIList.Contains(aiAgent) || personAIList.Contains(aiAgent) || enemyAIList.Contains(aiAgent) /*|| bossAIList.Contains(aiAgent)*/)
         {
             return true;
         }
@@ -109,7 +110,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
-                aiList = soldierAIList;
+                aiList = friendAIList;
                 break;
             case PersonType.Enemy:
             case PersonType.Boss:
@@ -159,7 +160,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
-                aiList = soldierAIList;
+                aiList = friendAIList;
                 break;
             case PersonType.Enemy:
             case PersonType.Boss:
@@ -205,7 +206,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
-                aiList = soldierAIList;
+                aiList = friendAIList;
                 break;
             case PersonType.Enemy:
             case PersonType.Boss:

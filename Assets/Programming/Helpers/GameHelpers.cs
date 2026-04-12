@@ -35,7 +35,7 @@ public static class GameHelpers {
         CharacterInfo characterInfo = null;
         if(character.CompareTag("Player")) {
             characterInfo = GameManager.instance.currentPlayer == PlayerCharacter.Vanguard ? character.GetComponent<Vanguard>().GetInfo() as CharacterInfo : character.GetComponent<Player>().GetInfo() as CharacterInfo;
-        } else if(character.CompareTag("Person") || character.CompareTag("Boss")) {
+        } else if(character.CompareTag("Citizen") || character.CompareTag("Soldier") || character.CompareTag("Leader")) {
             characterInfo = character.GetComponent<Person>().GetInfo() as CharacterInfo;
         }
         return characterInfo;

@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
         playerBody = gameObject.GetComponent<Rigidbody>();
         playerAnimator = gameObject.GetComponent<Animator>();
         playerCamera = Camera.main;
-        if(attackCollider == null) attackCollider = PlayerManager.instance.currentCharacter.personalData.attackColliderObject.GetComponent<Collider>();
+        if(attackCollider == null && GetComponent<Character>().combatType == CombatType.Melee) attackCollider = PlayerManager.instance.currentCharacter.personalData.attackColliderObject.GetComponent<Collider>();
 
         playerAnimation = GetComponent<AnimationManager>();
         playerCombat = GetComponent<CombatManager>();
@@ -148,7 +148,7 @@ public class Player : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider otherCollider) {
-        if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
+        if(otherCollider.gameObject.CompareTag("SoldierAttackCollider")) {
             Debug.Log("Hurt by Enemy");
         }
     }

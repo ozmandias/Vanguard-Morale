@@ -17,72 +17,118 @@ MonoBehaviour:
     - questDescription: Kill all Ignis soldiers!
       questType: 0
       rewardType: 0
-      toKillSpawnSerializables:
-      - assetObject: {fileID: 1422175888338986, guid: 36e922fc12d9d436cb1138601a8ce304,
-          type: 2}
-        assetName: 
-        assetSprite: {fileID: 0}
-        spawnCount: 10
-        spawnTransforms:
-        - {fileID: 0}
-        personType: 2
-      rewardSpawnSerializables: []
+      killQuestSpawnModels:
+      - spawnObject: {fileID: 0}
+        spawnCount: 0
+        spawnPositions:
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        - {x: 0, y: 0, z: 0}
+        personType: 0
+        behaviourModel:
+          targets: []
+          transforms: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
     - questDescription: Defeat the Boss of Ignis!
       questType: 0
       rewardType: 0
-      toKillSpawnSerializables:
-      - assetObject: {fileID: 1903520162299222, guid: 830379afaa1f2430597e82beb4d2ab0a,
-          type: 2}
-        assetName: 
-        assetSprite: {fileID: 0}
-        spawnCount: 1
-        spawnTransforms:
-        - {fileID: 0}
-        personType: 4
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
   - questTitle: Destruction of Fire
     questInfo:
     - questDescription: Destroy the Ignis Army Camp
       questType: 5
       rewardType: 0
-      toKillSpawnSerializables: []
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
     - questDescription: Interrogate the Castle Keeper
       questType: 2
       rewardType: 0
-      toKillSpawnSerializables: []
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
   - questTitle: The Prophet's advice
     questInfo:
     - questDescription: Seek guidance from the Prophet
       questType: 2
       rewardType: 0
-      toKillSpawnSerializables: []
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
   - questTitle: Works in the way of Fortis
     questInfo:
     - questDescription: Ask locals about the tasks
       questType: 2
       rewardType: 0
-      toKillSpawnSerializables: []
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
     - questDescription: Go to the crops
       questType: 3
       rewardType: 0
-      toKillSpawnSerializables: []
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
     - questDescription: Assist in agriculture
       questType: 1
       rewardType: 0
-      toKillSpawnSerializables: []
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
   - questTitle: A view to a Brave
     questInfo:
     - questDescription: Explore the Kingdom of Fortis
       questType: 3
       rewardType: 0
-      toKillSpawnSerializables: []
-      rewardSpawnSerializables: []
+      killQuestSpawnModels: []
+      collectQuestSpawnModels: []
+      talkQuestSpawnModels: []
+      travelQuestSpawnModels: []
+      protectQuestSpawnModels: []
+      destroyQuestSpawnModels: []
+      rewardSpawnModels: []
   - questTitle: 
     questInfo: []
   - questTitle: 
@@ -93,3 +139,4 @@ MonoBehaviour:
     questInfo: []
   - questTitle: 
     questInfo: []
+  faction: 0

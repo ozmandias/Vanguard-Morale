@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87ea63ba46ab46d192672c4115c094a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   reachDistance: 0
   followDistance: 250
 --- !u!114 &114104618442900308
@@ -81,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!114 &114117969186758812
 MonoBehaviour:
@@ -93,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!114 &114149611516267436
 MonoBehaviour:
@@ -105,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!114 &114160594984191580
 MonoBehaviour:
@@ -117,9 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4f8bdb89cf5479483985c9f0babbb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
   circleDistance: 100
-  nearDistance: 10
+  attackDistance: 10
 --- !u!114 &114175184252121694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!114 &114481492436188858
 MonoBehaviour:
@@ -143,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!114 &114486488811141878
 MonoBehaviour:
@@ -155,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f7f4141921c4c4489f8f867a1cbf4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
 --- !u!114 &114496820878848646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e45143924bb84dac95d81884ed32006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   reposition: {x: 0, y: 0, z: 0}
   repositionDistance: 100
   reachDistance: 0
@@ -181,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad11e96759904d819562688a14e57d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
 --- !u!114 &114618083488306862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!114 &114655879699409390
 MonoBehaviour:
@@ -204,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1f80d0e0ee741efa0c4638419094de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   attackerInfo:
     owner: {fileID: 0}
     strength: 0
@@ -229,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06f5c1a4374544dd9a54c3da32d750f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
 --- !u!114 &114707205751233354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,9 +253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2231b5a570674f899af2492d6fd9744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   attackStateTime: 0
   followDistance: 250
-  nearDistance: 10
+  attackDistance: 10
 --- !u!114 &114746910939249078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!114 &114873177561904118
 MonoBehaviour:
@@ -266,7 +281,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
+--- !u!114 &114882682697134264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64fec5de02484636960817a2c7f856c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
 --- !u!114 &114894115361121584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e6f2c7601946cfbfa7a5fbfc1def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPerson: {fileID: 0}
   followDistance: 250
 --- !u!206 &206031856937297710
 BlendTree:
@@ -518,12 +547,12 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Wait
+  m_Name: Init
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:
-  - {fileID: 114556110778031402}
+  - {fileID: 114882682697134264}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -967,7 +996,7 @@ AnimatorStateMachine:
     m_Position: {x: 132, y: 228, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102110704710451170}
-    m_Position: {x: 372, y: 384, z: 0}
+    m_Position: {x: 360, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102286086672867870}
     m_Position: {x: 132, y: 324, z: 0}
@@ -979,7 +1008,7 @@ AnimatorStateMachine:
     m_Position: {x: 372, y: 324, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102424393033017316}
-    m_Position: {x: 372, y: 444, z: 0}
+    m_Position: {x: 372, y: 408, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102898428314602378}
     m_Position: {x: 624, y: 324, z: 0}
@@ -1022,7 +1051,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102890561756513828}
+  m_DefaultState: {fileID: 1102110704710451170}
 --- !u!1109 &1109539758653868920
 AnimatorTransition:
   m_ObjectHideFlags: 1

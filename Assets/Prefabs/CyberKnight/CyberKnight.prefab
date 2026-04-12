@@ -457,9 +457,10 @@ GameObject:
   - component: {fileID: 114032235182515548}
   - component: {fileID: 114066164889657688}
   - component: {fileID: 114206226623455864}
+  - component: {fileID: 114069393119880942}
   m_Layer: 0
   m_Name: CyberKnight
-  m_TagString: Boss
+  m_TagString: Leader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,6 +1248,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiType: 0
   aiChangerRunning: 0
+--- !u!114 &114069393119880942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903520162299222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854a38f2851bb40c2b8c02748ead2ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  jumpForce: 60
+  gravity: 9.81
+  personalData:
+    body: {fileID: 0}
+    collider: {fileID: 0}
+    attackColliderObject: {fileID: 0}
+    raycastShooterObject: {fileID: 1402811813545804}
+    cameraFollowObject: {fileID: 0}
+    groundCheckObject: {fileID: 0}
+    playerRuntimeAnimator: {fileID: 0}
+    personRuntimeAnimator: {fileID: 22100000, guid: f49be0f91a6a64b61a08115ee5989a24,
+      type: 2}
+    weaponObjects:
+    - {fileID: 1402811813545804}
+    - {fileID: 1144238660538936}
+    weaponDefaultPosition: {x: 0, y: 0, z: 0}
+    weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
+    weaponDefaultScale: {x: 0, y: 0, z: 0}
+    weaponParentTransform: {fileID: 0}
+  playerCharacter: 0
+  personCharacter: 3
+  gender: 0
+  morality: 40
+  combatType: 1
+  faction: 5
 --- !u!114 &114077137483467926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1273,6 +1311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  stateMachineReady: 0
   stateMachineMoving: 0
   stateMachineTargeting: 0
   stateMachineAttacking: 0
@@ -1302,7 +1341,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1903520162299222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff94cea8105854d92b7bf59fb533c5a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 40568af4d6af94547a5185edb30a870c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
@@ -1310,7 +1349,10 @@ MonoBehaviour:
   isAttacking: 0
   target: {fileID: 0}
   attackCollider: {fileID: 0}
-  weapon: {fileID: 0}
+  raycastShooter: {fileID: 0}
+  weapons:
+  - {fileID: 1402811813545804}
+  - {fileID: 1144238660538936}
   attackNumberUpdate: 0
   attackNumber: 0
   personAnimation: {fileID: 0}
@@ -1338,6 +1380,7 @@ MonoBehaviour:
     personType: 4
   personEffect: {fileID: 0}
   isHurt: 0
+  initDone: 0
   attackFrames: 0
   hurtFrames: 0
 --- !u!114 &114866515381667604

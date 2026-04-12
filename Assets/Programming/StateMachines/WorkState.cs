@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class WorkState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();

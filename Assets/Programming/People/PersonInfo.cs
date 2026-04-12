@@ -68,11 +68,13 @@ using UnityEngine.AI;
             person.personCombat.enemyIsAttackable = false;
             person.personState.stateMachineDead = true;
             person.personRagdoll.EnableRagdoll();
-            if (person.weapon)
+            if (person.weapons.Length > 0)
             {
-                person.weapon.transform.SetParent(null);
-                person.weapon.AddComponent<Rigidbody>();
-                person.weapon.AddComponent<BoxCollider>();
+                foreach(var weapon in person.weapons) {
+                    weapon.transform.SetParent(null);
+                    weapon.AddComponent<Rigidbody>();
+                    weapon.AddComponent<BoxCollider>();
+                }
             }
             owner.GetComponent<StateMachineChanger>().ChangeState(StateMachine.Dead);
             owner.GetComponent<AIChanger>().aiChangerRunning = false;

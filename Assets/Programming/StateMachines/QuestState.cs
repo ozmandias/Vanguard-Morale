@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class QuestState : StateMachineBehaviour {
+    [SerializeField] Person mainPerson;
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
     }

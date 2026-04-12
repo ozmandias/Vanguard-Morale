@@ -21,7 +21,10 @@ public static class GlobalData {
         "Description",
         "KingdomOfFortis",
         null,
-        Faction.Fortis
+        Faction.Fortis,
+        new ReputationModel[1] {
+            new ReputationModel(Faction.Ignis, Reputation.Hostile)
+        }
     );
 
     public static CharacterModel arenaVanguardPlayer;

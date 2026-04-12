@@ -26,7 +26,7 @@ public class Vanguard : MonoBehaviour {
 	[SerializeField] Rigidbody vanguardBody;
 	[SerializeField] Animator vanguardAnimator;
 	[SerializeField] Camera vanguardCamera;
-	[SerializeField] VanguardInfo vanguardInfo;
+	[SerializeField] VanguardInfo vanguardInfo = new VanguardInfo();
 	[SerializeField] AnimationManager vanguardAnimation;
 	[SerializeField] CombatManager vanguardCombat;
 
@@ -153,7 +153,7 @@ public class Vanguard : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider otherCollider) {
-		if(otherCollider.gameObject.CompareTag("EnemyAttackCollider")) {
+		if(otherCollider.gameObject.CompareTag("SoldierAttackCollider")) {
 			Debug.Log("Hurt by Enemy");
 		}
 	}

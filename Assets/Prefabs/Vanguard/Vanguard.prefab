@@ -1183,6 +1183,9 @@ MonoBehaviour:
     weaponParentTransform: {fileID: 0}
   playerCharacter: 0
   personCharacter: 2
+  gender: 0
+  morality: 60
+  combatType: 0
   faction: 0
 --- !u!114 &114871142083873576
 MonoBehaviour:

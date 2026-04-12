@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class HurtState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
     public CharacterInfo attackerInfo;
     float stateLength = 0;
 

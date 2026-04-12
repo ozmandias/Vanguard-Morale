@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject playerGameObject;
     public GameObject []playerPrefabs;
     public Character currentCharacter;
+    public Vector3 []playerCreatePoints; // add manually
 
     public static PlayerManager instance;
 
@@ -33,27 +34,40 @@ public class PlayerManager : MonoBehaviour {
         GameObject playerChoicePrefab = Array.Find(playerPrefabs, (playerPrefab) => {
             return playerPrefab.name == playerCodeName; 
         });
-        if(playerChoicePrefab != null) CreatePlayer(playerChoicePrefab);
+        if(playerCreatePoints.Length == 0) {
+            playerCreatePoints = new Vector3[1];
+            playerCreatePoints[0] = Vector3.zero;
+        }
+        if(playerChoicePrefab != null) {
+            var playerGameObject = CreatePlayer(playerChoicePrefab, playerCreatePoints[UnityEngine.Random.Range(0, playerCreatePoints.Length)]);
+            GameManager.instance.InitPlayer(currentCharacter.playerCharacter, playerGameObject);
+        }
     }
 
-    void CreatePlayer(GameObject playerPrefab) {
-        var createPoint = GameObject.Find("GameStartPoint");
-        playerGameObject = Instantiate(playerPrefab, createPoint != null ? createPoint.transform.position : Vector3.zero, Quaternion.identity);
+    GameObject CreatePlayer(GameObject playerPrefab, Vector3 playerCreatePoint) {
+        playerGameObject = Instantiate(playerPrefab, playerCreatePoint, Quaternion.identity);
         currentCharacter = playerGameObject.GetComponent<Character>();
 
         // set player tag
-        playerGameObject.tag = "Player";
-        playerGameObject.GetComponent<Character>().personalData.attackColliderObject.tag = "PlayerAttackCollider";
+        // set morality alignment
         // add player component, player animator and other components
         // player - Vanguard/Player, AnimationManager, CombatManager, EffectManager, RagdollManager, QuestManager(optional)
-        playerGameObject.AddComponent<Player>();
+        if(currentCharacter.playerCharacter == PlayerCharacter.Vanguard) {
+            playerGameObject.tag = "Player";
+            var vanguard = playerGameObject.AddComponent<Vanguard>();
+            currentCharacter.personalData.attackColliderObject.tag = "VanguardAttackCollider";
+            vanguard.GetInfo().alignment = currentCharacter.morality;
+        } else {
+            playerGameObject.tag = "Player";
+            var player = playerGameObject.AddComponent<Player>();
+            currentCharacter.personalData.attackColliderObject.tag = "PlayerAttackCollider";
+            player.GetInfo().alignment = currentCharacter.morality;
+        }
         playerGameObject.AddComponent<AnimationManager>();
         /*if Vanguard*/ playerGameObject.AddComponent<CombatManager>();
         playerGameObject.AddComponent<EffectManager>();
         playerGameObject.AddComponent<RagdollManager>();
 
-        // person - Person, AnimationManager, CombatManager, EffectManager, RagdollManager, QuestManager(optional), AIChanger, StateMachineChanger, NavMeshAgent
-
-        GameManager.instance.InitPlayer(currentCharacter.playerCharacter, playerGameObject);
+        return playerGameObject;
     }
 }

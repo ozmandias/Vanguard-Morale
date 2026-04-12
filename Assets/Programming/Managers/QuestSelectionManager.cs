@@ -94,24 +94,23 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
     }
 
     void SetupKillQuest(QuestModel questToSetup, int questInfoLocation) {
-        ToKillSpawnModel []toKillSpawnModels = questToSetup.questInfo[questInfoLocation].toKillSpawnModels;
+        KillQuestSpawnModel []killQuestSpawnModels = questToSetup.questInfo[questInfoLocation].killQuestSpawnModels;
         
         KillQuest killQuest = Instantiate(questDictionary["Kill"], transform).GetComponent<KillQuest>();
         killQuest.questDetails = questToSetup;
         killQuest.questInfoId = questInfoLocation;
 
-        for(int i = 0; i < toKillSpawnModels.Length; i = i + 1) {
-            toKillSpawnModels[i].spawnTransforms = SpawnManager.instance.spawnLocations;
-            for(int j = 0; j < toKillSpawnModels[i].spawnCount; j = j + 1) {
+        for(int i = 0; i < killQuestSpawnModels.Length; i = i + 1) {
+            // killQuestSpawnModels[i].spawnPositions = SpawnManager.instance.spawnLocations;
+            for(int j = 0; j < killQuestSpawnModels[i].spawnCount; j = j + 1) {
                 GameObject toKillObject = Instantiate(
-                    toKillSpawnModels[i]
-                    .assetObject,
-                    toKillSpawnModels[i]
-                    .spawnTransforms[UnityEngine.Random.Range(0, toKillSpawnModels[i].spawnTransforms.Length)]
-                    .position,
+                    killQuestSpawnModels[i]
+                    .spawnObject,
+                    killQuestSpawnModels[i]
+                    .spawnPositions[UnityEngine.Random.Range(0, killQuestSpawnModels[i].spawnPositions.Length)],
                     Quaternion.identity
                 );
-                toKillObject.GetComponent<QuestManager>().questBehaviourModel = toKillSpawnModels[i].behaviourModel;
+                toKillObject.GetComponent<QuestManager>().questBehaviourModel = killQuestSpawnModels[i].behaviourModel;
                 killQuest.toKillList.Add(toKillObject);
                 
                 // associate object with quest action

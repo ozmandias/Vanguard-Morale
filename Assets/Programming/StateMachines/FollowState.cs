@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
     CharacterInfo targetInfo;
     CombatManager targetCombat;
     float targetDistance;

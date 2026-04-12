@@ -7,5 +7,8 @@ public class Character : MonoBehaviour {
     public PersonalData personalData;
     public PlayerCharacter playerCharacter;
     public PersonCharacter personCharacter;
+    public Gender gender;
+    public Morality morality = Morality.Neutral;
+    public CombatType combatType;
     public Faction faction;
 }

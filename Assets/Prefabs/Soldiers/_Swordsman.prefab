@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 114262228137479582}
   m_Layer: 0
   m_Name: _Swordsman
-  m_TagString: Untagged
+  m_TagString: Soldier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1352,7 +1352,7 @@ BoxCollider:
   m_GameObject: {fileID: 1513332782278360}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.0004, y: 0.0008, z: 0.0066}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1403,19 +1403,24 @@ MonoBehaviour:
     body: {fileID: 54333213210926750}
     collider: {fileID: 65994306475580142}
     attackColliderObject: {fileID: 1513332782278360}
+    raycastShooterObject: {fileID: 0}
     cameraFollowObject: {fileID: 1679029708526762}
     groundCheckObject: {fileID: 1996883404969322}
     playerRuntimeAnimator: {fileID: 22100000, guid: 7485b2fa3cf724cc9b9c272ed3de4305,
       type: 2}
     personRuntimeAnimator: {fileID: 22100000, guid: 272fcfa7520ba4158ab3e2735f9bbba7,
       type: 2}
-    weaponObject: {fileID: 1740019288390642}
+    weaponObjects:
+    - {fileID: 1740019288390642}
     weaponDefaultPosition: {x: -0.00014, y: 0.00092, z: 0}
     weaponDefaultEulerRotation: {x: -53.058, y: -81.483, z: 91.415}
     weaponDefaultScale: {x: 1, y: 1, z: 1}
     weaponParentTransform: {fileID: 4833490234424594}
   playerCharacter: 1
   personCharacter: 1
+  gender: 0
+  morality: 60
+  combatType: 0
   faction: 0
 --- !u!114 &114847918713489660
 MonoBehaviour:
@@ -1429,7 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCollider: {fileID: 0}
-  owner: {fileID: 0}
+  owner: {fileID: 1755395566562944}
 --- !u!135 &135697488032119922
 SphereCollider:
   m_ObjectHideFlags: 1

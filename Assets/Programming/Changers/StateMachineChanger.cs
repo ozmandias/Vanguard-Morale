@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class StateMachineChanger : MonoBehaviour {
     Person mainPerson;
-    public StateMachine state = StateMachine.Idle;
+    public StateMachine state = StateMachine.Init;
+    public bool stateMachineReady = false;
     public bool stateMachineMoving = false;
     public bool stateMachineTargeting = false;
     public bool stateMachineAttacking = false;
@@ -20,6 +21,11 @@ public class StateMachineChanger : MonoBehaviour {
     void CheckState() {
         if ((mainPerson.personAI.aiType == AIType.StateMachine || mainPerson.personAI.aiType == AIType.QuestAI) && mainPerson.personState.stateMachineDead == false) {
             switch(state) {
+                case StateMachine.Init:
+                    if(stateMachineReady) {
+                        ChangeState(StateMachine.Idle);
+                    }
+                    break;
                 case StateMachine.Idle:
                     if(mainPerson.target) {
                         if(stateMachineTargeting) {

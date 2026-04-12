@@ -17,12 +17,14 @@ using UnityEngine.UI;
         string kingdomDescription,
         string codeName,
         Sprite kingdomMapSprite,
-        Faction faction
+        Faction faction,
+        ReputationModel []reputations
     ) {
         this.kingdomName = kingdomName;
         this.kingdomDescription = kingdomDescription;
         this.codeName = codeName;
         this.kingdomMapSprite = kingdomMapSprite;
         this.faction = faction;
+        this.reputations = reputations;
     }
 }

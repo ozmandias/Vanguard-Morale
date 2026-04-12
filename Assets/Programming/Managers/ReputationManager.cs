@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ReputationManager : MonoBehaviour { // for each Kingdom
+public class ReputationManager : MonoBehaviour { // for each Kingdom; one ReputationManager is responsible for the Kingdom of the current scene
     public List<ReputationModel> reputationList;
 
     public static ReputationManager instance;
@@ -20,10 +20,33 @@ public class ReputationManager : MonoBehaviour { // for each Kingdom
         reputationList = GlobalData.kingdomDetails.reputations.ToList();
     }
 
-    public Reputation GetPlayerReputation(Faction playerFaction) {
-        var playerReputation = reputationList.Find((reputation) => {
-            return reputation.otherFaction == playerFaction;
+    public Reputation GetOtherFactionReputation(Faction otherFaction) {
+        var otherFactionReputation = reputationList.Find((reputation) => {
+            return reputation.otherFaction == otherFaction;
         });
-        return playerReputation.reputation;
+        return otherFactionReputation.reputation;
+    }
+
+    public Reputation GetReputationBetweenTwoFactions(Faction currentFaction, Faction otherFaction) {
+        Debug.Log("GetReputationBetweenTwoFactions - currentFaction: " + currentFaction + ", otherFaction: " + otherFaction);
+        var currentFactionReputationList = WorldManager.instance.worldScriptableObject.dataList.Find((kingdomModel) => {
+            return kingdomModel.faction == currentFaction;
+        }).reputations.ToList();
+        var otherFactionReputation = currentFactionReputationList.Find((reputation) => {
+            return reputation.otherFaction == otherFaction;
+        });
+        Debug.Log("otherFactionReputation.reputation: " + otherFactionReputation.reputation);
+        return otherFactionReputation.reputation;
+    }
+
+    public void CompareReputation(Faction currentFaction, Faction otherFaction) {
+
+    }
+
+    public List<ReputationModel> GetKingdomReputations(Faction kingdomFaction) {
+        var kingdom = WorldManager.instance.worldScriptableObject.dataList.Find((kingdomModel) => {
+            return kingdomModel.faction == kingdomFaction;
+        });
+        return kingdom.reputations.ToList();
     }
 }

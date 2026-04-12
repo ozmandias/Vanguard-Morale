@@ -42,7 +42,17 @@ Use Boss Programming for Bosses.
 
 Every Programming do their related things instead of having the related things in other Programming.
 
-ScriptbleObjects should only be in Manager classes.
+ScriptbleObjects should only be in Manager classes. Model classes are for ScriptableObjects mainly.
+
+Do not use Friend, Companion, Enemy, Boss classes. Use Citizen, Soldier, Leader and PersonType enum to determine their behaviour. PersonType is for checking target and combat. Find target by comparing reputation instead of using PersonType.
+Use Vector3 position to spawn instead of Transform. Vector3 position is suitable for ScriptableObjects.
+
+Kingdoms will have spawn points for their own kingdom and other spawn points(war spawn points) for other factions
+WarManager is different from FactionManager because it will continuously spawn soldiers at war spawn points while FactionManager will spawn only once
+
+Use Citizen, Soldier, Leader classes based on Person class instead of Person, Friend, Enemy, Boss classes.
+
+Turn Fortis to Red
 -----------------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero

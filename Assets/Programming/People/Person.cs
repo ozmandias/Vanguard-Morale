@@ -10,7 +10,8 @@ public class Person : MonoBehaviour {
     public bool isAttacking = false;
     public GameObject target;
     public Collider attackCollider;
-    public GameObject weapon;
+    public GameObject raycastShooter;
+    public GameObject []weapons; // use for both attackCollider and raycastShooter
     public bool attackNumberUpdate = false;
     public int attackNumber = 0;
 
@@ -23,9 +24,10 @@ public class Person : MonoBehaviour {
     public RagdollManager personRagdoll;
     public NavMeshAgent personAgent;
     public NavMeshHit personNavMeshHit;
-    public PersonInfo personInfo;
+    public PersonInfo personInfo = new PersonInfo();
     public EffectManager personEffect;
     public bool isHurt = false;
+    public bool initDone = false;
 
     [Header("Animation Settings")]
     public float attackFrames = 0;
@@ -33,6 +35,16 @@ public class Person : MonoBehaviour {
 
     public virtual void Start()
     {
+        var character = GetComponent<Character>();
+        if(attackCollider == null && character.combatType == CombatType.Melee) attackCollider = character.personalData.attackColliderObject.GetComponent<Collider>();
+        if(raycastShooter == null && character.combatType == CombatType.Range) raycastShooter = character.personalData.raycastShooterObject;
+        if(weapons == null) {
+            weapons = new GameObject[character.personalData.weaponObjects.Length];
+            for(int i = 0; i < weapons.Length; i = i + 1) {
+                weapons[i] = character.personalData.weaponObjects[i];
+            }
+        }
+
         personAnimation = GetComponent<AnimationManager>();
         personCombat = GetComponent<CombatManager>();
         personAI = GetComponent<AIChanger>();
@@ -43,6 +55,8 @@ public class Person : MonoBehaviour {
         personEffect = GetComponent<EffectManager>();
 
         personInfo.Init(gameObject);
+
+        initDone = true;
     }
 
     public virtual void Update()
@@ -76,7 +90,7 @@ public class Person : MonoBehaviour {
                     break;
             }
 
-            if (personInfo.personType != PersonType.Normal && personState.stateMachineTargeting == false && personInfo.isDead == false)
+            if (target == null && ShouldFindTarget() && personState.stateMachineTargeting == false && personInfo.isDead == false)
             {
                 FindTarget();
             }
@@ -110,7 +124,7 @@ public class Person : MonoBehaviour {
                     break;
             }
             
-            if (personInfo.personType != PersonType.Normal && personState.stateMachineTargeting == false && personInfo.isDead == false)
+            if (target == null && ShouldFindTarget() && personState.stateMachineTargeting == false && personInfo.isDead == false)
             {
                 FindTarget();
             }
@@ -204,6 +218,19 @@ public class Person : MonoBehaviour {
     }
 
     public virtual void FindTarget() { }
+
+    public virtual bool ShouldFindTarget() {
+        return true;
+    }
+
+    public void ChangeAttackCollider() {
+        // check with animator and change attack collider on different animations
+    }
+
+    public void ChangeRaycastShooter() {
+        // check with animator and change raycast shooter on different animations
+        raycastShooter = weapons[(int) personAnimation.mainAnimator.GetFloat("AttackNumber")];
+    }
 
     bool collision = false;
     float nextHurtTime = 0;

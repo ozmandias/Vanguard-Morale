@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class IdleState : StateMachineBehaviour {
-    Person mainPerson;
+    [SerializeField] Person mainPerson;
     CharacterInfo targetInfo;
     float destinationDistance;
     float targetDistance;
