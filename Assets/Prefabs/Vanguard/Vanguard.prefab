@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 114871142083873576}
   - component: {fileID: 114074982911059988}
   - component: {fileID: 114863104119439084}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vanguard
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1171,12 +1171,13 @@ MonoBehaviour:
     body: {fileID: 0}
     collider: {fileID: 0}
     attackColliderObject: {fileID: 0}
+    raycastShooterObject: {fileID: 0}
     cameraFollowObject: {fileID: 0}
     groundCheckObject: {fileID: 0}
     playerRuntimeAnimator: {fileID: 9100000, guid: 929399b848da04e7a8a9fc98b669c44f,
       type: 2}
     personRuntimeAnimator: {fileID: 0}
-    weaponObject: {fileID: 0}
+    weaponObjects: []
     weaponDefaultPosition: {x: 0, y: 0, z: 0}
     weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
     weaponDefaultScale: {x: 0, y: 0, z: 0}

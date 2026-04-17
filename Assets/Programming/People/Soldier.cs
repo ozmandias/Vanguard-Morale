@@ -56,6 +56,7 @@ public class Soldier : Person {
             GameManager.instance.enemyList.Remove(this);
             AIManager.instance.enemyAIList.Remove(personAgent);
         }
+        // AIManager.instance.RemoveCombatEnemy();
     }
 
     public override void Resurrect() {

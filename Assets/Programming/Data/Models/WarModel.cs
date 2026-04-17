@@ -1,19 +1,19 @@
 using UnityEngine;
 
 [System.Serializable] public class WarModel {
-    public GameObject mainBase;
-    public GameObject []vanguardHeroes;
-    public GameObject []meleeSoldiers;
-    public GameObject []rangeSoldiers;
+    public SpawnModel mainBase;
+    public SpawnModel []vanguardHeroes;
+    public SpawnModel []meleeSoldiers;
+    public SpawnModel []rangeSoldiers;
     public Faction faction;
 
     public WarModel() {}
 
     public WarModel(
-        GameObject mainBase,
-        GameObject []vanguardHeroes,
-        GameObject []meleeSoldiers,
-        GameObject []rangeSoldiers,
+        SpawnModel mainBase,
+        SpawnModel []vanguardHeroes,
+        SpawnModel []meleeSoldiers,
+        SpawnModel []rangeSoldiers,
         Faction faction
     ) {
         this.mainBase = mainBase;

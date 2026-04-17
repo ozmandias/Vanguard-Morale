@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,10 +30,13 @@ public class Person : MonoBehaviour {
     public EffectManager personEffect;
     public bool isHurt = false;
     public bool initDone = false;
-
+    public float personDestroyWaitTime = 30f;
+    
     [Header("Animation Settings")]
     public float attackFrames = 0;
     public float hurtFrames = 0;
+    
+    Coroutine PersonDestroyCoroutine;
 
     public virtual void Start()
     {
@@ -274,5 +279,18 @@ public class Person : MonoBehaviour {
     public PersonInfo GetInfo()
     {
         return personInfo;
+    }
+
+    public void StartDestroyCountdown() {
+        PersonDestroyCoroutine = StartCoroutine(DestroyCoroutine());
+    }
+
+    public void CancelDestroyCountdown() {
+        if(PersonDestroyCoroutine != null) StopCoroutine(DestroyCoroutine());
+    }
+
+    public IEnumerator DestroyCoroutine() {
+        yield return new WaitForSeconds(personDestroyWaitTime);
+        Destroy(this.gameObject);
     }
 }

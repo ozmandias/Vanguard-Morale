@@ -15,11 +15,13 @@ public class Asset {
 
 public class Spawn : Asset {
     public int spawnCount;
-    public Transform []spawnTransforms;
+    // public Transform []spawnTransforms;
+    public Vector3 []spawnPositions;
 }
 
 public class Spawn<T> : Asset {
     public int spawnCount;
-    public Transform []spawnTransforms;
+    // public Transform []spawnTransforms;
+    public Vector3 []spawnPositions;
     public T spawnType;
 }

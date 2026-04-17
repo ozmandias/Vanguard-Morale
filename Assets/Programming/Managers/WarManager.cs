@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WarManager : MonoBehaviour {
     public WarScriptableObject warScriptableObject;
@@ -8,13 +9,15 @@ public class WarManager : MonoBehaviour {
     WarTeam warTeam0;
     WarTeam warTeam1;
     public Vector3 warTeam0CreatePoint;
-    public Vector3 warTeam0VanguardCreatePoint;
+    public Vector3 []warTeam0VanguardCreatePoints;
     public Vector3 []warTeam0SoldierCreatePoints;
     public Vector3 warTeam1CreatePoint;
-    public Vector3 warTeam1VanguardCreatePoint;
+    public Vector3 []warTeam1VanguardCreatePoints;
     public Vector3 []warTeam1SoldierCreatePoints;
     public float soldierCreationWaitTime = 60f;
     public bool fightingAtWar = true;
+
+    public UnityEvent CreateWarTeamEvent = new UnityEvent();
 
     public static WarManager instance;
     
@@ -76,6 +79,8 @@ public class WarManager : MonoBehaviour {
 
         // spawn WarTeams from their WarData
         StartWar();
+
+        if(CreateWarTeamEvent != null) CreateWarTeamEvent.Invoke();
     }
 
     void StartWar() {

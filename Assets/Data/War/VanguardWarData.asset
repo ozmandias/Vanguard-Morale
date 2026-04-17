@@ -12,54 +12,94 @@ MonoBehaviour:
   m_Name: VanguardWarData
   m_EditorClassIdentifier: 
   dataList:
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers:
-    - {fileID: 1755395566562944, guid: 5b15ac40f0c294f78a1d9391e895df21, type: 2}
+    - spawnObject: {fileID: 1755395566562944, guid: 5b15ac40f0c294f78a1d9391e895df21,
+        type: 2}
+      spawnCount: 3
+      spawnPositions: []
     rangeSoldiers: []
     faction: 0
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []
     faction: 1
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []
     faction: 2
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []
     faction: 3
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []
     faction: 4
-  - mainBase: {fileID: 0}
-    vanguardHeroes: []
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
+    vanguardHeroes:
+    - spawnObject: {fileID: 1903520162299222, guid: 830379afaa1f2430597e82beb4d2ab0a,
+        type: 2}
+      spawnCount: 1
+      spawnPositions: []
     meleeSoldiers:
-    - {fileID: 1422175888338986, guid: 77e8cc3f066eb41a283c5aa5ddce06a0, type: 2}
+    - spawnObject: {fileID: 1422175888338986, guid: 77e8cc3f066eb41a283c5aa5ddce06a0,
+        type: 2}
+      spawnCount: 3
+      spawnPositions: []
     rangeSoldiers: []
     faction: 5
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []
     faction: 6
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []
     faction: 7
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []
     faction: 8
-  - mainBase: {fileID: 0}
+  - mainBase:
+      spawnObject: {fileID: 0}
+      spawnCount: 0
+      spawnPositions: []
     vanguardHeroes: []
     meleeSoldiers: []
     rangeSoldiers: []

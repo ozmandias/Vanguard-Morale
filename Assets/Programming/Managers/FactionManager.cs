@@ -11,6 +11,9 @@ public class FactionManager : MonoBehaviour { // contains all factions and the f
     public List<Soldier> factionSoldierList = new List<Soldier>();
     public List<Leader> factionLeaderList = new List<Leader>();
     public List<Item> factionItemList = new List<Item>();
+    public Vector3 []citizenCreatePoints;
+    public Vector3 []soldierCreatePoints;
+    public Vector3 []leaderCreatePoints;
 
     public static FactionManager instance;
 

@@ -22,24 +22,32 @@ public class WarTeam : MonoBehaviour {
 
     public void CreateBase() {
         if(warModel.mainBase != null) {
-            Instantiate(warModel.mainBase, transform.position, Quaternion.identity);
+            for(int i = 0; i < warModel.mainBase.spawnCount; i = i + 1) {
+                Instantiate(warModel.mainBase.spawnObject, transform.position, Quaternion.identity);
+            }
         }
     }
 
     public void CreateVanguards() {
-        var vanguardCreatePoint = warTeamInfo.warTeamId == 0 ? WarManager.instance.warTeam0VanguardCreatePoint : WarManager.instance.warTeam1VanguardCreatePoint;
+        var vanguardCreatePoints = warTeamInfo.warTeamId == 0 ? WarManager.instance.warTeam0VanguardCreatePoints : WarManager.instance.warTeam1VanguardCreatePoints;
         foreach(var vanguardHero in warModel.vanguardHeroes) {
-            Instantiate(vanguardHero, vanguardCreatePoint, Quaternion.identity);
+            for(int i = 0; i < vanguardHero.spawnCount; i = i + 1) {
+                Instantiate(vanguardHero.spawnObject, vanguardCreatePoints[Random.Range(0, vanguardCreatePoints.Length)], Quaternion.identity);
+            }
         }
     }
 
     public void CreateSoldiers() {
         var soldierCreatePoints = warTeamInfo.warTeamId == 0 ? WarManager.instance.warTeam0SoldierCreatePoints : WarManager.instance.warTeam1SoldierCreatePoints;
         foreach(var meleeSoldier in warModel.meleeSoldiers) {
-            PersonManager.instance.CreatePerson(meleeSoldier, soldierCreatePoints[Random.Range(0, soldierCreatePoints.Length)]);
+            for(int i = 0; i < meleeSoldier.spawnCount; i = i + 1) {
+                PersonManager.instance.CreatePerson(meleeSoldier.spawnObject, soldierCreatePoints[Random.Range(0, soldierCreatePoints.Length)]);
+            }
         }
         /*foreach(var rangeSoldier in warModel.rangeSoldiers) {
-            PersonManager.instance.CreatePerson(rangeSoldier, soldierCreatePoints[Random.Range(0, soldierCreatePoints.Length)]);
+            for(int i = 0; i < rangeSoldier.spawnCount; i = i + 1) {
+                PersonManager.instance.CreatePerson(rangeSoldier.spawnObject, soldierCreatePoints[Random.Range(0, soldierCreatePoints.Length)]);
+            }
         }*/
     }
 

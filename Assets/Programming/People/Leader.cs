@@ -20,6 +20,8 @@ public class Leader : Person {
             GameManager.instance.bossList.Add(this);
             AIManager.instance.enemyAIList.Add(personAgent);
         }
+
+        // WarManager.instance.CreateWarTeamEvent.AddListener(() => {});
     }
 
     public override void Update() {
@@ -62,15 +64,25 @@ public class Leader : Person {
     public override void Dead() {
         base.Dead();
 
-        GameManager.instance.personList.Remove(this);
-        AIManager.instance.personAIList.Remove(personAgent);
+        if(personInfo.personType == PersonType.Companion) {
+            GameManager.instance.companionList.Remove(this);
+            AIManager.instance.friendAIList.Remove(personAgent);
+        } else if(personInfo.personType == PersonType.Boss) {
+            GameManager.instance.bossList.Remove(this);
+            AIManager.instance.enemyAIList.Remove(personAgent);
+        }
     }
 
     public override void Resurrect() {
         base.Resurrect();
 
-        GameManager.instance.personList.Add(this);
-        AIManager.instance.personAIList.Add(personAgent);
+        if(personInfo.personType == PersonType.Companion) {
+            GameManager.instance.companionList.Add(this);
+            AIManager.instance.friendAIList.Add(personAgent);
+        } else if(personInfo.personType == PersonType.Boss) {
+            GameManager.instance.bossList.Add(this);
+            AIManager.instance.enemyAIList.Remove(personAgent);
+        }
     }
 
     public override void FindTarget() {

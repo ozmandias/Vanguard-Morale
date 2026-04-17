@@ -63,6 +63,8 @@ using UnityEngine.AI;
             person.personRagdoll.DisableRagdoll();
             owner.GetComponent<StateMachineChanger>().ChangeState(StateMachine.Idle);
             owner.GetComponent<AIChanger>().aiChangerRunning = true;
+
+            person.CancelDestroyCountdown();
         } else if(makeStatus == "dead") {
             person.personAgent.enabled = false;
             person.personCombat.enemyIsAttackable = false;
@@ -78,6 +80,8 @@ using UnityEngine.AI;
             }
             owner.GetComponent<StateMachineChanger>().ChangeState(StateMachine.Dead);
             owner.GetComponent<AIChanger>().aiChangerRunning = false;
+
+            person.StartDestroyCountdown();
         }
     }
 }

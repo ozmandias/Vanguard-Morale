@@ -15,7 +15,7 @@ public class Boss : Person
         destination = GameManager.instance.enemyDestination;
 
         GameManager.instance.bossList.Add(this);
-        AIManager.instance.enemyAIList .Add(personAgent); /*bossAIList*/
+        AIManager.instance.enemyAIList.Add(personAgent); /*bossAIList*/
 
         OnSpecialAbility += SpecialAbility;
     }
@@ -59,6 +59,9 @@ public class Boss : Person
 
     public override void Dead() {
         base.Dead();
+
+        GameManager.instance.bossList.Remove(this);
+        AIManager.instance.enemyAIList.Remove(personAgent);
     }
 
     public virtual void SpecialAbility() {}

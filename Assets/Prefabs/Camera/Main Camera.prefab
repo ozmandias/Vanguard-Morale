@@ -98,9 +98,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSpeed: 4
-  distance: -20
+  distance: 20
   cameraLagSpeed: 10
   cameraFollowObject: {fileID: 0}
+  raycastLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  raycastRadius: 0.5
+  minimumDistanceFromObstacles: 0.1
+  smoothingFactor: 25
 --- !u!124 &124172585381144978
 Behaviour:
   m_ObjectHideFlags: 1

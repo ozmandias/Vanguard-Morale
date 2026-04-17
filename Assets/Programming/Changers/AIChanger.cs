@@ -33,11 +33,12 @@ public class AIChanger : MonoBehaviour {
                         }
 
                         if(
-                            (mainPerson.GetInfo().personType == PersonType.Enemy && mainPerson.target == GameManager.instance.playerGameObject)
+                            (mainPerson.GetInfo().personType == PersonType.Enemy && (GameManager.instance.playerGameObject != null && mainPerson.target == GameManager.instance.playerGameObject))
                             ||
                             mainPerson.personCombat.enemyInCombat
                         )
                         {
+                            Debug.Log("gameObject: " + gameObject.name + " - stateMachine to combatAI - playerTarget: " + GameManager.instance.playerGameObject);
                             ChangeAI("combatAI");
                         }
                         break;
@@ -47,11 +48,12 @@ public class AIChanger : MonoBehaviour {
                         }
 
                         if(
-                            (mainPerson.GetInfo().personType == PersonType.Enemy && mainPerson.target == GameManager.instance.playerGameObject)
+                            (mainPerson.GetInfo().personType == PersonType.Enemy && (GameManager.instance.playerGameObject != null && mainPerson.target == GameManager.instance.playerGameObject))
                             ||
                             mainPerson.personCombat.enemyInCombat
                         )
                         {
+                            Debug.Log("gameObject: " + gameObject.name + " - questAI to combatAI");
                             ChangeAI("combatAI");
                         }
                         break;
