@@ -27,14 +27,14 @@ public class ReputationManager : MonoBehaviour { // for each Kingdom; one Reputa
         return otherFactionReputation.reputation;
     }
 
-    public Reputation GetReputationBetweenTwoFactions(Faction currentFaction, Faction otherFaction) {
+    public Reputation GetTwoFactionsReputation(Faction currentFaction, Faction otherFaction) {
         var currentFactionReputationList = WorldManager.instance.worldScriptableObject.dataList.Find((kingdomModel) => {
             return kingdomModel.faction == currentFaction;
         }).reputations.ToList();
         var otherFactionReputation = currentFactionReputationList.Find((reputation) => {
             return reputation.otherFaction == otherFaction;
         });
-        Debug.Log("GetReputationBetweenTwoFactions - currentFaction: " + currentFaction + ", otherFaction: " + otherFaction + ", reputation: " + otherFactionReputation.reputation);
+        Debug.Log("GetTwoFactionsReputation - currentFaction: " + currentFaction + ", otherFaction: " + otherFaction + ", reputation: " + otherFactionReputation.reputation);
         return otherFactionReputation.reputation;
     }
 

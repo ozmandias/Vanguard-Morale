@@ -46,7 +46,7 @@ public class WarManager : MonoBehaviour {
         Debug.Log("WarManager - playerFaction: " + playerFaction);
         
         // get enemy faction
-        var enemyFaction = FactionManager.instance.GetRandomFactionOfReputationDetailsList(playerKingdomReputations, "enemy");
+        var enemyFaction = FactionManager.instance.GetRandomFactionOfReputationList(playerKingdomReputations, "enemy");
         enemyFaction = Faction.Ignis;
         Debug.Log("WarManager - enemyFaction: " + enemyFaction);
         
@@ -76,6 +76,8 @@ public class WarManager : MonoBehaviour {
         warTeam1 = warTeam1Object.AddComponent<WarTeam>();
         warTeam1.warModel = warData1;
         warTeam1.GetInfo().SetWarTeamId(1);
+
+        if(GameManager.instance.OnWarReady != null) GameManager.instance.OnWarReady.Invoke(warTeam0.transform, warTeam1.transform);
 
         // spawn WarTeams from their WarData
         StartWar();
@@ -107,10 +109,13 @@ public class WarManager : MonoBehaviour {
     IEnumerator StartWarCoroutine() {
         while(fightingAtWar) {
             // create soldiers at army base
-            warTeam0.CreateSoldiers();
+            // warTeam0.CreateSoldiers();
             warTeam1.CreateSoldiers();
 
             // register soldiers to factionSoldiers list
+
+            // setup combatAI
+            if(AIManager.instance.OnCombatAISetup != null) AIManager.instance.OnCombatAISetup.Invoke();
             
             yield return new WaitForSeconds(soldierCreationWaitTime);
         }

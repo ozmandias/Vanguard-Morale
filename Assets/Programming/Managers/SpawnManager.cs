@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public static SpawnManager instance;
-
-    [Header("Combat Manager Settings")]
-    public Vector3 []spawnLocations;
+    public bool spawnManagerRunning = false;
 
     [Header("Allies")]
     public GameObject allyPrefab;
     public Vector3 []allySpawnLocations;
     public int allyCount = 0;
 
+    [Header("Normal")]
+    public GameObject characterPrefab;
+    public Vector3 []spawnLocations;
+    public int spawnCount = 0;
+
     [Header("Enemies")]
     public GameObject enemyPrefab;
     public Vector3 []enemySpawnLocations;
     public int enemyCount = 0;
-    public bool combatAIsActive = false;
+
+    public static SpawnManager instance;
 
     void Awake()
     {
@@ -34,30 +37,41 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        spawnLocations = new Vector3[transform.Find("SpawnLocations").childCount];
-        for (int i = 0; i < spawnLocations.Length; i = i + 1)
-        {
-            spawnLocations[i] = transform.Find("SpawnLocations").GetChild(i).position;
+        spawnManagerRunning = true;
+
+        if(spawnLocations.Length == 0) {
+            var spawnLocationsObject = GameObject.Find("SpawnLocations");
+            spawnLocations = new Vector3[spawnLocationsObject.transform.childCount];
+            for (int i = 0; i < spawnLocations.Length; i = i + 1)
+            {
+                spawnLocations[i] = spawnLocationsObject.transform.GetChild(i).position;
+            }
         }
 
-        allySpawnLocations = new Vector3[transform.Find("AllySpawnLocations").childCount];
-        for (int i = 0; i < allySpawnLocations.Length; i = i + 1)
-        {
-            allySpawnLocations[i] = transform.Find("AllySpawnLocations").GetChild(i).position;
+        if(allySpawnLocations.Length == 0) {
+            var allySpawnLocationsObject = GameObject.Find("AllySpawnLocations");
+            allySpawnLocations = new Vector3[allySpawnLocationsObject.transform.childCount];
+            for (int i = 0; i < allySpawnLocations.Length; i = i + 1)
+            {
+                allySpawnLocations[i] = allySpawnLocationsObject.transform.GetChild(i).position;
+            }
         }
 
-        enemySpawnLocations = new Vector3[transform.Find("EnemySpawnLocations").childCount /*1*/];
-        for (int i = 0; i < enemySpawnLocations.Length; i = i + 1)
-        {
-            enemySpawnLocations[i /*0*/] = transform.Find("EnemySpawnLocations").GetChild(i /*0*/).position;
+        if(enemySpawnLocations.Length == 0) {
+            var enemySpawnLocationsObject = GameObject.Find("EnemySpawnLocations");
+            enemySpawnLocations = new Vector3[enemySpawnLocationsObject.transform.childCount /*1*/];
+            for (int i = 0; i < enemySpawnLocations.Length; i = i + 1)
+            {
+                enemySpawnLocations[i /*0*/] = enemySpawnLocationsObject.transform.GetChild(i /*0*/).position;
+            }
         }
 
         SpawnAll();
         
-        if (enemyCount == enemySpawnLocations.Length)
+        /*if (enemyCount == enemySpawnLocations.Length)
         {
             AIManager.instance.SetupCombatAI();
-        }
+        }*/
     }
 
     void Update()

@@ -51,12 +51,12 @@ public class AttackState : StateMachineBehaviour {
                             }
                         }
 
-                        if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn && mainPerson.personEffect.attackEffect.canManageEffect) {
+                        if(mainPerson.personEffect.attackEffect.effectType == EffectType.Spawn && mainPerson.personEffect.attackEffect.canCreateEffect) { // canManageEffect is for one time use, replace it with better problem solving (done)
                             GameObject newAttackEffect = mainPerson.personEffect.CreateEffect("attack", mainPerson.raycastShooter.transform.position, Quaternion.LookRotation(mainPerson.target.transform.position - animator.transform.position, Vector3.up) /*animator.transform.rotation*/);
                             if(newAttackEffect) {
                                 mainPerson.personEffect.DestroyEffect(newAttackEffect);
                             }
-                            mainPerson.personEffect.attackEffect.canManageEffect = false;
+                            mainPerson.personEffect.attackEffect.canCreateEffect = false;
                         }
                     }
                 } else {
@@ -65,7 +65,7 @@ public class AttackState : StateMachineBehaviour {
                     if((mainPerson.GetInfo() as PersonInfo).combatType == CombatType.Melee) {
                         mainPerson.attackCollider.enabled = false;
                     } else {
-                        // do range attack
+                        // stop range attack
                     }
 
                     attackStateTime = 0;

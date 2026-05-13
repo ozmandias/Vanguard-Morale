@@ -33,7 +33,7 @@ public class StateMachineChanger : MonoBehaviour {
                         }
                     }
                     
-                    if(mainPerson.destination) {
+                    if(mainPerson.destination != null) {
                         if(stateMachineMoving) {
                             ChangeState(StateMachine.Move);
                         } else {
@@ -48,7 +48,7 @@ public class StateMachineChanger : MonoBehaviour {
                         }
                     }
                     
-                    if(mainPerson.destination) {
+                    if(mainPerson.destination != null) {
                         if(!stateMachineMoving) {
                             ChangeState(StateMachine.Idle);
                         }
@@ -70,7 +70,7 @@ public class StateMachineChanger : MonoBehaviour {
                         }
                     }
 
-                    if(mainPerson.destination) {
+                    if(mainPerson.destination != null) {
                         if(!stateMachineTargeting) {
                             ChangeState(StateMachine.Move);
                         }
@@ -87,7 +87,7 @@ public class StateMachineChanger : MonoBehaviour {
                         }
                     }
                     
-                    if(mainPerson.destination) {
+                    if(mainPerson.destination != null) {
                         if(!stateMachineTargeting) {
                             ChangeState(StateMachine.Move);
                         }          
@@ -110,7 +110,7 @@ public class StateMachineChanger : MonoBehaviour {
                             }
                         }
 
-                        if(mainPerson.destination) {
+                        if(mainPerson.destination != null) {
                             if(!stateMachineTargeting) {
                                 ChangeState(StateMachine.Move);
                             }

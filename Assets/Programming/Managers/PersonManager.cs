@@ -50,6 +50,7 @@ public class PersonManager : MonoBehaviour {
             case PersonCharacter.Leader:
                 personObject.tag = "Leader";
                 var leader = personObject.AddComponent<Leader>();
+                // character.personalData.attackColliderObject.tag = "LeaderAttackCollider";
                 leader.GetInfo().alignment = character.morality;
                 AssignPersonType(personObject);
                 break;
@@ -72,7 +73,7 @@ public class PersonManager : MonoBehaviour {
     }
 
     void AssignPersonType(GameObject personObject) {
-        switch(ReputationManager.instance.GetReputationBetweenTwoFactions(
+        switch(ReputationManager.instance.GetTwoFactionsReputation(
             personObject.GetComponent<Character>().faction,
             GlobalData.characterDetails.faction
         )) {

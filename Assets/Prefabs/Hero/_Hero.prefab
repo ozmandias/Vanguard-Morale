@@ -147,13 +147,10 @@ GameObject:
   - component: {fileID: 54798511970912532}
   - component: {fileID: 65145582559182342}
   - component: {fileID: 136361004470309420}
-  - component: {fileID: 114849790815442950}
-  - component: {fileID: 114598877633590774}
-  - component: {fileID: 114638475379757874}
-  - component: {fileID: 114737486925663588}
+  - component: {fileID: 195599061384433056}
   - component: {fileID: 114706506873254334}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: _Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1610,7 +1607,7 @@ BoxCollider:
   m_GameObject: {fileID: 1091399696284372}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.0002, y: 0.0005, z: 0.0066}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1644,133 +1641,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCollider: {fileID: 0}
   owner: {fileID: 0}
---- !u!114 &114598877633590774
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1149810568257456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188346ce2a6db4d4d8b3c20096d7f4ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 0}
-  playerRuntimeAnimator: {fileID: 0}
-  personRuntimeAnimator: {fileID: 0}
---- !u!114 &114638475379757874
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1149810568257456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationManager: {fileID: 0}
-  effectManager: {fileID: 0}
-  circlingList: []
-  maxCirclingEnemies: 3
-  combatingList: []
-  maxCombatingEnemies: 5
-  characterInfo:
-    owner: {fileID: 0}
-    strength: 0
-    agility: 0
-    intelligence: 0
-    health: 0
-    MaxHealth: 100
-    damage: 0
-    magic: 0
-    morality: 50
-    alignment: 50
-    gender: 0
-    combatType: 0
-    isDead: 0
-  playerCamera: {fileID: 0}
-  combatCollider: {fileID: 0}
-  checkDirection: {x: 0, y: 0, z: 0}
-  currentTarget: {fileID: 0}
-  managingMove: 0
-  managingAttack: 0
-  isCombating: 0
-  isCountering: 0
-  combatNumber: 0
-  counterNumber: 0
-  targetCheckRadius: 12
-  targetCheckMaxDistance: 30
-  targetAttackOffset: 5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  OnPlayerMovement:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerMovementEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCombat:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCombatEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCounter:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCounterEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  enemyIsNearPlayer: 0
-  enemyIsPreparingAttack: 0
-  enemyIsMoving: 0
-  enemyIsAttacking: 0
-  enemyIsRetreating: 0
-  enemyIsPlayerTarget: 0
-  enemyIsStunned: 0
-  enemyIsWaiting: 1
-  enemyIsAttackable: 1
-  enemyInCombat: 0
-  counterAlert: 0
-  OnEnemyStart:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyStartEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyStop:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyStopEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyRetreat:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyRetreatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyHurt:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyCombatHurt:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyCounterHurt:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &114706506873254334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1786,80 +1656,28 @@ MonoBehaviour:
   jumpForce: 60
   gravity: 9.81
   personalData:
-    body: {fileID: 0}
-    collider: {fileID: 0}
-    attackColliderObject: {fileID: 0}
+    body: {fileID: 54798511970912532}
+    collider: {fileID: 65145582559182342}
+    attackColliderObject: {fileID: 1091399696284372}
     raycastShooterObject: {fileID: 0}
-    cameraFollowObject: {fileID: 0}
-    groundCheckObject: {fileID: 0}
-    playerRuntimeAnimator: {fileID: 0}
-    personRuntimeAnimator: {fileID: 0}
-    weaponObjects: []
-    weaponDefaultPosition: {x: 0, y: 0, z: 0}
-    weaponDefaultEulerRotation: {x: 0, y: 0, z: 0}
-    weaponDefaultScale: {x: 0, y: 0, z: 0}
-    weaponParentTransform: {fileID: 0}
+    cameraFollowObject: {fileID: 1602267920997664}
+    groundCheckObject: {fileID: 1374617306414726}
+    playerRuntimeAnimator: {fileID: 9100000, guid: 8ef613e95cd2d477099ce6c74cedab5f,
+      type: 2}
+    personRuntimeAnimator: {fileID: 22100000, guid: e0af59b2f19e94ead90ba399d2eee3d9,
+      type: 2}
+    weaponObjects:
+    - {fileID: 1007334097226326}
+    weaponDefaultPosition: {x: 0.0001181686, y: 0.0009536564, z: 0.0002679211}
+    weaponDefaultEulerRotation: {x: -161.77, y: 26.612, z: -15.04999}
+    weaponDefaultScale: {x: 1, y: 1, z: 1}
+    weaponParentTransform: {fileID: 4344438642170942}
   playerCharacter: 1
   personCharacter: 3
   gender: 0
   morality: 60
   combatType: 0
   faction: 0
---- !u!114 &114737486925663588
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1149810568257456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 648e73c5d500e49f095c4f6dc9a79201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackEffect: {fileID: 0}
-  counterEffect: {fileID: 0}
---- !u!114 &114849790815442950
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1149810568257456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4311740038a74609bc8deb7b7614c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  jumpForce: 60
-  gravity: 9.81
-  isJumping: 0
-  isGrounded: 1
-  groundCheckDistance: 6
-  isAttacking: 0
-  attackNumber: 0
-  attackTimer: 0
-  attackAnimationLength: 0
-  attackCollider: {fileID: 65692660637740124}
-  playerBody: {fileID: 54798511970912532}
-  playerAnimator: {fileID: 0}
-  playerCamera: {fileID: 0}
-  playerInfo:
-    owner: {fileID: 0}
-    strength: 0
-    agility: 0
-    intelligence: 0
-    health: 0
-    MaxHealth: 100
-    damage: 0
-    magic: 0
-    morality: 50
-    alignment: 50
-    gender: 0
-    combatType: 0
-    isDead: 0
-    playerType: 0
-  playerAnimation: {fileID: 0}
-  playerCombat: {fileID: 0}
 --- !u!136 &136361004470309420
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1959,3 +1777,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000008870382, y: 0.00025747903, z: -0.000003981171}
     m_Extent: {x: 0.0046030986, y: 0.009490686, z: 0.0028069087}
   m_DirtyAABB: 0
+--- !u!195 &195599061384433056
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149810568257456}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.002
+  m_Speed: 30
+  m_Acceleration: 500
+  avoidancePriority: 80
+  m_AngularSpeed: 1000
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.018
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 3

@@ -53,6 +53,14 @@ WarManager is different from FactionManager because it will continuously spawn s
 Use Citizen, Soldier, Leader classes based on Person class instead of Person, Friend, Enemy, Boss classes.
 
 Turn Fortis to Red
+
+Sometimes, if I make some changes on NavMesh, I need to rebake NavMesh. Otherwise FindTarget()'s NavMeshAgent.Raycast() won't work for target finding.
+
+Unparent SpawnLocations from SpawnManager
+
+Animations - Player: Attack (no loop), Person: Attack (loop)
+
+To fix: attackNumberUpdate for Leader Attack Animations
 -----------------------------------------------------------------------------------------------------
 Person -> Player, Enemy, Villagers, Castle Residents, Blacksmith, Soldier Trainer, Archer Trainer
 Player -> Hero

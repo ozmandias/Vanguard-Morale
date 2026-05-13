@@ -46,14 +46,21 @@ public class Leader : Person {
 
     public override void Attack() {
         base.Attack();
-        if(personInfo.combatType == CombatType.Range) {
-            if(attackNumberUpdate) {
-                attackNumber += 1;
-                attackNumber = attackNumber > 1 ? 0 : attackNumber;
-                personAnimation.SetParameter("AttackNumber", (float) attackNumber);
-                attackNumberUpdate = false;
-                ChangeRaycastShooter();
+        if(attackNumberUpdate) {
+            attackNumber += 1;
+            attackNumber = attackNumber > 1 ? 0 : attackNumber;
+            if(personInfo.personType == PersonType.Companion) {
+                Debug.Log("Companion - attackNumber: " + attackNumber);
+            } else if(personInfo.personType == PersonType.Boss) {
+                Debug.Log("Boss - attackNumber: " + attackNumber);
             }
+            personAnimation.SetParameter("AttackNumber", (float) attackNumber); // set interval for smooth changing attack animations
+            attackNumberUpdate = false;
+        }
+        if(personInfo.combatType == CombatType.Melee) {
+            // ChangeAttackCollider();
+        } else if(personInfo.combatType == CombatType.Range) {
+            ChangeRaycastShooter();
         }
     }
 
@@ -86,32 +93,69 @@ public class Leader : Person {
     }
 
     public override void FindTarget() {
+        List<GameObject> targetList = new List<GameObject>();
+        float nearestDistance = float.MaxValue;
+        UnityEngine.AI.NavMeshHit hit;
         if(personInfo.personType == PersonType.Companion) {
+            GameObject targetEnemy = null;
+            GameObject targetBoss = null;
 
+            foreach(var soldier in GameManager.instance.enemyList) {
+                if(!personAgent.Raycast(soldier.gameObject.transform.position, out hit) && soldier.GetInfo().isDead == false) {
+                    targetEnemy = soldier.gameObject;
+                    targetList.Add(targetEnemy);
+                    break;
+                }
+            }
+
+            foreach(var boss in GameManager.instance.bossList) {
+                if(!personAgent.Raycast(boss.gameObject.transform.position, out hit) && boss.GetInfo().isDead == false) {
+                    targetBoss = boss.gameObject;
+                    targetList.Add(targetBoss);
+                    break;
+                }
+            }
+
+            foreach(var target in targetList) {
+                float targetDistance = Vector3.Distance(target.transform.position, transform.position);
+                if (targetDistance < nearestDistance) {
+                    nearestDistance = targetDistance;
+                    SetTarget(target);
+                }
+            }
+
+            targetList.Clear();
         } else if(personInfo.personType == PersonType.Boss) {
             GameObject targetPlayer = GameManager.instance.playerGameObject;
             if(targetPlayer) {
-                if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit)) {
+                if(!personAgent.Raycast(targetPlayer.transform.position, out hit)) {
                     SetTarget(targetPlayer);
                 }
             }
 
             if(!target) {
                 GameObject targetSoldier = null;
+                GameObject targetCompanion = null;
                 GameObject targetPerson = null;
-                List<GameObject> targetList = new List<GameObject>();
-                float nearestDistance = float.MaxValue;
 
                 foreach(var soldier in GameManager.instance.friendList) {
-                    if(!personAgent.Raycast(soldier.gameObject.transform.position, out personNavMeshHit) && soldier.GetInfo().isDead == false) {
+                    if(!personAgent.Raycast(soldier.gameObject.transform.position, out hit) && soldier.GetInfo().isDead == false) {
                         targetSoldier = soldier.gameObject;
                         targetList.Add(targetSoldier);
                         break;
                     }
                 }
 
+                foreach(var companion in GameManager.instance.companionList) {
+                    if(!personAgent.Raycast(companion.gameObject.transform.position, out hit) && companion.GetInfo().isDead == false) {
+                        targetCompanion = companion.gameObject;
+                        targetList.Add(targetCompanion);
+                        break;
+                    }
+                }
+
                 foreach(var person in GameManager.instance.personList) {
-                    if(!personAgent.Raycast(person.gameObject.transform.position, out personNavMeshHit) && person.GetInfo().isDead == false) {
+                    if(!personAgent.Raycast(person.gameObject.transform.position, out hit) && person.GetInfo().isDead == false) {
                         targetPerson = person.gameObject;
                         targetList.Add(targetPerson);
                         break;

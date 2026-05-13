@@ -14,12 +14,21 @@ MonoBehaviour:
   dataList:
   - faction: 0
     vanguardSpawnModels:
-    - spawnObject: {fileID: 0}
-      spawnCount: 0
+    - spawnObject: {fileID: 1149810568257456, guid: 198ff959c5f1640e98f4b88256869fd2,
+        type: 2}
+      spawnCount: 1
       spawnPositions: []
     specialCharacterSpawnModels: []
-    personSpawnModels: []
-    soldierSpawnModels: []
+    personSpawnModels:
+    - spawnObject: {fileID: 1462443266412426, guid: bd5eec7adfe7c4cdca79bfe7d0981fa4,
+        type: 2}
+      spawnCount: 1
+      spawnPositions: []
+    soldierSpawnModels:
+    - spawnObject: {fileID: 1755395566562944, guid: 5b15ac40f0c294f78a1d9391e895df21,
+        type: 2}
+      spawnCount: 1
+      spawnPositions: []
     guardSpawnModels: []
     vendorSpawnModels: []
     itemSpawnModels: []

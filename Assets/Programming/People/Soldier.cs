@@ -74,6 +74,7 @@ public class Soldier : Person {
     public override void FindTarget() {
         List<GameObject> targetList = new List<GameObject>();
         float nearestDistance = float.MaxValue;
+        UnityEngine.AI.NavMeshHit hit;
         UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath();
         if(personInfo.personType == PersonType.Friend) {
             GameObject targetEnemy = null;
@@ -82,7 +83,7 @@ public class Soldier : Person {
             foreach(var enemy in GameManager.instance.enemyList) {
                 CombatManager enemyCombat = enemy.GetComponent<CombatManager>();
                 if(enemy.GetInfo().isDead == false && enemyCombat.IsCirclingListFull() == false && enemy.personAI.aiType == AIType.StateMachine) {
-                    if(!personAgent.Raycast(enemy.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(enemy.transform.position, out hit)) {
                         targetEnemy = enemy.gameObject;
                         targetList.Add(targetEnemy);
                         break;
@@ -93,7 +94,7 @@ public class Soldier : Person {
             foreach(var boss in GameManager.instance.bossList) {
                 CombatManager bossCombat = boss.GetComponent<CombatManager>();
                 if(boss.GetInfo().isDead == false && bossCombat.IsCirclingListFull() == false && boss.personAI.aiType == AIType.StateMachine) {
-                    if(!personAgent.Raycast(boss.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(boss.transform.position, out hit)) {
                         targetBoss = boss.gameObject;
                         targetList.Add(targetBoss);
                         break;
@@ -119,12 +120,13 @@ public class Soldier : Person {
         } else if(personInfo.personType == PersonType.Enemy) {
             GameObject targetPlayer = GameManager.instance.playerGameObject;
             GameObject targetSoldier = null;
+            GameObject targetCompanion = null;
             GameObject targetPerson = null;
 
             if(targetPlayer) {
                 CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
                 if(playerCombat.IsCirclingListFull() == false && playerCombat.IsCombatingListFull() == false) {
-                    if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit) && Vector3.Distance(targetPlayer.transform.position, transform.position) < 250f) {
+                    if(!personAgent.Raycast(targetPlayer.transform.position, out hit) && Vector3.Distance(targetPlayer.transform.position, transform.position) < 250f) {
                         targetList.Add(targetPlayer);
                     } else {
                         targetPlayer = null;
@@ -135,9 +137,20 @@ public class Soldier : Person {
             foreach(var soldier in GameManager.instance.friendList) {
                 CombatManager soldierCombat = soldier.GetComponent<CombatManager>();
                 if(soldier.GetInfo().isDead == false && soldierCombat.IsCirclingListFull() == false && soldier.personAI.aiType == AIType.StateMachine) {
-                    if(!personAgent.Raycast(soldier.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(soldier.transform.position, out hit)) {
                         targetSoldier = soldier.gameObject;
                         targetList.Add(targetSoldier);
+                        break;
+                    }
+                }
+            }
+
+            foreach(var companion in GameManager.instance.companionList) {
+                CombatManager companionCombat = companion.GetComponent<CombatManager>();
+                if(companion.GetInfo().isDead == false && companionCombat.IsCirclingListFull() == false && companion.personAI.aiType == AIType.StateMachine) {
+                    if(!personAgent.Raycast(companion.transform.position, out hit)) {
+                        targetCompanion = companion.gameObject;
+                        targetList.Add(targetCompanion);
                         break;
                     }
                 }
@@ -146,7 +159,7 @@ public class Soldier : Person {
             foreach(var person in GameManager.instance.personList) {
                 CombatManager personCombat = person.GetComponent<CombatManager>();
                 if(person.GetInfo().isDead == false && personCombat.IsCirclingListFull() == false && person.personAI.aiType == AIType.StateMachine) {
-                    if(!personAgent.Raycast(person.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(person.transform.position, out hit)) {
                         targetPerson = person.gameObject;
                         targetList.Add(targetPerson);
                         break;
@@ -182,7 +195,13 @@ public class Soldier : Person {
 
         if(otherCollider.gameObject.CompareTag("SoldierAttackCollider")) {
             CharacterInfo attackCharacterInfo = otherCollider.gameObject.GetComponentInParent<Item>().GetOwnerInfo();
-            if(personInfo.isDead == false && attackCharacterInfo.isDead == false){
+            Character attackCharacter = otherCollider.gameObject.GetComponentInParent<Character>();
+            Character currentCharacter = GetComponent<Character>();
+            if(
+                personInfo.isDead == false &&
+                attackCharacterInfo.isDead == false &&
+                currentCharacter.faction != attackCharacter.faction
+            ){
                 personAnimation.SetParameter("HurtAmount", attackCharacterInfo.damage);
                 personAnimation.SetParameter("ReduceHealth", true);
                 personAnimation.mainAnimator.GetBehaviour<HurtState>().attackerInfo = attackCharacterInfo;

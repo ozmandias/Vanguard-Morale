@@ -22,6 +22,7 @@ public class AIManager : MonoBehaviour { // for AI group
     public List<EnemyStruct> enemyStructs = new List<EnemyStruct>();
     private Coroutine CombatAILoopCoroutine;
     public AgentsCircleEvent OnAgentsCircle = new AgentsCircleEvent();
+    public CombatAISetupEvent OnCombatAISetup = new CombatAISetupEvent();
 
     void Awake()
     {
@@ -37,7 +38,9 @@ public class AIManager : MonoBehaviour { // for AI group
 
     void Start()
     {
-        // need to trigger this after SpawnManager.
+        OnAgentsCircle.AddListener((aiList, transform, circleType) => ListCircleTarget(aiList, transform, circleType));
+        
+        // need to trigger this after SpawnManager. (update: Do not rely on SpawnManager and use Events)
         /*Enemy []enemies = FindObjectsOfType<Enemy>();
         if(enemies.Length > 0) {
             foreach (Enemy enemy in enemies)
@@ -50,8 +53,7 @@ public class AIManager : MonoBehaviour { // for AI group
 
             StartCombatAI();
         }*/
-
-        OnAgentsCircle.AddListener((aiList, transform, circleType) => ListCircleTarget(aiList, transform, circleType));
+        OnCombatAISetup.AddListener(() => SetupCombatAI());
     }
 
     public void AddToList(PersonType personType, NavMeshAgent aiAgent)
@@ -300,6 +302,9 @@ public class AIManager : MonoBehaviour { // for AI group
 
     void StartCombatAI()
     {
+        if (CombatAILoopCoroutine != null) { // guard and restart cleanly so that the same coroutine won't run multiple times
+            StopCoroutine(CombatAILoopCoroutine);
+        }
         CombatAILoopCoroutine = StartCoroutine(SetCombatAILoopCoroutine(null));
     }
 

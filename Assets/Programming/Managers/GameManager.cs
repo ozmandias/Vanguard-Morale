@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour {
 	[Header("Game Manager Settings")]
 	public bool isPaused = false;
 
+	public PlayerReadyEvent OnPlayerReady = new PlayerReadyEvent();
+	public WarReadyEvent OnWarReady = new WarReadyEvent();
+
 	void Awake() {
 		if(instance == null) {
 			instance = this;
@@ -39,6 +43,9 @@ public class GameManager : MonoBehaviour {
 		playerCharacters = GameObject.FindGameObjectsWithTag("Player");
 		SetPlayer();
 		HideCursor();
+
+		OnPlayerReady.AddListener((playerCharacter, playerGameObject) => PlayerReady(playerCharacter, playerGameObject));
+		OnWarReady.AddListener((friendDestination, enemyDestination) => WarReady(friendDestination, enemyDestination));
 	}
 	
 	// Update is called once per frame
@@ -114,9 +121,14 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void InitPlayer(PlayerCharacter playerCharacter, GameObject playerGameObject) {
+	public void PlayerReady(PlayerCharacter playerCharacter, GameObject playerGameObject) {
 		// assign data from PlayerManager
 		this.currentPlayer = playerCharacter;
 		this.playerGameObject = playerGameObject;
+	}
+
+	public void WarReady(Transform friendDestination, Transform enemyDestination) {
+		this.friendDestination = friendDestination;
+		this.enemyDestination = enemyDestination;
 	}
 }

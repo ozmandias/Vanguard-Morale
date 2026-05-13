@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss : Person
 {
@@ -67,10 +68,11 @@ public class Boss : Person
     public virtual void SpecialAbility() {}
 
     public override void FindTarget() {
+        NavMeshHit hit;
         if(personInfo.personType == PersonType.Boss) {
             GameObject targetPlayer = GameManager.instance.playerGameObject;
             if(targetPlayer) {
-                if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit)) {
+                if(!personAgent.Raycast(targetPlayer.transform.position, out hit)) {
                     SetTarget(targetPlayer);
                 }
             }
@@ -82,7 +84,7 @@ public class Boss : Person
                 float nearestDistance = float.MaxValue;
 
                 foreach(Friend soldier in GameManager.instance.friendList) {
-                    if(!personAgent.Raycast(soldier.gameObject.transform.position, out personNavMeshHit) && soldier.GetInfo().isDead == false) {
+                    if(!personAgent.Raycast(soldier.gameObject.transform.position, out hit) && soldier.GetInfo().isDead == false) {
                         targetSoldier = soldier.gameObject;
                         targetList.Add(targetSoldier);
                         break;
@@ -90,7 +92,7 @@ public class Boss : Person
                 }
 
                 foreach(Person person in GameManager.instance.personList) {
-                    if(!personAgent.Raycast(person.gameObject.transform.position, out personNavMeshHit) && person.GetInfo().isDead == false) {
+                    if(!personAgent.Raycast(person.gameObject.transform.position, out hit) && person.GetInfo().isDead == false) {
                         targetPerson = person.gameObject;
                         targetList.Add(targetPerson);
                         break;

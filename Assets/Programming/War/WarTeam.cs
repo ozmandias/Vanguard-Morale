@@ -9,11 +9,11 @@ public class WarTeam : MonoBehaviour {
     void Start() {
         warTeamInfo.Init(gameObject);
 
-        if(warTeamInfo.warTeamId == 0) {
+        /*if(warTeamInfo.warTeamId == 0) {
             GameManager.instance.friendDestination = transform;
         } else if(warTeamInfo.warTeamId == 1) {
             GameManager.instance.enemyDestination = transform;
-        }
+        }*/
     }
 
     void Update() {

@@ -58,6 +58,7 @@ public class Friend : Person {
     }
 
     public override void FindTarget() {
+        NavMeshHit hit;
         if(personInfo.personType == PersonType.Friend) {
             float targetEnemyDistance = 0;
             GameObject targetEnemy = null;
@@ -75,7 +76,7 @@ public class Friend : Person {
                         break;
                     }*/
 
-                    if(!personAgent.Raycast(enemy.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(enemy.transform.position, out hit)) {
                         targetEnemy = enemy.gameObject;
                         targetList.Add(targetEnemy);
                         break;
@@ -94,7 +95,7 @@ public class Friend : Person {
             foreach(Boss boss in GameManager.instance.bossList) {
                 CombatManager bossCombat = boss.GetComponent<CombatManager>();
                 if(boss.GetInfo().isDead == false && bossCombat.IsCirclingListFull() == false && boss.personAI.aiType == AIType.StateMachine) {
-                    if(!personAgent.Raycast(boss.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(boss.transform.position, out hit)) {
                         targetBoss = boss.gameObject;
                         targetList.Add(targetBoss);
                         break;

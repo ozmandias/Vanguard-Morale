@@ -62,6 +62,7 @@ public class Enemy : Person {
     }
 
     public override void FindTarget() {
+        NavMeshHit hit;
         if(personInfo.personType == PersonType.Enemy) {
             /*float targetPlayerDistance = 0;
             float targetSoldierDistance = 0;
@@ -76,7 +77,7 @@ public class Enemy : Person {
             if(targetPlayer) {
                 CombatManager playerCombat = targetPlayer.GetComponent<CombatManager>();
                 if(playerCombat.IsCirclingListFull() == false && playerCombat.IsCombatingListFull() == false) {
-                    if(!personAgent.Raycast(targetPlayer.transform.position, out personNavMeshHit) && Vector3.Distance(targetPlayer.transform.position, transform.position) < 250f) {
+                    if(!personAgent.Raycast(targetPlayer.transform.position, out hit) && Vector3.Distance(targetPlayer.transform.position, transform.position) < 250f) {
                         // targetPlayerDistance = Vector3.Distance(GameManager.instance.playerGameObject.transform.position, transform.position);
                         targetList.Add(targetPlayer);
                     } else {
@@ -95,7 +96,7 @@ public class Enemy : Person {
                         break;
                     }*/
 
-                    if(!personAgent.Raycast(soldier.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(soldier.transform.position, out hit)) {
                         targetSoldier = soldier.gameObject;
                         targetList.Add(targetSoldier);
                         break;
@@ -112,7 +113,7 @@ public class Enemy : Person {
                         break;
                     }*/
 
-                    if(!personAgent.Raycast(person.transform.position, out personNavMeshHit)) {
+                    if(!personAgent.Raycast(person.transform.position, out hit)) {
                         targetPerson = person.gameObject;
                         targetList.Add(targetPerson);
                         break;

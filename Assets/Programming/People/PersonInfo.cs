@@ -70,7 +70,7 @@ using UnityEngine.AI;
             person.personCombat.enemyIsAttackable = false;
             person.personState.stateMachineDead = true;
             person.personRagdoll.EnableRagdoll();
-            if (person.weapons.Length > 0)
+            if (person.weapons != null && person.weapons.Length > 0)
             {
                 foreach(var weapon in person.weapons) {
                     weapon.transform.SetParent(null);

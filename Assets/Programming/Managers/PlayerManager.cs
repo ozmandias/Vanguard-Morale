@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject []playerPrefabs;
     public Character currentCharacter;
     public Vector3 []playerCreatePoints; // add manually
+    public bool autoCreatePlayer = false;
 
     public static PlayerManager instance;
 
@@ -38,13 +39,12 @@ public class PlayerManager : MonoBehaviour {
             playerCreatePoints = new Vector3[1];
             playerCreatePoints[0] = Vector3.zero;
         }
-        if(playerChoicePrefab != null) {
-            var playerGameObject = CreatePlayer(playerChoicePrefab, playerCreatePoints[UnityEngine.Random.Range(0, playerCreatePoints.Length)]);
-            GameManager.instance.InitPlayer(currentCharacter.playerCharacter, playerGameObject);
+        if(playerChoicePrefab != null && autoCreatePlayer) {
+            CreatePlayer(playerChoicePrefab, playerCreatePoints[UnityEngine.Random.Range(0, playerCreatePoints.Length)]);
         }
     }
 
-    GameObject CreatePlayer(GameObject playerPrefab, Vector3 playerCreatePoint) {
+    void CreatePlayer(GameObject playerPrefab, Vector3 playerCreatePoint) {
         playerGameObject = Instantiate(playerPrefab, playerCreatePoint, Quaternion.identity);
         currentCharacter = playerGameObject.GetComponent<Character>();
 
@@ -68,6 +68,7 @@ public class PlayerManager : MonoBehaviour {
         playerGameObject.AddComponent<EffectManager>();
         playerGameObject.AddComponent<RagdollManager>();
 
-        return playerGameObject;
+        // GameManager.instance.InitPlayer(currentCharacter.playerCharacter, playerGameObject);
+        if(GameManager.instance.OnPlayerReady != null) GameManager.instance.OnPlayerReady.Invoke(currentCharacter.playerCharacter, playerGameObject);
     }
 }

@@ -1341,6 +1341,7 @@ MonoBehaviour:
   personEffect: {fileID: 0}
   isHurt: 0
   initDone: 0
+  personDestroyWaitTime: 30
   attackFrames: 0
   hurtFrames: 0
 --- !u!114 &114316805568293834

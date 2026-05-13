@@ -43,6 +43,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1209206233744110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4189978940667906}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1238439135360614
 GameObject:
   m_ObjectHideFlags: 1
@@ -240,17 +255,9 @@ GameObject:
   - component: {fileID: 65802695288008910}
   - component: {fileID: 136691092828852332}
   - component: {fileID: 195613332181365770}
-  - component: {fileID: 114221847060090814}
-  - component: {fileID: 114222116187569008}
-  - component: {fileID: 114306401919144842}
-  - component: {fileID: 114229754675393196}
-  - component: {fileID: 114673837539460900}
-  - component: {fileID: 114125604257743030}
-  - component: {fileID: 114864679469253996}
-  - component: {fileID: 114031287804413096}
   - component: {fileID: 114328162720138390}
   m_Layer: 0
-  m_Name: VillagerMale
+  m_Name: _VillagerMale
   m_TagString: Citizen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,6 +288,21 @@ GameObject:
   - component: {fileID: 4285844699129926}
   m_Layer: 0
   m_Name: mixamorig:RightFoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1558589038188732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4339121198696922}
+  m_Layer: 0
+  m_Name: CameraFollow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,6 +628,19 @@ Transform:
   m_Father: {fileID: 4394239682937592}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 2.0206604, y: -16.045916, z: -27.712456}
+--- !u!4 &4189978940667906
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209206233744110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4991417510140464}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4216345847104344
 Transform:
   m_ObjectHideFlags: 1
@@ -648,6 +683,19 @@ Transform:
   m_Father: {fileID: 4421284957301006}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -46.86168, y: 8.248506, z: -5.685673}
+--- !u!4 &4339121198696922
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1558589038188732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4991417510140464}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4394239682937592
 Transform:
   m_ObjectHideFlags: 1
@@ -868,6 +916,8 @@ Transform:
   m_Children:
   - {fileID: 4796727444622480}
   - {fileID: 4079092537454856}
+  - {fileID: 4339121198696922}
+  - {fileID: 4189978940667906}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1116,234 +1166,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114031287804413096
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79309f42b5a9547ef82c08435e4c5615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  stateMachineReady: 0
-  stateMachineMoving: 0
-  stateMachineTargeting: 0
-  stateMachineAttacking: 0
-  stateMachineWorking: 0
-  stateMachineDead: 0
---- !u!114 &114125604257743030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12946193dc2b45439cfdf26fca9f4c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ragdollEnabled: 0
-  mainAnimator: {fileID: 95848375281925594}
-  mainBody: {fileID: 54219050543289558}
-  mainCollider: {fileID: 65802695288008910}
-  boneBase: {fileID: 1581342316643396}
-  ragdollBodies: []
-  ragdollColliders: []
---- !u!114 &114221847060090814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293846aee9fa8426e92e819c4d2043ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  destination: {fileID: 0}
-  isAttacking: 0
-  target: {fileID: 0}
-  attackCollider: {fileID: 65823846462550134}
-  raycastShooter: {fileID: 0}
-  weapons: []
-  attackNumberUpdate: 0
-  attackNumber: 0
-  personAnimation: {fileID: 0}
-  personCombat: {fileID: 0}
-  personAI: {fileID: 0}
-  personState: {fileID: 0}
-  personQuest: {fileID: 0}
-  personRagdoll: {fileID: 0}
-  personAgent: {fileID: 0}
-  personInfo:
-    owner: {fileID: 0}
-    strength: 0
-    agility: 0
-    intelligence: 0
-    health: 0
-    MaxHealth: 100
-    damage: 0
-    magic: 0
-    morality: 50
-    alignment: 50
-    gender: 0
-    combatType: 0
-    isDead: 0
-    person: {fileID: 0}
-    personType: 1
-  personEffect: {fileID: 0}
-  isHurt: 0
-  initDone: 0
-  personDestroyWaitTime: 30
-  attackFrames: 0
-  hurtFrames: 0
---- !u!114 &114222116187569008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188346ce2a6db4d4d8b3c20096d7f4ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 0}
-  playerRuntimeAnimator: {fileID: 0}
-  personRuntimeAnimator: {fileID: 0}
---- !u!114 &114229754675393196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbcf519d57414d6ebe3760eaae3e834, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainPerson: {fileID: 0}
-  mainQuest: {fileID: 0}
-  questBehaviourModel:
-    targets: []
-    transforms: []
---- !u!114 &114306401919144842
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f22083234fad480690804d152bc730a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationManager: {fileID: 0}
-  effectManager: {fileID: 0}
-  circlingList: []
-  maxCirclingEnemies: 3
-  combatingList: []
-  maxCombatingEnemies: 5
-  characterInfo:
-    owner: {fileID: 0}
-    strength: 0
-    agility: 0
-    intelligence: 0
-    health: 100
-    MaxHealth: 100
-    damage: 0
-    magic: 0
-    morality: 50
-    alignment: 50
-    gender: 0
-    combatType: 0
-    isDead: 0
-  playerCamera: {fileID: 0}
-  combatCollider: {fileID: 0}
-  checkDirection: {x: 0, y: 0, z: 0}
-  currentTarget: {fileID: 0}
-  managingMove: 0
-  managingAttack: 0
-  isCombating: 0
-  isCountering: 0
-  combatNumber: 0
-  counterNumber: 0
-  targetCheckRadius: 12
-  targetCheckMaxDistance: 30
-  targetAttackOffset: 5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  OnPlayerMovement:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerMovementEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCombat:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCombatEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCombatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCounter:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnPlayerCounterEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerCounterEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  enemyIsNearPlayer: 0
-  enemyIsPreparingAttack: 0
-  enemyIsMoving: 0
-  enemyIsAttacking: 0
-  enemyIsRetreating: 0
-  enemyIsPlayerTarget: 0
-  enemyIsStunned: 0
-  enemyIsWaiting: 1
-  enemyIsAttackable: 1
-  enemyInCombat: 0
-  counterAlert: 0
-  OnEnemyStart:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyStartEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyStop:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyStopEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyRetreat:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyRetreatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyHurt:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyCombatHurt:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnEnemyCounterHurt:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: EnemyHurtEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &114328162720138390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1359,13 +1181,14 @@ MonoBehaviour:
   jumpForce: 60
   gravity: 9.81
   personalData:
-    body: {fileID: 0}
-    collider: {fileID: 0}
+    body: {fileID: 54219050543289558}
+    collider: {fileID: 65802695288008910}
     attackColliderObject: {fileID: 1001815367708924}
     raycastShooterObject: {fileID: 0}
-    cameraFollowObject: {fileID: 0}
-    groundCheckObject: {fileID: 0}
-    playerRuntimeAnimator: {fileID: 0}
+    cameraFollowObject: {fileID: 1558589038188732}
+    groundCheckObject: {fileID: 1209206233744110}
+    playerRuntimeAnimator: {fileID: 22100000, guid: d7cbde659bd62462e9c7e686b783aeba,
+      type: 2}
     personRuntimeAnimator: {fileID: 22100000, guid: 7cb13cee40406475a939cd462de73fdc,
       type: 2}
     weaponObjects: []
@@ -1379,32 +1202,6 @@ MonoBehaviour:
   morality: 50
   combatType: 0
   faction: 0
---- !u!114 &114673837539460900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 648e73c5d500e49f095c4f6dc9a79201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackEffect: {fileID: 0}
-  counterEffect: {fileID: 0}
---- !u!114 &114864679469253996
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e13cbf07e2f41f0bfd2960bd78c7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiType: 0
-  aiChangerRunning: 0
 --- !u!114 &114901752661461452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2065,7 +1862,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462443266412426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.002
   m_Speed: 20

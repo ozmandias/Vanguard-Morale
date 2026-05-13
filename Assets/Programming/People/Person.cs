@@ -25,7 +25,6 @@ public class Person : MonoBehaviour {
     public QuestManager personQuest;
     public RagdollManager personRagdoll;
     public NavMeshAgent personAgent;
-    public NavMeshHit personNavMeshHit;
     public PersonInfo personInfo = new PersonInfo();
     public EffectManager personEffect;
     public bool isHurt = false;
@@ -35,7 +34,7 @@ public class Person : MonoBehaviour {
     [Header("Animation Settings")]
     public float attackFrames = 0;
     public float hurtFrames = 0;
-    
+
     Coroutine PersonDestroyCoroutine;
 
     public virtual void Start()
@@ -43,7 +42,7 @@ public class Person : MonoBehaviour {
         var character = GetComponent<Character>();
         if(attackCollider == null && character.combatType == CombatType.Melee) attackCollider = character.personalData.attackColliderObject.GetComponent<Collider>();
         if(raycastShooter == null && character.combatType == CombatType.Range) raycastShooter = character.personalData.raycastShooterObject;
-        if(weapons == null) {
+        if(weapons == null && character.personalData.weaponObjects.Length > 0) { // no need to assign weapons if person if fist fighter
             weapons = new GameObject[character.personalData.weaponObjects.Length];
             for(int i = 0; i < weapons.Length; i = i + 1) {
                 weapons[i] = character.personalData.weaponObjects[i];
@@ -101,7 +100,7 @@ public class Person : MonoBehaviour {
             }
         }
 
-        if(personAI.aiType == AIType.QuestAI && personState.stateMachineDead == false) {
+        /*if(personAI.aiType == AIType.QuestAI && personState.stateMachineDead == false) {
             switch (personState.state)
             {
                 case StateMachine.Idle:
@@ -133,7 +132,7 @@ public class Person : MonoBehaviour {
             {
                 FindTarget();
             }
-        }
+        }*/
 
         if (personInfo.isDead == true)
         {
@@ -230,6 +229,7 @@ public class Person : MonoBehaviour {
 
     public void ChangeAttackCollider() {
         // check with animator and change attack collider on different animations
+        attackCollider = weapons[(int) personAnimation.mainAnimator.GetFloat("AttackNumber")].GetComponent<Weapon>().itemCollider;
     }
 
     public void ChangeRaycastShooter() {

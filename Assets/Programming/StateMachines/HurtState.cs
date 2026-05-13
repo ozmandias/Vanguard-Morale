@@ -7,7 +7,7 @@ public class HurtState : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         mainPerson = animator.gameObject.GetComponent<Person>();
-        mainPerson.attackNumberUpdate = true;
+        mainPerson.attackNumberUpdate = false;
         mainPerson.personAgent.isStopped = true;
 
         if(animator.GetBool("ReduceHealth") == true) {
