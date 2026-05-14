@@ -168,6 +168,11 @@ public class Person : MonoBehaviour {
     public virtual void Attack()
     {
         personAnimation.Play("Attack");
+        if((GetInfo() as PersonInfo).combatType == CombatType.Melee) {
+            
+        } else if((GetInfo() as PersonInfo).combatType == CombatType.Range) {
+            GetComponent<EffectManager>().attackEffect.canCreateEffect = true;
+        }
     }
 
     public virtual void Hurt()

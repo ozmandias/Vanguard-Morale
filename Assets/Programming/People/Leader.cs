@@ -49,11 +49,6 @@ public class Leader : Person {
         if(attackNumberUpdate) {
             attackNumber += 1;
             attackNumber = attackNumber > 1 ? 0 : attackNumber;
-            if(personInfo.personType == PersonType.Companion) {
-                Debug.Log("Companion - attackNumber: " + attackNumber);
-            } else if(personInfo.personType == PersonType.Boss) {
-                Debug.Log("Boss - attackNumber: " + attackNumber);
-            }
             personAnimation.SetParameter("AttackNumber", (float) attackNumber); // set interval for smooth changing attack animations
             attackNumberUpdate = false;
         }

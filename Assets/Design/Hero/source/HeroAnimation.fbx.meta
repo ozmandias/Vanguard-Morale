@@ -410,15 +410,29 @@ ModelImporter:
       curves: []
       events:
       - time: 0.44952703
-        functionName: AttackNumberEvent
+        functionName: AttackEvent
         data: on
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.7003155
+        functionName: AttackEvent
+        data: off
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
         functionName: AttackNumberEvent
         data: off
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: AttackNumberEvent
+        data: on
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -452,15 +466,29 @@ ModelImporter:
       curves: []
       events:
       - time: 0.29968488
-        functionName: AttackNumberEvent
+        functionName: AttackEvent
         data: on
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.509464
+        functionName: AttackEvent
+        data: off
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
         functionName: AttackNumberEvent
         data: off
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: AttackNumberEvent
+        data: on
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

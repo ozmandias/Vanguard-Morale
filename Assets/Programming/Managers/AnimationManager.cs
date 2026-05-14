@@ -101,14 +101,9 @@ public class AnimationManager : MonoBehaviour {
 
     public void AttackNumberEvent(string attackEventParameter) {
         if(attackEventParameter == "on") {
-            SetParameter("Attacking", true);
-            if((GetComponent<Person>().GetInfo() as PersonInfo).combatType == CombatType.Range) {
-                GetComponent<EffectManager>().attackEffect.canCreateEffect = true;
-            }
-        } else if(attackEventParameter == "off") {
-            Debug.Log("" + gameObject.name + " AttackNumberEvent - off");
-            SetParameter("Attacking", false);
             gameObject.GetComponent<Person>().attackNumberUpdate = true;
+        } else if(attackEventParameter == "off") {
+            gameObject.GetComponent<Person>().attackNumberUpdate = false;
         }
     }
 
