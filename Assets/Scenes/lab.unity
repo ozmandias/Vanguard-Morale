@@ -6491,12 +6491,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warScriptableObject: {fileID: 11400000, guid: 7a25cc707054846cf8e094b92b8e2049,
     type: 2}
-  warTeam0CreatePoint: {x: 0, y: 0, z: 0}
+  warTeam0CreatePoint: {x: 0, y: 0, z: -60}
   warTeam0VanguardCreatePoints:
   - {x: 0, y: 0, z: -80}
   warTeam0SoldierCreatePoints:
   - {x: 0, y: 0, z: -50}
-  warTeam1CreatePoint: {x: 0, y: 0, z: 0}
+  warTeam1CreatePoint: {x: 0, y: 0, z: 60}
   warTeam1VanguardCreatePoints:
   - {x: 0, y: 0, z: 80}
   warTeam1SoldierCreatePoints:

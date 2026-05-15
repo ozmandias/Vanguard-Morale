@@ -66,6 +66,7 @@ using UnityEngine.AI;
 
             person.CancelDestroyCountdown();
         } else if(makeStatus == "dead") {
+            if(combatType == CombatType.Melee) person.attackCollider.enabled = false;
             person.personAgent.enabled = false;
             person.personCombat.enemyIsAttackable = false;
             person.personState.stateMachineDead = true;

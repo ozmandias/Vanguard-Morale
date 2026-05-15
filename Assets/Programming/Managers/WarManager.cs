@@ -11,6 +11,10 @@ public class WarManager : MonoBehaviour {
     public Vector3 warTeam0CreatePoint;
     public Vector3 []warTeam0VanguardCreatePoints;
     public Vector3 []warTeam0SoldierCreatePoints;
+
+    [Space(10)]
+    [Space(10)]
+
     public Vector3 warTeam1CreatePoint;
     public Vector3 []warTeam1VanguardCreatePoints;
     public Vector3 []warTeam1SoldierCreatePoints;
@@ -77,7 +81,7 @@ public class WarManager : MonoBehaviour {
         warTeam1.warModel = warData1;
         warTeam1.GetInfo().SetWarTeamId(1);
 
-        if(GameManager.instance.OnWarReady != null) GameManager.instance.OnWarReady.Invoke(warTeam0.transform, warTeam1.transform);
+        if(GameManager.instance.OnWarReady != null) GameManager.instance.OnWarReady.Invoke(warTeam1.transform, warTeam0.transform);
 
         // spawn WarTeams from their WarData
         StartWar();
@@ -109,7 +113,7 @@ public class WarManager : MonoBehaviour {
     IEnumerator StartWarCoroutine() {
         while(fightingAtWar) {
             // create soldiers at army base
-            // warTeam0.CreateSoldiers();
+            warTeam0.CreateSoldiers();
             warTeam1.CreateSoldiers();
 
             // register soldiers to factionSoldiers list

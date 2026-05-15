@@ -61,6 +61,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
+            case PersonType.Companion:
                 friendAIList.Add(aiAgent);
                 break;
             case PersonType.Enemy:
@@ -80,6 +81,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
+            case PersonType.Companion:
                 friendAIList.Remove(aiAgent);
                 break;
             case PersonType.Enemy:
@@ -112,6 +114,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
+            case PersonType.Companion:
                 aiList = friendAIList;
                 break;
             case PersonType.Enemy:
@@ -162,6 +165,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
+            case PersonType.Companion:
                 aiList = friendAIList;
                 break;
             case PersonType.Enemy:
@@ -208,6 +212,7 @@ public class AIManager : MonoBehaviour { // for AI group
         switch (personType)
         {
             case PersonType.Friend:
+            case PersonType.Companion:
                 aiList = friendAIList;
                 break;
             case PersonType.Enemy:
