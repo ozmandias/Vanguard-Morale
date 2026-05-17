@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour {
 
 	public PlayerReadyEvent OnPlayerReady = new PlayerReadyEvent();
 	public WarReadyEvent OnWarReady = new WarReadyEvent();
+	public CharacterListRegisterEvent OnCharacterListRegister = new CharacterListRegisterEvent();
+	public CharacterListUnregisterEvent OnCharacterListUnregister = new CharacterListUnregisterEvent();
 
 	void Awake() {
 		if(instance == null) {
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour {
 
 		OnPlayerReady.AddListener((playerCharacter, playerGameObject) => PlayerReady(playerCharacter, playerGameObject));
 		OnWarReady.AddListener((friendDestination, enemyDestination) => WarReady(friendDestination, enemyDestination));
+		OnCharacterListRegister.AddListener((personType, person) => CharacterListRegister(personType, person));
+		OnCharacterListUnregister.AddListener((personType, person) => CharacterListUnregister(personType, person));
 	}
 	
 	// Update is called once per frame
@@ -130,5 +134,56 @@ public class GameManager : MonoBehaviour {
 	public void WarReady(Transform friendDestination, Transform enemyDestination) {
 		this.friendDestination = friendDestination;
 		this.enemyDestination = enemyDestination;
+	}
+
+	public bool CharacterListsContain(Person person) {
+		if(friendList.Contains(person) || companionList.Contains(person) || personList.Contains(person) || enemyList.Contains(person) || bossList.Contains(person)) {
+			return true;
+		}
+		return false;
+	}
+
+	public void AddToCharacterList(PersonType personType, Person person) {
+		switch(personType) {
+			case PersonType.Friend:
+			case PersonType.Companion:
+				friendList.Add(person);
+				break;
+			case PersonType.Enemy:
+			case PersonType.Boss:
+				enemyList.Add(person);
+				break;
+			default:
+				personList.Add(person);
+				break;
+		}
+	}
+
+	public void RemoveFromCharacterList(PersonType personType, Person person) {
+		switch(personType) {
+			case PersonType.Friend:
+			case PersonType.Companion:
+				friendList.Remove(person);
+				break;
+			case PersonType.Enemy:
+			case PersonType.Boss:
+				enemyList.Remove(person);
+				break;
+			default:
+				personList.Remove(person);
+				break;
+		}
+	}
+
+	public void CharacterListRegister(PersonType personType, Person person) {
+		if(CharacterListsContain(person) == false) {
+			AddToCharacterList(personType, person);
+		}
+	}
+
+	public void CharacterListUnregister(PersonType personType, Person person) {
+		if(CharacterListsContain(person) == true) {
+			RemoveFromCharacterList(personType, person);
+		}
 	}
 }

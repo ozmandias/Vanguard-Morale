@@ -38,8 +38,10 @@ public class FollowState : StateMachineBehaviour {
                     mainPerson.personAgent.destination = mainPerson.target.transform.position;
                 }
                 else if(targetDistance <= circleDistance && targetDistance > attackDistance && targetInfo.isDead == false) {
-                    if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull() == false) {
-                        targetCombat.circlingList.Add(mainPerson.personAgent);
+                    if(/*targetCombat.CirclingListContains(mainPerson.personAgent) == false &&*/ targetCombat.IsCirclingListFull() == false) {
+                        // targetCombat.circlingList.Add(mainPerson.personAgent);
+                        if(targetCombat.OnCirclingListRegister != null)
+                            targetCombat.OnCirclingListRegister.Invoke(mainPerson.personAgent);
                     } else if(targetCombat.CirclingListContains(mainPerson.personAgent) == false && targetCombat.IsCirclingListFull()) {
                         mainPerson.SetTarget(null);
                         mainPerson.personState.stateMachineTargeting = false;
@@ -55,16 +57,20 @@ public class FollowState : StateMachineBehaviour {
                     mainPerson.personState.stateMachineAttacking = true;
                 }
                 else if(targetDistance > followDistance || targetInfo.isDead == true) {
-                    if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                    /*if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                         targetCombat.circlingList.Remove(mainPerson.personAgent);
-                    }
+                    }*/
+                    if(targetCombat.OnCirclingListUnregister != null)
+                        targetCombat.OnCirclingListUnregister.Invoke(mainPerson.personAgent);
                     mainPerson.SetTarget(null);
                     mainPerson.personState.stateMachineTargeting = false;
                 }
             } else {
-                if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
+                /*if(targetCombat.CirclingListContains(mainPerson.personAgent)) {
                     targetCombat.circlingList.Remove(mainPerson.personAgent);
-                }
+                }*/
+                if(targetCombat.OnCirclingListUnregister != null)
+                    targetCombat.OnCirclingListUnregister.Invoke(mainPerson.personAgent);
                 mainPerson.SetTarget(null);
                 mainPerson.personState.stateMachineTargeting = false;
             }

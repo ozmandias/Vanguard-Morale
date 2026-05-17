@@ -18,4 +18,13 @@ using UnityEngine.Events;
 
 [System.Serializable] public class AgentsCircleEvent : UnityEvent<List<NavMeshAgent>, Transform, CircleType> { }
 
-[System.Serializable] public class CombatAISetupEvent: UnityEvent { }
+[System.Serializable] public class CombatAISetupEvent : UnityEvent { }
+
+[System.Serializable] public class CharacterListRegisterEvent : UnityEvent<PersonType, Person> { }
+[System.Serializable] public class CharacterListUnregisterEvent : UnityEvent<PersonType, Person> { }
+
+[System.Serializable] public class AIListRegisterEvent : UnityEvent<PersonType, NavMeshAgent> { }
+[System.Serializable] public class AIListUnregisterEvent : UnityEvent<PersonType, NavMeshAgent> { }
+
+[System.Serializable] public class CirclingListRegisterEvent : UnityEvent<NavMeshAgent> { }
+[System.Serializable] public class CirclingListUnregisterEvent : UnityEvent<NavMeshAgent> { }

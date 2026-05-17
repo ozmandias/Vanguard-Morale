@@ -1052,6 +1052,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114410727426077832, guid: fedbd2eacc9ac4ebda815d637ad6b05a,
+        type: 2}
+      propertyPath: QuestStructs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114410727426077832, guid: fedbd2eacc9ac4ebda815d637ad6b05a,
+        type: 2}
+      propertyPath: questKeyValues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114410727426077832, guid: fedbd2eacc9ac4ebda815d637ad6b05a,
+        type: 2}
+      propertyPath: questKeyValueModels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4263633839596294, guid: fedbd2eacc9ac4ebda815d637ad6b05a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0

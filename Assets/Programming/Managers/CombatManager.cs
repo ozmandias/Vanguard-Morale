@@ -60,6 +60,9 @@ public class CombatManager : MonoBehaviour {
     public EnemyHurtEvent OnEnemyCombatHurt = new EnemyHurtEvent();
     public EnemyHurtEvent OnEnemyCounterHurt = new EnemyHurtEvent();
 
+    public CirclingListRegisterEvent OnCirclingListRegister = new CirclingListRegisterEvent();
+    public CirclingListUnregisterEvent OnCirclingListUnregister = new CirclingListUnregisterEvent();
+
     void Start()
     {
         animationManager = GetComponent<AnimationManager>();
@@ -86,6 +89,8 @@ public class CombatManager : MonoBehaviour {
             OnEnemyCombatHurt.AddListener((combatEnemy) => OnEnemyCombatHurtEvent(combatEnemy));
             OnEnemyCounterHurt.AddListener((combatEnemy) => OnEnemyCounterHurtEvent(combatEnemy));
         }
+        OnCirclingListRegister.AddListener((navMeshAgent) => CirclingListRegister(navMeshAgent));
+        OnCirclingListUnregister.AddListener((navMeshAgent) => CirclingListUnregister(navMeshAgent));
     }
 
     void Update()
@@ -175,7 +180,7 @@ public class CombatManager : MonoBehaviour {
         OnPlayerMovement.Invoke(currentTarget);
         targetAttackOffset = moveTowardsType == "combat" ? 5 : moveTowardsType == "counter" ? 7 : 0;
         transform.DOLookAt(currentTarget.transform.position, 0.5f /*1f*/ /*0.2f*/);
-        transform.DOMove(TargetOffset(targetAttackOffset), 0.5f/*0.65f*/);
+        transform.DOMove(TargetOffset(targetAttackOffset), 0.5f /*0.65f*/);
     }
 
     public Vector3 TargetOffset(float offset)
@@ -500,12 +505,16 @@ public class CombatManager : MonoBehaviour {
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawRay(transform.position, checkDirection);
-        Gizmos.DrawWireSphere(transform.position, targetCheckRadius);
-        if (currentTarget) Gizmos.DrawSphere(currentTarget.transform.position, 0.5f);
+    void CirclingListRegister(NavMeshAgent navMeshAgent) {
+        if(CirclingListContains(navMeshAgent) == false) {
+            circlingList.Add(navMeshAgent);
+        }
+    }
+
+    void CirclingListUnregister(NavMeshAgent navMeshAgent) {
+        if(CirclingListContains(navMeshAgent) == true) {
+            circlingList.Remove(navMeshAgent);
+        }
     }
     #endregion
 
@@ -580,4 +589,12 @@ public class CombatManager : MonoBehaviour {
         yield return null;
     }
     #endregion
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(transform.position, checkDirection);
+        Gizmos.DrawWireSphere(transform.position, targetCheckRadius);
+        if (currentTarget) Gizmos.DrawSphere(currentTarget.transform.position, 0.5f);
+    }
 }

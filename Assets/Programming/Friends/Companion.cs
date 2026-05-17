@@ -3,6 +3,9 @@ using UnityEngine;
 public class Companion : Person {
     public override void Start() {
         base.Start();
+
+        GameManager.instance.companionList.Add(this);
+        AIManager.instance.friendAIList.Add(personAgent);
     }
 
     public override void Update() {
@@ -36,15 +39,15 @@ public class Companion : Person {
     public override void Dead() {
         base.Dead();
 
-        GameManager.instance.personList.Remove(this);
-        AIManager.instance.personAIList.Remove(personAgent);
+        GameManager.instance.companionList.Remove(this);
+        AIManager.instance.friendAIList.Remove(personAgent);
     }
 
     public override void Resurrect() {
         base.Resurrect();
 
-        GameManager.instance.personList.Add(this);
-        AIManager.instance.personAIList.Add(personAgent);
+        GameManager.instance.companionList.Add(this);
+        AIManager.instance.friendAIList.Add(personAgent);
     }
 
     public override void FindTarget() {

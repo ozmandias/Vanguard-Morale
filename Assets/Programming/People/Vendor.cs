@@ -71,9 +71,11 @@ public class Vendor : Person {
                 if(personState.stateMachineTargeting == false || (personState.stateMachineTargeting && changeTargetRandom >= 5)) {
                     if(target) {
                         CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                        if(currentTargetCombat.CirclingListContains(personAgent)) {
+                        /*if(currentTargetCombat.CirclingListContains(personAgent)) {
                             currentTargetCombat.circlingList.Remove(personAgent);
-                        }
+                        }*/
+                        if(currentTargetCombat.OnCirclingListUnregister != null)
+                            currentTargetCombat.OnCirclingListUnregister.Invoke(personAgent);
                     }
                     SetTarget(attackCharacterInfo.owner);
                 }

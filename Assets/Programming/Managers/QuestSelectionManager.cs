@@ -8,8 +8,8 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
     [SerializeField] QuestScriptableObject []questScriptableObjects;
     [SerializeField] QuestModel currentQuest;
     List<QuestModel> questList;
-    Dictionary<string, GameObject> questDictionary = new Dictionary<string, GameObject>();
-    public QuestKeyValueModel []questKeyValueModels;
+    Dictionary<QuestType, GameObject> questDictionary = new Dictionary<QuestType, GameObject>();
+    public QuestKeyValue []questKeyValues;
 
     public static QuestSelectionManager instance;
 
@@ -27,8 +27,8 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
             return questScriptableObject.faction == GlobalData.kingdomDetails.faction;
         });
 
-        // quest objects
-        foreach(QuestKeyValueModel questKeyValue in questKeyValueModels) {
+        // quest objects into quest dictionary
+        foreach(QuestKeyValue questKeyValue in questKeyValues) {
             questDictionary.Add(questKeyValue.key, questKeyValue.value);
         }
 
@@ -96,7 +96,7 @@ public class QuestSelectionManager : MonoBehaviour { // for Quests
     void SetupKillQuest(QuestModel questToSetup, int questInfoLocation) {
         KillQuestSpawnModel []killQuestSpawnModels = questToSetup.questInfo[questInfoLocation].killQuestSpawnModels;
         
-        KillQuest killQuest = Instantiate(questDictionary["Kill"], transform).GetComponent<KillQuest>();
+        KillQuest killQuest = Instantiate(questDictionary[QuestType.Kill], transform).GetComponent<KillQuest>();
         killQuest.questDetails = questToSetup;
         killQuest.questInfoId = questInfoLocation;
 

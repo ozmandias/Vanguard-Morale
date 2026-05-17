@@ -9,13 +9,18 @@ public class Soldier : Person {
         // set destination and add to lists
         if(personInfo.personType == PersonType.Friend) {
             destination = GameManager.instance.friendDestination;
-            GameManager.instance.friendList.Add(this);
-            AIManager.instance.friendAIList.Add(personAgent);
+            /*GameManager.instance.friendList.Add(this);
+            AIManager.instance.friendAIList.Add(personAgent);*/
         } else if(personInfo.personType == PersonType.Enemy) {
             destination = GameManager.instance.enemyDestination;
-            GameManager.instance.enemyList.Add(this);
-            AIManager.instance.enemyAIList.Add(personAgent);
+            /*GameManager.instance.enemyList.Add(this);
+            AIManager.instance.enemyAIList.Add(personAgent);*/
         }
+
+        if(GameManager.instance.OnCharacterListRegister != null)
+            GameManager.instance.OnCharacterListRegister.Invoke(personInfo.personType, this as Person);
+        if(AIManager.instance.OnAIListRegister != null)
+            AIManager.instance.OnAIListRegister.Invoke(personInfo.personType, personAgent);
     }
 
     public override void Update() {
@@ -49,26 +54,36 @@ public class Soldier : Person {
     public override void Dead() {
         base.Dead();
 
-        if(personInfo.personType == PersonType.Friend) {
+        /*if(personInfo.personType == PersonType.Friend) {
             GameManager.instance.friendList.Remove(this);
             AIManager.instance.friendAIList.Remove(personAgent);
         } else if(personInfo.personType == PersonType.Enemy) {
             GameManager.instance.enemyList.Remove(this);
             AIManager.instance.enemyAIList.Remove(personAgent);
-        }
+        }*/
         // AIManager.instance.RemoveCombatEnemy();
+
+        if(GameManager.instance.OnCharacterListUnregister != null)
+            GameManager.instance.OnCharacterListUnregister.Invoke(personInfo.personType, this as Person);
+        if(AIManager.instance.OnAIListUnregister != null)
+            AIManager.instance.OnAIListUnregister.Invoke(personInfo.personType, personAgent);
     }
 
     public override void Resurrect() {
         base.Resurrect();
 
-        if(personInfo.personType == PersonType.Friend) {
+        /*if(personInfo.personType == PersonType.Friend) {
             GameManager.instance.friendList.Add(this);
             AIManager.instance.friendAIList.Add(personAgent);
         } else if(personInfo.personType == PersonType.Enemy) {
             GameManager.instance.enemyList.Add(this);
             AIManager.instance.enemyAIList.Add(personAgent);
-        }
+        }*/
+
+        if(GameManager.instance.OnCharacterListRegister != null)
+            GameManager.instance.OnCharacterListRegister.Invoke(personInfo.personType, this as Person);
+        if(AIManager.instance.OnAIListRegister != null)
+            AIManager.instance.OnAIListRegister.Invoke(personInfo.personType, personAgent);
     }
 
     public override void FindTarget() {
@@ -212,9 +227,11 @@ public class Soldier : Person {
                 if(personState.stateMachineTargeting == false || (personState.stateMachineTargeting && changeTargetRandom >= 5)) {
                     if(target) {
                         CombatManager currentTargetCombat = target.GetComponent<CombatManager>();
-                        if(currentTargetCombat.CirclingListContains(personAgent)) {
+                        /*if(currentTargetCombat.CirclingListContains(personAgent)) {
                             currentTargetCombat.circlingList.Remove(personAgent);
-                        }
+                        }*/
+                        if(currentTargetCombat.OnCirclingListUnregister != null)
+                            currentTargetCombat.OnCirclingListUnregister.Invoke(personAgent);
                     }
                     SetTarget(attackCharacterInfo.owner);
                 }

@@ -60,6 +60,9 @@ public class Person : MonoBehaviour {
 
         personInfo.Init(gameObject);
 
+        // when OnCirclingListUnregister.Invoke() is called, this will execute a function() for every Person instance in the scene.
+        personCombat.OnCirclingListUnregister.AddListener((navMeshAgent) => CheckCirclingListAndRemove(navMeshAgent));
+
         initDone = true;
     }
 
@@ -99,40 +102,6 @@ public class Person : MonoBehaviour {
                 FindTarget();
             }
         }
-
-        /*if(personAI.aiType == AIType.QuestAI && personState.stateMachineDead == false) {
-            switch (personState.state)
-            {
-                case StateMachine.Idle:
-                    Idle();
-                    break;
-                case StateMachine.Move:
-                    Move();
-                    break;
-                case StateMachine.Work:
-                    Work();
-                    break;
-                case StateMachine.Follow:
-                    Follow();
-                    break;
-                case StateMachine.Attack:
-                    Attack();
-                    break;
-                case StateMachine.Hurt:
-                    Hurt();
-                    break;
-                case StateMachine.Dead:
-                    Dead();
-                    break;
-                default:
-                    break;
-            }
-            
-            if (target == null && ShouldFindTarget() && personState.stateMachineTargeting == false && personInfo.isDead == false)
-            {
-                FindTarget();
-            }
-        }*/
 
         if (personInfo.isDead == true)
         {
@@ -284,6 +253,13 @@ public class Person : MonoBehaviour {
     public PersonInfo GetInfo()
     {
         return personInfo;
+    }
+
+    // remove a NavMeshAgent from circlingList of every Person instance in the scene.
+    public void CheckCirclingListAndRemove(NavMeshAgent navMeshAgent) {
+        if(personCombat.CirclingListContains(navMeshAgent)) {
+            personCombat.circlingList.Remove(navMeshAgent);
+        }
     }
 
     public void StartDestroyCountdown() {

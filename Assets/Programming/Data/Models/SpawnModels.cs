@@ -21,6 +21,7 @@ using UnityEngine.UI;
 // TalkQuestSpawnModel
 [System.Serializable] public class TalkQuestSpawnModel : SpawnModel {
     public PersonType personType;
+    public BehaviourModel behaviourModel;
 }
 
 // TravelQuestSpawnModel

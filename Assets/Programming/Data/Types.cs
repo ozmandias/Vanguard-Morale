@@ -1,11 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KeyValue<TKey, TValue> {
-    public TKey key;
-    public TValue value;
-}
-
 // rename prefab to asset
 public class Asset {
     public GameObject assetObject;
@@ -25,3 +20,13 @@ public class Spawn<T> : Asset {
     public Vector3 []spawnPositions;
     public T spawnType;
 }
+
+// use for Dictionary<> and Hashtable<>
+public class KeyValue<TKey, TValue> {
+    public TKey key;
+    public TValue value;
+}
+
+[System.Serializable] public class QuestKeyValue : KeyValue<QuestType, GameObject> {}
+
+[System.Serializable] public class SoundKeyValue : KeyValue<SoundType, AudioClip> {}

@@ -95,6 +95,7 @@
      <Compile Include="Assets\Programming\Data\Models\QuestModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\ReputationModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\SceneModel.cs" />
+     <Compile Include="Assets\Programming\Data\Models\SoundModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\SpawnModels.cs" />
      <Compile Include="Assets\Programming\Data\Models\StatsModel.cs" />
      <Compile Include="Assets\Programming\Data\Models\WarModel.cs" />
@@ -137,6 +138,7 @@
      <Compile Include="Assets\Programming\Managers\RagdollManager.cs" />
      <Compile Include="Assets\Programming\Managers\ReputationManager.cs" />
      <Compile Include="Assets\Programming\Managers\SceneManager.cs" />
+     <Compile Include="Assets\Programming\Managers\SoundManager.cs" />
      <Compile Include="Assets\Programming\Managers\SpawnManager.cs" />
      <Compile Include="Assets\Programming\Managers\UIManager.cs" />
      <Compile Include="Assets\Programming\Managers\WarManager.cs" />

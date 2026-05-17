@@ -21,8 +21,11 @@ public class AIManager : MonoBehaviour { // for AI group
 
     public List<EnemyStruct> enemyStructs = new List<EnemyStruct>();
     private Coroutine CombatAILoopCoroutine;
+    
     public AgentsCircleEvent OnAgentsCircle = new AgentsCircleEvent();
     public CombatAISetupEvent OnCombatAISetup = new CombatAISetupEvent();
+    public AIListRegisterEvent OnAIListRegister = new AIListRegisterEvent();
+    public AIListUnregisterEvent OnAIListUnregister = new AIListUnregisterEvent();
 
     void Awake()
     {
@@ -53,10 +56,13 @@ public class AIManager : MonoBehaviour { // for AI group
 
             StartCombatAI();
         }*/
+
         OnCombatAISetup.AddListener(() => SetupCombatAI());
+        OnAIListRegister.AddListener((personType, navMeshAgent) => AIListRegister(personType, navMeshAgent));
+        OnAIListUnregister.AddListener((personType, navMeshAgent) => AIListUnregister(personType, navMeshAgent));
     }
 
-    public void AddToList(PersonType personType, NavMeshAgent aiAgent)
+    public void AddToAIList(PersonType personType, NavMeshAgent aiAgent)
     {
         switch (personType)
         {
@@ -76,7 +82,7 @@ public class AIManager : MonoBehaviour { // for AI group
         }
     }
 
-    public void RemoveFromList(PersonType personType, NavMeshAgent aiAgent)
+    public void RemoveFromAIList(PersonType personType, NavMeshAgent aiAgent)
     {
         switch (personType)
         {
@@ -96,7 +102,7 @@ public class AIManager : MonoBehaviour { // for AI group
         }
     }
 
-    public bool ListsContain(NavMeshAgent aiAgent)
+    public bool AIListsContain(NavMeshAgent aiAgent)
     {
         if (friendAIList.Contains(aiAgent) || personAIList.Contains(aiAgent) || enemyAIList.Contains(aiAgent) /*|| bossAIList.Contains(aiAgent)*/)
         {
@@ -412,6 +418,18 @@ public class AIManager : MonoBehaviour { // for AI group
             }
         }
         if(removeLocation > -1) enemyStructs.Remove(enemyStructs[removeLocation]);
+    }
+    
+    public void AIListRegister(PersonType personType, NavMeshAgent navMeshAgent) {
+        if(AIListsContain(navMeshAgent) == false) {
+            AddToAIList(personType, navMeshAgent);
+        }
+    }
+
+    public void AIListUnregister(PersonType personType, NavMeshAgent navMeshAgent) {
+        if(AIListsContain(navMeshAgent) == true) {
+            RemoveFromAIList(personType, navMeshAgent);
+        }
     }
 
     IEnumerator SetCombatAILoopCoroutine(Enemy enemy)

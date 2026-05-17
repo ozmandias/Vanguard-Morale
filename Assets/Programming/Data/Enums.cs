@@ -133,3 +133,11 @@ public enum GameMode {
     Story,
     Arena
 }
+
+public enum SoundType {
+    MoveSound,
+    AttackSound,
+    JumpSound,
+    HurtSound,
+    BackgroundMusic
+}
